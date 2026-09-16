@@ -612,30 +612,45 @@
 }
 
 .status-card-badge {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 800;
-  padding: 2px 6px;
+  padding: 1px 6px;
   border-radius: var(--radius-full);
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   white-space: nowrap;
 }
 
+/* Logos: 100% fiéis às marcas, fundo transparente, sem caixas coloridas */
 .status-card-logo {
-  height: 42px;
+  min-height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2px;
-  border-radius: var(--radius-sm);
-  background: #FAFAF8;
-  border: 1px solid #EAEAEA;
+  padding: 0;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
-.status-card-logo svg {
-  height: 38px;
+.status-card-logo svg.party-logo-svg {
+  height: 36px;
   width: auto;
   max-width: 100%;
+}
+
+.federation-logos-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  background: transparent;
+}
+
+.federation-logos-row svg.party-logo-svg {
+  height: 32px;
+  width: auto;
+  max-width: 45%;
 }
 
 .status-card-footer {
@@ -655,18 +670,31 @@
 
 /* Logo no Header do Accordion Principal */
 .party-header-logo {
-  height: 24px;
-  width: 48px;
+  min-height: 26px;
+  width: auto;
+  min-width: 46px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  background: transparent !important;
+  border: none !important;
 }
 
-.party-header-logo svg {
+.party-header-logo svg.party-logo-svg {
   height: 22px;
   width: auto;
-  max-width: 100%;
+  max-width: 60px;
+}
+
+.party-header-logo .federation-logos-row {
+  gap: 6px;
+}
+
+.party-header-logo .federation-logos-row svg.party-logo-svg {
+  height: 20px;
+  width: auto;
+  max-width: 32px;
 }
 
 /* Floating Action Pill para Mobile */

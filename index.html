@@ -61,48 +61,31 @@
       </div>
     </section>
 
-    <!-- Legenda Visual Rápida: Diferenciação de Campos -->
-    <div class="field-legend-bar">
-      <div class="legend-item">
-        <span class="legend-chip chip-edit">✏️ Preencher</span>
-        <span>Campos brancos (digite os votos válidos e nominais)</span>
-      </div>
-      <div class="legend-item">
-        <span class="legend-chip chip-fixed">⚙️ Fixo</span>
-        <span>Cálculos automáticos e fórmulas oficiais do TSE</span>
-      </div>
-    </div>
-
     <!-- TAB 1: SIMULAÇÃO / ENTRADA DIRETA -->
     <main id="tab-simulation" class="tab-content active">
       
       <!-- Painel de Controle de Votos e QE -->
       <section class="glass-card" style="padding: 12px 14px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-          <div style="display: flex; align-items: center; gap: 6px;">
-            <span style="font-size: 0.8rem; font-weight: 800; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.04em;">Votos Válidos Projetados</span>
-            <span class="badge-field-edit">✏️ PREENCHER</span>
-          </div>
+          <span style="font-size: 0.8rem; font-weight: 800; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.04em;">Votos Válidos Projetados</span>
           <span id="balance-status-badge" class="badge badge-yellow">Ajuste os Votos</span>
         </div>
         
         <div style="display: flex; gap: 8px; align-items: center;">
-          <input type="text" id="input-valid-votes" class="form-input" placeholder="Ex: 1.400.000" inputmode="numeric" value="1.400.000" style="font-size: 1.45rem; font-weight: 800; letter-spacing: 0.02em; padding: 12px 16px; text-align: center; border-width: 2.5px; border-color: var(--input-edit-border);" title="✏️ Campo para preencher a projeção total de votos válidos">
+          <input type="text" id="input-valid-votes" class="form-input" placeholder="Ex: 1.400.000" inputmode="numeric" value="1.400.000" style="font-size: 1.45rem; font-weight: 800; letter-spacing: 0.02em; padding: 12px 16px; text-align: center; border-width: 2px;" title="Projeção total de votos válidos">
         </div>
 
-        <!-- Indicadores de Monitoramento Direto (CAMPOS FIXOS DO SISTEMA) -->
+        <!-- Indicadores de Monitoramento Direto -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; font-size: 0.78rem;">
           <div class="fixed-metric-box">
             <div class="box-label">
               <span>Quociente Eleitoral (QE)</span>
-              <span class="box-tag">⚙️ FÓRMULA TSE</span>
             </div>
             <div id="display-qe" class="box-value" style="color: var(--pastel-yellow-text);">0</div>
           </div>
           <div class="fixed-metric-box box-green">
             <div class="box-label">
               <span>Lançados / Meta</span>
-              <span class="box-tag">⚙️ CÁLCULO SISTEMA</span>
             </div>
             <div class="box-value" style="font-size: 0.95rem; color: var(--pastel-green-text);">
               <span id="display-allocated-votes" style="color: var(--pastel-green-accent);">0</span> / <span id="display-target-votes">1.400.000</span>
@@ -159,25 +142,21 @@
         
         <div class="bi-kpi-grid">
           <div class="bi-kpi-card">
-            <span class="bi-kpi-system-badge">⚙️ CÁLCULO SISTEMA TSE</span>
             <span class="bi-kpi-title">Quociente Eleitoral (QE)</span>
             <span class="bi-kpi-value" id="res-qe">0</span>
             <span class="bi-kpi-sub">Válidos ÷ Vagas</span>
           </div>
           <div class="bi-kpi-card kpi-blue">
-            <span class="bi-kpi-system-badge">⚙️ REGRA ART. 109 CE</span>
             <span class="bi-kpi-title">Corte QP (10% QE)</span>
             <span class="bi-kpi-value" id="res-c10">0</span>
             <span class="bi-kpi-sub">Mínimo p/ vaga direta</span>
           </div>
           <div class="bi-kpi-card">
-            <span class="bi-kpi-system-badge">⚙️ REGRA 80/20</span>
             <span class="bi-kpi-title">Corte Sobra (20% QE)</span>
             <span class="bi-kpi-value" id="res-c20">0</span>
             <span class="bi-kpi-sub">Mínimo p/ sobra 80/20</span>
           </div>
           <div class="bi-kpi-card kpi-green">
-            <span class="bi-kpi-system-badge">⚙️ TOTAL FIXO</span>
             <span class="bi-kpi-title">Vagas Preenchidas</span>
             <span class="bi-kpi-value" style="color: var(--pastel-green-text);"><span id="res-seats-distributed">0</span>/<span id="res-total-seats">24</span></span>
             <span class="bi-kpi-sub" id="res-seats-breakdown">0 QP | 0 Sobras</span>
@@ -262,14 +241,10 @@
     <!-- TAB 3: AUDITORIA DAS SOBRAS (Item 9) -->
     <section id="tab-audit" class="tab-content">
       <div class="glass-card">
-        <div class="card-title-bar">
+        <div class="card-title-bar" style="margin-bottom: 12px;">
           <h2>Auditoria Passo a Passo das Sobras</h2>
           <span class="badge badge-blue">Critério de Médias</span>
         </div>
-        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px;">
-          Acompanhe o cálculo da média após cada vaga distribuída nas fases 80/20 e Sobras Gerais (ADI 7228/7263 STF).
-          Fórmula da Média = <code>Votos Totais ÷ (Vagas Já Conquistadas + 1)</code>.
-        </p>
         
         <div class="table-responsive">
           <table class="custom-table" id="table-audit-rounds">
@@ -520,7 +495,7 @@
         <span style="font-size: 1.2rem;">📋</span>
         <div>
           <h3 style="font-size: 0.95rem; font-weight: 800; color: var(--text-main); line-height: 1.1;">Status das Chapas</h3>
-          <span id="drawer-subtitle-progress" style="font-size: 0.7rem; color: var(--pastel-green-text); font-weight: 600;">0 de 15 agremiações preenchidas</span>
+          <span id="drawer-subtitle-progress" style="font-size: 0.7rem; color: var(--pastel-green-text); font-weight: 600;">0 de 15 com votos lançados</span>
         </div>
       </div>
       <button id="btn-close-status-drawer" class="btn-icon-close" title="Fechar">✕</button>
@@ -541,7 +516,7 @@
   <div id="status-drawer-backdrop" class="status-drawer-backdrop"></div>
 
   <!-- Scripts -->
-  <script type="module" src="js/app.js?v=20260916_6"></script>
+  <script type="module" src="js/app.js?v=20260916_7"></script>
   <script>
     // Limpeza de cache antigo e garantia de carregamento instantâneo
     if ('serviceWorker' in navigator) {

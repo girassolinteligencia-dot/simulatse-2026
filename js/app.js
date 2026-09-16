@@ -244,11 +244,11 @@ function updateMetricsDisplay() {
     if (balance.isBalanced) {
       progressBar.className = 'progress-fill';
       statusBadge.className = 'badge badge-green';
-      statusBadge.textContent = 'Balanceado (100%)';
+      statusBadge.textContent = '100%';
     } else if (balance.status === 'SURPLUS') {
       progressBar.className = 'progress-fill surplus';
       statusBadge.className = 'badge badge-red';
-      statusBadge.textContent = `Excesso (+${(balance.difference * -1).toLocaleString('pt-BR')})`;
+      statusBadge.textContent = `+${(balance.difference * -1).toLocaleString('pt-BR')}`;
     } else {
       progressBar.className = 'progress-fill';
       statusBadge.className = 'badge badge-yellow';
@@ -256,12 +256,12 @@ function updateMetricsDisplay() {
     }
   }
 
-  // Atualiza totais nos cabeçalhos de cada partido (CAMPOS FIXOS DO SISTEMA)
+  // Atualiza totais nos cabeçalhos de cada partido
   state.partyGroups.forEach((group, idx) => {
     const totalGroupVotes = (group.partyVotes || 0) + group.candidates.reduce((sum, c) => sum + (c.votes || 0), 0);
     const voteBadge = document.getElementById(`party-total-votes-${idx}`);
     if (voteBadge) {
-      voteBadge.textContent = `⚙️ ${totalGroupVotes.toLocaleString('pt-BR')} votos`;
+      voteBadge.textContent = `${totalGroupVotes.toLocaleString('pt-BR')} votos`;
     }
   });
 
@@ -340,8 +340,8 @@ function renderPartyGroups() {
           </div>
         </div>
         <div style="flex-shrink: 0;">
-          <span id="party-total-votes-${groupIndex}" class="badge-field-fixed" style="font-size: 0.76rem; padding: 2px 8px;" title="Cálculo automático do sistema">
-            ⚙️ ${totalGroupVotes.toLocaleString('pt-BR')} votos
+          <span id="party-total-votes-${groupIndex}" class="badge-field-fixed" style="font-size: 0.76rem; padding: 2px 8px;">
+            ${totalGroupVotes.toLocaleString('pt-BR')} votos
           </span>
         </div>
       </div>
@@ -367,8 +367,7 @@ function renderPartyGroups() {
                   <input type="text" inputmode="numeric" class="vote-input-field cand-vote-input ${hasVotes ? 'has-value' : ''}" 
                     data-group="${groupIndex}" data-cand="${candIndex}" 
                     value="${cand.votes ? cand.votes.toLocaleString('pt-BR') : ''}" 
-                    placeholder="0"
-                    title="✏️ Campo para preencher votos">
+                    placeholder="0">
                 </div>
               </div>
             `;
@@ -378,18 +377,14 @@ function renderPartyGroups() {
         <!-- Linha Oficial de Votos de Legenda (Sigla) -->
         <div class="candidate-row" style="background: var(--pastel-yellow-light); border: 1.5px dashed var(--pastel-yellow-border); margin-top: 4px;">
           <div class="candidate-info">
-            <div style="display: flex; align-items: center; gap: 6px;">
-              <span style="font-size: 0.82rem; font-weight: 800; color: var(--pastel-yellow-text);">VOTOS DE LEGENDA</span>
-              <span class="badge-field-edit" style="font-size: 0.62rem; padding: 1px 6px;">✏️ PREENCHER</span>
-            </div>
-            <span style="font-size: 0.68rem; color: var(--text-muted);">Voto direto no número do partido (soma no QP e Sobras)</span>
+            <span style="font-size: 0.82rem; font-weight: 800; color: var(--pastel-yellow-text);">VOTOS DE LEGENDA</span>
+            <span style="font-size: 0.68rem; color: var(--text-muted);">Votos diretos no número da agremiação</span>
           </div>
           <div class="vote-input-wrapper">
             <input type="text" inputmode="numeric" class="vote-input-field party-vote-input ${group.partyVotes > 0 ? 'has-value' : ''}" 
               data-group="${groupIndex}" 
               value="${group.partyVotes ? group.partyVotes.toLocaleString('pt-BR') : ''}" 
-              placeholder="0"
-              title="✏️ Campo para preencher votos de legenda">
+              placeholder="0">
           </div>
         </div>
 
@@ -574,16 +569,14 @@ function renderPartiesStatusSidebar() {
     card.innerHTML = `
       <div class="status-card-header">
         <strong class="status-card-name" title="${group.name}">${group.name}</strong>
-        <span class="status-card-badge ${isFilled ? 'badge-green' : 'badge-yellow'}">
-          ${isFilled ? '✅ Preenchido' : '⏳ Pendente'}
-        </span>
+        ${isFilled ? '<span class="status-card-badge badge-green" title="Com votos lançados">✓</span>' : ''}
       </div>
       <div class="status-card-logo">
         ${getPartyLogoSvg(group.name)}
       </div>
       <div class="status-card-footer">
         <span class="status-card-votes">
-          ⚙️ <strong>${totalGroupVotes.toLocaleString('pt-BR')}</strong> votos
+          <strong>${totalGroupVotes.toLocaleString('pt-BR')}</strong> votos
         </span>
         <span style="color: var(--text-muted); font-size: 0.72rem;">
           ${filledCandsCount}/${group.candidates.length} cand.
@@ -627,14 +620,22 @@ function updateStatusSidebar() {
     const card = document.getElementById(`status-sidebar-card-${idx}`);
     if (card) {
       card.className = `party-status-card ${isFilled ? 'status-completed' : 'status-pending'}`;
-      const badge = card.querySelector('.status-card-badge');
-      if (badge) {
-        badge.className = `status-card-badge ${isFilled ? 'badge-green' : 'badge-yellow'}`;
-        badge.textContent = isFilled ? '✅ Preenchido' : '⏳ Pendente';
+      let badge = card.querySelector('.status-card-badge');
+      if (isFilled) {
+        if (!badge) {
+          const header = card.querySelector('.status-card-header');
+          badge = document.createElement('span');
+          badge.className = 'status-card-badge badge-green';
+          badge.title = 'Com votos lançados';
+          badge.textContent = '✓';
+          header.appendChild(badge);
+        }
+      } else {
+        if (badge) badge.remove();
       }
       const votesEl = card.querySelector('.status-card-votes');
       if (votesEl) {
-        votesEl.innerHTML = `⚙️ <strong>${totalGroupVotes.toLocaleString('pt-BR')}</strong> votos`;
+        votesEl.innerHTML = `<strong>${totalGroupVotes.toLocaleString('pt-BR')}</strong> votos`;
       }
       const footerCands = card.querySelector('.status-card-footer span:last-child');
       if (footerCands) {
@@ -657,7 +658,7 @@ function updateStatusSidebar() {
 
   const subtitle = document.getElementById('drawer-subtitle-progress');
   if (subtitle) {
-    subtitle.textContent = `${filledGroupsCount} de ${totalGroups} agremiações preenchidas`;
+    subtitle.textContent = `${filledGroupsCount} de ${totalGroups} com votos lançados`;
   }
 
   const drawerProgress = document.getElementById('drawer-progress-fill');
