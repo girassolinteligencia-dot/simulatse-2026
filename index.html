@@ -16,8 +16,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=20260916_14">
-  <link rel="stylesheet" href="css/components.css?v=20260916_14">
+  <link rel="stylesheet" href="css/main.css?v=20260916_15">
+  <link rel="stylesheet" href="css/components.css?v=20260916_15">
 </head>
 <body>
 
@@ -79,21 +79,17 @@
           <input type="text" id="input-valid-votes" class="form-input" placeholder="Ex: 1.400.000" inputmode="numeric" value="1.400.000" style="font-size: 1.45rem; font-weight: 800; letter-spacing: 0.02em; padding: 12px 16px; text-align: center; border-width: 2px;" title="Projeção total de votos válidos">
         </div>
 
-        <!-- Indicadores de Monitoramento Direto -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; font-size: 0.78rem;">
-          <div class="fixed-metric-box">
-            <div class="box-label">
-              <span>Quociente Eleitoral (QE)</span>
-            </div>
-            <div id="display-qe" class="box-value" style="color: var(--pastel-yellow-text);">0</div>
+        <!-- Indicadores de Monitoramento Direto (Linha Única Discreta) -->
+        <div class="metrics-summary-grid">
+          <div class="fixed-metric-box metric-inline">
+            <span class="box-label">Quociente (QE)</span>
+            <span id="display-qe" class="box-value">0</span>
           </div>
-          <div class="fixed-metric-box box-green">
-            <div class="box-label">
-              <span>Lançados / Meta</span>
-            </div>
-            <div class="box-value" style="font-size: 0.95rem; color: var(--pastel-green-text);">
-              <span id="display-allocated-votes" style="color: var(--pastel-green-accent);">0</span> / <span id="display-target-votes">1.400.000</span>
-            </div>
+          <div class="fixed-metric-box box-green metric-inline">
+            <span class="box-label">Lançados / Meta</span>
+            <span class="box-value">
+              <span id="display-allocated-votes">0</span> / <span id="display-target-votes">1.400.000</span>
+            </span>
           </div>
         </div>
 
@@ -497,7 +493,7 @@
   <div id="status-drawer-backdrop" class="status-drawer-backdrop"></div>
 
   <!-- Scripts -->
-  <script type="module" src="js/app.js?v=20260916_14"></script>
+  <script type="module" src="js/app.js?v=20260916_15"></script>
   <script>
     // Limpeza de cache antigo e garantia de carregamento instantâneo
     if ('serviceWorker' in navigator) {

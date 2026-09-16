@@ -419,6 +419,63 @@
   letter-spacing: -0.01em;
 }
 
+
+/* Indicadores Compactos em Linha Única */
+.metrics-summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+@media (max-width: 380px) {
+  .metrics-summary-grid {
+    gap: 6px;
+  }
+}
+
+.fixed-metric-box.metric-inline {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+  gap: 6px;
+  background: #F8FAFC;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  min-height: auto;
+}
+
+.fixed-metric-box.metric-inline.box-green {
+  background: #F0FDF4;
+  border-color: #DCFCE7;
+}
+
+.fixed-metric-box.metric-inline .box-label {
+  font-size: 0.70rem;
+  font-weight: 600;
+  text-transform: none;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.fixed-metric-box.metric-inline .box-value {
+  font-size: 0.80rem;
+  font-weight: 800;
+  color: var(--text-main);
+  white-space: nowrap;
+  letter-spacing: 0;
+}
+
+.fixed-metric-box.metric-inline #display-qe {
+  color: var(--primary);
+}
+
+.fixed-metric-box.metric-inline #display-allocated-votes {
+  color: var(--pastel-green-accent);
+}
+
 /* Table Styles for Results & Audit */
 .table-responsive {
   width: 100%;
