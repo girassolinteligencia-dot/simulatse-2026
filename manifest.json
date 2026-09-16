@@ -1,17 +1,29 @@
 {
-  "name": "SIMULE JÁ - Simulador Eleitoral 2026 MS",
-  "short_name": "SIMULE JÁ",
-  "description": "SIMULE JÁ - Projeção eleitoral inteligente nas regras oficiais do TSE",
+  "name": "SIMULA JÁ MS - Projeção Eleitoral 2026",
+  "short_name": "Simula Já MS",
+  "description": "SIMULA JÁ MS - Projeção eleitoral inteligente nas regras oficiais do TSE para Mato Grosso do Sul",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#F4F7F2",
-  "theme_color": "#F4F7F2",
+  "background_color": "#F1F5F9",
+  "theme_color": "#004C97",
   "orientation": "portrait-primary",
   "icons": [
+    {
+      "src": "./assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
     {
       "src": "./assets/icon-192.webp",
       "sizes": "192x192",
       "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
       "purpose": "any maskable"
     },
     {

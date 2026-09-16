@@ -1,69 +1,73 @@
 :root {
-  /* Paleta Pastel Cívica Executiva (Verde, Amarelo e Complementos Pastéis) */
-  --bg-main: #F4F7F2;          /* Fundo geral sálvia claro pastel, limpo e repousante */
-  --bg-card: #FFFFFF;          /* Branco puro para destacar cartões contra o fundo pastel */
-  --bg-card-hover: #FAFDF9;    /* Toque sutil esverdeado no hover */
+  /* Paleta Institucional Executiva Simula Já MS (Azul Royal, Slate e Acentos Cívicos) */
+  --bg-main: #F1F5F9;          /* Fundo geral slate/cool-gray suave, de alto contraste e foco */
+  --bg-card: #FFFFFF;          /* Branco puro para destacar os cartões */
+  --bg-card-hover: #F8FAFC;    /* Toque sutil no hover */
   
-  /* Paleta Pastel Verde */
-  --pastel-green-bg: #ECFDF5;      /* Fundo verde menta pastel */
-  --pastel-green-light: #F0FDF4;   /* Verde ultra suave */
-  --pastel-green-border: #A7F3D0;  /* Borda verde pastel */
-  --pastel-green-text: #166534;    /* Verde floresta para texto com alto contraste */
-  --pastel-green-accent: #15803D;  /* Verde ativo */
+  /* Paleta Azul Institucional Primária */
+  --primary: #004C97;          /* Azul Oficial Institucional */
+  --primary-light: #0284C7;    /* Azul Ciano / Royal Vivo */
+  --primary-hover: #003870;    /* Azul Escuro Profundo */
+  --primary-glow: rgba(0, 76, 151, 0.22);
+  --primary-bg-subtle: #E0F2FE;
 
-  /* Paleta Pastel Amarelo */
-  --pastel-yellow-bg: #FEF9C3;     /* Amarelo manteiga pastel */
+  /* Paleta Verde (Confirmação e Sucesso) */
+  --pastel-green-bg: #DCFCE7;      /* Fundo verde suave */
+  --pastel-green-light: #F0FDF4;   /* Verde ultra suave */
+  --pastel-green-border: #86EFAC;  /* Borda verde */
+  --pastel-green-text: #15803D;    /* Verde para texto legível */
+  --pastel-green-accent: #16A34A;  /* Verde ativo */
+
+  /* Paleta Amarelo / Dourado (Atenção e Pendências) */
+  --pastel-yellow-bg: #FEF9C3;     /* Amarelo claro */
   --pastel-yellow-light: #FEFCE8;  /* Amarelo ultra suave */
-  --pastel-yellow-border: #FDE68A; /* Borda amarelo pastel */
+  --pastel-yellow-border: #FDE047; /* Borda amarelo */
   --pastel-yellow-text: #854D0E;   /* Âmbar escuro legível */
   --pastel-yellow-accent: #D97706; /* Âmbar ativo */
 
-  /* Paletas Pastéis Complementares */
-  --pastel-blue-bg: #E0F2FE;       /* Azul céu pastel */
+  /* Paleta Azul Suave Complementar */
+  --pastel-blue-bg: #E0F2FE;       /* Azul céu */
   --pastel-blue-border: #BAE6FD;
-  --pastel-blue-text: #0369A1;
+  --pastel-blue-text: #0284C7;
 
-  --pastel-purple-bg: #F3E8FF;     /* Lavanda pastel */
+  /* Paleta Púrpura Complementar */
+  --pastel-purple-bg: #F3E8FF;     /* Lavanda suave */
   --pastel-purple-border: #E9D5FF;
   --pastel-purple-text: #6B21A8;
 
-  --pastel-red-bg: #FEE2E2;        /* Rosa/salmão pastel */
+  /* Paleta Vermelho (Excesso / Alerta) */
+  --pastel-red-bg: #FEE2E2;        /* Vermelho suave */
   --pastel-red-border: #FECACA;
-  --pastel-red-text: #991B1B;
+  --pastel-red-text: #DC2626;
 
   /* ============================================================ */
-  /* DIFERENCIAÇÃO VISUAL CLARA: EDITÁVEL (PREENCHER) vs FIXO      */
+  /* DIFERENCIAÇÃO VISUAL: CAMPOS EDITÁVEIS vs CAMPOS FIXOS       */
   /* ============================================================ */
   
-  /* Campos para Preencher (Editáveis pelo Usuário) */
+  /* Campos para Preencher (Editáveis) */
   --input-edit-bg: #FFFFFF;
-  --input-edit-border: #94A3B8;               /* Borda nítida de 2.5px */
-  --input-edit-focus-border: #15803D;         /* Foco em verde vivo */
-  --input-edit-focus-glow: rgba(34, 197, 94, 0.22);
+  --input-edit-border: #94A3B8;               /* Borda nítida de alto contraste */
+  --input-edit-focus-border: #004C97;         /* Foco no azul institucional */
+  --input-edit-focus-glow: rgba(0, 76, 151, 0.20);
   --input-edit-filled-bg: #F0FDF4;            /* Verde ultra claro quando preenchido */
   --input-edit-filled-border: #86EFAC;
 
-  /* Campos Fixos do Sistema (Cálculos, Fórmulas TSE, Totais) */
-  --fixed-system-bg: #F1F6F0;                 /* Fundo pastel contínuo, não editável */
-  --fixed-system-border: #D1E0D4;
-  --fixed-system-text: #1E3A2F;
+  /* Campos Fixos do Sistema (Cálculos, QE, Totais) */
+  --fixed-system-bg: #F8FAFC;                 /* Fundo slate contínuo e sereno */
+  --fixed-system-border: #CBD5E1;
+  --fixed-system-text: #0F172A;
   --fixed-system-badge-bg: #E2E8F0;
-  --fixed-system-badge-text: #475569;
+  --fixed-system-badge-text: #334155;
 
-  /* Cores Globais de Ação e Texto */
-  --primary: #15803D;                         /* Verde Principal Executivo */
-  --primary-light: #16A34A;                   /* Verde Esmeralda */
-  --primary-hover: #166534;                   /* Verde Escuro */
-  --primary-glow: rgba(22, 163, 74, 0.22);
-
-  --text-main: #0F291E;                       /* Verde-ardósia escuro de altíssima legibilidade */
+  /* Cores Globais de Texto e Superfície */
+  --text-main: #0F172A;                       /* Slate escuro de altíssima legibilidade */
   --text-muted: #475569;                      /* Ardósia equilibrado */
   --text-dim: #64748B;
-  --border-color: #E2E8F0;
-  --border-focus: #15803D;
+  --border-color: #CBD5E1;
+  --border-focus: #004C97;
 
-  --color-accent-blue: #0284C7;
-  --color-accent-green: #15803D;
+  --color-accent-blue: #004C97;
+  --color-accent-green: #16A34A;
   --color-accent-yellow: #D97706;
   --color-accent-red: #DC2626;
 
@@ -197,9 +201,9 @@ body {
 }
 
 .nav-tab-btn.active {
-  color: var(--pastel-green-text);
-  background: var(--pastel-green-bg);
-  border: 1px solid var(--pastel-green-border);
+  color: #004C97;
+  background: #E0F2FE;
+  border: 1px solid #BAE6FD;
 }
 
 .nav-tab-btn svg {
@@ -286,13 +290,16 @@ body {
   color: var(--pastel-yellow-text);
 }
 
-/* Cards & Containers */
+/* Card Container Base */
 .glass-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: 14px 16px;
+  margin-bottom: 12px;
   box-shadow: var(--shadow-sm);
+  position: relative;
+  transition: var(--transition);
 }
 
 .card-title-bar {
@@ -331,7 +338,7 @@ body {
   background: var(--primary);
   color: #FFFFFF;
   border-color: var(--primary);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 2px 6px rgba(0, 76, 151, 0.20);
 }
 
 .btn-primary:hover {
@@ -346,9 +353,9 @@ body {
 }
 
 .btn-secondary:hover {
-  background: var(--pastel-green-bg);
-  border-color: var(--pastel-green-border);
-  color: var(--pastel-green-text);
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+  color: var(--primary);
 }
 
 .btn-outline {
@@ -358,7 +365,8 @@ body {
 }
 
 .btn-outline:hover {
-  background: var(--pastel-green-bg);
+  background: var(--pastel-blue-bg);
+  color: var(--primary-hover);
 }
 
 .btn-danger {

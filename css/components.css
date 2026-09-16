@@ -1,14 +1,14 @@
-/* Component Styles - Clean Pastel Light Theme (Verde e Amarelo Cívico) */
+/* Component Styles - Simula Já MS Institucional (Azul Royal, Slate e Superfícies Brancas) */
 
 /* Cargo Selector Bar */
 .cargo-toggle-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 6px;
-  background: #E5EDE1;
+  background: #E2E8F0;
   padding: 4px;
   border-radius: var(--radius-md);
-  border: 1px solid #D1E0CC;
+  border: 1px solid #CBD5E1;
 }
 
 .cargo-toggle-btn {
@@ -35,10 +35,14 @@
 }
 
 .cargo-toggle-btn.active {
-  background: #FFFFFF;
-  color: var(--pastel-green-text);
-  border-color: var(--pastel-green-border);
-  box-shadow: var(--shadow-sm);
+  background: #004C97;
+  color: #FFFFFF;
+  border-color: #004C97;
+  box-shadow: 0 2px 6px rgba(0, 76, 151, 0.25);
+}
+
+.cargo-toggle-btn.active .sub-text {
+  color: #BAE6FD;
 }
 
 /* Horizontal Party Chips Scroller */
