@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self';">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
   <meta name="theme-color" content="#004C97">
   <meta name="description" content="SIMULE JÁ - Projeção eleitoral inteligente nas regras oficiais do TSE (Eleições 2026 MS)">
   <meta name="author" content="Girassol Inteligência">
@@ -16,8 +19,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=20260916_15">
-  <link rel="stylesheet" href="css/components.css?v=20260916_15">
+  <link rel="stylesheet" href="css/main.css?v=1789570276989">
+  <link rel="stylesheet" href="css/components.css?v=1789570276989">
 </head>
 <body>
 
@@ -102,13 +105,16 @@
         </div>
       </section>
 
-      <!-- Botão Principal de Ação Direta: Calcular Vagas -->
-      <section style="margin-bottom: 8px;">
-        <button id="btn-run-simulation" class="btn btn-primary" style="font-weight: 800; font-size: 0.95rem; width: 100%; padding: 10px 16px; display: flex; justify-content: center; align-items: center; gap: 8px; border-radius: var(--radius-md); box-shadow: 0 2px 6px rgba(0, 76, 151, 0.2);">
-          <span>Calcular Distribuição de Vagas</span>
-          <span style="font-size: 1.1rem;">➔</span>
+            <!-- Barra Fixa Inteligente de Cálculo e Status Oficial -->
+      <div class="sticky-calc-bar-dock">
+        <button id="btn-run-simulation" class="btn-smart-calc state-pending" type="button" aria-label="Calcular distribuição oficial de vagas">
+          <div class="smart-calc-content">
+            <span class="smart-calc-icon" id="smart-calc-icon">⏳</span>
+            <span class="smart-calc-text" id="smart-calc-text">Faltam 1.400.000 votos para calcular</span>
+          </div>
+          <span class="smart-calc-badge" id="smart-calc-badge">0%</span>
         </button>
-      </section>
+      </div>
 
       <!-- Instrução simples e direta -->
       <div class="instrucao-votos" style="margin: 14px 0 8px 0; font-size: 0.82rem; font-weight: 600; color: var(--text-muted); display: flex; align-items: center; gap: 6px;">
@@ -128,6 +134,22 @@
 
     <!-- TAB 2: RESULTADOS & BUSINESS INTELLIGENCE -->
     <section id="tab-results" class="tab-content">
+      
+      <!-- Empty State Amigável (UX Nielsen Heuristic: Visibilidade e Prevenção de Desorientação) -->
+      <div id="results-empty-state" class="glass-card empty-state-card" style="display: block; text-align: center; padding: 28px 16px; margin-bottom: 12px;">
+        <div style="font-size: 2.2rem; margin-bottom: 8px;">📊</div>
+        <h3 style="font-size: 1.05rem; font-weight: 700; color: #FFFFFF; margin-bottom: 6px;">Nenhuma simulação gerada ainda</h3>
+        <p style="font-size: 0.82rem; color: var(--text-muted); max-width: 320px; margin: 0 auto 14px auto; line-height: 1.4;">
+          Preencha os votos das agremiações e candidatos na aba <b>Simulação</b> para desbloquear o Cockpit Oficial de Vagas e Quocientes.
+        </p>
+        <button id="btn-goto-simulation" class="btn btn-primary btn-sm" style="margin: 0 auto; display: inline-flex; align-items: center; gap: 6px; font-weight: 700;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+          Ir para Lançamento de Votos
+        </button>
+      </div>
+
+      <!-- Container do Cockpit de BI (Exibido após o cálculo) -->
+      <div id="results-bi-content" style="display: none;">
       
       <!-- Top Seat & QE KPI Grid -->
       <div class="glass-card" style="padding: 12px 14px;">
@@ -231,6 +253,7 @@
         </div>
       </div>
 
+          </div>
     </section>
 
 
@@ -493,7 +516,7 @@
   <div id="status-drawer-backdrop" class="status-drawer-backdrop"></div>
 
   <!-- Scripts -->
-  <script type="module" src="js/app.js?v=20260916_15"></script>
+  <script type="module" src="js/app.js?v=1789570276989"></script>
   <script>
     // Limpeza de cache antigo e garantia de carregamento instantâneo
     if ('serviceWorker' in navigator) {
@@ -509,5 +532,8 @@
       }
     }
   </script>
+  <!-- Container Acessível de Notificações Toast (UX Não-Bloqueante) -->
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
 </body>
 </html>

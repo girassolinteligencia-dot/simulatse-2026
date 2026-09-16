@@ -827,3 +827,245 @@
   letter-spacing: 0.01em;
   line-height: 1;
 }
+
+
+/* ==========================================================================
+   BARRA FIXA INTELIGENTE DE CÁLCULO ELEITORAL (SMART STICKY DOCK)
+   ========================================================================== */
+.sticky-calc-bar-dock {
+  position: sticky;
+  bottom: calc(var(--safe-bottom, 0px) + 64px);
+  z-index: 85;
+  margin: 12px 0 10px 0;
+  padding: 4px 0;
+  pointer-events: none; /* Permite cliques ao redor se passar por cima */
+}
+
+.btn-smart-calc {
+  pointer-events: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-radius: var(--radius-md, 10px);
+  border: 1px solid transparent;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.smart-calc-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.smart-calc-icon {
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.smart-calc-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+/* Estado 1: Pendente (Faltam votos para equilibrar) */
+.btn-smart-calc.state-pending {
+  background: rgba(13, 27, 50, 0.92);
+  border-color: rgba(234, 179, 8, 0.4);
+  color: #FDE047;
+}
+
+.btn-smart-calc.state-pending:hover {
+  background: rgba(18, 36, 66, 0.96);
+  border-color: rgba(234, 179, 8, 0.7);
+  box-shadow: 0 4px 16px rgba(234, 179, 8, 0.2);
+}
+
+.btn-smart-calc.state-pending .smart-calc-badge {
+  background: rgba(234, 179, 8, 0.18);
+  color: #FACC15;
+  border: 1px solid rgba(234, 179, 8, 0.3);
+}
+
+/* Estado 2: Excesso (Passou da meta projetada) */
+.btn-smart-calc.state-surplus {
+  background: rgba(45, 12, 18, 0.92);
+  border-color: rgba(239, 68, 68, 0.5);
+  color: #FCA5A5;
+}
+
+.btn-smart-calc.state-surplus:hover {
+  background: rgba(58, 15, 23, 0.96);
+  border-color: rgba(239, 68, 68, 0.8);
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.25);
+}
+
+.btn-smart-calc.state-surplus .smart-calc-badge {
+  background: rgba(239, 68, 68, 0.22);
+  color: #EF4444;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+/* Estado 3: Pronto (Equilibrado em 100% - Ação Oficial Habilitada) */
+.btn-smart-calc.state-ready {
+  background: linear-gradient(135deg, #004C97 0%, #059669 100%);
+  border-color: rgba(52, 211, 153, 0.6);
+  color: #FFFFFF;
+  box-shadow: 0 4px 18px rgba(5, 150, 105, 0.4);
+  animation: pulse-ready-glow 2.2s infinite ease-in-out;
+}
+
+.btn-smart-calc.state-ready:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(5, 150, 105, 0.55);
+}
+
+.btn-smart-calc.state-ready:active {
+  transform: translateY(1px);
+}
+
+.btn-smart-calc.state-ready .smart-calc-badge {
+  background: rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+@keyframes pulse-ready-glow {
+  0%, 100% {
+    box-shadow: 0 4px 16px rgba(5, 150, 105, 0.35);
+    border-color: rgba(52, 211, 153, 0.6);
+  }
+  50% {
+    box-shadow: 0 4px 24px rgba(52, 211, 153, 0.65);
+    border-color: rgba(110, 231, 183, 0.95);
+  }
+}
+
+/* ==========================================================================
+   EMPTY STATE (UX NIELSEN HEURISTICS: PREVENÇÃO DE CONFUSÃO)
+   ========================================================================== */
+.empty-state-card {
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  background: rgba(13, 27, 42, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* ==========================================================================
+   SISTEMA DE TOASTS ACESSÍVEL E NÃO-BLOQUEANTE (UX DESIGN PATTERN)
+   ========================================================================== */
+.toast-container {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 90%;
+  max-width: 420px;
+  pointer-events: none;
+}
+
+.toast-item {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: var(--radius-md, 10px);
+  background: rgba(13, 27, 42, 0.96);
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.35;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  border-left: 4px solid var(--primary, #004C97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: toastSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: all 0.25s ease;
+}
+
+.toast-item.toast-closing {
+  animation: toastSlideOut 0.25s ease forwards;
+}
+
+.toast-item.toast-success {
+  border-left-color: #10B981;
+  background: rgba(6, 44, 33, 0.96);
+  color: #D1FAE5;
+}
+
+.toast-item.toast-warning {
+  border-left-color: #F59E0B;
+  background: rgba(48, 32, 7, 0.96);
+  color: #FEF3C7;
+}
+
+.toast-item.toast-error {
+  border-left-color: #EF4444;
+  background: rgba(54, 15, 19, 0.96);
+  color: #FEE2E2;
+}
+
+.toast-item.toast-info {
+  border-left-color: #004C97;
+  background: rgba(10, 27, 53, 0.96);
+  color: #E0F2FE;
+}
+
+.toast-close-btn {
+  background: transparent;
+  border: none;
+  color: inherit;
+  opacity: 0.7;
+  cursor: pointer;
+  padding: 2px;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.toast-close-btn:hover {
+  opacity: 1;
+}
+
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toastSlideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.96);
+  }
+}

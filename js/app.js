@@ -1,3 +1,77 @@
+
+// ==========================================================================
+// SEGURANÇA E HIGIENIZAÇÃO DE DADOS (PWA Client-Side Baseline)
+// ==========================================================================
+function escapeHtml(str) {
+  if (str === null || str === undefined) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+// Hash criptográfico para autenticação segura de PIN (SHA-256 via Web Crypto)
+async function hashPin(pin) {
+  try {
+    const encoder = new TextEncoder();
+    const data = encoder.encode('simulatse_salt_2026_' + pin);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  } catch (e) {
+    // Fallback caso crypto.subtle nao esteja disponivel em contexto inseguro
+    let hash = 0;
+    for (let i = 0; i < pin.length; i++) {
+      hash = ((hash << 5) - hash) + pin.charCodeAt(i);
+      hash |= 0;
+    }
+    return 'fallback_' + Math.abs(hash).toString(16);
+  }
+}
+
+// ==========================================================================
+// SISTEMA DE NOTIFICAÇÕES TOAST ACESSÍVEL E NÃO-BLOQUEANTE (UX Design)
+// ==========================================================================
+function showToast(message, type = 'info', duration = 3500) {
+  const container = document.getElementById('toast-container');
+  if (!container) {
+    console.log('[' + type + '] ' + message);
+    return;
+  }
+
+  const toast = document.createElement('div');
+  toast.className = 'toast-item toast-' + type;
+  
+  let icon = 'ℹ️';
+  if (type === 'success') icon = '✨';
+  if (type === 'warning') icon = '⚠️';
+  if (type === 'error') icon = '🛑';
+
+  toast.innerHTML = 
+    '<div style="display: flex; align-items: center; gap: 8px;">' +
+      '<span style="font-size: 1.1rem; flex-shrink: 0;">' + icon + '</span>' +
+      '<span>' + escapeHtml(message) + '</span>' +
+    '</div>' +
+    '<button class="toast-close-btn" aria-label="Fechar notificação">&times;</button>';
+
+  const closeBtn = toast.querySelector('.toast-close-btn');
+  const dismiss = () => {
+    toast.classList.add('toast-closing');
+    setTimeout(() => {
+      if (toast.parentNode) toast.parentNode.removeChild(toast);
+    }, 260);
+  };
+
+  if (closeBtn) closeBtn.addEventListener('click', dismiss);
+  container.appendChild(toast);
+
+  if (duration > 0) {
+    setTimeout(dismiss, duration);
+  }
+}
+
 /**
  * app.js
  * Orquestrador principal da interface, preenchimento ágil contínuo,
@@ -258,6 +332,36 @@ function updateMetricsDisplay() {
     }
   }
 
+  // Comportamento Inteligente da Barra Fixa de Cálculo (Smart Action Dock)
+  const btnSmartCalc = document.getElementById('btn-run-simulation');
+  const smartCalcIcon = document.getElementById('smart-calc-icon');
+  const smartCalcText = document.getElementById('smart-calc-text');
+  const smartCalcBadge = document.getElementById('smart-calc-badge');
+
+  if (btnSmartCalc && smartCalcIcon && smartCalcText && smartCalcBadge) {
+    if (balance.isBalanced) {
+      btnSmartCalc.className = 'btn-smart-calc state-ready';
+      smartCalcIcon.textContent = '✨';
+      smartCalcText.textContent = 'Calcular Distribuição de Vagas';
+      smartCalcBadge.textContent = 'Pronto ➔';
+      btnSmartCalc.setAttribute('title', 'Votos 100% equilibrados. Clique para gerar a distribuição oficial.');
+    } else if (balance.status === 'SURPLUS') {
+      btnSmartCalc.className = 'btn-smart-calc state-surplus';
+      smartCalcIcon.textContent = '⚠️';
+      const surplus = (balance.difference * -1).toLocaleString('pt-BR');
+      smartCalcText.textContent = `Excesso de ${surplus} votos (ajuste)`;
+      smartCalcBadge.textContent = '+Excesso';
+      btnSmartCalc.setAttribute('title', `Soma excede a meta projetada em ${surplus} votos. Reduza votos para calcular.`);
+    } else {
+      btnSmartCalc.className = 'btn-smart-calc state-pending';
+      smartCalcIcon.textContent = '⏳';
+      const remaining = balance.difference.toLocaleString('pt-BR');
+      smartCalcText.textContent = `Faltam ${remaining} votos para calcular`;
+      smartCalcBadge.textContent = `${percent.toFixed(0)}%`;
+      btnSmartCalc.setAttribute('title', `Lançamento em andamento (${percent.toFixed(0)}%). Faltam ${remaining} votos.`);
+    }
+  }
+
   // Atualiza totais nos cabeçalhos de cada partido
   state.partyGroups.forEach((group, idx) => {
     const totalGroupVotes = (group.partyVotes || 0) + group.candidates.reduce((sum, c) => sum + (c.votes || 0), 0);
@@ -358,11 +462,11 @@ function renderPartyGroups() {
             return `
               <div class="candidate-row ${hasVotes ? 'has-votes' : ''}" id="cand-row-${groupIndex}-${candIndex}">
                 <div class="candidate-info">
-                  <span class="candidate-name">${cand.nome}</span>
+                  <span class="candidate-name">${escapeHtml(cand.nome)}</span>
                   <div style="font-size: 0.7rem; color: var(--text-muted); display: flex; gap: 4px; align-items: center;">
-                    <span style="font-weight: 700; color: var(--pastel-green-text);">${cand.partido}</span>
-                    ${cand.nomeCompleto && cand.nomeCompleto !== cand.nome ? `<span style="color: var(--text-dim);">• ${cand.nomeCompleto}</span>` : ''}
-                    ${isNonDeferido ? `<span class="badge badge-red" style="font-size: 0.6rem; padding: 1px 4px;">${cand.situacao}</span>` : ''}
+                    <span style="font-weight: 700; color: var(--pastel-green-text);">${escapeHtml(cand.partido)}</span>
+                    ${cand.nomeCompleto && cand.nomeCompleto !== cand.nome ? `<span style="color: var(--text-dim);">• ${escapeHtml(cand.nomeCompleto)}</span>` : ''}
+                    ${isNonDeferido ? `<span class="badge badge-red" style="font-size: 0.6rem; padding: 1px 4px;">${escapeHtml(cand.situacao)}</span>` : ''}
                   </div>
                 </div>
                 <div class="vote-input-wrapper">
@@ -921,9 +1025,18 @@ function executeSimulation() {
   
   if (!balance.isBalanced) {
     if (balance.difference > 0) {
-      alert(`A soma dos votos (${balance.totalAllocated.toLocaleString('pt-BR')}) é MENOR que o total projetado (${state.validVotes.toLocaleString('pt-BR')}). Faltam ${balance.difference.toLocaleString('pt-BR')} votos.`);
+      showToast(`⏳ Lançamento incompleto: ainda faltam ${balance.difference.toLocaleString('pt-BR')} votos a lançar para atingir os 100% projetados.`, 'warning', 4500);
+      const diffEl = document.getElementById('display-vote-diff');
+      if (diffEl) {
+        diffEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     } else {
-      alert(`A soma dos votos (${balance.totalAllocated.toLocaleString('pt-BR')}) é MAIOR que o total projetado (${state.validVotes.toLocaleString('pt-BR')}). Excesso de ${(balance.difference * -1).toLocaleString('pt-BR')} votos.`);
+      const surplus = (balance.difference * -1).toLocaleString('pt-BR');
+      showToast(`⚠️ Atenção: a soma dos votos ultrapassou a meta em ${surplus} votos. Reduza o valor nos candidatos antes de calcular.`, 'error', 4500);
+      const diffEl = document.getElementById('display-vote-diff');
+      if (diffEl) {
+        diffEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     }
     return;
   }
@@ -936,6 +1049,14 @@ function executeSimulation() {
 
   state.lastSimulationResult = result;
   displayResults(result);
+
+  // Gerencia Empty State vs Cockpit de BI
+  const emptyState = document.getElementById('results-empty-state');
+  const biContent = document.getElementById('results-bi-content');
+  if (emptyState) emptyState.style.display = 'none';
+  if (biContent) biContent.style.display = 'block';
+
+  showToast('✨ Distribuição oficial de vagas calculada com sucesso!', 'success');
 
   // Navega automaticamente para o painel de resultados de BI
   const resultsTabBtn = document.querySelector('.nav-tab-btn[data-tab="tab-results"]');
@@ -1087,7 +1208,7 @@ function setupScenarioActions() {
     });
 
     renderScenariosList();
-    alert('Cenário salvo com sucesso!');
+    showToast('Cenário salvo com sucesso!', 'success');
   });
 
   document.getElementById('btn-export-scenarios').addEventListener('click', () => {
@@ -1106,9 +1227,9 @@ function setupScenarioActions() {
       const text = await file.text();
       scenarioManager.importScenariosJSON(text);
       renderScenariosList();
-      alert('Cenários importados com sucesso!');
+      showToast('Cenários importados com sucesso!', 'success');
     } catch (err) {
-      alert('Erro ao importar cenários: ' + err.message);
+      showToast('Erro ao importar cenários: ' + err.message, 'error');
     }
   });
 }
@@ -1290,7 +1411,7 @@ function setupAdmAndPinModal() {
   if (btnSaveAdm) {
     btnSaveAdm.addEventListener('click', () => {
       if (!checkEstadual.checked && !checkFederal.checked) {
-        alert('Pelo menos um dos cargos deve permanecer habilitado!');
+        showToast('Pelo menos um dos cargos deve permanecer habilitado!', 'warning');
         return;
       }
 
@@ -1301,7 +1422,7 @@ function setupAdmAndPinModal() {
       saveAdmSettings();
       applyCargoVisibility();
       admModal.classList.remove('active');
-      alert('Configurações salvas com sucesso!');
+      showToast('Configurações salvas com sucesso!', 'success');
     });
   }
 
@@ -1354,20 +1475,32 @@ function setupAdmAndPinModal() {
       }
 
       if (currentPinMode === 'setup') {
-        state.admSettings.pinCode = entered;
-        saveAdmSettings();
-        pinModal.classList.remove('active');
-        alert('PIN de 6 dígitos definido com sucesso!');
-        if (pinCallback) pinCallback();
-      } else {
-        if (entered === state.admSettings.pinCode) {
+        hashPin(entered).then(hash => {
+          state.admSettings.pinHash = hash;
+          delete state.admSettings.pinCode;
+          saveAdmSettings();
           pinModal.classList.remove('active');
+          showToast('PIN de segurança definido com sucesso!', 'success');
           if (pinCallback) pinCallback();
-        } else {
-          pinError.textContent = 'PIN incorreto. Tente novamente.';
-          pinInputs.forEach(i => { i.value = ''; });
-          pinInputs[0].focus();
-        }
+        });
+      } else {
+        hashPin(entered).then(hash => {
+          const isValid = (state.admSettings.pinHash && state.admSettings.pinHash === hash) ||
+                          (state.admSettings.pinCode && state.admSettings.pinCode === entered);
+          if (isValid) {
+            if (!state.admSettings.pinHash) {
+              state.admSettings.pinHash = hash;
+              delete state.admSettings.pinCode;
+              saveAdmSettings();
+            }
+            pinModal.classList.remove('active');
+            if (pinCallback) pinCallback();
+          } else {
+            pinError.textContent = 'PIN incorreto. Tente novamente.';
+            pinInputs.forEach(i => { i.value = ''; });
+            pinInputs[0].focus();
+          }
+        });
       }
     });
   }
