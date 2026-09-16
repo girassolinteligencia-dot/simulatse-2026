@@ -110,6 +110,7 @@ function showToast(message, type = 'info', duration = 3500) {
 
 import { candidateStore } from './data/candidateStore.js';
 import { scenarioManager } from './scenarios/scenarioManager.js';
+import { ShareManager } from './scenarios/shareManager.js';
 import { ElectoralEngine } from './engine/electoralRules.js';
 import { ElectoralValidator } from './engine/validator.js';
 import { getPartyLogoSvg } from './partyLogos.js';
@@ -210,6 +211,79 @@ async function startApp() {
   renderPartiesStatusSidebar();
   updateMetricsDisplay();
   renderScenariosList();
+
+  // Verifica se a aplicação foi aberta via Link Codificado de Compartilhamento (#sim=...)
+  checkIncomingSharedLink();
+}
+
+/**
+ * Detecta e carrega simulação a partir do link codificado de 24h na URL
+ */
+function checkIncomingSharedLink() {
+  const hash = window.location.hash;
+  if (!hash || !hash.includes('sim=')) return;
+
+  try {
+    const match = hash.match(/sim=([^&]+)/);
+    if (match && match[1]) {
+      const encoded = match[1];
+      const payload = ShareManager.decodePayload(encoded);
+      handleImportedPayload(payload, true);
+      // Limpa a hash da barra de endereços para não reprocessar num reload
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+  } catch (err) {
+    showToast('Falha ao decodificar link de simulação: ' + err.message, 'error', 5000);
+  }
+}
+
+/**
+ * Processa e aplica um payload de simulação (seja via Link URL ou Arquivo .simtse)
+ * Executa a checagem rigorosa de 24 horas de validade
+ */
+function handleImportedPayload(payload, isLink = false) {
+  const validation = ShareManager.validatePayload(payload);
+  if (!validation.valid) {
+    showToast(validation.error, 'error', 8000);
+    alert('⚠️ SIMULAÇÃO EXPIRADA OU INVÁLIDA:\n\n' + validation.error);
+    return;
+  }
+
+  // Se o cargo recebido for diferente do atual, sincroniza os botões e estado
+  if (state.currentCargo !== payload.cargo) {
+    state.currentCargo = payload.cargo;
+    state.totalSeats = payload.totalSeats || (payload.cargo === 'DEPUTADO ESTADUAL' ? 24 : 8);
+    const btnEstadual = document.getElementById('cargo-estadual-btn');
+    const btnFederal = document.getElementById('cargo-federal-btn');
+    if (state.currentCargo === 'DEPUTADO ESTADUAL') {
+      if (btnEstadual) btnEstadual.classList.add('active');
+      if (btnFederal) btnFederal.classList.remove('active');
+    } else {
+      if (btnFederal) btnFederal.classList.add('active');
+      if (btnEstadual) btnEstadual.classList.remove('active');
+    }
+    initPartyGroupsForCargo(state.currentCargo);
+  }
+
+  ShareManager.applyPayloadToState(payload, state);
+
+  // Atualiza input de votos válidos
+  const inputVotes = document.getElementById('input-valid-votes');
+  if (inputVotes) {
+    inputVotes.value = (state.validVotes || 0).toLocaleString('pt-BR');
+  }
+
+  saveDraft();
+  renderPartyChipsNav();
+  renderPartyGroups();
+  renderPartiesStatusSidebar();
+  updateMetricsDisplay();
+
+  // Executa o cálculo automático e leva o usuário direto para a tela de Eleitos/Resultados
+  executeSimulation();
+
+  const sourceMsg = isLink ? 'Link recebido via WhatsApp' : 'Arquivo .simtse';
+  showToast(`✨ Projeção carregada com sucesso (${sourceMsg})! Válida por mais ${validation.remainingHours}h.`, 'success', 6000);
 }
 
 // Navegação entre Tabs (Mobile / Desktop)
@@ -1277,6 +1351,63 @@ function setupScenarioActions() {
       showToast('Erro ao importar cenários: ' + err.message, 'error');
     }
   });
+
+  // =========================================================================
+  // COMPARTILHAMENTO EXCLUSIVO VIA WHATSAPP / LINK 24H / ARQUIVO .SIMTSE
+  // =========================================================================
+  const btnShareWhatsApp = document.getElementById('btn-share-whatsapp');
+  if (btnShareWhatsApp) {
+    btnShareWhatsApp.addEventListener('click', () => {
+      const currentRes = state.simulationResults ? state.simulationResults[state.currentCargo] : null;
+      ShareManager.shareViaWhatsApp(state, currentRes);
+      showToast('Abrindo WhatsApp para envio da simulação...', 'success');
+    });
+  }
+
+  const btnCopyShareLink = document.getElementById('btn-copy-share-link');
+  if (btnCopyShareLink) {
+    btnCopyShareLink.addEventListener('click', async () => {
+      try {
+        const shareUrl = ShareManager.generateShareableUrl(state);
+        await navigator.clipboard.writeText(shareUrl);
+        showToast('🔗 Link codificado copiado! Válido por 24 horas.', 'success');
+      } catch (err) {
+        // Fallback caso clipboard API falhe
+        const shareUrl = ShareManager.generateShareableUrl(state);
+        prompt('Copie o link seguro abaixo (Válido por 24h):', shareUrl);
+      }
+    });
+  }
+
+  const btnExportSimtse = document.getElementById('btn-export-simtse');
+  if (btnExportSimtse) {
+    btnExportSimtse.addEventListener('click', () => {
+      ShareManager.exportSimtseFile(state);
+      showToast('Arquivo .simtse baixado! Envie pelo WhatsApp para outro usuário do SimulaTSE.', 'success');
+    });
+  }
+
+  // Importação de arquivo .simtse recebido via WhatsApp
+  const inputLoadSimtse = document.getElementById('input-load-simtse-file');
+  const btnTriggerLoadSimtse = document.getElementById('btn-trigger-load-simtse');
+  if (btnTriggerLoadSimtse && inputLoadSimtse) {
+    btnTriggerLoadSimtse.addEventListener('click', () => {
+      inputLoadSimtse.click();
+    });
+
+    inputLoadSimtse.addEventListener('change', async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      try {
+        const text = await file.text();
+        const payload = JSON.parse(text);
+        handleImportedPayload(payload);
+        inputLoadSimtse.value = '';
+      } catch (err) {
+        showToast('Falha ao ler arquivo .simtse: ' + err.message, 'error');
+      }
+    });
+  }
 }
 
 function renderScenariosList() {
