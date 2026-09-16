@@ -8,6 +8,7 @@ import { candidateStore } from './data/candidateStore.js';
 import { scenarioManager } from './scenarios/scenarioManager.js';
 import { ElectoralEngine } from './engine/electoralRules.js';
 import { ElectoralValidator } from './engine/validator.js';
+import { getPartyLogoSvg } from './partyLogos.js';
 
 // Estado global reativo da aplicação
 const state = {
@@ -99,6 +100,7 @@ async function startApp() {
   loadDraft();
   renderPartyChipsNav();
   renderPartyGroups();
+  renderPartiesStatusSidebar();
   updateMetricsDisplay();
   renderScenariosList();
 }
@@ -153,6 +155,7 @@ function onCargoChanged() {
   loadDraft();
   renderPartyChipsNav();
   renderPartyGroups();
+  renderPartiesStatusSidebar();
   updateMetricsDisplay();
 }
 
@@ -261,6 +264,8 @@ function updateMetricsDisplay() {
       voteBadge.textContent = `⚙️ ${totalGroupVotes.toLocaleString('pt-BR')} votos`;
     }
   });
+
+  updateStatusSidebar();
 }
 
 // Renderiza a barra deslizante horizontal de atalhos rápidos por partido
@@ -322,14 +327,19 @@ function renderPartyGroups() {
 
     card.innerHTML = `
       <div class="party-group-header" data-group-index="${groupIndex}">
-        <div style="display: flex; align-items: center; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0;">
           <span class="party-group-chevron">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </span>
-          <strong style="color: var(--text-main); font-size: 0.92rem;">${group.name}</strong>
-          <span style="font-size: 0.72rem; color: var(--text-muted);">(${group.candidates.length} cand.)</span>
+          <div class="party-header-logo" title="${group.name}">
+            ${getPartyLogoSvg(group.name)}
+          </div>
+          <div style="min-width: 0; flex: 1;">
+            <strong style="color: var(--text-main); font-size: 0.92rem; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${group.name}</strong>
+            <span style="font-size: 0.7rem; color: var(--text-muted);">${group.candidates.length} candidatos</span>
+          </div>
         </div>
-        <div>
+        <div style="flex-shrink: 0;">
           <span id="party-total-votes-${groupIndex}" class="badge-field-fixed" style="font-size: 0.76rem; padding: 2px 8px;" title="Cálculo automático do sistema">
             ⚙️ ${totalGroupVotes.toLocaleString('pt-BR')} votos
           </span>
@@ -519,7 +529,170 @@ function setupGlobalInputs() {
     executeSimulation();
   });
 
+  // Eventos de Abertura/Fechamento do Drawer de Status das Chapas
+  const btnToggleSidebar = document.getElementById('btn-toggle-status-sidebar');
+  if (btnToggleSidebar) {
+    btnToggleSidebar.addEventListener('click', () => toggleStatusSidebar());
+  }
+
+  const btnFloating = document.getElementById('btn-floating-status');
+  if (btnFloating) {
+    btnFloating.addEventListener('click', () => toggleStatusSidebar());
+  }
+
+  const btnCloseDrawer = document.getElementById('btn-close-status-drawer');
+  if (btnCloseDrawer) {
+    btnCloseDrawer.addEventListener('click', () => closeStatusSidebar());
+  }
+
+  const backdrop = document.getElementById('status-drawer-backdrop');
+  if (backdrop) {
+    backdrop.addEventListener('click', () => closeStatusSidebar());
+  }
+
   setupSurveyImporter();
+}
+
+/**
+ * Renderiza a coluna/drawer lateral com cards de checklist e logos oficiais
+ */
+function renderPartiesStatusSidebar() {
+  const listContainer = document.getElementById('drawer-parties-list');
+  if (!listContainer) return;
+  listContainer.innerHTML = '';
+
+  state.partyGroups.forEach((group, idx) => {
+    const totalGroupVotes = (group.partyVotes || 0) + group.candidates.reduce((sum, c) => sum + (c.votes || 0), 0);
+    const filledCandsCount = group.candidates.filter(c => (c.votes || 0) > 0).length;
+    const isFilled = totalGroupVotes > 0;
+
+    const card = document.createElement('div');
+    card.className = `party-status-card ${isFilled ? 'status-completed' : 'status-pending'}`;
+    card.id = `status-sidebar-card-${idx}`;
+    card.setAttribute('data-group-index', idx);
+
+    card.innerHTML = `
+      <div class="status-card-header">
+        <strong class="status-card-name" title="${group.name}">${group.name}</strong>
+        <span class="status-card-badge ${isFilled ? 'badge-green' : 'badge-yellow'}">
+          ${isFilled ? '✅ Preenchido' : '⏳ Pendente'}
+        </span>
+      </div>
+      <div class="status-card-logo">
+        ${getPartyLogoSvg(group.name)}
+      </div>
+      <div class="status-card-footer">
+        <span class="status-card-votes">
+          ⚙️ <strong>${totalGroupVotes.toLocaleString('pt-BR')}</strong> votos
+        </span>
+        <span style="color: var(--text-muted); font-size: 0.72rem;">
+          ${filledCandsCount}/${group.candidates.length} cand.
+        </span>
+      </div>
+    `;
+
+    card.addEventListener('click', () => {
+      const partyCard = document.getElementById(`party-card-${idx}`);
+      if (partyCard) {
+        if (partyCard.classList.contains('collapsed')) {
+          partyCard.classList.remove('collapsed');
+          state.partyGroups[idx].isCollapsed = false;
+        }
+        // Fecha drawer no mobile para focar no partido selecionado
+        if (window.innerWidth < 1024) {
+          closeStatusSidebar();
+        }
+        partyCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const firstInput = partyCard.querySelector('.cand-vote-input');
+        if (firstInput) {
+          setTimeout(() => firstInput.focus(), 350);
+        }
+      }
+    });
+
+    listContainer.appendChild(card);
+  });
+
+  updateStatusSidebar();
+}
+
+function updateStatusSidebar() {
+  let filledGroupsCount = 0;
+  state.partyGroups.forEach((group, idx) => {
+    const totalGroupVotes = (group.partyVotes || 0) + group.candidates.reduce((sum, c) => sum + (c.votes || 0), 0);
+    const filledCandsCount = group.candidates.filter(c => (c.votes || 0) > 0).length;
+    const isFilled = totalGroupVotes > 0;
+    if (isFilled) filledGroupsCount++;
+
+    const card = document.getElementById(`status-sidebar-card-${idx}`);
+    if (card) {
+      card.className = `party-status-card ${isFilled ? 'status-completed' : 'status-pending'}`;
+      const badge = card.querySelector('.status-card-badge');
+      if (badge) {
+        badge.className = `status-card-badge ${isFilled ? 'badge-green' : 'badge-yellow'}`;
+        badge.textContent = isFilled ? '✅ Preenchido' : '⏳ Pendente';
+      }
+      const votesEl = card.querySelector('.status-card-votes');
+      if (votesEl) {
+        votesEl.innerHTML = `⚙️ <strong>${totalGroupVotes.toLocaleString('pt-BR')}</strong> votos`;
+      }
+      const footerCands = card.querySelector('.status-card-footer span:last-child');
+      if (footerCands) {
+        footerCands.textContent = `${filledCandsCount}/${group.candidates.length} cand.`;
+      }
+    }
+  });
+
+  const totalGroups = state.partyGroups.length;
+  const progressText = `${filledGroupsCount}/${totalGroups}`;
+  
+  const counterBtn = document.getElementById('sidebar-progress-counter');
+  if (counterBtn) counterBtn.textContent = progressText;
+
+  const floatingBadge = document.getElementById('floating-progress-badge');
+  if (floatingBadge) {
+    floatingBadge.textContent = progressText;
+    floatingBadge.className = `badge ${filledGroupsCount === totalGroups && totalGroups > 0 ? 'badge-green' : 'badge-yellow'}`;
+  }
+
+  const subtitle = document.getElementById('drawer-subtitle-progress');
+  if (subtitle) {
+    subtitle.textContent = `${filledGroupsCount} de ${totalGroups} agremiações preenchidas`;
+  }
+
+  const drawerProgress = document.getElementById('drawer-progress-fill');
+  if (drawerProgress) {
+    const pct = totalGroups > 0 ? (filledGroupsCount / totalGroups) * 100 : 0;
+    drawerProgress.style.width = `${pct}%`;
+  }
+}
+
+function openStatusSidebar() {
+  const drawer = document.getElementById('parties-status-drawer');
+  const backdrop = document.getElementById('status-drawer-backdrop');
+  if (drawer && backdrop) {
+    drawer.classList.add('active');
+    backdrop.classList.add('active');
+    updateStatusSidebar();
+  }
+}
+
+function closeStatusSidebar() {
+  const drawer = document.getElementById('parties-status-drawer');
+  const backdrop = document.getElementById('status-drawer-backdrop');
+  if (drawer && backdrop) {
+    drawer.classList.remove('active');
+    backdrop.classList.remove('active');
+  }
+}
+
+function toggleStatusSidebar() {
+  const drawer = document.getElementById('parties-status-drawer');
+  if (drawer && drawer.classList.contains('active')) {
+    closeStatusSidebar();
+  } else {
+    openStatusSidebar();
+  }
 }
 
 /**
