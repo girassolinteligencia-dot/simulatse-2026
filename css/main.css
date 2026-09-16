@@ -1,44 +1,80 @@
 :root {
-  /* Design System Executivo Clean Light (Claro, Moderno e Nítido) */
-  --bg-main: #F1F5F9;          /* Slate 100 - Fundo Geral Suave e Sem Reflexo */
-  --bg-card: #FFFFFF;          /* Branco Puro para Cards */
-  --bg-card-hover: #F8FAFC;    /* Slate 50 */
-  --bg-input: #FFFFFF;         /* Fundo Branco de Entrada */
-  --bg-input-focus: #F0F9FF;   /* Azul Suave no Foco */
-  --border-color: #E2E8F0;     /* Slate 200 - Bordas Sutis e Elegantes */
-  --border-focus: #0284C7;     /* Sky 600 */
+  /* Paleta Pastel Cívica Executiva (Verde, Amarelo e Complementos Pastéis) */
+  --bg-main: #F4F7F2;          /* Fundo geral sálvia claro pastel, limpo e repousante */
+  --bg-card: #FFFFFF;          /* Branco puro para destacar cartões contra o fundo pastel */
+  --bg-card-hover: #FAFDF9;    /* Toque sutil esverdeado no hover */
   
-  --text-main: #0F172A;        /* Slate 900 - Alta Legibilidade */
-  --text-muted: #64748B;       /* Slate 500 */
-  --text-dim: #94A3B8;         /* Slate 400 */
+  /* Paleta Pastel Verde */
+  --pastel-green-bg: #ECFDF5;      /* Fundo verde menta pastel */
+  --pastel-green-light: #F0FDF4;   /* Verde ultra suave */
+  --pastel-green-border: #A7F3D0;  /* Borda verde pastel */
+  --pastel-green-text: #166534;    /* Verde floresta para texto com alto contraste */
+  --pastel-green-accent: #15803D;  /* Verde ativo */
 
-  /* Cores Temáticas de Business Intelligence */
-  --primary: #0F172A;          /* Preto Executivo / Slate 900 */
-  --primary-light: #0284C7;    /* Azul Eleitoral Primário (Sky 600) */
-  --primary-glow: rgba(2, 132, 199, 0.15);
+  /* Paleta Pastel Amarelo */
+  --pastel-yellow-bg: #FEF9C3;     /* Amarelo manteiga pastel */
+  --pastel-yellow-light: #FEFCE8;  /* Amarelo ultra suave */
+  --pastel-yellow-border: #FDE68A; /* Borda amarelo pastel */
+  --pastel-yellow-text: #854D0E;   /* Âmbar escuro legível */
+  --pastel-yellow-accent: #D97706; /* Âmbar ativo */
 
-  --accent-green: #059669;     /* Verde Sucesso (Emerald 600) */
-  --accent-green-bg: #ECFDF5;
-  --accent-yellow: #D97706;    /* Âmbar Atenção (Amber 600) */
-  --accent-yellow-bg: #FFFBEB;
-  --accent-red: #DC2626;       /* Vermelho Alerta (Red 600) */
-  --accent-red-bg: #FEF2F2;
-  --accent-purple: #7C3AED;    /* Roxo Destaque (Violet 600) */
-  --accent-purple-bg: #F5F3FF;
+  /* Paletas Pastéis Complementares */
+  --pastel-blue-bg: #E0F2FE;       /* Azul céu pastel */
+  --pastel-blue-border: #BAE6FD;
+  --pastel-blue-text: #0369A1;
 
-  --color-accent-blue: var(--primary-light);
-  --color-accent-green: var(--accent-green);
-  --color-accent-yellow: var(--accent-yellow);
-  --color-accent-red: var(--accent-red);
+  --pastel-purple-bg: #F3E8FF;     /* Lavanda pastel */
+  --pastel-purple-border: #E9D5FF;
+  --pastel-purple-text: #6B21A8;
 
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
+  --pastel-red-bg: #FEE2E2;        /* Rosa/salmão pastel */
+  --pastel-red-border: #FECACA;
+  --pastel-red-text: #991B1B;
+
+  /* ============================================================ */
+  /* DIFERENCIAÇÃO VISUAL CLARA: EDITÁVEL (PREENCHER) vs FIXO      */
+  /* ============================================================ */
+  
+  /* Campos para Preencher (Editáveis pelo Usuário) */
+  --input-edit-bg: #FFFFFF;
+  --input-edit-border: #94A3B8;               /* Borda nítida de 2.5px */
+  --input-edit-focus-border: #15803D;         /* Foco em verde vivo */
+  --input-edit-focus-glow: rgba(34, 197, 94, 0.22);
+  --input-edit-filled-bg: #F0FDF4;            /* Verde ultra claro quando preenchido */
+  --input-edit-filled-border: #86EFAC;
+
+  /* Campos Fixos do Sistema (Cálculos, Fórmulas TSE, Totais) */
+  --fixed-system-bg: #F1F6F0;                 /* Fundo pastel contínuo, não editável */
+  --fixed-system-border: #D1E0D4;
+  --fixed-system-text: #1E3A2F;
+  --fixed-system-badge-bg: #E2E8F0;
+  --fixed-system-badge-text: #475569;
+
+  /* Cores Globais de Ação e Texto */
+  --primary: #15803D;                         /* Verde Principal Executivo */
+  --primary-light: #16A34A;                   /* Verde Esmeralda */
+  --primary-hover: #166534;                   /* Verde Escuro */
+  --primary-glow: rgba(22, 163, 74, 0.22);
+
+  --text-main: #0F291E;                       /* Verde-ardósia escuro de altíssima legibilidade */
+  --text-muted: #475569;                      /* Ardósia equilibrado */
+  --text-dim: #64748B;
+  --border-color: #E2E8F0;
+  --border-focus: #15803D;
+
+  --color-accent-blue: #0284C7;
+  --color-accent-green: #15803D;
+  --color-accent-yellow: #D97706;
+  --color-accent-red: #DC2626;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
   --radius-full: 9999px;
 
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
   --transition: all 0.18s ease-in-out;
 
@@ -152,8 +188,9 @@ body {
 }
 
 .nav-tab-btn.active {
-  color: var(--primary-light);
-  background: rgba(2, 132, 199, 0.08);
+  color: var(--pastel-green-text);
+  background: var(--pastel-green-bg);
+  border: 1px solid var(--pastel-green-border);
 }
 
 .nav-tab-btn svg {
@@ -165,7 +202,7 @@ body {
 .btn-adm-gear {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  color: var(--text-muted);
+  color: var(--pastel-green-text);
   cursor: pointer;
   padding: 6px;
   border-radius: var(--radius-sm);
@@ -177,7 +214,8 @@ body {
 
 .btn-adm-gear:hover, .btn-adm-gear:active {
   color: var(--text-main);
-  background: var(--border-color);
+  background: var(--pastel-green-bg);
+  border-color: var(--pastel-green-border);
 }
 
 /* Content Views */
@@ -193,6 +231,50 @@ body {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(3px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Barra Guia Visual: Diferenciação de Campos */
+.field-legend-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 10px;
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  box-shadow: var(--shadow-sm);
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.legend-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.legend-chip.chip-edit {
+  background: #FFFFFF;
+  border: 2px solid var(--input-edit-border);
+  color: var(--text-main);
+}
+
+.legend-chip.chip-fixed {
+  background: var(--pastel-yellow-bg);
+  border: 1px solid var(--pastel-yellow-border);
+  color: var(--pastel-yellow-text);
 }
 
 /* Cards & Containers */
@@ -237,51 +319,53 @@ body {
 }
 
 .btn-primary {
-  background: var(--primary-light);
+  background: var(--primary);
   color: #FFFFFF;
-  border-color: var(--primary-light);
+  border-color: var(--primary);
   box-shadow: var(--shadow-sm);
 }
 
 .btn-primary:hover {
-  background: #0369A1;
-  border-color: #0369A1;
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
 }
 
 .btn-secondary {
-  background: #F1F5F9;
+  background: #FFFFFF;
   color: var(--text-main);
   border-color: var(--border-color);
 }
 
 .btn-secondary:hover {
-  background: #E2E8F0;
+  background: var(--pastel-green-bg);
+  border-color: var(--pastel-green-border);
+  color: var(--pastel-green-text);
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--primary-light);
-  border-color: var(--primary-light);
+  color: var(--primary);
+  border-color: var(--primary);
 }
 
 .btn-outline:hover {
-  background: rgba(2, 132, 199, 0.08);
+  background: var(--pastel-green-bg);
 }
 
 .btn-danger {
-  background: var(--accent-red-bg);
-  color: var(--accent-red);
-  border-color: rgba(220, 38, 38, 0.2);
+  background: var(--pastel-red-bg);
+  color: var(--pastel-red-text);
+  border-color: var(--pastel-red-border);
 }
 
 .btn-danger:hover {
-  background: rgba(220, 38, 38, 0.15);
+  background: #FEE2E2;
 }
 
 .btn-success {
-  background: var(--accent-green-bg);
-  color: var(--accent-green);
-  border-color: rgba(5, 150, 105, 0.3);
+  background: var(--pastel-green-bg);
+  color: var(--pastel-green-text);
+  border-color: var(--pastel-green-border);
 }
 
 .btn-sm {
@@ -293,6 +377,35 @@ body {
   padding: 12px 18px;
   font-size: 0.95rem;
   width: 100%;
+}
+
+/* Badges de Destaque */
+.badge-field-edit {
+  background: #FFFFFF;
+  color: var(--primary);
+  border: 1.5px solid var(--primary-light);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.badge-field-fixed {
+  background: var(--pastel-yellow-bg);
+  color: var(--pastel-yellow-text);
+  border: 1px solid var(--pastel-yellow-border);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
 /* Inputs & Form Controls */
@@ -310,8 +423,8 @@ body {
 }
 
 .form-input {
-  background: var(--bg-input);
-  border: 1px solid var(--border-color);
+  background: var(--input-edit-bg);
+  border: 2px solid var(--input-edit-border);
   border-radius: var(--radius-sm);
   color: var(--text-main);
   padding: 8px 12px;
@@ -320,15 +433,16 @@ body {
   transition: var(--transition);
   width: 100%;
   font-family: inherit;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
 }
 
 .form-input:focus {
-  border-color: var(--border-focus);
-  background: var(--bg-input-focus);
-  box-shadow: 0 0 0 3px var(--primary-glow);
+  border-color: var(--input-edit-focus-border);
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px var(--input-edit-focus-glow);
 }
 
-/* Badges */
+/* Badges Padrão com Cores Pastéis */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -340,11 +454,11 @@ body {
   text-transform: uppercase;
 }
 
-.badge-blue { background: #E0F2FE; color: #0369A1; border: 1px solid #BAE6FD; }
-.badge-green { background: #DCFCE7; color: #15803D; border: 1px solid #BBF7D0; }
-.badge-yellow { background: #FEF3C7; color: #B45309; border: 1px solid #FDE68A; }
-.badge-red { background: #FEE2E2; color: #B91C1C; border: 1px solid #FECACA; }
-.badge-purple { background: #F3E8FF; color: #7E22CE; border: 1px solid #E9D5FF; }
+.badge-blue { background: var(--pastel-blue-bg); color: var(--pastel-blue-text); border: 1px solid var(--pastel-blue-border); }
+.badge-green { background: var(--pastel-green-bg); color: var(--pastel-green-text); border: 1px solid var(--pastel-green-border); }
+.badge-yellow { background: var(--pastel-yellow-bg); color: var(--pastel-yellow-text); border: 1px solid var(--pastel-yellow-border); }
+.badge-red { background: var(--pastel-red-bg); color: var(--pastel-red-text); border: 1px solid var(--pastel-red-border); }
+.badge-purple { background: var(--pastel-purple-bg); color: var(--pastel-purple-text); border: 1px solid var(--pastel-purple-border); }
 
 /* Modal & PIN */
 .modal-backdrop {

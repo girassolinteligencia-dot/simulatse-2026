@@ -1,19 +1,19 @@
-/* Component Styles - Clean Light Theme */
+/* Component Styles - Clean Pastel Light Theme (Verde e Amarelo Cívico) */
 
 /* Cargo Selector Bar */
 .cargo-toggle-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 6px;
-  background: #E2E8F0;
+  background: #E5EDE1;
   padding: 4px;
   border-radius: var(--radius-md);
-  border: 1px solid var(--border-color);
+  border: 1px solid #D1E0CC;
 }
 
 .cargo-toggle-btn {
   background: transparent;
-  border: none;
+  border: 1.5px solid transparent;
   color: var(--text-muted);
   padding: 8px 12px;
   font-size: 0.85rem;
@@ -36,7 +36,8 @@
 
 .cargo-toggle-btn.active {
   background: #FFFFFF;
-  color: var(--primary-light);
+  color: var(--pastel-green-text);
+  border-color: var(--pastel-green-border);
   box-shadow: var(--shadow-sm);
 }
 
@@ -70,16 +71,16 @@
 }
 
 .party-chip-btn:hover {
-  background: #F8FAFC;
-  color: var(--text-main);
-  border-color: #CBD5E1;
+  background: var(--pastel-green-light);
+  color: var(--pastel-green-text);
+  border-color: var(--pastel-green-border);
 }
 
 .party-chip-btn.active {
-  background: #0284C7;
+  background: var(--primary);
   color: #FFFFFF;
-  border-color: #0284C7;
-  box-shadow: 0 2px 4px rgba(2, 132, 199, 0.25);
+  border-color: var(--primary);
+  box-shadow: 0 2px 4px rgba(21, 128, 61, 0.25);
 }
 
 /* Quick Fill & Clean Action Bar */
@@ -91,7 +92,7 @@
   margin-bottom: 6px;
 }
 
-/* BI Dashboard Visuals */
+/* BI Dashboard Visuals: CAMPOS FIXOS DO SISTEMA */
 .bi-kpi-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -99,8 +100,8 @@
 }
 
 .bi-kpi-card {
-  background: #F8FAFC;
-  border: 1px solid var(--border-color);
+  background: var(--pastel-yellow-bg);
+  border: 1px solid var(--pastel-yellow-border);
   border-radius: var(--radius-md);
   padding: 14px 16px;
   display: flex;
@@ -108,7 +109,36 @@
   align-items: center;
   text-align: center;
   gap: 4px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+  position: relative;
+  user-select: none;
+}
+
+.bi-kpi-card.kpi-green {
+  background: var(--pastel-green-bg);
+  border-color: var(--pastel-green-border);
+}
+
+.bi-kpi-card.kpi-blue {
+  background: var(--pastel-blue-bg);
+  border-color: var(--pastel-blue-border);
+}
+
+.bi-kpi-card.kpi-purple {
+  background: var(--pastel-purple-bg);
+  border-color: var(--pastel-purple-border);
+}
+
+.bi-kpi-system-badge {
+  font-size: 0.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-muted);
+  margin-bottom: 2px;
 }
 
 .bi-kpi-title {
@@ -154,8 +184,8 @@
 
 .chart-bar-track {
   width: 100%;
-  height: 16px;
-  background: #E2E8F0;
+  height: 18px;
+  background: #E5EDE1;
   border-radius: var(--radius-full);
   display: flex;
   overflow: hidden;
@@ -163,19 +193,19 @@
 
 .chart-bar-fill {
   height: 100%;
-  background: #0284C7;
+  background: var(--pastel-green-accent);
   transition: width 0.3s ease;
 }
 
 .chart-bar-fill.sobra {
-  background: #F59E0B;
+  background: var(--pastel-yellow-accent);
 }
 
 /* Progress & Balance Bar */
 .progress-track {
   width: 100%;
-  height: 6px;
-  background: #E2E8F0;
+  height: 7px;
+  background: #E5EDE1;
   border-radius: var(--radius-full);
   overflow: hidden;
   position: relative;
@@ -184,12 +214,12 @@
 .progress-fill {
   height: 100%;
   width: 0%;
-  background: #059669;
+  background: var(--pastel-green-accent);
   transition: width 0.3s ease;
 }
 
 .progress-fill.surplus {
-  background: #DC2626;
+  background: var(--pastel-red-text);
 }
 
 /* Party / Federation Cards */
@@ -204,7 +234,7 @@
 }
 
 .party-group-card:hover {
-  border-color: #CBD5E1;
+  border-color: var(--pastel-green-border);
 }
 
 .party-group-header {
@@ -220,15 +250,15 @@
 }
 
 .party-group-header:hover {
-  background: #F8FAFC;
+  background: var(--pastel-green-light);
 }
 
 .party-group-title {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-weight: 700;
-  font-size: 0.9rem;
+  font-weight: 800;
+  font-size: 0.92rem;
   color: var(--text-main);
 }
 
@@ -237,7 +267,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-muted);
+  color: var(--pastel-green-text);
 }
 
 .party-group-card.collapsed .party-group-chevron {
@@ -245,11 +275,11 @@
 }
 
 .party-group-body {
-  padding: 8px 10px;
+  padding: 10px 10px;
   display: flex;
   flex-direction: column;
   gap: 6px;
-  background: #F8FAFC;
+  background: #FAFDF9;
 }
 
 .party-group-card.collapsed .party-group-body {
@@ -271,8 +301,14 @@
 }
 
 .candidate-row:hover {
-  border-color: #94A3B8;
-  background: #F8FAFC;
+  border-color: #86EFAC;
+  background: var(--pastel-green-light);
+}
+
+.candidate-row.has-votes {
+  background: #F0FDF4;
+  border-color: #86EFAC;
+  box-shadow: 0 1px 3px rgba(22, 163, 74, 0.08);
 }
 
 .candidate-info {
@@ -280,12 +316,12 @@
   flex-direction: column;
   gap: 2px;
   flex: 1;
-  min-width: 0; /* Permite truncar ou quebrar suave */
+  min-width: 0;
 }
 
 .candidate-name {
   font-weight: 800;
-  font-size: 1.02rem;
+  font-size: 1.05rem;
   color: var(--text-main);
   letter-spacing: -0.01em;
   white-space: nowrap;
@@ -300,26 +336,83 @@
   flex-shrink: 0;
 }
 
+/* CAMPO DE PREENCHIMENTO EDITÁVEL: Fundo Branco, Borda Marcada, Foco Verde */
 .vote-input-field {
   width: 145px;
   background: #FFFFFF;
-  border: 2px solid var(--border-color);
+  border: 2.5px solid #94A3B8;
   border-radius: var(--radius-sm);
   color: var(--text-main);
   padding: 8px 12px;
-  font-size: 1.22rem;
+  font-size: 1.25rem;
   font-weight: 800;
   text-align: right;
   font-family: inherit;
   outline: none;
   transition: var(--transition);
   letter-spacing: 0.02em;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.vote-input-field:hover {
+  border-color: #22C55E;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.15);
 }
 
 .vote-input-field:focus {
-  border-color: var(--border-focus);
-  background: #F0F9FF;
-  box-shadow: 0 0 0 3px var(--primary-glow);
+  border-color: var(--primary);
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3.5px var(--primary-glow);
+}
+
+.vote-input-field.has-value {
+  border-color: #16A34A;
+  background: #F0FDF4;
+  color: var(--pastel-green-text);
+  font-weight: 900;
+}
+
+/* Painéis Fixos do Sistema (Não Editáveis / Calculados) */
+.fixed-metric-box {
+  background: var(--pastel-yellow-bg);
+  border: 1px solid var(--pastel-yellow-border);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.fixed-metric-box.box-green {
+  background: var(--pastel-green-bg);
+  border-color: var(--pastel-green-border);
+}
+
+.fixed-metric-box .box-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fixed-metric-box .box-tag {
+  font-size: 0.6rem;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.06);
+  font-weight: 800;
+  color: var(--text-muted);
+}
+
+.fixed-metric-box .box-value {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
 }
 
 /* Table Styles for Results & Audit */
@@ -339,10 +432,10 @@
 }
 
 .custom-table th {
-  background: #F8FAFC;
-  color: var(--text-muted);
+  background: #F4F7F2;
+  color: var(--pastel-green-text);
   padding: 9px 12px;
-  font-weight: 700;
+  font-weight: 800;
   border-bottom: 1px solid var(--border-color);
   white-space: nowrap;
 }
@@ -359,7 +452,7 @@
 }
 
 .custom-table tr:hover td {
-  background: #F1F5F9;
+  background: var(--pastel-green-light);
 }
 
 /* Elected Candidates Card List */
@@ -371,8 +464,8 @@
 
 .elected-card {
   background: #FFFFFF;
-  border: 1px solid var(--border-color);
-  border-left: 4px solid var(--primary-light);
+  border: 1px solid var(--pastel-green-border);
+  border-left: 4.5px solid var(--pastel-green-accent);
   border-radius: var(--radius-sm);
   padding: 10px 12px;
   display: flex;
@@ -389,6 +482,6 @@
 
 .elected-name {
   font-weight: 800;
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   color: var(--text-main);
 }

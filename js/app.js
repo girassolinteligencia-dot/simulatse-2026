@@ -253,12 +253,12 @@ function updateMetricsDisplay() {
     }
   }
 
-  // Atualiza totais nos cabeçalhos de cada partido
+  // Atualiza totais nos cabeçalhos de cada partido (CAMPOS FIXOS DO SISTEMA)
   state.partyGroups.forEach((group, idx) => {
     const totalGroupVotes = (group.partyVotes || 0) + group.candidates.reduce((sum, c) => sum + (c.votes || 0), 0);
     const voteBadge = document.getElementById(`party-total-votes-${idx}`);
     if (voteBadge) {
-      voteBadge.textContent = `${totalGroupVotes.toLocaleString('pt-BR')} votos`;
+      voteBadge.textContent = `⚙️ ${totalGroupVotes.toLocaleString('pt-BR')} votos`;
     }
   });
 }
@@ -326,12 +326,12 @@ function renderPartyGroups() {
           <span class="party-group-chevron">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </span>
-          <strong style="color: var(--text-main); font-size: 0.9rem;">${group.name}</strong>
+          <strong style="color: var(--text-main); font-size: 0.92rem;">${group.name}</strong>
           <span style="font-size: 0.72rem; color: var(--text-muted);">(${group.candidates.length} cand.)</span>
         </div>
         <div>
-          <span id="party-total-votes-${groupIndex}" style="font-size: 0.78rem; color: var(--primary-light); font-weight: 700;">
-            ${totalGroupVotes.toLocaleString('pt-BR')} votos
+          <span id="party-total-votes-${groupIndex}" class="badge-field-fixed" style="font-size: 0.76rem; padding: 2px 8px;" title="Cálculo automático do sistema">
+            ⚙️ ${totalGroupVotes.toLocaleString('pt-BR')} votos
           </span>
         </div>
       </div>
@@ -342,21 +342,23 @@ function renderPartyGroups() {
         <div class="candidates-list-wrapper" style="display: flex; flex-direction: column; gap: 4px;">
           ${group.candidates.map((cand, candIndex) => {
             const isNonDeferido = cand.situacao && cand.situacao !== 'DEFERIDO';
+            const hasVotes = cand.votes && cand.votes > 0;
             return `
-              <div class="candidate-row" id="cand-row-${groupIndex}-${candIndex}">
+              <div class="candidate-row ${hasVotes ? 'has-votes' : ''}" id="cand-row-${groupIndex}-${candIndex}">
                 <div class="candidate-info">
                   <span class="candidate-name">${cand.nome}</span>
                   <div style="font-size: 0.7rem; color: var(--text-muted); display: flex; gap: 4px; align-items: center;">
-                    <span style="font-weight: 600;">${cand.partido}</span>
+                    <span style="font-weight: 700; color: var(--pastel-green-text);">${cand.partido}</span>
                     ${cand.nomeCompleto && cand.nomeCompleto !== cand.nome ? `<span style="color: var(--text-dim);">• ${cand.nomeCompleto}</span>` : ''}
                     ${isNonDeferido ? `<span class="badge badge-red" style="font-size: 0.6rem; padding: 1px 4px;">${cand.situacao}</span>` : ''}
                   </div>
                 </div>
                 <div class="vote-input-wrapper">
-                  <input type="text" inputmode="numeric" class="vote-input-field cand-vote-input" 
+                  <input type="text" inputmode="numeric" class="vote-input-field cand-vote-input ${hasVotes ? 'has-value' : ''}" 
                     data-group="${groupIndex}" data-cand="${candIndex}" 
                     value="${cand.votes ? cand.votes.toLocaleString('pt-BR') : ''}" 
-                    placeholder="0">
+                    placeholder="0"
+                    title="✏️ Campo para preencher votos">
                 </div>
               </div>
             `;
@@ -364,17 +366,20 @@ function renderPartyGroups() {
         </div>
 
         <!-- Linha Oficial de Votos de Legenda (Sigla) -->
-        <div class="candidate-row" style="background: #F0F9FF; border: 1px dashed var(--primary-light); margin-top: 4px;">
+        <div class="candidate-row" style="background: var(--pastel-yellow-light); border: 1.5px dashed var(--pastel-yellow-border); margin-top: 4px;">
           <div class="candidate-info">
-            <span style="font-size: 0.8rem; font-weight: 700; color: var(--primary-light);">VOTOS DE LEGENDA</span>
-            <span style="font-size: 0.68rem; color: var(--text-muted);">Voto direto no partido (soma no QP e sobras)</span>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span style="font-size: 0.82rem; font-weight: 800; color: var(--pastel-yellow-text);">VOTOS DE LEGENDA</span>
+              <span class="badge-field-edit" style="font-size: 0.62rem; padding: 1px 6px;">✏️ PREENCHER</span>
+            </div>
+            <span style="font-size: 0.68rem; color: var(--text-muted);">Voto direto no número do partido (soma no QP e Sobras)</span>
           </div>
           <div class="vote-input-wrapper">
-            <input type="text" inputmode="numeric" class="vote-input-field party-vote-input" 
+            <input type="text" inputmode="numeric" class="vote-input-field party-vote-input ${group.partyVotes > 0 ? 'has-value' : ''}" 
               data-group="${groupIndex}" 
               value="${group.partyVotes ? group.partyVotes.toLocaleString('pt-BR') : ''}" 
               placeholder="0"
-              style="border-color: var(--primary-light); background: #FFFFFF;">
+              title="✏️ Campo para preencher votos de legenda">
           </div>
         </div>
 
@@ -410,6 +415,11 @@ function attachPartyGroupEvents() {
       const rawVal = parseNumberFromMask(e.target.value);
       state.partyGroups[gIdx].partyVotes = rawVal;
       e.target.value = rawVal > 0 ? rawVal.toLocaleString('pt-BR') : '';
+      if (rawVal > 0) {
+        e.target.classList.add('has-value');
+      } else {
+        e.target.classList.remove('has-value');
+      }
       updateMetricsDisplay();
       saveDraft();
     });
@@ -437,6 +447,18 @@ function attachPartyGroupEvents() {
       const rawVal = parseNumberFromMask(e.target.value);
       state.partyGroups[gIdx].candidates[cIdx].votes = rawVal;
       e.target.value = rawVal > 0 ? rawVal.toLocaleString('pt-BR') : '';
+      
+      const row = document.getElementById(`cand-row-${gIdx}-${cIdx}`);
+      if (row) {
+        if (rawVal > 0) {
+          row.classList.add('has-votes');
+          e.target.classList.add('has-value');
+        } else {
+          row.classList.remove('has-votes');
+          e.target.classList.remove('has-value');
+        }
+      }
+
       updateMetricsDisplay();
       saveDraft();
     });

@@ -12,8 +12,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=20260916_3">
-  <link rel="stylesheet" href="css/components.css?v=20260916_3">
+  <link rel="stylesheet" href="css/main.css?v=20260916_4">
+  <link rel="stylesheet" href="css/components.css?v=20260916_4">
 </head>
 <body>
 
@@ -22,11 +22,11 @@
     <!-- Top Header -->
     <header class="app-header">
       <div class="brand-wrapper">
-        <div class="brand-icon">
+        <div class="brand-icon" style="background: var(--pastel-green-bg); border-color: var(--pastel-green-border);">
           <img src="assets/logo_ui.webp" alt="SimulaVagas Logo" style="width: 22px; height: 22px;">
         </div>
         <div class="brand-title">
-          <h1 style="font-size: 1.05rem; font-weight: 800; color: #FFFFFF; letter-spacing: 0.02em;">
+          <h1 style="font-size: 1.05rem; font-weight: 800; color: var(--text-main); letter-spacing: -0.01em;">
             SimulaVagas 2026 MS
           </h1>
         </div>
@@ -36,7 +36,7 @@
         <button id="btn-open-adm" class="btn-adm-gear" title="Painel Administrativo">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="3"></circle>
-            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06-.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
           </svg>
         </button>
       </div>
@@ -58,39 +58,60 @@
       </div>
     </section>
 
+    <!-- Legenda Visual Rápida: Diferenciação de Campos -->
+    <div class="field-legend-bar">
+      <div class="legend-item">
+        <span class="legend-chip chip-edit">✏️ Preencher</span>
+        <span>Campos brancos (digite os votos válidos e nominais)</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-chip chip-fixed">⚙️ Fixo</span>
+        <span>Cálculos automáticos e fórmulas oficiais do TSE</span>
+      </div>
+    </div>
+
     <!-- TAB 1: SIMULAÇÃO / ENTRADA DIRETA -->
     <main id="tab-simulation" class="tab-content active">
       
       <!-- Painel de Controle de Votos e QE -->
       <section class="glass-card" style="padding: 12px 14px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-          <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.05em;">Votos Válidos Projetados</span>
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span style="font-size: 0.8rem; font-weight: 800; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.04em;">Votos Válidos Projetados</span>
+            <span class="badge-field-edit">✏️ PREENCHER</span>
+          </div>
           <span id="balance-status-badge" class="badge badge-yellow">Ajuste os Votos</span>
         </div>
         
         <div style="display: flex; gap: 8px; align-items: center;">
-          <input type="text" id="input-valid-votes" class="form-input" placeholder="Ex: 1.400.000" inputmode="numeric" value="1.400.000" style="font-size: 1.45rem; font-weight: 800; letter-spacing: 0.02em; padding: 12px 16px; text-align: center; border-width: 2px;">
+          <input type="text" id="input-valid-votes" class="form-input" placeholder="Ex: 1.400.000" inputmode="numeric" value="1.400.000" style="font-size: 1.45rem; font-weight: 800; letter-spacing: 0.02em; padding: 12px 16px; text-align: center; border-width: 2.5px; border-color: var(--input-edit-border);" title="✏️ Campo para preencher a projeção total de votos válidos">
         </div>
 
-        <!-- Indicadores de Monitoramento Direto -->
+        <!-- Indicadores de Monitoramento Direto (CAMPOS FIXOS DO SISTEMA) -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; font-size: 0.78rem;">
-          <div style="background: var(--bg-main); padding: 6px 10px; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
-            <div style="color: var(--text-muted); font-size: 0.68rem; text-transform: uppercase;">Quociente Eleitoral (QE)</div>
-            <div id="display-qe" style="font-weight: 800; font-size: 1.05rem; color: var(--primary-light);">0</div>
+          <div class="fixed-metric-box">
+            <div class="box-label">
+              <span>Quociente Eleitoral (QE)</span>
+              <span class="box-tag">⚙️ FÓRMULA TSE</span>
+            </div>
+            <div id="display-qe" class="box-value" style="color: var(--pastel-yellow-text);">0</div>
           </div>
-          <div style="background: var(--bg-main); padding: 6px 10px; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
-            <div style="color: var(--text-muted); font-size: 0.68rem; text-transform: uppercase;">Lançados / Meta</div>
-            <div style="font-weight: 800; font-size: 0.95rem; color: var(--text-main);">
-              <span id="display-allocated-votes" style="color: var(--primary-light);">0</span> / <span id="display-target-votes">1.400.000</span>
+          <div class="fixed-metric-box box-green">
+            <div class="box-label">
+              <span>Lançados / Meta</span>
+              <span class="box-tag">⚙️ CÁLCULO SISTEMA</span>
+            </div>
+            <div class="box-value" style="font-size: 0.95rem; color: var(--pastel-green-text);">
+              <span id="display-allocated-votes" style="color: var(--pastel-green-accent);">0</span> / <span id="display-target-votes">1.400.000</span>
             </div>
           </div>
         </div>
 
         <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 6px;">
-          <span>Saldo Restante: <b id="display-vote-diff">1.400.000</b></span>
+          <span>Saldo Restante: <b id="display-vote-diff" style="color: var(--text-main);">1.400.000</b></span>
           <span id="cand-list-counter" style="color: var(--text-dim);">0 candidatos na chapa</span>
         </div>
-        <div class="progress-track" style="margin-top: 4px; height: 5px;">
+        <div class="progress-track" style="margin-top: 4px; height: 6px;">
           <div id="balance-progress-bar" class="progress-fill" style="width: 0%;"></div>
         </div>
       </section>
@@ -126,29 +147,33 @@
       <!-- Top Seat & QE KPI Grid -->
       <div class="glass-card" style="padding: 12px 14px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-          <span id="res-cargo-title" style="font-weight: 800; font-size: 0.85rem; letter-spacing: 0.05em; color: var(--primary-light);">DEPUTADO ESTADUAL</span>
+          <span id="res-cargo-title" style="font-weight: 800; font-size: 0.85rem; letter-spacing: 0.05em; color: var(--primary);">DEPUTADO ESTADUAL</span>
           <span class="badge badge-green" id="res-balance-tag">Oficial TSE</span>
         </div>
         
         <div class="bi-kpi-grid">
           <div class="bi-kpi-card">
+            <span class="bi-kpi-system-badge">⚙️ CÁLCULO SISTEMA TSE</span>
             <span class="bi-kpi-title">Quociente Eleitoral (QE)</span>
             <span class="bi-kpi-value" id="res-qe">0</span>
             <span class="bi-kpi-sub">Válidos ÷ Vagas</span>
           </div>
-          <div class="bi-kpi-card">
+          <div class="bi-kpi-card kpi-blue">
+            <span class="bi-kpi-system-badge">⚙️ REGRA ART. 109 CE</span>
             <span class="bi-kpi-title">Corte QP (10% QE)</span>
             <span class="bi-kpi-value" id="res-c10">0</span>
             <span class="bi-kpi-sub">Mínimo p/ vaga direta</span>
           </div>
           <div class="bi-kpi-card">
+            <span class="bi-kpi-system-badge">⚙️ REGRA 80/20</span>
             <span class="bi-kpi-title">Corte Sobra (20% QE)</span>
             <span class="bi-kpi-value" id="res-c20">0</span>
             <span class="bi-kpi-sub">Mínimo p/ sobra 80/20</span>
           </div>
-          <div class="bi-kpi-card">
+          <div class="bi-kpi-card kpi-green">
+            <span class="bi-kpi-system-badge">⚙️ TOTAL FIXO</span>
             <span class="bi-kpi-title">Vagas Preenchidas</span>
-            <span class="bi-kpi-value" style="color: var(--color-accent-green);"><span id="res-seats-distributed">0</span>/<span id="res-total-seats">24</span></span>
+            <span class="bi-kpi-value" style="color: var(--pastel-green-text);"><span id="res-seats-distributed">0</span>/<span id="res-total-seats">24</span></span>
             <span class="bi-kpi-sub" id="res-seats-breakdown">0 QP | 0 Sobras</span>
           </div>
         </div>
@@ -476,7 +501,7 @@
   </div>
 
   <!-- Scripts -->
-  <script type="module" src="js/app.js?v=20260916_2"></script>
+  <script type="module" src="js/app.js?v=20260916_4"></script>
   <script>
     // Limpeza de cache antigo e garantia de carregamento instantâneo
     if ('serviceWorker' in navigator) {
