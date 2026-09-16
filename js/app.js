@@ -174,13 +174,14 @@ function initPartyGroupsForCargo(cargo) {
   allInCargo.forEach(c => {
     const groupName = c.federacao ? c.federacao : c.partido;
     if (!groupsMap.has(groupName)) {
+      const isFirst = groupsMap.size === 0;
       groupsMap.set(groupName, {
         name: groupName,
         party: c.partido,
         federacao: c.federacao || null,
         partyVotes: 0,
         candidates: [],
-        isCollapsed: true
+        isCollapsed: !isFirst
       });
     }
 
@@ -1069,6 +1070,7 @@ function displayResults(result) {
       });
     }
   }
+}
 
 // Configuração do Gerenciador de Cenários
 function setupScenarioActions() {
