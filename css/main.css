@@ -726,19 +726,19 @@ body {
 }
 
 .brand-title-centered {
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: #FFFFFF;
-  letter-spacing: -0.015em;
+  font-size: 1.30rem;
+  font-weight: 900;
+  color: var(--text-main, #0F172A);
+  letter-spacing: -0.02em;
   line-height: 1.15;
   margin: 0;
 }
 
 .brand-subtitle-centered {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--text-muted, #94A3B8);
-  letter-spacing: 0.01em;
+  font-size: 0.80rem;
+  font-weight: 700;
+  color: var(--primary, #004C97);
+  letter-spacing: 0.02em;
   line-height: 1.2;
 }
 
