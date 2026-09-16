@@ -113,6 +113,7 @@ function setupNavigationTabs() {
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const targetTabId = btn.getAttribute('data-tab');
+      if (!targetTabId) return;
       tabBtns.forEach(b => b.classList.remove('active'));
       tabContents.forEach(c => c.classList.remove('active'));
 
@@ -502,32 +503,44 @@ function setupGlobalInputs() {
   });
 
   // Botão de simulação rápida (proporcional realista calibrada para MS)
-  document.getElementById('btn-quick-fill').addEventListener('click', () => {
-    autoDistributeRealisticVotes();
-  });
+  const btnQuickFill = document.getElementById('btn-quick-fill');
+  if (btnQuickFill) {
+    btnQuickFill.addEventListener('click', () => {
+      autoDistributeRealisticVotes();
+    });
+  }
 
   // Limpar votos
-  document.getElementById('btn-clear-votes').addEventListener('click', () => {
-    if (confirm('Deseja zerar todos os votos lançados?')) {
-      state.partyGroups.forEach(g => {
-        g.partyVotes = 0;
-        g.candidates.forEach(c => { c.votes = 0; });
-      });
-      saveDraft();
-      renderPartyGroups();
-      updateMetricsDisplay();
-    }
-  });
+  const btnClearVotes = document.getElementById('btn-clear-votes');
+  if (btnClearVotes) {
+    btnClearVotes.addEventListener('click', () => {
+      if (confirm('Deseja zerar todos os votos lançados?')) {
+        state.partyGroups.forEach(g => {
+          g.partyVotes = 0;
+          g.candidates.forEach(c => { c.votes = 0; });
+        });
+        saveDraft();
+        renderPartyGroups();
+        updateMetricsDisplay();
+      }
+    });
+  }
 
   // Botão Principal de Ação Direta
-  document.getElementById('btn-run-simulation').addEventListener('click', () => {
-    executeSimulation();
-  });
+  const btnRunSim = document.getElementById('btn-run-simulation');
+  if (btnRunSim) {
+    btnRunSim.addEventListener('click', () => {
+      executeSimulation();
+    });
+  }
 
   // Eventos de Abertura/Fechamento do Drawer de Status das Chapas
   const btnToggleSidebar = document.getElementById('btn-toggle-status-sidebar');
   if (btnToggleSidebar) {
-    btnToggleSidebar.addEventListener('click', () => toggleStatusSidebar());
+    btnToggleSidebar.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleStatusSidebar();
+    });
   }
 
   const btnFloating = document.getElementById('btn-floating-status');
@@ -671,9 +684,11 @@ function updateStatusSidebar() {
 function openStatusSidebar() {
   const drawer = document.getElementById('parties-status-drawer');
   const backdrop = document.getElementById('status-drawer-backdrop');
+  const btnToggleSidebar = document.getElementById('btn-toggle-status-sidebar');
   if (drawer && backdrop) {
     drawer.classList.add('active');
     backdrop.classList.add('active');
+    if (btnToggleSidebar) btnToggleSidebar.classList.add('active');
     updateStatusSidebar();
   }
 }
@@ -681,9 +696,11 @@ function openStatusSidebar() {
 function closeStatusSidebar() {
   const drawer = document.getElementById('parties-status-drawer');
   const backdrop = document.getElementById('status-drawer-backdrop');
+  const btnToggleSidebar = document.getElementById('btn-toggle-status-sidebar');
   if (drawer && backdrop) {
     drawer.classList.remove('active');
     backdrop.classList.remove('active');
+    if (btnToggleSidebar) btnToggleSidebar.classList.remove('active');
   }
 }
 
@@ -1052,32 +1069,6 @@ function displayResults(result) {
       });
     }
   }
-
-  // Tabela de Auditoria das Sobras (Tab 3)
-  const auditBody = document.querySelector('#table-audit-rounds tbody');
-  if (auditBody) {
-    auditBody.innerHTML = '';
-    if (result.auditRounds.length === 0) {
-      auditBody.innerHTML = `<tr><td colspan="9" style="text-align:center; color: var(--text-muted);">Todas as vagas foram preenchidas diretamente pelo QP (sem necessidade de sobras).</td></tr>`;
-    } else {
-      result.auditRounds.forEach(round => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td><strong>#${round.round}</strong></td>
-          <td><span class="badge ${round.phase.includes('80/20') ? 'badge-yellow' : 'badge-purple'}">${round.phase}</span></td>
-          <td>${round.partyName}</td>
-          <td>${round.partyVotes.toLocaleString('pt-BR')}</td>
-          <td>${round.seatsBefore}</td>
-          <td>${round.divisor}</td>
-          <td><strong style="color: var(--primary-light);">${round.average}</strong></td>
-          <td><strong>${round.candidateElected}</strong></td>
-          <td>${round.candidateVotes.toLocaleString('pt-BR')}</td>
-        `;
-        auditBody.appendChild(tr);
-      });
-    }
-  }
-}
 
 // Configuração do Gerenciador de Cenários
 function setupScenarioActions() {

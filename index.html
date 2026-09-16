@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="theme-color" content="#004C97">
   <meta name="description" content="SIMULE JÁ - Projeção eleitoral inteligente nas regras oficiais do TSE (Eleições 2026 MS)">
+  <meta name="author" content="Girassol Inteligência">
+  <meta name="creator" content="Girassol Inteligência">
+  <meta name="publisher" content="Girassol Inteligência">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="icon" href="assets/favicon.webp" type="image/webp">
@@ -13,8 +16,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=20260916_8">
-  <link rel="stylesheet" href="css/components.css?v=20260916_8">
+  <link rel="stylesheet" href="css/main.css?v=20260916_10">
+  <link rel="stylesheet" href="css/components.css?v=20260916_10">
 </head>
 <body>
 
@@ -103,25 +106,12 @@
         </div>
       </section>
 
-      <!-- Barra de Ações Compacta e Filtro Rápido de Partidos -->
-      <section style="display: flex; flex-direction: column; gap: 6px;">
-        <div class="action-bar-compact">
-          <div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap;">
-            <button id="btn-quick-fill" class="btn btn-secondary btn-sm" title="Preencher estimativa proporcional realista">Simulação Rápida</button>
-            <button id="btn-clear-votes" class="btn btn-secondary btn-sm" title="Zerar todos os votos">Zerar</button>
-            <button id="btn-toggle-status-sidebar" class="btn btn-secondary btn-sm" title="Ver checklist e status das chapas">
-              📋 Chapas (<span id="sidebar-progress-counter">0/15</span>)
-            </button>
-          </div>
-          <button id="btn-run-simulation" class="btn btn-primary btn-sm" style="font-weight: 700; padding: 6px 14px;">
-            Calcular Vagas ➔
-          </button>
-        </div>
-
-        <!-- Seletor Horizontal Deslizante de Partidos / Federações -->
-        <div id="party-chips-nav" class="party-chips-scroller">
-          <!-- Chips gerados dinamicamente via JS -->
-        </div>
+      <!-- Botão Principal de Ação Direta: Calcular Vagas -->
+      <section style="margin-bottom: 8px;">
+        <button id="btn-run-simulation" class="btn btn-primary" style="font-weight: 800; font-size: 0.95rem; width: 100%; padding: 10px 16px; display: flex; justify-content: center; align-items: center; gap: 8px; border-radius: var(--radius-md); box-shadow: 0 2px 6px rgba(0, 76, 151, 0.2);">
+          <span>Calcular Distribuição de Vagas</span>
+          <span style="font-size: 1.1rem;">➔</span>
+        </button>
       </section>
 
       <!-- Lista Principal de Agremiações e Candidatos Oficiais Pré-carregados -->
@@ -239,36 +229,7 @@
     </section>
 
 
-    <!-- TAB 3: AUDITORIA DAS SOBRAS (Item 9) -->
-    <section id="tab-audit" class="tab-content">
-      <div class="glass-card">
-        <div class="card-title-bar" style="margin-bottom: 12px;">
-          <h2>Auditoria Passo a Passo das Sobras</h2>
-          <span class="badge badge-blue">Critério de Médias</span>
-        </div>
-        
-        <div class="table-responsive">
-          <table class="custom-table" id="table-audit-rounds">
-            <thead>
-              <tr>
-                <th>Rodada</th>
-                <th>Fase</th>
-                <th>Partido/Federação</th>
-                <th>Votos</th>
-                <th>Vagas Ant.</th>
-                <th>Divisor</th>
-                <th>Média</th>
-                <th>Candidato Contemplado</th>
-                <th>Votos Cand.</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Dynamic Audit Rows -->
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
+    
 
     <!-- TAB 4: CENÁRIOS SALVOS (Item 11) -->
     <section id="tab-scenarios" class="tab-content">
@@ -347,6 +308,20 @@
       </div>
     </section>
 
+    <!-- Rodapé Institucional Girassol Inteligência -->
+    <footer class="app-footer">
+      <div class="footer-brand-badge">
+        <picture>
+          <source srcset="assets/girassol_logo.webp" type="image/webp">
+          <img src="assets/girassol_logo.png" alt="Girassol Inteligência" class="footer-logo" loading="lazy">
+        </picture>
+        <div class="footer-text-group">
+          <span class="footer-signature">Desenvolvido por <strong>Girassol Inteligência</strong></span>
+          <span class="footer-tagline">Tecnologia & Inteligência de Dados Eleitorais • 2026</span>
+        </div>
+      </div>
+    </footer>
+
   </div>
 
   <nav class="mobile-nav-bar" style="display: flex; flex-direction: column; align-items: center; padding: 10px 0;">
@@ -359,9 +334,13 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path></svg>
         <span>Resultados</span>
       </button>
-      <button class="nav-tab-btn" data-tab="tab-audit">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
-        <span>Auditoria</span>
+      <button id="btn-toggle-status-sidebar" class="nav-tab-btn" title="Ver checklist e status das chapas">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+          <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+          <path d="M9 14l2 2 4-4"></path>
+        </svg>
+        <span>Chapas (<span id="sidebar-progress-counter">0/15</span>)</span>
       </button>
       <button class="nav-tab-btn" data-tab="tab-scenarios">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
@@ -482,12 +461,7 @@
     </div>
   </div>
 
-  <!-- Botão Flutuante Mobile: Checklist das Chapas -->
-  <button id="btn-floating-status" class="floating-status-pill" title="Ver checklist e logos das chapas">
-    <span>📋</span>
-    <span>Chapas</span>
-    <span id="floating-progress-badge" class="badge badge-yellow">0/15</span>
-  </button>
+  
 
   <!-- Drawer / Coluna Lateral de Status das Chapas -->
   <aside id="parties-status-drawer" class="status-drawer">
@@ -517,7 +491,7 @@
   <div id="status-drawer-backdrop" class="status-drawer-backdrop"></div>
 
   <!-- Scripts -->
-  <script type="module" src="js/app.js?v=20260916_8"></script>
+  <script type="module" src="js/app.js?v=20260916_10"></script>
   <script>
     // Limpeza de cache antigo e garantia de carregamento instantâneo
     if ('serviceWorker' in navigator) {

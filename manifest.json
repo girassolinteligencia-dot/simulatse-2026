@@ -1,7 +1,11 @@
 {
   "name": "SIMULA JÁ MS - Projeção Eleitoral 2026",
   "short_name": "Simula Já MS",
-  "description": "SIMULA JÁ MS - Projeção eleitoral inteligente nas regras oficiais do TSE para Mato Grosso do Sul",
+  "description": "SIMULA JÁ MS - Projeção eleitoral inteligente nas regras oficiais do TSE para Mato Grosso do Sul. Desenvolvido por Girassol Inteligência.",
+  "developer": {
+    "name": "Girassol Inteligência"
+  },
+  "author": "Girassol Inteligência",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#F1F5F9",
