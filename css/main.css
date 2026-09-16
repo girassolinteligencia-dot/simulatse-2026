@@ -69,18 +69,18 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Layout Container */
+/* Layout Container Centralizado e Focado */
 .app-container {
   width: 100%;
-  max-width: 980px;
+  max-width: 680px;
   margin: 0 auto;
-  padding-top: calc(var(--safe-top) + 8px);
-  padding-bottom: calc(var(--safe-bottom) + 80px);
-  padding-left: calc(var(--safe-left) + 8px);
-  padding-right: calc(var(--safe-right) + 8px);
+  padding-top: calc(var(--safe-top) + 12px);
+  padding-bottom: calc(var(--safe-bottom) + 85px);
+  padding-left: calc(var(--safe-left) + 12px);
+  padding-right: calc(var(--safe-right) + 12px);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 /* Header */
