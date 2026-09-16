@@ -123,48 +123,75 @@ body {
   gap: 14px;
 }
 
-/* Header */
+/* Header Centralizado */
 .app-header {
+  position: relative;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  padding: 4px 0;
+  justify-content: center;
+  text-align: center;
+  padding: 12px 0 16px 0;
+  width: 100%;
 }
 
 .brand-wrapper {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+  width: 100%;
 }
 
 .brand-icon {
-  width: 32px;
-  height: 32px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
+  width: clamp(140px, 45vw, 170px);
+  height: clamp(140px, 45vw, 170px);
+  background: transparent;
+  border: none;
+  border-radius: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
+}
+
+.brand-logo-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  display: block;
+  object-fit: cover;
+  box-shadow: 0 4px 20px rgba(0, 76, 151, 0.15);
+}
+
+.brand-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
 }
 
 .brand-title h1 {
-  font-size: 1.12rem;
+  font-size: 1.40rem;
   font-weight: 900;
   letter-spacing: -0.02em;
   color: var(--text-main);
   line-height: 1.15;
+  text-align: center;
+  margin: 0;
 }
 
 .brand-slogan {
-  font-size: 0.68rem;
-  font-weight: 600;
-  color: var(--pastel-green-text);
-  letter-spacing: 0.01em;
-  line-height: 1.2;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.03em;
+  line-height: 1.3;
+  text-align: center;
 }
-
 /* Navigation Tabs (Mobile Bottom Bar / Top Desktop) */
 .mobile-nav-bar {
   position: fixed;
@@ -213,10 +240,10 @@ body {
 
 /* Botão Discreto de Engrenagem ADM */
 .btn-adm-gear {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  color: var(--pastel-green-text);
-  cursor: pointer;
+  position: absolute;
+  top: 4px;
+  right: 0;
+  z-index: 10;
   padding: 6px;
   border-radius: var(--radius-sm);
   display: inline-flex;
