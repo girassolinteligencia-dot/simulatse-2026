@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Runner - Simulador de Vagas 2026 MS</title>
+  <style>
+    body {
+      background: #0B1120;
+      color: #F8FAFC;
+      font-family: monospace;
+      padding: 20px;
+    }
+    .test-card {
+      background: #1E293B;
+      padding: 10px 14px;
+      margin-bottom: 8px;
+      border-radius: 6px;
+      border-left: 4px solid #10B981;
+    }
+    .test-card.failed {
+      border-left-color: #EF4444;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 12px;
+    }
+    .badge-pass { background: #10B981; color: #fff; }
+    .badge-fail { background: #EF4444; color: #fff; }
+  </style>
+</head>
+<body>
+  <h1>Suíte de Testes Unitários - Regras Eleitorais 2026</h1>
+  <div id="test-results">Executando testes...</div>
+
+  <script type="module">
+    import { runAllTests } from './electoralRules.test.js';
+
+    const results = runAllTests();
+    const container = document.getElementById('test-results');
+    container.innerHTML = '';
+
+    let passedCount = 0;
+    results.forEach(r => {
+      if (r.passed) passedCount++;
+      const div = document.createElement('div');
+      div.className = `test-card ${r.passed ? '' : 'failed'}`;
+      div.innerHTML = `
+        <span class="badge ${r.passed ? 'badge-pass' : 'badge-fail'}">${r.passed ? 'PASS' : 'FAIL'}</span>
+        <strong>${r.name}</strong>
+        ${r.extraInfo ? `<div style="color: #94A3B8; font-size: 12px; margin-top: 4px;">${r.extraInfo}</div>` : ''}
+      `;
+      container.appendChild(div);
+    });
+
+    const summary = document.createElement('h3');
+    summary.style.marginTop = '20px';
+    summary.textContent = `Total: ${passedCount} / ${results.length} testes aprovados.`;
+    container.prepend(summary);
+  </script>
+</body>
+</html>

@@ -1,0 +1,410 @@
+:root {
+  /* Base Monocromática Estrita para Campos Fixos e Estrutura (Estilo Terminal) */
+  --bg-main: #000000;
+  --bg-card: #0A0A0A;
+  --bg-card-hover: #121212;
+  --bg-input: #000000;
+  --border-color: #222222;
+  --border-focus: #777777;
+  
+  --text-main: #CCCCCC;
+  --text-muted: #777777;
+  --text-dim: #444444;
+
+  /* 4 Cores Exclusivas para Campos Variáveis / Indicadores Dinâmicos */
+  --color-accent-blue: #0088CC;    /* Cor 1: Foco, Seleção e Indicadores */
+  --color-accent-green: #00AA00;   /* Cor 2: Confirmação, Quociente e Sucesso (Verde Terminal) */
+  --color-accent-yellow: #CC8800;  /* Cor 3: Atenção e Votos Faltantes (Âmbar Terminal) */
+  --color-accent-red: #CC0000;     /* Cor 4: Excesso de Votos e Exclusões */
+  
+  --primary: #EEEEEE;
+  --primary-light: #FFFFFF;
+  --accent-green: var(--color-accent-green);
+  --accent-yellow: var(--color-accent-yellow);
+  --accent-red: var(--color-accent-red);
+  --accent-purple: var(--color-accent-blue);
+
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-full: 0px;
+
+  --font-sans: 'Consolas', 'Courier New', 'Courier', monospace;
+  --shadow-sm: none;
+  --shadow-md: none;
+  --transition: none;
+
+  /* Safe Area Insets para iPhone Dynamic Island, Notch e Android Gestures */
+  --safe-top: env(safe-area-inset-top, 20px);
+  --safe-bottom: env(safe-area-inset-bottom, 20px);
+  --safe-left: env(safe-area-inset-left, 16px);
+  --safe-right: env(safe-area-inset-right, 16px);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-size: 16px; /* Letras grandes 16px para acessibilidade mobile */
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Layout Container com Safe Area para iPhone/Android */
+.app-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: calc(var(--safe-top) + 12px);
+  padding-bottom: calc(var(--safe-bottom) + 85px);
+  padding-left: calc(var(--safe-left) + 8px);
+  padding-right: calc(var(--safe-right) + 8px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Header & Legal Alert */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-icon {
+  width: 34px;
+  height: 34px;
+  background: var(--primary);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-title h1 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+}
+
+.brand-title p {
+  font-size: 0.75rem;
+  color: var(--primary-light);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.legal-banner {
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-left: 4px solid var(--accent-yellow);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 0.8rem;
+  color: #CBD5E1;
+}
+
+.legal-banner svg {
+  flex-shrink: 0;
+  color: var(--accent-yellow);
+  margin-top: 2px;
+}
+
+/* Navigation Tabs (Mobile Bottom Bar / Top Desktop) */
+.mobile-nav-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(15, 23, 42, 0.96);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
+  padding-bottom: calc(var(--safe-bottom) + 8px);
+  padding-left: var(--safe-left);
+  padding-right: var(--safe-right);
+  z-index: 1000;
+}
+
+.nav-tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+/* Botão Discreto de Engrenagem ADM */
+.btn-adm-gear {
+  background: transparent;
+  border: none;
+  color: #475569;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  opacity: 0.7;
+}
+
+.btn-adm-gear:hover, .btn-adm-gear:active {
+  color: var(--primary-light);
+  background: rgba(56, 189, 248, 0.1);
+  opacity: 1;
+}
+
+/* Modal PIN de Acesso 6 Dígitos */
+.pin-input-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.pin-digit-input {
+  width: 44px;
+  height: 52px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: #0F172A;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: #FFFFFF;
+}
+
+.pin-digit-input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+.nav-tab-btn.active {
+  color: var(--primary-light);
+  background: rgba(56, 189, 248, 0.1);
+}
+
+.nav-tab-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Content Views */
+.tab-content {
+  display: none;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Cards & Containers */
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.card-title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card-title-bar h2, .card-title-bar h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--bg-input);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.btn-primary:hover {
+  background: var(--primary);
+  color: #000000;
+}
+
+.btn-secondary {
+  background: #334155;
+  color: var(--text-main);
+  border-color: #475569;
+}
+
+.btn-secondary:hover {
+  background: #475569;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary-light);
+  border-color: var(--primary-light);
+}
+
+.btn-outline:hover {
+  background: rgba(56, 189, 248, 0.1);
+}
+
+.btn-danger {
+  background: rgba(239, 68, 68, 0.15);
+  color: #FCA5A5;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.btn-danger:hover {
+  background: rgba(239, 68, 68, 0.3);
+}
+
+.btn-success {
+  background: var(--bg-input);
+  color: var(--accent-green);
+  border: 1px solid var(--accent-green);
+}
+
+.btn-sm {
+  padding: 4px 8px;
+  font-size: 0.75rem;
+}
+
+.btn-lg {
+  padding: 12px 20px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+/* Inputs & Form Controls */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.form-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.form-input {
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-main);
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--transition);
+  width: 100%;
+}
+
+.form-input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.badge-blue { background: rgba(56, 189, 248, 0.2); color: #7DD3FC; border: 1px solid rgba(56, 189, 248, 0.4); }
+.badge-green { background: rgba(16, 185, 129, 0.2); color: #6EE7B7; border: 1px solid rgba(16, 185, 129, 0.4); }
+.badge-yellow { background: rgba(245, 158, 11, 0.2); color: #FCD34D; border: 1px solid rgba(245, 158, 11, 0.4); }
+.badge-red { background: rgba(239, 68, 68, 0.2); color: #FCA5A5; border: 1px solid rgba(239, 68, 68, 0.4); }
+.badge-purple { background: rgba(139, 92, 246, 0.2); color: #C4B5FD; border: 1px solid rgba(139, 92, 246, 0.4); }
+
+.simulation-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .app-container {
+    padding-bottom: 30px;
+    max-width: 1100px;
+  }
+  .mobile-nav-bar {
+    position: relative;
+    border-radius: var(--radius-md);
+    margin-bottom: 12px;
+  }
+  .simulation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+}

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0B1120">
+  <meta name="description" content="Simulador de Vagas 2026 MS - Projeção de distribuição de vagas de Deputado Estadual e Federal em Mato Grosso do Sul">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/favicon.webp" type="image/webp">
+  <link rel="apple-touch-icon" href="assets/favicon.webp">
+  <title>Simulador de Vagas 2026 MS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Top Header -->
+    <header class="app-header">
+      <div class="brand-wrapper">
+        <div class="brand-icon">
+          <img src="assets/logo_ui.webp" alt="SimulaVagas Logo" style="width: 22px; height: 22px;">
+        </div>
+        <div class="brand-title">
+          <h1 style="font-size: 1.05rem; font-weight: 800; color: #FFFFFF; letter-spacing: 0.02em;">
+            SimulaVagas 2026 MS
+          </h1>
+        </div>
+      </div>
+      <div>
+        <!-- Botão Discreto de Engrenagem ADM -->
+        <button id="btn-open-adm" class="btn-adm-gear" title="Painel Administrativo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+
+
+    <!-- Cargo Selector (Item 2) -->
+    <section class="cargo-section">
+      <div class="cargo-toggle-grid">
+        <button id="cargo-estadual-btn" class="cargo-toggle-btn active" data-cargo="DEPUTADO ESTADUAL" data-seats="24">
+          <span>Deputado Estadual</span>
+          <span class="sub-text">24 Vagas • MS</span>
+        </button>
+        <button id="cargo-federal-btn" class="cargo-toggle-btn" data-cargo="DEPUTADO FEDERAL" data-seats="8">
+          <span>Deputado Federal</span>
+          <span class="sub-text">8 Vagas • MS</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- TAB 1: SIMULAÇÃO / ENTRADA DIRETA -->
+    <main id="tab-simulation" class="tab-content active">
+      
+      <!-- Painel de Controle de Votos e QE -->
+      <section class="glass-card" style="padding: 12px 14px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <span style="font-size: 0.8rem; font-weight: 700; color: #FFFFFF; text-transform: uppercase; letter-spacing: 0.05em;">Votos Válidos Projetados</span>
+          <span id="balance-status-badge" class="badge badge-yellow">Ajuste os Votos</span>
+        </div>
+        
+        <div style="display: flex; gap: 8px; align-items: center;">
+          <input type="text" id="input-valid-votes" class="form-input" placeholder="Ex: 1.400.000" inputmode="numeric" value="1.400.000" style="font-size: 1.25rem; font-weight: 800; letter-spacing: 0.02em; padding: 8px 12px;">
+        </div>
+
+        <!-- Indicadores de Monitoramento Direto -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; font-size: 0.78rem;">
+          <div style="background: var(--bg-input); padding: 6px 10px; border: 1px solid var(--border-color);">
+            <div style="color: var(--text-muted); font-size: 0.68rem; text-transform: uppercase;">Quociente Eleitoral (QE)</div>
+            <div id="display-qe" style="font-weight: 800; font-size: 1.05rem; color: var(--primary-light);">0</div>
+          </div>
+          <div style="background: var(--bg-input); padding: 6px 10px; border: 1px solid var(--border-color);">
+            <div style="color: var(--text-muted); font-size: 0.68rem; text-transform: uppercase;">Lançados / Meta</div>
+            <div style="font-weight: 800; font-size: 0.95rem; color: #FFFFFF;">
+              <span id="display-allocated-votes" style="color: var(--primary-light);">0</span> / <span id="display-target-votes">1.400.000</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 6px;">
+          <span>Saldo Restante: <b id="display-vote-diff">1.400.000</b></span>
+          <span id="cand-list-counter" style="color: var(--text-dim);">0 candidatos na chapa</span>
+        </div>
+        <div class="progress-track" style="margin-top: 4px; height: 5px;">
+          <div id="balance-progress-bar" class="progress-fill" style="width: 0%;"></div>
+        </div>
+      </section>
+
+      <!-- Barra de Ações Compacta e Filtro Rápido de Partidos -->
+      <section style="display: flex; flex-direction: column; gap: 6px;">
+        <div class="action-bar-compact">
+          <div style="display: flex; gap: 6px;">
+            <button id="btn-quick-fill" class="btn btn-secondary btn-sm" title="Preencher estimativa proporcional realista">Simulação Rápida</button>
+            <button id="btn-clear-votes" class="btn btn-secondary btn-sm" title="Zerar todos os votos">Zerar</button>
+          </div>
+          <button id="btn-run-simulation" class="btn btn-primary btn-sm" style="font-weight: 700; padding: 6px 14px;">
+            Calcular Vagas ➔
+          </button>
+        </div>
+
+        <!-- Seletor Horizontal Deslizante de Partidos / Federações -->
+        <div id="party-chips-nav" class="party-chips-scroller">
+          <!-- Chips gerados dinamicamente via JS -->
+        </div>
+      </section>
+
+      <!-- Lista Principal de Agremiações e Candidatos Oficiais Pré-carregados -->
+      <section id="party-groups-container">
+        <!-- Renderizado dinamicamente com todas as chapas oficiais -->
+      </section>
+
+    </main>
+
+    <!-- TAB 2: RESULTADOS & BUSINESS INTELLIGENCE -->
+    <section id="tab-results" class="tab-content">
+      
+      <!-- Top Seat & QE KPI Grid -->
+      <div class="glass-card" style="padding: 12px 14px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <span id="res-cargo-title" style="font-weight: 800; font-size: 0.85rem; letter-spacing: 0.05em; color: var(--primary-light);">DEPUTADO ESTADUAL</span>
+          <span class="badge badge-green" id="res-balance-tag">Oficial TSE</span>
+        </div>
+        
+        <div class="bi-kpi-grid">
+          <div class="bi-kpi-card">
+            <span class="bi-kpi-title">Quociente Eleitoral (QE)</span>
+            <span class="bi-kpi-value" id="res-qe">0</span>
+            <span class="bi-kpi-sub">Válidos ÷ Vagas</span>
+          </div>
+          <div class="bi-kpi-card">
+            <span class="bi-kpi-title">Corte QP (10% QE)</span>
+            <span class="bi-kpi-value" id="res-c10">0</span>
+            <span class="bi-kpi-sub">Mínimo p/ vaga direta</span>
+          </div>
+          <div class="bi-kpi-card">
+            <span class="bi-kpi-title">Corte Sobra (20% QE)</span>
+            <span class="bi-kpi-value" id="res-c20">0</span>
+            <span class="bi-kpi-sub">Mínimo p/ sobra 80/20</span>
+          </div>
+          <div class="bi-kpi-card">
+            <span class="bi-kpi-title">Vagas Preenchidas</span>
+            <span class="bi-kpi-value" style="color: var(--color-accent-green);"><span id="res-seats-distributed">0</span>/<span id="res-total-seats">24</span></span>
+            <span class="bi-kpi-sub" id="res-seats-breakdown">0 QP | 0 Sobras</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gráfico de Bancadas Eleitas (Business Intelligence) -->
+      <div class="glass-card" style="padding: 12px 14px;">
+        <div class="card-title-bar" style="margin-bottom: 8px;">
+          <h3>Distribuição de Vagas por Bancada</h3>
+          <span style="font-size: 0.72rem; color: var(--text-muted);">Composição Oficial</span>
+        </div>
+        <div id="bi-bancadas-chart" class="chart-bar-container">
+          <!-- Gerado dinamicamente com barras comparativas -->
+        </div>
+      </div>
+
+      <!-- Tabela Consolidada de Partidos e Eficiência Eleitoral -->
+      <div class="glass-card" style="padding: 12px 14px;">
+        <div class="card-title-bar" style="margin-bottom: 8px;">
+          <h3>Quocientes e Conquista de Vagas</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="custom-table" id="table-party-results">
+            <thead>
+              <tr>
+                <th>Partido / Federação</th>
+                <th>Votos Totais</th>
+                <th>% Votos</th>
+                <th>QP</th>
+                <th>Vagas QP</th>
+                <th>Sobras 80/20</th>
+                <th>Sobras Gerais</th>
+                <th>Total Vagas</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Dynamic Rows -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Candidatos Eleitos Oficialmente Projetados -->
+      <div class="glass-card" style="padding: 12px 14px;">
+        <div class="card-title-bar" style="margin-bottom: 8px;">
+          <h3>Candidatos Eleitos</h3>
+          <span class="badge badge-purple" id="badge-elected-count">0 Eleitos</span>
+        </div>
+        <div id="elected-candidates-list" class="elected-grid">
+          <!-- Dynamic Elected Cards -->
+        </div>
+      </div>
+
+      <!-- Margem de Corte: Primeiros Suplentes e Votos Restantes -->
+      <div class="glass-card" style="padding: 12px 14px;">
+        <div class="card-title-bar" style="margin-bottom: 8px;">
+          <h3>Margem de Corte (Primeiros Suplentes)</h3>
+          <span style="font-size: 0.72rem; color: var(--text-muted);">Candidatos mais próximos da vaga</span>
+        </div>
+        <div class="table-responsive">
+          <table class="custom-table" id="table-suplentes">
+            <thead>
+              <tr>
+                <th>Candidato</th>
+                <th>Partido / Federação</th>
+                <th>Votos Nominais</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Dynamic Rows -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- TAB 3: AUDITORIA DAS SOBRAS (Item 9) -->
+    <section id="tab-audit" class="tab-content">
+      <div class="glass-card">
+        <div class="card-title-bar">
+          <h2>Auditoria Passo a Passo das Sobras</h2>
+          <span class="badge badge-blue">Critério de Médias</span>
+        </div>
+        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px;">
+          Acompanhe o cálculo da média após cada vaga distribuída nas fases 80/20 e Sobras Gerais (ADI 7228/7263 STF).
+          Fórmula da Média = <code>Votos Totais ÷ (Vagas Já Conquistadas + 1)</code>.
+        </p>
+        
+        <div class="table-responsive">
+          <table class="custom-table" id="table-audit-rounds">
+            <thead>
+              <tr>
+                <th>Rodada</th>
+                <th>Fase</th>
+                <th>Partido/Federação</th>
+                <th>Votos</th>
+                <th>Vagas Ant.</th>
+                <th>Divisor</th>
+                <th>Média</th>
+                <th>Candidato Contemplado</th>
+                <th>Votos Cand.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Dynamic Audit Rows -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: CENÁRIOS SALVOS (Item 11) -->
+    <section id="tab-scenarios" class="tab-content">
+      <div class="glass-card">
+        <div class="card-title-bar">
+          <h2>Gerenciador de Cenários</h2>
+          <button id="btn-save-current-scenario" class="btn btn-primary btn-sm">+ Salvar Cenário Atual</button>
+        </div>
+        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px;">
+          Os cenários são salvos exclusivamente no armazenamento local do seu navegador (localStorage).
+        </p>
+
+        <div style="display: flex; gap: 8px; margin-bottom: 14px;">
+          <button id="btn-export-scenarios" class="btn btn-secondary btn-sm">Exportar Cenários (JSON)</button>
+          <input type="file" id="input-import-scenarios-file" accept=".json" style="display: none;">
+          <button id="btn-trigger-import-scenarios" class="btn btn-outline btn-sm">Importar Cenários</button>
+        </div>
+
+        <div id="scenarios-list" style="display: flex; flex-direction: column; gap: 10px;">
+          <!-- Dynamic Scenario Cards -->
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: SOBRE (Item 14) -->
+    <section id="tab-about" class="tab-content">
+      <div class="glass-card" style="display: flex; flex-direction: column; gap: 14px;">
+        <div class="card-title-bar">
+          <h2>Sobre o Simulador Eleitoral 2026 MS</h2>
+        </div>
+        
+        <div>
+          <h4 style="color: var(--primary-light);">Origem da Base de Candidaturas</h4>
+          <p style="font-size: 0.85rem; color: #CBD5E1;">
+            A aplicação utiliza a base de candidaturas oficiais do Tribunal Superior Eleitoral (TSE) para as Eleições 2026 em Mato Grosso do Sul, garantindo conformidade nominal, registro partidário e federações.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color: var(--primary-light);">Quociente Eleitoral (QE) e Quociente Partidário (QP)</h4>
+          <p style="font-size: 0.85rem; color: #CBD5E1;">
+            <strong>QE</strong> = Votos Válidos ÷ Número de Vagas (24 para Deputado Estadual / 8 para Deputado Federal). Fração até 0,5 é desprezada; superior a 0,5 arredonda-se para cima.<br>
+            <strong>QP</strong> = Votos Totais do Partido ou Federação ÷ QE (apenas a parte inteira).
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color: var(--primary-light);">Cláusula de Barreira Individual (10% do QE)</h4>
+          <p style="font-size: 0.85rem; color: #CBD5E1;">
+            Para ocupar qualquer vaga conquistada pelo QP, o candidato precisa ter obtido votação nominal igual ou superior a 10% do Quociente Eleitoral.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color: var(--primary-light);">Distribuição das Sobras (Regra 80/20 & Sobras Gerais)</h4>
+          <p style="font-size: 0.85rem; color: #CBD5E1;">
+            <strong>Fase 80/20:</strong> Concorrem apenas os partidos/federações que atingirem pelo menos 80% do QE e que possuam candidatos com no mínimo 20% do QE.<br>
+            <strong>Sobras Gerais (ADI 7228/7263 STF):</strong> Vagas remanescentes não preenchidas na fase 80/20 são distribuídas pelas maiores médias a todos os partidos/federações com candidatos elegíveis (≥ 20% do QE).<br>
+            A cada vaga concedida, a média é recalculada: <code>Média = Votos Totais ÷ (Vagas Já Conquistadas + 1)</code>.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color: var(--primary-light);">Federações Partidárias</h4>
+          <p style="font-size: 0.85rem; color: #CBD5E1;">
+            As federações partidárias registradas atuam como uma única agremiação partidária na contagem e rateio de vagas proporcionais.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color: var(--primary-light);">Privacidade e Armazenamento Local</h4>
+          <p style="font-size: 0.85rem; color: #CBD5E1;">
+            Não há envio de dados para servidores externos. Todo o processamento e salvamento de cenários ocorrem 100% no seu próprio dispositivo através de <code>localStorage</code> e PWA Offline.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <nav class="mobile-nav-bar" style="display: flex; flex-direction: column; align-items: center; padding: 10px 0;">
+    <div style="display: flex; justify-content: space-around; width: 100%;">
+      <button class="nav-tab-btn active" data-tab="tab-simulation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+        <span>Simulação</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="tab-results">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path></svg>
+        <span>Resultados</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="tab-audit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+        <span>Auditoria</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="tab-scenarios">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+        <span>Cenários</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Modal de Autenticação / Definição do PIN de 6 Dígitos -->
+  <div id="modal-pin" class="modal-backdrop">
+    <div class="modal-box" style="max-width: 380px; text-align: center;">
+      <h3 id="pin-modal-title" style="color: #FFFFFF; font-size: 1.15rem;">Acesso Administrativo</h3>
+      <p id="pin-modal-desc" style="font-size: 0.85rem; color: var(--text-muted);">
+        Digite o PIN de 6 dígitos para acessar o painel:
+      </p>
+
+      <div class="pin-input-container">
+        <input type="password" maxlength="1" class="pin-digit-input" data-index="0" inputmode="numeric">
+        <input type="password" maxlength="1" class="pin-digit-input" data-index="1" inputmode="numeric">
+        <input type="password" maxlength="1" class="pin-digit-input" data-index="2" inputmode="numeric">
+        <input type="password" maxlength="1" class="pin-digit-input" data-index="3" inputmode="numeric">
+        <input type="password" maxlength="1" class="pin-digit-input" data-index="4" inputmode="numeric">
+        <input type="password" maxlength="1" class="pin-digit-input" data-index="5" inputmode="numeric">
+      </div>
+
+      <div id="pin-error-msg" style="color: var(--accent-red); font-size: 0.8rem; height: 20px;"></div>
+
+      <div style="display: flex; gap: 8px; justify-content: center; margin-top: 8px;">
+        <button id="btn-cancel-pin" class="btn btn-secondary btn-sm">Cancelar</button>
+        <button id="btn-confirm-pin" class="btn btn-primary btn-sm">Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal do Painel ADM (Controle de Cargos e PIN) -->
+  <div id="modal-adm-panel" class="modal-backdrop">
+    <div class="modal-box">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h3 style="color: #FFFFFF; font-size: 1.15rem;">Painel Administrativo</h3>
+        <button id="btn-close-adm-panel" class="btn btn-secondary btn-sm">✕</button>
+      </div>
+
+      <p style="font-size: 0.85rem; color: var(--text-muted);">
+        Controle a visibilidade dos simuladores e a segurança de acesso:
+      </p>
+
+      <!-- Habilitar / Desabilitar Cargos -->
+      <div class="form-group" style="gap: 12px;">
+        <label class="form-label">Exibição dos Cargos no Simulador:</label>
+        
+        <label style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: var(--bg-input); border-radius: var(--radius-sm); border: 1px solid var(--border-color); cursor: pointer;">
+          <div>
+            <strong style="font-size: 0.95rem; color: #FFFFFF;">Deputado Estadual (24 Vagas)</strong>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">Exibir opção de simulação estadual</div>
+          </div>
+          <input type="checkbox" id="adm-toggle-estadual" checked style="width: 20px; height: 20px; accent-color: var(--primary-light);">
+        </label>
+
+        <label style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: var(--bg-input); border-radius: var(--radius-sm); border: 1px solid var(--border-color); cursor: pointer;">
+          <div>
+            <strong style="font-size: 0.95rem; color: #FFFFFF;">Deputado Federal (8 Vagas)</strong>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">Exibir opção de simulação federal</div>
+          </div>
+          <input type="checkbox" id="adm-toggle-federal" checked style="width: 20px; height: 20px; accent-color: var(--primary-light);">
+        </label>
+      </div>
+
+      <!-- Configuração de Segurança com PIN -->
+      <div class="form-group" style="margin-top: 6px; gap: 8px;">
+        <label class="form-label">Segurança de Acesso por PIN:</label>
+        <label style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: var(--bg-input); border-radius: var(--radius-sm); border: 1px solid var(--border-color); cursor: pointer;">
+          <div>
+            <strong style="font-size: 0.95rem; color: #FFFFFF;">Exigir PIN de 6 dígitos no Início</strong>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">Bloqueia a plataforma até digitar o PIN</div>
+          </div>
+          <input type="checkbox" id="adm-toggle-require-pin" style="width: 20px; height: 20px; accent-color: var(--primary-light);">
+        </label>
+        <button id="btn-change-pin" class="btn btn-secondary btn-sm" style="align-self: flex-start;">Redefinir PIN de 6 Dígitos</button>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 10px;">
+        <button id="btn-save-adm-settings" class="btn btn-primary btn-sm">Salvar Preferências</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/app.js"></script>
+  <script>
+    // Limpeza de cache antigo e garantia de carregamento instantâneo
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(registrations => {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+      if ('caches' in window) {
+        caches.keys().then(names => {
+          for (let name of names) caches.delete(name);
+        });
+      }
+    }
+  </script>
+</body>
+</html>
