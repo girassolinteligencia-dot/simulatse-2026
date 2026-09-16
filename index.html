@@ -118,6 +118,42 @@
         <!-- Renderizado dinamicamente com todas as chapas oficiais -->
       </section>
 
+      <!-- Importador Discreto de Dados de Pesquisa Eleitoral -->
+      <section class="glass-card" style="margin-top: 14px; border-style: dashed; border-color: #CBD5E1; background: #FFFFFF;">
+        <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" id="toggle-survey-importer">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--primary-light);"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <strong style="font-size: 0.88rem; color: var(--text-main);">Importar Dados de Pesquisa Eleitoral</strong>
+          </div>
+          <span id="survey-chevron" style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700;">+ Expandir</span>
+        </div>
+
+        <div id="survey-importer-body" style="display: none; margin-top: 12px; flex-direction: column; gap: 10px;">
+          <div style="background: #F8FAFC; border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 10px 12px; font-size: 0.78rem; color: var(--text-muted); line-height: 1.5;">
+            <strong style="color: var(--text-main); display: block; margin-bottom: 4px;">Como Proceder:</strong>
+            1. Cole abaixo o texto da pesquisa com os percentuais ou votos nominais (ex: <code>Beto Pereira 18,5%</code> ou <code>Geraldo Resende: 35.000</code>).<br>
+            2. Você também pode importar diretamente um arquivo <strong>.JSON</strong> ou <strong>.CSV</strong> de pesquisa.<br>
+            3. O simulador converterá as porcentagens automaticamente em votos nominais proporcionais aos votos válidos definidos no topo.
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <textarea id="textarea-survey-input" class="form-input" rows="4" placeholder="Cole aqui o texto ou dados da pesquisa (Exemplo:&#10;Geraldo Resende: 12.5%&#10;Marcos Pollon: 11.2%&#10;Dagoberto: 8.0%)" style="font-family: inherit; font-size: 0.82rem; resize: vertical;"></textarea>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <div style="display: flex; gap: 6px;">
+              <input type="file" id="file-survey-input" accept=".json,.csv,.txt" style="display: none;">
+              <button id="btn-trigger-survey-file" class="btn btn-secondary btn-sm">Carregar Arquivo (.csv / .json)</button>
+            </div>
+            <button id="btn-process-survey" class="btn btn-primary btn-sm" style="font-weight: 700;">
+              Processar e Preencher Votos
+            </button>
+          </div>
+
+          <div id="survey-feedback-msg" style="font-size: 0.75rem; min-height: 16px;"></div>
+        </div>
+      </section>
+
     </main>
 
     <!-- TAB 2: RESULTADOS & BUSINESS INTELLIGENCE -->

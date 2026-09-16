@@ -495,6 +495,169 @@ function setupGlobalInputs() {
   document.getElementById('btn-run-simulation').addEventListener('click', () => {
     executeSimulation();
   });
+
+  setupSurveyImporter();
+}
+
+/**
+ * Módulo Discreto de Importação e Parsing de Pesquisas Eleitorais
+ */
+function setupSurveyImporter() {
+  const toggleBtn = document.getElementById('toggle-survey-importer');
+  const body = document.getElementById('survey-importer-body');
+  const chevron = document.getElementById('survey-chevron');
+  const textarea = document.getElementById('textarea-survey-input');
+  const btnProcess = document.getElementById('btn-process-survey');
+  const feedback = document.getElementById('survey-feedback-msg');
+  const fileInput = document.getElementById('file-survey-input');
+  const btnTriggerFile = document.getElementById('btn-trigger-survey-file');
+
+  if (!toggleBtn || !body) return;
+
+  toggleBtn.addEventListener('click', () => {
+    const isHidden = body.style.display === 'none' || !body.style.display;
+    body.style.display = isHidden ? 'flex' : 'none';
+    chevron.textContent = isHidden ? '− Recolher' : '+ Expandir';
+  });
+
+  if (btnTriggerFile && fileInput) {
+    btnTriggerFile.addEventListener('click', () => fileInput.click());
+
+    fileInput.addEventListener('change', async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      try {
+        const content = await file.text();
+        textarea.value = content;
+        processSurveyInput(content);
+      } catch (err) {
+        feedback.style.color = 'var(--accent-red)';
+        feedback.textContent = `Erro ao ler arquivo: ${err.message}`;
+      }
+    });
+  }
+
+  if (btnProcess) {
+    btnProcess.addEventListener('click', () => {
+      const content = textarea.value.trim();
+      if (!content) {
+        feedback.style.color = 'var(--accent-red)';
+        feedback.textContent = 'Cole os dados da pesquisa ou selecione um arquivo primeiro.';
+        return;
+      }
+      processSurveyInput(content);
+    });
+  }
+
+  function processSurveyInput(text) {
+    feedback.style.color = 'var(--primary-light)';
+    feedback.textContent = 'Processando dados da pesquisa...';
+
+    try {
+      // 1. Tenta interpretar como JSON
+      if (text.startsWith('{') || text.startsWith('[')) {
+        try {
+          const parsedJson = JSON.parse(text);
+          applySurveyJson(parsedJson);
+          return;
+        } catch (e) {}
+      }
+
+      // 2. Parser textual linha por linha (percentuais ou votos absolutos)
+      const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
+      let matchedCount = 0;
+      const targetValidVotes = state.validVotes;
+
+      lines.forEach(line => {
+        // Padrões como: "Nome: 15,5%", "Nome - 12%", "Nome: 45.000", "Nome 45000"
+        const percentMatch = line.match(/([a-zA-ZÀ-ÿ\s\.\-]{3,})[:\-\t,]+([0-9]+[.,]?[0-9]*)\s*%/);
+        const absoluteMatch = line.match(/([a-zA-ZÀ-ÿ\s\.\-]{3,})[:\-\t,]+([0-9]{1,3}(?:\.[0-9]{3})+|[0-9]{4,})/);
+
+        if (percentMatch) {
+          const rawName = percentMatch[1].trim();
+          const percentVal = parseFloat(percentMatch[2].replace(',', '.'));
+          if (!isNaN(percentVal) && percentVal > 0) {
+            const calculatedVotes = Math.round((percentVal / 100) * targetValidVotes);
+            if (assignVotesToCandidateOrParty(rawName, calculatedVotes)) {
+              matchedCount++;
+            }
+          }
+        } else if (absoluteMatch) {
+          const rawName = absoluteMatch[1].trim();
+          const votesVal = parseNumberFromMask(absoluteMatch[2]);
+          if (votesVal > 0) {
+            if (assignVotesToCandidateOrParty(rawName, votesVal)) {
+              matchedCount++;
+            }
+          }
+        }
+      });
+
+      if (matchedCount > 0) {
+        saveDraft();
+        renderPartyGroups();
+        updateMetricsDisplay();
+        feedback.style.color = 'var(--accent-green)';
+        feedback.textContent = `Sucesso! ${matchedCount} candidatos/partidos identificados e atualizados na base oficial.`;
+      } else {
+        feedback.style.color = 'var(--accent-yellow)';
+        feedback.textContent = 'Não foi possível associar automaticamente os nomes às candidaturas oficiais de MS. Verifique a grafia dos nomes.';
+      }
+
+    } catch (err) {
+      feedback.style.color = 'var(--accent-red)';
+      feedback.textContent = `Erro ao processar: ${err.message}`;
+    }
+  }
+
+  function applySurveyJson(data) {
+    const list = Array.isArray(data) ? data : data.candidatos || data.pesquisa || [];
+    let matched = 0;
+    list.forEach(item => {
+      const name = item.nome || item.candidato || item.name;
+      let votes = item.votos || item.votes;
+      if (item.percentual || item.percent) {
+        const pct = parseFloat((item.percentual || item.percent).toString().replace(',', '.'));
+        votes = Math.round((pct / 100) * state.validVotes);
+      }
+      if (name && votes) {
+        if (assignVotesToCandidateOrParty(name, parseNumberFromMask(votes))) {
+          matched++;
+        }
+      }
+    });
+
+    if (matched > 0) {
+      saveDraft();
+      renderPartyGroups();
+      updateMetricsDisplay();
+      feedback.style.color = 'var(--accent-green)';
+      feedback.textContent = `JSON processado: ${matched} registros importados com sucesso!`;
+    }
+  }
+
+  function assignVotesToCandidateOrParty(searchName, votes) {
+    const normSearch = candidateStore.constructor.normalizeText(searchName);
+    
+    // Procura nos candidatos dos grupos carregados
+    for (const group of state.partyGroups) {
+      for (const cand of group.candidates) {
+        const normNome = candidateStore.constructor.normalizeText(cand.nome);
+        const normCompleto = candidateStore.constructor.normalizeText(cand.nomeCompleto || '');
+        if (normNome === normSearch || normNome.includes(normSearch) || normSearch.includes(normNome) || (normCompleto && normCompleto.includes(normSearch))) {
+          cand.votes = votes;
+          return true;
+        }
+      }
+      // Se coincidir com o partido ou federação direta (votos de legenda)
+      const normGroup = candidateStore.constructor.normalizeText(group.name);
+      if (normGroup === normSearch || normGroup.includes(normSearch)) {
+        group.partyVotes = votes;
+        return true;
+      }
+    }
+    return false;
+  }
 }
 
 function autoDistributeRealisticVotes() {
