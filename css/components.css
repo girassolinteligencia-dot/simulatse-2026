@@ -1073,3 +1073,62 @@
     transform: translateY(-12px) scale(0.96);
   }
 }
+
+
+/* ==========================================================================
+   AVATAR E FOTOS DOS CANDIDATOS (TSE)
+   ========================================================================== */
+.candidate-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.candidate-avatar-col {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--bg-card, #FFFFFF);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1.5px solid var(--border-color, #CBD5E1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.candidate-avatar-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  border-radius: 50%;
+}
+
+.candidate-avatar-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #004C97 0%, #0284C7 100%);
+  border-radius: 50%;
+  letter-spacing: 0.02em;
+}
+
+.cand-badge-number {
+  font-size: 0.68rem;
+  font-weight: 800;
+  background: rgba(0, 76, 151, 0.1);
+  color: var(--primary, #004C97);
+  padding: 1px 5px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 76, 151, 0.2);
+}

@@ -19,8 +19,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=1789572808556">
-  <link rel="stylesheet" href="css/components.css?v=1789572808556">
+  <link rel="stylesheet" href="css/main.css?v=1789573964073">
+  <link rel="stylesheet" href="css/components.css?v=1789573964073">
 </head>
 <body>
 
@@ -143,7 +143,7 @@
       <!-- Empty State Amigável (UX Nielsen Heuristic: Visibilidade e Prevenção de Desorientação) -->
       <div id="results-empty-state" class="glass-card empty-state-card" style="display: block; text-align: center; padding: 28px 16px; margin-bottom: 12px;">
         <div style="font-size: 2.2rem; margin-bottom: 8px;">📊</div>
-        <h3 style="font-size: 1.05rem; font-weight: 700; color: #FFFFFF; margin-bottom: 6px;">Nenhuma simulação gerada ainda</h3>
+        <h3 style="font-size: 1.05rem; font-weight: 700; color: #FFFFFF; margin-bottom: 6px;">Nenhuma simulação gerada para <span id="results-empty-cargo-name" style="color: var(--primary-light);">Deputado Estadual</span></h3>
         <p style="font-size: 0.82rem; color: var(--text-muted); max-width: 320px; margin: 0 auto 14px auto; line-height: 1.4;">
           Preencha os votos das agremiações e candidatos na aba <b>Simulação</b> para desbloquear o Cockpit Oficial de Vagas e Quocientes.
         </p>
@@ -512,7 +512,7 @@
   <div id="status-drawer-backdrop" class="status-drawer-backdrop"></div>
 
   <!-- Scripts -->
-  <script type="module" src="js/app.js?v=1789572808556"></script>
+  <script type="module" src="js/app.js?v=1789573964073"></script>
   <script>
     // Limpeza de cache antigo e garantia de carregamento instantâneo
     if ('serviceWorker' in navigator) {

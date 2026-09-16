@@ -1,4 +1,34 @@
 
+// Atualiza a visão da aba de Resultados isolada e especificamente para o cargo ativo
+function updateResultsViewForCurrentCargo() {
+  const currentResult = state.simulationResults ? state.simulationResults[state.currentCargo] : null;
+  const emptyState = document.getElementById('results-empty-state');
+  const biContent = document.getElementById('results-bi-content');
+  const emptyCargoName = document.getElementById('results-empty-cargo-name');
+
+  if (emptyCargoName) {
+    emptyCargoName.textContent = state.currentCargo === 'DEPUTADO ESTADUAL' ? 'Deputado Estadual' : 'Deputado Federal';
+  }
+
+  if (currentResult) {
+    if (emptyState) emptyState.style.display = 'none';
+    if (biContent) biContent.style.display = 'block';
+    displayResults(currentResult);
+  } else {
+    if (biContent) biContent.style.display = 'none';
+    if (emptyState) emptyState.style.display = 'block';
+  }
+}
+
+
+function getInitials(name) {
+  if (!name) return 'CD';
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+}
+
+
 // ==========================================================================
 // SEGURANÇA E HIGIENIZAÇÃO DE DADOS (PWA Client-Side Baseline)
 // ==========================================================================
@@ -90,7 +120,10 @@ const state = {
   totalSeats: 24,                    // 24 para Estadual, 8 para Federal
   validVotes: 1400000,
   partyGroups: [],                   // Agrupamentos oficiais por Partido ou Federação
-  lastSimulationResult: null,
+  simulationResults: {
+    'DEPUTADO ESTADUAL': null,
+    'DEPUTADO FEDERAL': null
+  },
   admSettings: {
     showEstadual: true,
     showFederal: true,
@@ -232,6 +265,7 @@ function onCargoChanged() {
   renderPartyGroups();
   renderPartiesStatusSidebar();
   updateMetricsDisplay();
+  updateResultsViewForCurrentCargo();
 }
 
 /**
@@ -437,9 +471,7 @@ function renderPartyGroups() {
           <span class="party-group-chevron">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </span>
-          <div class="party-header-logo" title="${group.name}">
-            ${getPartyLogoSvg(group.name)}
-          </div>
+          
           <div style="min-width: 0; flex: 1;">
             <strong style="color: var(--text-main); font-size: 0.92rem; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${group.name}</strong>
             <span style="font-size: 0.7rem; color: var(--text-muted);">${group.candidates.length} candidatos</span>
@@ -459,11 +491,26 @@ function renderPartyGroups() {
           ${group.candidates.map((cand, candIndex) => {
             const isNonDeferido = cand.situacao && cand.situacao !== 'DEFERIDO';
             const hasVotes = cand.votes && cand.votes > 0;
+            const fotoUrl = cand.foto_url || (cand.sq ? `fotos_tse/${cand.sq}.webp` : '');
+            const initials = getInitials(cand.nome);
+            const numDisplay = cand.numero ? `<span class="cand-badge-number">${escapeHtml(cand.numero)}</span>` : '';
+
             return `
               <div class="candidate-row ${hasVotes ? 'has-votes' : ''}" id="cand-row-${groupIndex}-${candIndex}">
+                <div class="candidate-avatar-col">
+                  ${fotoUrl ? `
+                    <img src="${fotoUrl}" alt="${escapeHtml(cand.nome)}" class="candidate-avatar-thumb" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="candidate-avatar-fallback" style="display: none;">${initials}</div>
+                  ` : `
+                    <div class="candidate-avatar-fallback">${initials}</div>
+                  `}
+                </div>
                 <div class="candidate-info">
-                  <span class="candidate-name">${escapeHtml(cand.nome)}</span>
-                  <div style="font-size: 0.7rem; color: var(--text-muted); display: flex; gap: 4px; align-items: center;">
+                  <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                    <span class="candidate-name">${escapeHtml(cand.nome)}</span>
+                    ${numDisplay}
+                  </div>
+                  <div style="font-size: 0.7rem; color: var(--text-muted); display: flex; gap: 4px; align-items: center; flex-wrap: wrap;">
                     <span style="font-weight: 700; color: var(--pastel-green-text);">${escapeHtml(cand.partido)}</span>
                     ${cand.nomeCompleto && cand.nomeCompleto !== cand.nome ? `<span style="color: var(--text-dim);">• ${escapeHtml(cand.nomeCompleto)}</span>` : ''}
                     ${isNonDeferido ? `<span class="badge badge-red" style="font-size: 0.6rem; padding: 1px 4px;">${escapeHtml(cand.situacao)}</span>` : ''}
@@ -1047,14 +1094,12 @@ function executeSimulation() {
     groups: state.partyGroups
   });
 
+  if (!state.simulationResults) {
+    state.simulationResults = {};
+  }
+  state.simulationResults[state.currentCargo] = result;
   state.lastSimulationResult = result;
-  displayResults(result);
-
-  // Gerencia Empty State vs Cockpit de BI
-  const emptyState = document.getElementById('results-empty-state');
-  const biContent = document.getElementById('results-bi-content');
-  if (emptyState) emptyState.style.display = 'none';
-  if (biContent) biContent.style.display = 'block';
+  updateResultsViewForCurrentCargo();
 
   showToast('✨ Distribuição oficial de vagas calculada com sucesso!', 'success');
 

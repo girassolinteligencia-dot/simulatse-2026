@@ -1,4 +1,3 @@
-// Base Oficial Consolidada do TSE para MS 2026 (373 candidaturas)
 export const officialCandidates = [
   {
     "nome": "LYA SANTOS",
@@ -7,7 +6,10 @@ export const officialCandidates = [
     "partido": "REDE",
     "federacao": "FEDERAÇÃO PSOL REDE",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002532716",
+    "numero": "1818",
+    "foto_url": "fotos_tse/120002532716.webp"
   },
   {
     "nome": "CLAUDIO",
@@ -16,7 +18,10 @@ export const officialCandidates = [
     "partido": "AGIR",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002534955",
+    "numero": "3636",
+    "foto_url": "fotos_tse/120002534955.webp"
   },
   {
     "nome": "SIRLENE DOS SANTOS",
@@ -25,7 +30,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535262",
+    "numero": "4510",
+    "foto_url": "fotos_tse/120002535262.webp"
   },
   {
     "nome": "VIVIANE LUIZA",
@@ -34,7 +42,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535265",
+    "numero": "4545",
+    "foto_url": "fotos_tse/120002535265.webp"
   },
   {
     "nome": "DR. ROTTERDAM",
@@ -43,7 +54,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535514",
+    "numero": "45067",
+    "foto_url": "fotos_tse/120002535514.webp"
   },
   {
     "nome": "JÚLIA NEWS",
@@ -61,7 +75,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535536",
+    "numero": "45123",
+    "foto_url": "fotos_tse/120002535536.webp"
   },
   {
     "nome": "ANDRE SALINEIRO",
@@ -79,7 +96,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536071",
+    "numero": "22700",
+    "foto_url": "fotos_tse/120002536071.webp"
   },
   {
     "nome": "ANA ABDO",
@@ -88,7 +108,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536076",
+    "numero": "22456",
+    "foto_url": "fotos_tse/120002536076.webp"
   },
   {
     "nome": "NANAH CORDEIRO",
@@ -97,7 +120,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537360",
+    "numero": "1067",
+    "foto_url": "fotos_tse/120002537360.webp"
   },
   {
     "nome": "CHICÃO VIANNA",
@@ -106,7 +132,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537509",
+    "numero": "10777",
+    "foto_url": "fotos_tse/120002537509.webp"
   },
   {
     "nome": "NILVA RAMOS",
@@ -115,7 +144,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537513",
+    "numero": "10122",
+    "foto_url": "fotos_tse/120002537513.webp"
   },
   {
     "nome": "VALDENIR MACHADO",
@@ -124,7 +156,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537521",
+    "numero": "10180",
+    "foto_url": "fotos_tse/120002537521.webp"
   },
   {
     "nome": "MANOEL VITÓRIO",
@@ -133,7 +168,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002538952",
+    "numero": "1507",
+    "foto_url": "fotos_tse/120002538952.webp"
   },
   {
     "nome": "KELLYANNE CORREA",
@@ -142,7 +180,10 @@ export const officialCandidates = [
     "partido": "MISSÃO",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544960",
+    "numero": "1441",
+    "foto_url": "fotos_tse/120002544960.webp"
   },
   {
     "nome": "SÔNIA PEIXOTO",
@@ -151,7 +192,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544969",
+    "numero": "30355",
+    "foto_url": "fotos_tse/120002544969.webp"
   },
   {
     "nome": "LUANA RIQUEZA",
@@ -160,7 +204,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544976",
+    "numero": "30067",
+    "foto_url": "fotos_tse/120002544976.webp"
   },
   {
     "nome": "THIAGO LOUREIRO",
@@ -169,7 +216,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544977",
+    "numero": "30077",
+    "foto_url": "fotos_tse/120002544977.webp"
   },
   {
     "nome": "CLARINEU NOGUEIRA",
@@ -178,7 +228,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002547057",
+    "numero": "13333",
+    "foto_url": "fotos_tse/120002547057.webp"
   },
   {
     "nome": "LEINHA",
@@ -187,7 +240,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549563",
+    "numero": "70555",
+    "foto_url": "fotos_tse/120002549563.webp"
   },
   {
     "nome": "LUIS BRIZOLA",
@@ -196,7 +252,10 @@ export const officialCandidates = [
     "partido": "PDT",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549691",
+    "numero": "1200",
+    "foto_url": "fotos_tse/120002549691.webp"
   },
   {
     "nome": "SUB DR ALMADA",
@@ -205,7 +264,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002550714",
+    "numero": "7007",
+    "foto_url": "fotos_tse/120002550714.webp"
   },
   {
     "nome": "DOMICIO JUNIOR",
@@ -214,7 +276,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002550717",
+    "numero": "7000",
+    "foto_url": "fotos_tse/120002550717.webp"
   },
   {
     "nome": "NATÁLIA FERREIRA",
@@ -223,7 +288,10 @@ export const officialCandidates = [
     "partido": "PDT",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002551716",
+    "numero": "12014",
+    "foto_url": "fotos_tse/120002551716.webp"
   },
   {
     "nome": "JOICY LOUREIRO",
@@ -232,7 +300,10 @@ export const officialCandidates = [
     "partido": "PDT",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002551723",
+    "numero": "12900",
+    "foto_url": "fotos_tse/120002551723.webp"
   },
   {
     "nome": "SERGIO FAHED",
@@ -241,7 +312,10 @@ export const officialCandidates = [
     "partido": "SOLIDARIEDADE",
     "federacao": "FEDERAÇÃO RENOVAÇÃO SOLIDÁRIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552175",
+    "numero": "7711",
+    "foto_url": "fotos_tse/120002552175.webp"
   },
   {
     "nome": "LUCIANA MENDONÇA",
@@ -250,7 +324,10 @@ export const officialCandidates = [
     "partido": "PRD",
     "federacao": "FEDERAÇÃO RENOVAÇÃO SOLIDÁRIA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552176",
+    "numero": "2577",
+    "foto_url": "fotos_tse/120002552176.webp"
   },
   {
     "nome": "SANDRA CABANHA",
@@ -259,7 +336,10 @@ export const officialCandidates = [
     "partido": "PRD",
     "federacao": "FEDERAÇÃO RENOVAÇÃO SOLIDÁRIA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552205",
+    "numero": "25082",
+    "foto_url": "fotos_tse/120002552205.webp"
   },
   {
     "nome": "PREGUIÇA",
@@ -268,7 +348,10 @@ export const officialCandidates = [
     "partido": "PRD",
     "federacao": "FEDERAÇÃO RENOVAÇÃO SOLIDÁRIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552211",
+    "numero": "25777",
+    "foto_url": "fotos_tse/120002552211.webp"
   },
   {
     "nome": "ROSANGELA BENITES",
@@ -277,7 +360,10 @@ export const officialCandidates = [
     "partido": "PCO",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552687",
+    "numero": "2999",
+    "foto_url": "fotos_tse/120002552687.webp"
   },
   {
     "nome": "CAMILA ARAUJO",
@@ -286,7 +372,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002553022",
+    "numero": "27002",
+    "foto_url": "fotos_tse/120002553022.webp"
   },
   {
     "nome": "CLAUDIA TELES",
@@ -295,7 +384,10 @@ export const officialCandidates = [
     "partido": "PSOL",
     "federacao": "FEDERAÇÃO PSOL REDE",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002532718",
+    "numero": "5000",
+    "foto_url": "fotos_tse/120002532718.webp"
   },
   {
     "nome": "DR. VICTOR ROCHA",
@@ -304,7 +396,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535259",
+    "numero": "4533",
+    "foto_url": "fotos_tse/120002535259.webp"
   },
   {
     "nome": "BIA CAVASSA",
@@ -313,7 +408,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535260",
+    "numero": "4500",
+    "foto_url": "fotos_tse/120002535260.webp"
   },
   {
     "nome": "IZAÍAS ROCHA",
@@ -322,7 +420,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535526",
+    "numero": "45111",
+    "foto_url": "fotos_tse/120002535526.webp"
   },
   {
     "nome": "WAGNER PEREIRA",
@@ -331,7 +432,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535534",
+    "numero": "45678",
+    "foto_url": "fotos_tse/120002535534.webp"
   },
   {
     "nome": "COLETIVO DE SERVIDORES",
@@ -340,7 +444,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535533",
+    "numero": "45192",
+    "foto_url": "fotos_tse/120002535533.webp"
   },
   {
     "nome": "MARCOS POLLON",
@@ -349,7 +456,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536282",
+    "numero": "2222",
+    "foto_url": "fotos_tse/120002536282.webp"
   },
   {
     "nome": "BETO PEREIRA",
@@ -358,7 +468,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537355",
+    "numero": "1010",
+    "foto_url": "fotos_tse/120002537355.webp"
   },
   {
     "nome": "THALITA",
@@ -367,7 +480,10 @@ export const officialCandidates = [
     "partido": "PCDOB",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537461",
+    "numero": "6523",
+    "foto_url": "fotos_tse/120002537461.webp"
   },
   {
     "nome": "ELIAS ISHY",
@@ -376,7 +492,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537462",
+    "numero": "1313",
+    "foto_url": "fotos_tse/120002537462.webp"
   },
   {
     "nome": "MARQUINHOS TRAD",
@@ -385,7 +504,10 @@ export const officialCandidates = [
     "partido": "PV",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537466",
+    "numero": "4333",
+    "foto_url": "fotos_tse/120002537466.webp"
   },
   {
     "nome": "VAGNER PANELA",
@@ -394,7 +516,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537499",
+    "numero": "10601",
+    "foto_url": "fotos_tse/120002537499.webp"
   },
   {
     "nome": "MARINES OLIVEIRA",
@@ -403,7 +528,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537500",
+    "numero": "10789",
+    "foto_url": "fotos_tse/120002537500.webp"
   },
   {
     "nome": "ALESSANDRA ALENCAR",
@@ -412,7 +540,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537510",
+    "numero": "10102",
+    "foto_url": "fotos_tse/120002537510.webp"
   },
   {
     "nome": "ALISON AUGUSTO",
@@ -421,7 +552,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537514",
+    "numero": "10190",
+    "foto_url": "fotos_tse/120002537514.webp"
   },
   {
     "nome": "VANDERSON CARDOSO",
@@ -430,7 +564,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537518",
+    "numero": "10333",
+    "foto_url": "fotos_tse/120002537518.webp"
   },
   {
     "nome": "SAYURI BAEZ",
@@ -439,7 +576,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537520",
+    "numero": "10322",
+    "foto_url": "fotos_tse/120002537520.webp"
   },
   {
     "nome": "ALAN GUEDES",
@@ -448,7 +588,10 @@ export const officialCandidates = [
     "partido": "PP",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002538787",
+    "numero": "1155",
+    "foto_url": "fotos_tse/120002538787.webp"
   },
   {
     "nome": "SANDRO AZAMBUJA",
@@ -457,7 +600,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002538946",
+    "numero": "1522",
+    "foto_url": "fotos_tse/120002538946.webp"
   },
   {
     "nome": "JAMILSON NAME",
@@ -466,7 +612,10 @@ export const officialCandidates = [
     "partido": "PP",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002539693",
+    "numero": "11444",
+    "foto_url": "fotos_tse/120002539693.webp"
   },
   {
     "nome": "JULIANA GAIOSO",
@@ -475,7 +624,10 @@ export const officialCandidates = [
     "partido": "PP",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002539696",
+    "numero": "11122",
+    "foto_url": "fotos_tse/120002539696.webp"
   },
   {
     "nome": "FABRÍCIO VENTUROLI",
@@ -484,7 +636,10 @@ export const officialCandidates = [
     "partido": "PP",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002539701",
+    "numero": "11422",
+    "foto_url": "fotos_tse/120002539701.webp"
   },
   {
     "nome": "GERSON CLARO",
@@ -493,7 +648,10 @@ export const officialCandidates = [
     "partido": "PP",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002539703",
+    "numero": "11111",
+    "foto_url": "fotos_tse/120002539703.webp"
   },
   {
     "nome": "OLIVEIRA",
@@ -502,7 +660,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544704",
+    "numero": "15800",
+    "foto_url": "fotos_tse/120002544704.webp"
   },
   {
     "nome": "JOÃO TRINDADE",
@@ -511,7 +672,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544708",
+    "numero": "15067",
+    "foto_url": "fotos_tse/120002544708.webp"
   },
   {
     "nome": "PROF. ANDRÉ LUIS",
@@ -529,7 +693,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544962",
+    "numero": "30010",
+    "foto_url": "fotos_tse/120002544962.webp"
   },
   {
     "nome": "MARCOS GUIMARÃES",
@@ -538,7 +705,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544973",
+    "numero": "30003",
+    "foto_url": "fotos_tse/120002544973.webp"
   },
   {
     "nome": "MIRIAM GIMENEZ",
@@ -547,7 +717,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002545234",
+    "numero": "3060",
+    "foto_url": "fotos_tse/120002545234.webp"
   },
   {
     "nome": "SUBTENENTE MOTA",
@@ -556,7 +729,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002545237",
+    "numero": "3022",
+    "foto_url": "fotos_tse/120002545237.webp"
   },
   {
     "nome": "DR. JORGE LAURICIO",
@@ -565,7 +741,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002547064",
+    "numero": "13444",
+    "foto_url": "fotos_tse/120002547064.webp"
   },
   {
     "nome": "RONALDINHO",
@@ -574,7 +753,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549564",
+    "numero": "70100",
+    "foto_url": "fotos_tse/120002549564.webp"
   },
   {
     "nome": "DRA. ROSALINA",
@@ -583,7 +765,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549565",
+    "numero": "70200",
+    "foto_url": "fotos_tse/120002549565.webp"
   },
   {
     "nome": "SIDCLEY BRASIL",
@@ -592,7 +777,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549581",
+    "numero": "70111",
+    "foto_url": "fotos_tse/120002549581.webp"
   },
   {
     "nome": "RHAUANE FARIA",
@@ -601,7 +789,10 @@ export const officialCandidates = [
     "partido": "PDT",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549686",
+    "numero": "1212",
+    "foto_url": "fotos_tse/120002549686.webp"
   },
   {
     "nome": "TATO SOUZA",
@@ -610,7 +801,10 @@ export const officialCandidates = [
     "partido": "PDT",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549687",
+    "numero": "1213",
+    "foto_url": "fotos_tse/120002549687.webp"
   },
   {
     "nome": "JACKELINE MORENO",
@@ -619,7 +813,10 @@ export const officialCandidates = [
     "partido": "PDT",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002551719",
+    "numero": "12011",
+    "foto_url": "fotos_tse/120002551719.webp"
   },
   {
     "nome": "ELEANDRA PACHUKI",
@@ -628,7 +825,10 @@ export const officialCandidates = [
     "partido": "PRD",
     "federacao": "FEDERAÇÃO RENOVAÇÃO SOLIDÁRIA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552179",
+    "numero": "2534",
+    "foto_url": "fotos_tse/120002552179.webp"
   },
   {
     "nome": "PASTOR VALDIR",
@@ -637,7 +837,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002553013",
+    "numero": "27223",
+    "foto_url": "fotos_tse/120002553013.webp"
   },
   {
     "nome": "MARIA DO NATAL",
@@ -646,7 +849,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002553016",
+    "numero": "27555",
+    "foto_url": "fotos_tse/120002553016.webp"
   },
   {
     "nome": "RAFAEL SILVA",
@@ -655,7 +861,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002553021",
+    "numero": "27678",
+    "foto_url": "fotos_tse/120002553021.webp"
   },
   {
     "nome": "MAZINHO DO CHAVEIRO",
@@ -664,7 +873,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002553020",
+    "numero": "27777",
+    "foto_url": "fotos_tse/120002553020.webp"
   },
   {
     "nome": "FLAVIA ARGEMIRO",
@@ -673,7 +885,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002553244",
+    "numero": "27789",
+    "foto_url": "fotos_tse/120002553244.webp"
   },
   {
     "nome": "TONHÃO DO FORRÓ",
@@ -682,7 +897,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002553249",
+    "numero": "27113",
+    "foto_url": "fotos_tse/120002553249.webp"
   },
   {
     "nome": "LEANDRO CAFE",
@@ -691,7 +909,10 @@ export const officialCandidates = [
     "partido": "PSOL",
     "federacao": "FEDERAÇÃO PSOL REDE",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002532703",
+    "numero": "50123",
+    "foto_url": "fotos_tse/120002532703.webp"
   },
   {
     "nome": "JYENIFFER MULLER",
@@ -700,7 +921,10 @@ export const officialCandidates = [
     "partido": "PSOL",
     "federacao": "FEDERAÇÃO PSOL REDE",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002532705",
+    "numero": "50000",
+    "foto_url": "fotos_tse/120002532705.webp"
   },
   {
     "nome": "MARGILA LEAL",
@@ -709,7 +933,10 @@ export const officialCandidates = [
     "partido": "PSOL",
     "federacao": "FEDERAÇÃO PSOL REDE",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002532706",
+    "numero": "50333",
+    "foto_url": "fotos_tse/120002532706.webp"
   },
   {
     "nome": "GLEYCIELLI NONATO GUATÓ",
@@ -718,7 +945,10 @@ export const officialCandidates = [
     "partido": "PSOL",
     "federacao": "FEDERAÇÃO PSOL REDE",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002532715",
+    "numero": "5088",
+    "foto_url": "fotos_tse/120002532715.webp"
   },
   {
     "nome": "FÁBIO RODRIGUES",
@@ -727,7 +957,10 @@ export const officialCandidates = [
     "partido": "PSOL",
     "federacao": "FEDERAÇÃO PSOL REDE",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002532713",
+    "numero": "5051",
+    "foto_url": "fotos_tse/120002532713.webp"
   },
   {
     "nome": "CABRAL",
@@ -736,7 +969,10 @@ export const officialCandidates = [
     "partido": "PSOL",
     "federacao": "FEDERAÇÃO PSOL REDE",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002532717",
+    "numero": "5080",
+    "foto_url": "fotos_tse/120002532717.webp"
   },
   {
     "nome": "MILENA FERNANDES",
@@ -745,7 +981,10 @@ export const officialCandidates = [
     "partido": "AGIR",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002534957",
+    "numero": "3699",
+    "foto_url": "fotos_tse/120002534957.webp"
   },
   {
     "nome": "CAROL AJALA",
@@ -754,7 +993,10 @@ export const officialCandidates = [
     "partido": "AGIR",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002534960",
+    "numero": "3677",
+    "foto_url": "fotos_tse/120002534960.webp"
   },
   {
     "nome": "BRUNA LOPES",
@@ -763,7 +1005,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536061",
+    "numero": "22007",
+    "foto_url": "fotos_tse/120002536061.webp"
   },
   {
     "nome": "MARCIO FERNANDES",
@@ -772,7 +1017,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536072",
+    "numero": "22123",
+    "foto_url": "fotos_tse/120002536072.webp"
   },
   {
     "nome": "TENENTE PORTELA",
@@ -781,7 +1029,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536288",
+    "numero": "2234",
+    "foto_url": "fotos_tse/120002536288.webp"
   },
   {
     "nome": "NETO SANTOS",
@@ -790,7 +1041,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537362",
+    "numero": "1012",
+    "foto_url": "fotos_tse/120002537362.webp"
   },
   {
     "nome": "FERNANDO ROBERTO",
@@ -799,7 +1053,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537516",
+    "numero": "10444",
+    "foto_url": "fotos_tse/120002537516.webp"
   },
   {
     "nome": "MALU DO JULIANO VARELA",
@@ -808,7 +1065,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537517",
+    "numero": "10456",
+    "foto_url": "fotos_tse/120002537517.webp"
   },
   {
     "nome": "GERALDO RESENDE",
@@ -817,7 +1077,10 @@ export const officialCandidates = [
     "partido": "UNIÃO",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002538784",
+    "numero": "4411",
+    "foto_url": "fotos_tse/120002538784.webp"
   },
   {
     "nome": "BARBARA RESENDE",
@@ -826,7 +1089,10 @@ export const officialCandidates = [
     "partido": "UNIÃO",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002539698",
+    "numero": "44111",
+    "foto_url": "fotos_tse/120002539698.webp"
   },
   {
     "nome": "LONDRES MACHADO",
@@ -835,7 +1101,10 @@ export const officialCandidates = [
     "partido": "PP",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002539710",
+    "numero": "11123",
+    "foto_url": "fotos_tse/120002539710.webp"
   },
   {
     "nome": "DRA. KALANIT",
@@ -844,7 +1113,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544706",
+    "numero": "15100",
+    "foto_url": "fotos_tse/120002544706.webp"
   },
   {
     "nome": "MARQUINHOS GARCIA",
@@ -853,7 +1125,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544715",
+    "numero": "15155",
+    "foto_url": "fotos_tse/120002544715.webp"
   },
   {
     "nome": "MAVI CUNHA",
@@ -862,7 +1137,10 @@ export const officialCandidates = [
     "partido": "MISSÃO",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544958",
+    "numero": "1400",
+    "foto_url": "fotos_tse/120002544958.webp"
   },
   {
     "nome": "RODRIGO CORREA",
@@ -871,7 +1149,10 @@ export const officialCandidates = [
     "partido": "MISSÃO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544961",
+    "numero": "1444",
+    "foto_url": "fotos_tse/120002544961.webp"
   },
   {
     "nome": "RENAN SILVA",
@@ -880,7 +1161,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544974",
+    "numero": "30222",
+    "foto_url": "fotos_tse/120002544974.webp"
   },
   {
     "nome": "PROF. EDUARDO FERRUFINO",
@@ -889,7 +1173,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002545239",
+    "numero": "3001",
+    "foto_url": "fotos_tse/120002545239.webp"
   },
   {
     "nome": "LUSO DE QUEIROZ",
@@ -898,7 +1185,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002547048",
+    "numero": "13077",
+    "foto_url": "fotos_tse/120002547048.webp"
   },
   {
     "nome": "DR. RUY COSTA",
@@ -907,7 +1197,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549559",
+    "numero": "70789",
+    "foto_url": "fotos_tse/120002549559.webp"
   },
   {
     "nome": "ROGÉRIO ROHR",
@@ -916,7 +1209,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549571",
+    "numero": "70070",
+    "foto_url": "fotos_tse/120002549571.webp"
   },
   {
     "nome": "ANDRÉ PAULINO",
@@ -934,7 +1230,10 @@ export const officialCandidates = [
     "partido": "PDT",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002551718",
+    "numero": "12000",
+    "foto_url": "fotos_tse/120002551718.webp"
   },
   {
     "nome": "PROFESSOR DOUGLAS",
@@ -943,7 +1242,10 @@ export const officialCandidates = [
     "partido": "PDT",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002551717",
+    "numero": "12812",
+    "foto_url": "fotos_tse/120002551717.webp"
   },
   {
     "nome": "DOROTI JUSTINO",
@@ -952,7 +1254,10 @@ export const officialCandidates = [
     "partido": "PRD",
     "federacao": "FEDERAÇÃO RENOVAÇÃO SOLIDÁRIA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552160",
+    "numero": "25056",
+    "foto_url": "fotos_tse/120002552160.webp"
   },
   {
     "nome": "JUVENAL FERREIRA",
@@ -961,7 +1266,10 @@ export const officialCandidates = [
     "partido": "PRD",
     "federacao": "FEDERAÇÃO RENOVAÇÃO SOLIDÁRIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552178",
+    "numero": "2511",
+    "foto_url": "fotos_tse/120002552178.webp"
   },
   {
     "nome": "ANDRE KOVALSKI",
@@ -979,7 +1287,10 @@ export const officialCandidates = [
     "partido": "PRD",
     "federacao": "FEDERAÇÃO RENOVAÇÃO SOLIDÁRIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552214",
+    "numero": "25888",
+    "foto_url": "fotos_tse/120002552214.webp"
   },
   {
     "nome": "ZÉ LOPES",
@@ -988,7 +1299,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552945",
+    "numero": "2712",
+    "foto_url": "fotos_tse/120002552945.webp"
   },
   {
     "nome": "MARIA ISABELA SALDANHA",
@@ -997,7 +1311,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552947",
+    "numero": "2700",
+    "foto_url": "fotos_tse/120002552947.webp"
   },
   {
     "nome": "TENETE BALEJO DE ARRUDA",
@@ -1006,7 +1323,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552951",
+    "numero": "2790",
+    "foto_url": "fotos_tse/120002552951.webp"
   },
   {
     "nome": "RAPHAEL CADEIRANTE",
@@ -1015,7 +1335,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552950",
+    "numero": "2733",
+    "foto_url": "fotos_tse/120002552950.webp"
   },
   {
     "nome": "RINALDO PRASSA",
@@ -1024,7 +1347,10 @@ export const officialCandidates = [
     "partido": "PSOL",
     "federacao": "FEDERAÇÃO PSOL REDE",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002532708",
+    "numero": "50001",
+    "foto_url": "fotos_tse/120002532708.webp"
   },
   {
     "nome": "PROF. ANISIO GUATÓ",
@@ -1033,7 +1359,10 @@ export const officialCandidates = [
     "partido": "PSOL",
     "federacao": "FEDERAÇÃO PSOL REDE",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002532712",
+    "numero": "5013",
+    "foto_url": "fotos_tse/120002532712.webp"
   },
   {
     "nome": "JURANDIR MACHADO",
@@ -1042,7 +1371,10 @@ export const officialCandidates = [
     "partido": "AGIR",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002534956",
+    "numero": "3666",
+    "foto_url": "fotos_tse/120002534956.webp"
   },
   {
     "nome": "CAPITÃO ROLEDO",
@@ -1051,7 +1383,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535257",
+    "numero": "4522",
+    "foto_url": "fotos_tse/120002535257.webp"
   },
   {
     "nome": "JANETE CÓRDOBA",
@@ -1060,7 +1395,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535515",
+    "numero": "45555",
+    "foto_url": "fotos_tse/120002535515.webp"
   },
   {
     "nome": "SILVIO PITU",
@@ -1069,7 +1407,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535519",
+    "numero": "45800",
+    "foto_url": "fotos_tse/120002535519.webp"
   },
   {
     "nome": "PAULO DUARTE",
@@ -1078,7 +1419,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535520",
+    "numero": "45300",
+    "foto_url": "fotos_tse/120002535520.webp"
   },
   {
     "nome": "ANDRÉA FIM",
@@ -1096,7 +1440,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535532",
+    "numero": "45045",
+    "foto_url": "fotos_tse/120002535532.webp"
   },
   {
     "nome": "GIANNI NOGUEIRA",
@@ -1105,7 +1452,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536054",
+    "numero": "22000",
+    "foto_url": "fotos_tse/120002536054.webp"
   },
   {
     "nome": "TONY GOL",
@@ -1114,7 +1464,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536062",
+    "numero": "22900",
+    "foto_url": "fotos_tse/120002536062.webp"
   },
   {
     "nome": "SARGENTO PRATES",
@@ -1123,7 +1476,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536064",
+    "numero": "22322",
+    "foto_url": "fotos_tse/120002536064.webp"
   },
   {
     "nome": "ANA PORTELA",
@@ -1132,7 +1488,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536065",
+    "numero": "22220",
+    "foto_url": "fotos_tse/120002536065.webp"
   },
   {
     "nome": "SARGENTO BETÂNIA",
@@ -1141,7 +1500,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536075",
+    "numero": "22190",
+    "foto_url": "fotos_tse/120002536075.webp"
   },
   {
     "nome": "JAIME VERRUCK",
@@ -1150,7 +1512,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537361",
+    "numero": "1011",
+    "foto_url": "fotos_tse/120002537361.webp"
   },
   {
     "nome": "CAMILA JARA",
@@ -1159,7 +1524,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537465",
+    "numero": "1367",
+    "foto_url": "fotos_tse/120002537465.webp"
   },
   {
     "nome": "GISELLE MARQUES",
@@ -1168,7 +1536,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537464",
+    "numero": "1300",
+    "foto_url": "fotos_tse/120002537464.webp"
   },
   {
     "nome": "BRUNO ORTIZ",
@@ -1177,7 +1548,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537502",
+    "numero": "10222",
+    "foto_url": "fotos_tse/120002537502.webp"
   },
   {
     "nome": "RENATO CÂMARA",
@@ -1186,7 +1560,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537512",
+    "numero": "10150",
+    "foto_url": "fotos_tse/120002537512.webp"
   },
   {
     "nome": "ABEL FILHO",
@@ -1195,7 +1572,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537515",
+    "numero": "10111",
+    "foto_url": "fotos_tse/120002537515.webp"
   },
   {
     "nome": "DRA. CLEDIANE",
@@ -1204,7 +1584,10 @@ export const officialCandidates = [
     "partido": "PP",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002538789",
+    "numero": "1123",
+    "foto_url": "fotos_tse/120002538789.webp"
   },
   {
     "nome": "WELLISON MUCHIUTTI",
@@ -1213,7 +1596,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002538948",
+    "numero": "1512",
+    "foto_url": "fotos_tse/120002538948.webp"
   },
   {
     "nome": "MARJU AZAMBUJA",
@@ -1222,7 +1608,10 @@ export const officialCandidates = [
     "partido": "UNIÃO",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002539699",
+    "numero": "44022",
+    "foto_url": "fotos_tse/120002539699.webp"
   },
   {
     "nome": "PROFESSOR RINALDO MODESTO",
@@ -1231,7 +1620,10 @@ export const officialCandidates = [
     "partido": "UNIÃO",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002539708",
+    "numero": "44044",
+    "foto_url": "fotos_tse/120002539708.webp"
   },
   {
     "nome": "ANDRÉ PUCCINELLI",
@@ -1249,7 +1641,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544712",
+    "numero": "15222",
+    "foto_url": "fotos_tse/120002544712.webp"
   },
   {
     "nome": "JUNIOR CORINGA",
@@ -1258,7 +1653,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544717",
+    "numero": "15111",
+    "foto_url": "fotos_tse/120002544717.webp"
   },
   {
     "nome": "CHRISTIANO MENDES",
@@ -1267,7 +1665,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544963",
+    "numero": "30444",
+    "foto_url": "fotos_tse/120002544963.webp"
   },
   {
     "nome": "JOSIEL QUIRINO VIEIRA",
@@ -1276,7 +1677,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544968",
+    "numero": "30500",
+    "foto_url": "fotos_tse/120002544968.webp"
   },
   {
     "nome": "DIEGO CARVALHO",
@@ -1285,7 +1689,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544971",
+    "numero": "30008",
+    "foto_url": "fotos_tse/120002544971.webp"
   },
   {
     "nome": "ANDRE BAIRD",
@@ -1303,7 +1710,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544978",
+    "numero": "30000",
+    "foto_url": "fotos_tse/120002544978.webp"
   },
   {
     "nome": "CAROL MOURÃO",
@@ -1312,7 +1722,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002545236",
+    "numero": "3033",
+    "foto_url": "fotos_tse/120002545236.webp"
   },
   {
     "nome": "VICTORIA PEIXOTO",
@@ -1321,7 +1734,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002545235",
+    "numero": "3000",
+    "foto_url": "fotos_tse/120002545235.webp"
   },
   {
     "nome": "LADI SOUZA",
@@ -1330,7 +1746,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002547049",
+    "numero": "13067",
+    "foto_url": "fotos_tse/120002547049.webp"
   },
   {
     "nome": "GILMAR GARCIA",
@@ -1339,7 +1758,10 @@ export const officialCandidates = [
     "partido": "PV",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002547050",
+    "numero": "43123",
+    "foto_url": "fotos_tse/120002547050.webp"
   },
   {
     "nome": "LUIZA RIBEIRO",
@@ -1348,7 +1770,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002547060",
+    "numero": "13700",
+    "foto_url": "fotos_tse/120002547060.webp"
   },
   {
     "nome": "PROFESSORA GLEICE JANE",
@@ -1357,7 +1782,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002547068",
+    "numero": "13777",
+    "foto_url": "fotos_tse/120002547068.webp"
   },
   {
     "nome": "LIDIO LOPES",
@@ -1366,7 +1794,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549560",
+    "numero": "70777",
+    "foto_url": "fotos_tse/120002549560.webp"
   },
   {
     "nome": "MEZA",
@@ -1375,7 +1806,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549568",
+    "numero": "70038",
+    "foto_url": "fotos_tse/120002549568.webp"
   },
   {
     "nome": "CHARLENE BORTOLETO",
@@ -1384,7 +1818,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549572",
+    "numero": "70007",
+    "foto_url": "fotos_tse/120002549572.webp"
   },
   {
     "nome": "INSPETOR RONNIE GONZAGA",
@@ -1393,7 +1830,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549574",
+    "numero": "70444",
+    "foto_url": "fotos_tse/120002549574.webp"
   },
   {
     "nome": "CHINA",
@@ -1402,7 +1842,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549577",
+    "numero": "70190",
+    "foto_url": "fotos_tse/120002549577.webp"
   },
   {
     "nome": "JEFFERSOM MARECCO",
@@ -1411,7 +1854,10 @@ export const officialCandidates = [
     "partido": "PDT",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549688",
+    "numero": "1234",
+    "foto_url": "fotos_tse/120002549688.webp"
   },
   {
     "nome": "BOLIVINHA BORRACHA",
@@ -1420,7 +1866,10 @@ export const officialCandidates = [
     "partido": "PDT",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002551715",
+    "numero": "12261",
+    "foto_url": "fotos_tse/120002551715.webp"
   },
   {
     "nome": "ADRIANO LIMA",
@@ -1429,7 +1878,10 @@ export const officialCandidates = [
     "partido": "PRD",
     "federacao": "FEDERAÇÃO RENOVAÇÃO SOLIDÁRIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552173",
+    "numero": "2555",
+    "foto_url": "fotos_tse/120002552173.webp"
   },
   {
     "nome": "PROFESSORA FERNANDA ARAUJO",
@@ -1438,7 +1890,10 @@ export const officialCandidates = [
     "partido": "PRD",
     "federacao": "FEDERAÇÃO RENOVAÇÃO SOLIDÁRIA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552207",
+    "numero": "25500",
+    "foto_url": "fotos_tse/120002552207.webp"
   },
   {
     "nome": "ALMIR MACHADO",
@@ -1447,7 +1902,10 @@ export const officialCandidates = [
     "partido": "PRD",
     "federacao": "FEDERAÇÃO RENOVAÇÃO SOLIDÁRIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552210",
+    "numero": "25525",
+    "foto_url": "fotos_tse/120002552210.webp"
   },
   {
     "nome": "FATIMA FIA",
@@ -1456,7 +1914,10 @@ export const officialCandidates = [
     "partido": "PRD",
     "federacao": "FEDERAÇÃO RENOVAÇÃO SOLIDÁRIA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552212",
+    "numero": "25433",
+    "foto_url": "fotos_tse/120002552212.webp"
   },
   {
     "nome": "GÉSSICA MACHADO",
@@ -1465,7 +1926,10 @@ export const officialCandidates = [
     "partido": "PCO",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552684",
+    "numero": "29129",
+    "foto_url": "fotos_tse/120002552684.webp"
   },
   {
     "nome": "JURACI DA AROEIRA",
@@ -1474,7 +1938,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552948",
+    "numero": "2722",
+    "foto_url": "fotos_tse/120002552948.webp"
   },
   {
     "nome": "JOAO FARIAS",
@@ -1483,7 +1950,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002553245",
+    "numero": "27090",
+    "foto_url": "fotos_tse/120002553245.webp"
   },
   {
     "nome": "SIRLENE SANTOS",
@@ -1492,7 +1962,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002553246",
+    "numero": "27001",
+    "foto_url": "fotos_tse/120002553246.webp"
   },
   {
     "nome": "FABIANO DUARTE",
@@ -1501,7 +1974,10 @@ export const officialCandidates = [
     "partido": "PSOL",
     "federacao": "FEDERAÇÃO PSOL REDE",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002532709",
+    "numero": "50651",
+    "foto_url": "fotos_tse/120002532709.webp"
   },
   {
     "nome": "URIAS ROCHA",
@@ -1510,7 +1986,10 @@ export const officialCandidates = [
     "partido": "REDE",
     "federacao": "FEDERAÇÃO PSOL REDE",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002532714",
+    "numero": "1800",
+    "foto_url": "fotos_tse/120002532714.webp"
   },
   {
     "nome": "PROF AGUILERA GUARANI",
@@ -1519,7 +1998,10 @@ export const officialCandidates = [
     "partido": "AGIR",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002534958",
+    "numero": "3613",
+    "foto_url": "fotos_tse/120002534958.webp"
   },
   {
     "nome": "ZÉ TEIXEIRA",
@@ -1528,7 +2010,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536055",
+    "numero": "22121",
+    "foto_url": "fotos_tse/120002536055.webp"
   },
   {
     "nome": "LUCAS DE LIMA DO AMOR SEM FIM",
@@ -1537,7 +2022,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536069",
+    "numero": "22022",
+    "foto_url": "fotos_tse/120002536069.webp"
   },
   {
     "nome": "ANDRÉ CAMPOS",
@@ -1555,7 +2043,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536284",
+    "numero": "2220",
+    "foto_url": "fotos_tse/120002536284.webp"
   },
   {
     "nome": "DR. PAULO VERON",
@@ -1564,7 +2055,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537358",
+    "numero": "1033",
+    "foto_url": "fotos_tse/120002537358.webp"
   },
   {
     "nome": "ELIEL KAIOWÁ",
@@ -1573,7 +2067,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537463",
+    "numero": "1333",
+    "foto_url": "fotos_tse/120002537463.webp"
   },
   {
     "nome": "SANDRO DO VANDER",
@@ -1582,7 +2079,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537468",
+    "numero": "1331",
+    "foto_url": "fotos_tse/120002537468.webp"
   },
   {
     "nome": "PROFESSOR TIM",
@@ -1591,7 +2091,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537504",
+    "numero": "10022",
+    "foto_url": "fotos_tse/120002537504.webp"
   },
   {
     "nome": "HERCULANO BORGES",
@@ -1600,7 +2103,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537503",
+    "numero": "10888",
+    "foto_url": "fotos_tse/120002537503.webp"
   },
   {
     "nome": "PEDROSSIAN NETO",
@@ -1609,7 +2115,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537505",
+    "numero": "10000",
+    "foto_url": "fotos_tse/120002537505.webp"
   },
   {
     "nome": "DAGOBERTO NOGUEIRA",
@@ -1618,7 +2127,10 @@ export const officialCandidates = [
     "partido": "PP",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002538791",
+    "numero": "1111",
+    "foto_url": "fotos_tse/120002538791.webp"
   },
   {
     "nome": "ARIANE TAVARES",
@@ -1627,7 +2139,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002538947",
+    "numero": "1555",
+    "foto_url": "fotos_tse/120002538947.webp"
   },
   {
     "nome": "PROFESSOR MARCELO MIRANDA",
@@ -1636,7 +2151,10 @@ export const officialCandidates = [
     "partido": "PP",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002539692",
+    "numero": "11222",
+    "foto_url": "fotos_tse/120002539692.webp"
   },
   {
     "nome": "DRA SIRLEI RATIER",
@@ -1645,7 +2163,10 @@ export const officialCandidates = [
     "partido": "PP",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002539691",
+    "numero": "11022",
+    "foto_url": "fotos_tse/120002539691.webp"
   },
   {
     "nome": "HELIO PELUFFO",
@@ -1654,7 +2175,10 @@ export const officialCandidates = [
     "partido": "PP",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002539694",
+    "numero": "11234",
+    "foto_url": "fotos_tse/120002539694.webp"
   },
   {
     "nome": "RAYANA BENEDITA",
@@ -1663,7 +2187,10 @@ export const officialCandidates = [
     "partido": "UNIÃO",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002539700",
+    "numero": "44321",
+    "foto_url": "fotos_tse/120002539700.webp"
   },
   {
     "nome": "VETERINÁRIO FRANCISCO",
@@ -1672,7 +2199,10 @@ export const officialCandidates = [
     "partido": "UNIÃO",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002539704",
+    "numero": "44777",
+    "foto_url": "fotos_tse/120002539704.webp"
   },
   {
     "nome": "DIONE HASHIOKA",
@@ -1681,7 +2211,10 @@ export const officialCandidates = [
     "partido": "UNIÃO",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002539711",
+    "numero": "44555",
+    "foto_url": "fotos_tse/120002539711.webp"
   },
   {
     "nome": "CAROL MARQUEZ",
@@ -1690,7 +2223,10 @@ export const officialCandidates = [
     "partido": "PP",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002539712",
+    "numero": "11100",
+    "foto_url": "fotos_tse/120002539712.webp"
   },
   {
     "nome": "GIOVANI DA CDL",
@@ -1699,7 +2235,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544707",
+    "numero": "15500",
+    "foto_url": "fotos_tse/120002544707.webp"
   },
   {
     "nome": "PROFESSOR PUFF",
@@ -1708,7 +2247,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544720",
+    "numero": "15777",
+    "foto_url": "fotos_tse/120002544720.webp"
   },
   {
     "nome": "MARIANO",
@@ -1717,7 +2259,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544718",
+    "numero": "15774",
+    "foto_url": "fotos_tse/120002544718.webp"
   },
   {
     "nome": "LUCAS VENDITE",
@@ -1726,7 +2271,10 @@ export const officialCandidates = [
     "partido": "MISSÃO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544959",
+    "numero": "1467",
+    "foto_url": "fotos_tse/120002544959.webp"
   },
   {
     "nome": "EUNICE TIKKA",
@@ -1735,7 +2283,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544964",
+    "numero": "30333",
+    "foto_url": "fotos_tse/120002544964.webp"
   },
   {
     "nome": "GISLAINE BRITO",
@@ -1744,7 +2295,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544966",
+    "numero": "30007",
+    "foto_url": "fotos_tse/120002544966.webp"
   },
   {
     "nome": "CHARLES GAMA",
@@ -1753,7 +2307,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002545242",
+    "numero": "3067",
+    "foto_url": "fotos_tse/120002545242.webp"
   },
   {
     "nome": "WESLEY DIAS",
@@ -1762,7 +2319,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002545241",
+    "numero": "3055",
+    "foto_url": "fotos_tse/120002545241.webp"
   },
   {
     "nome": "RONALDO TERENA",
@@ -1771,7 +2331,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002547045",
+    "numero": "13379",
+    "foto_url": "fotos_tse/120002547045.webp"
   },
   {
     "nome": "LUCIA HELENA",
@@ -1780,7 +2343,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002547051",
+    "numero": "13231",
+    "foto_url": "fotos_tse/120002547051.webp"
   },
   {
     "nome": "ZECA DO PT",
@@ -1789,7 +2355,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002547058",
+    "numero": "13111",
+    "foto_url": "fotos_tse/120002547058.webp"
   },
   {
     "nome": "PEDRO KEMP",
@@ -1798,7 +2367,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002547061",
+    "numero": "13613",
+    "foto_url": "fotos_tse/120002547061.webp"
   },
   {
     "nome": "ANA DOMINGUES",
@@ -1807,7 +2379,10 @@ export const officialCandidates = [
     "partido": "PV",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002547066",
+    "numero": "43456",
+    "foto_url": "fotos_tse/120002547066.webp"
   },
   {
     "nome": "EDUARDO BORGES",
@@ -1816,7 +2391,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002547067",
+    "numero": "13456",
+    "foto_url": "fotos_tse/120002547067.webp"
   },
   {
     "nome": "GLAUCIA IUNES",
@@ -1825,7 +2403,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549570",
+    "numero": "70000",
+    "foto_url": "fotos_tse/120002549570.webp"
   },
   {
     "nome": "VANILDO NEVES",
@@ -1834,7 +2415,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549576",
+    "numero": "70123",
+    "foto_url": "fotos_tse/120002549576.webp"
   },
   {
     "nome": "JOHNNATHAN JARA",
@@ -1852,7 +2436,10 @@ export const officialCandidates = [
     "partido": "PDT",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549684",
+    "numero": "1221",
+    "foto_url": "fotos_tse/120002549684.webp"
   },
   {
     "nome": "ADRIANO PAULINO",
@@ -1861,7 +2448,10 @@ export const officialCandidates = [
     "partido": "PDT",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002551713",
+    "numero": "12333",
+    "foto_url": "fotos_tse/120002551713.webp"
   },
   {
     "nome": "ODINEY LOUBET",
@@ -1870,7 +2460,10 @@ export const officialCandidates = [
     "partido": "PRD",
     "federacao": "FEDERAÇÃO RENOVAÇÃO SOLIDÁRIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552159",
+    "numero": "25123",
+    "foto_url": "fotos_tse/120002552159.webp"
   },
   {
     "nome": "FERNANDO VILLALBA",
@@ -1879,7 +2472,10 @@ export const officialCandidates = [
     "partido": "PRD",
     "federacao": "FEDERAÇÃO RENOVAÇÃO SOLIDÁRIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552162",
+    "numero": "25016",
+    "foto_url": "fotos_tse/120002552162.webp"
   },
   {
     "nome": "LETICIA ARATANI",
@@ -1888,7 +2484,10 @@ export const officialCandidates = [
     "partido": "PRD",
     "federacao": "FEDERAÇÃO RENOVAÇÃO SOLIDÁRIA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552209",
+    "numero": "25511",
+    "foto_url": "fotos_tse/120002552209.webp"
   },
   {
     "nome": "ANDRADE",
@@ -1906,7 +2505,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552952",
+    "numero": "2727",
+    "foto_url": "fotos_tse/120002552952.webp"
   },
   {
     "nome": "KATIUSCI VALEJO",
@@ -1915,7 +2517,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002553018",
+    "numero": "27222",
+    "foto_url": "fotos_tse/120002553018.webp"
   },
   {
     "nome": "GILVAN FERNANDES",
@@ -1924,7 +2529,10 @@ export const officialCandidates = [
     "partido": "PSOL",
     "federacao": "FEDERAÇÃO PSOL REDE",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002532700",
+    "numero": "50050",
+    "foto_url": "fotos_tse/120002532700.webp"
   },
   {
     "nome": "KELLI DA SEGURANÇA",
@@ -1933,7 +2541,10 @@ export const officialCandidates = [
     "partido": "PSOL",
     "federacao": "FEDERAÇÃO PSOL REDE",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002532702",
+    "numero": "50555",
+    "foto_url": "fotos_tse/120002532702.webp"
   },
   {
     "nome": "SILVANA VILALBA",
@@ -1942,7 +2553,10 @@ export const officialCandidates = [
     "partido": "PSOL",
     "federacao": "FEDERAÇÃO PSOL REDE",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002532707",
+    "numero": "50777",
+    "foto_url": "fotos_tse/120002532707.webp"
   },
   {
     "nome": "LAHUANNY OLIVEIRA",
@@ -1951,7 +2565,10 @@ export const officialCandidates = [
     "partido": "PSOL",
     "federacao": "FEDERAÇÃO PSOL REDE",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002532710",
+    "numero": "5077",
+    "foto_url": "fotos_tse/120002532710.webp"
   },
   {
     "nome": "EDNA PAIXÃO",
@@ -1960,7 +2577,10 @@ export const officialCandidates = [
     "partido": "AGIR",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002534959",
+    "numero": "3688",
+    "foto_url": "fotos_tse/120002534959.webp"
   },
   {
     "nome": "PUKA VALDEZ",
@@ -1969,7 +2589,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535261",
+    "numero": "4567",
+    "foto_url": "fotos_tse/120002535261.webp"
   },
   {
     "nome": "PROFESSOR JUARI",
@@ -1978,7 +2601,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535263",
+    "numero": "4599",
+    "foto_url": "fotos_tse/120002535263.webp"
   },
   {
     "nome": "ZÉ WILSON",
@@ -1987,7 +2613,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535513",
+    "numero": "45150",
+    "foto_url": "fotos_tse/120002535513.webp"
   },
   {
     "nome": "LUCIANA DO FRETE",
@@ -1996,7 +2625,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535392",
+    "numero": "22163",
+    "foto_url": "fotos_tse/120002535392.webp"
   },
   {
     "nome": "SILVANA TERENA",
@@ -2005,7 +2637,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535393",
+    "numero": "22419",
+    "foto_url": "fotos_tse/120002535393.webp"
   },
   {
     "nome": "LAURA DA FIEL AMIGO",
@@ -2014,7 +2649,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535517",
+    "numero": "45121",
+    "foto_url": "fotos_tse/120002535517.webp"
   },
   {
     "nome": "EDSON NOGUEIRA",
@@ -2023,7 +2661,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535518",
+    "numero": "45234",
+    "foto_url": "fotos_tse/120002535518.webp"
   },
   {
     "nome": "ZÉ DA FARMÁCIA",
@@ -2032,7 +2673,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535525",
+    "numero": "45789",
+    "foto_url": "fotos_tse/120002535525.webp"
   },
   {
     "nome": "ADONIS",
@@ -2041,7 +2685,10 @@ export const officialCandidates = [
     "partido": "CIDADANIA",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535529",
+    "numero": "23123",
+    "foto_url": "fotos_tse/120002535529.webp"
   },
   {
     "nome": "ALBI DE URRUTIA",
@@ -2050,7 +2697,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535530",
+    "numero": "45500",
+    "foto_url": "fotos_tse/120002535530.webp"
   },
   {
     "nome": "NELSON LORDS",
@@ -2059,7 +2709,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535535",
+    "numero": "45645",
+    "foto_url": "fotos_tse/120002535535.webp"
   },
   {
     "nome": "PAULO CORRÊA",
@@ -2068,7 +2721,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536056",
+    "numero": "22222",
+    "foto_url": "fotos_tse/120002536056.webp"
   },
   {
     "nome": "WAGNER HIGA",
@@ -2077,7 +2733,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536059",
+    "numero": "22357",
+    "foto_url": "fotos_tse/120002536059.webp"
   },
   {
     "nome": "CHITÃO",
@@ -2086,7 +2745,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536074",
+    "numero": "22555",
+    "foto_url": "fotos_tse/120002536074.webp"
   },
   {
     "nome": "MARCELO MOURÃO",
@@ -2095,7 +2757,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536073",
+    "numero": "22500",
+    "foto_url": "fotos_tse/120002536073.webp"
   },
   {
     "nome": "CASSY MONTEIRO",
@@ -2104,7 +2769,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536283",
+    "numero": "2267",
+    "foto_url": "fotos_tse/120002536283.webp"
   },
   {
     "nome": "ANA SARAVY",
@@ -2113,7 +2781,10 @@ export const officialCandidates = [
     "partido": "PV",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537460",
+    "numero": "4300",
+    "foto_url": "fotos_tse/120002537460.webp"
   },
   {
     "nome": "DRA TATIANE WEHNER",
@@ -2122,7 +2793,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537508",
+    "numero": "10101",
+    "foto_url": "fotos_tse/120002537508.webp"
   },
   {
     "nome": "VALCIRA BORGES",
@@ -2131,7 +2805,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537519",
+    "numero": "10100",
+    "foto_url": "fotos_tse/120002537519.webp"
   },
   {
     "nome": "ANTONIO VAZ",
@@ -2140,7 +2817,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537522",
+    "numero": "10123",
+    "foto_url": "fotos_tse/120002537522.webp"
   },
   {
     "nome": "DR. LUIZ OVANDO",
@@ -2149,7 +2829,10 @@ export const officialCandidates = [
     "partido": "PP",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002538786",
+    "numero": "1122",
+    "foto_url": "fotos_tse/120002538786.webp"
   },
   {
     "nome": "ROSE MODESTO",
@@ -2158,7 +2841,10 @@ export const officialCandidates = [
     "partido": "UNIÃO",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002538788",
+    "numero": "4444",
+    "foto_url": "fotos_tse/120002538788.webp"
   },
   {
     "nome": "DELEGADO ANDRÉ MATSUSHITA",
@@ -2176,7 +2862,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002538950",
+    "numero": "1515",
+    "foto_url": "fotos_tse/120002538950.webp"
   },
   {
     "nome": "JULIANA ARANDA DO RU UNIFORMES",
@@ -2185,7 +2874,10 @@ export const officialCandidates = [
     "partido": "UNIÃO",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002539690",
+    "numero": "44444",
+    "foto_url": "fotos_tse/120002539690.webp"
   },
   {
     "nome": "TALITA TRINDADE",
@@ -2194,7 +2886,10 @@ export const officialCandidates = [
     "partido": "UNIÃO",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002539706",
+    "numero": "44333",
+    "foto_url": "fotos_tse/120002539706.webp"
   },
   {
     "nome": "LILIAN VILELLA",
@@ -2203,7 +2898,10 @@ export const officialCandidates = [
     "partido": "UNIÃO",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002539709",
+    "numero": "44123",
+    "foto_url": "fotos_tse/120002539709.webp"
   },
   {
     "nome": "JENIR NEVES",
@@ -2212,7 +2910,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544714",
+    "numero": "15115",
+    "foto_url": "fotos_tse/120002544714.webp"
   },
   {
     "nome": "NEZA LEITE",
@@ -2221,7 +2922,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544719",
+    "numero": "15369",
+    "foto_url": "fotos_tse/120002544719.webp"
   },
   {
     "nome": "FRANK VALDEZ",
@@ -2230,7 +2934,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544965",
+    "numero": "30123",
+    "foto_url": "fotos_tse/120002544965.webp"
   },
   {
     "nome": "LUCIMARA PALACIO",
@@ -2239,7 +2946,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544972",
+    "numero": "30330",
+    "foto_url": "fotos_tse/120002544972.webp"
   },
   {
     "nome": "PROF. LÉO",
@@ -2248,7 +2958,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544981",
+    "numero": "30888",
+    "foto_url": "fotos_tse/120002544981.webp"
   },
   {
     "nome": "JOSENILDO CEARÁ",
@@ -2257,7 +2970,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002547047",
+    "numero": "13013",
+    "foto_url": "fotos_tse/120002547047.webp"
   },
   {
     "nome": "ADÃO SALEMAQ",
@@ -2266,7 +2982,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002547046",
+    "numero": "13500",
+    "foto_url": "fotos_tse/120002547046.webp"
   },
   {
     "nome": "WEBERGTON SUDÁRIO CORUMBÁ",
@@ -2275,7 +2994,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002547052",
+    "numero": "13000",
+    "foto_url": "fotos_tse/120002547052.webp"
   },
   {
     "nome": "CASSIANO DO GÁS",
@@ -2284,7 +3006,10 @@ export const officialCandidates = [
     "partido": "PV",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002547053",
+    "numero": "43888",
+    "foto_url": "fotos_tse/120002547053.webp"
   },
   {
     "nome": "TIAGO BOTELHO",
@@ -2293,7 +3018,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002547055",
+    "numero": "13123",
+    "foto_url": "fotos_tse/120002547055.webp"
   },
   {
     "nome": "IDEVALDO CLAUDINO",
@@ -2302,7 +3030,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002547054",
+    "numero": "13300",
+    "foto_url": "fotos_tse/120002547054.webp"
   },
   {
     "nome": "ROSANE BACH",
@@ -2311,7 +3042,10 @@ export const officialCandidates = [
     "partido": "PDT",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549689",
+    "numero": "1250",
+    "foto_url": "fotos_tse/120002549689.webp"
   },
   {
     "nome": "IVANISE ROTTA",
@@ -2320,7 +3054,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002550712",
+    "numero": "7033",
+    "foto_url": "fotos_tse/120002550712.webp"
   },
   {
     "nome": "CHICO SÁ",
@@ -2329,7 +3066,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002550718",
+    "numero": "7011",
+    "foto_url": "fotos_tse/120002550718.webp"
   },
   {
     "nome": "KLEYTON RIBEIRO",
@@ -2338,7 +3078,10 @@ export const officialCandidates = [
     "partido": "PDT",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002551721",
+    "numero": "12022",
+    "foto_url": "fotos_tse/120002551721.webp"
   },
   {
     "nome": "DEISE RIBEIRO",
@@ -2347,7 +3090,10 @@ export const officialCandidates = [
     "partido": "PDT",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002551724",
+    "numero": "12007",
+    "foto_url": "fotos_tse/120002551724.webp"
   },
   {
     "nome": "PAULO SWAT",
@@ -2356,7 +3102,10 @@ export const officialCandidates = [
     "partido": "PDT",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002551726",
+    "numero": "12911",
+    "foto_url": "fotos_tse/120002551726.webp"
   },
   {
     "nome": "CAFÉ",
@@ -2365,7 +3114,10 @@ export const officialCandidates = [
     "partido": "PDT",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002551725",
+    "numero": "12190",
+    "foto_url": "fotos_tse/120002551725.webp"
   },
   {
     "nome": "CESAR ALVES",
@@ -2374,7 +3126,10 @@ export const officialCandidates = [
     "partido": "PRD",
     "federacao": "FEDERAÇÃO RENOVAÇÃO SOLIDÁRIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552174",
+    "numero": "2550",
+    "foto_url": "fotos_tse/120002552174.webp"
   },
   {
     "nome": "REBECA COSTA",
@@ -2383,7 +3138,10 @@ export const officialCandidates = [
     "partido": "PRD",
     "federacao": "FEDERAÇÃO RENOVAÇÃO SOLIDÁRIA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552181",
+    "numero": "2522",
+    "foto_url": "fotos_tse/120002552181.webp"
   },
   {
     "nome": "MARIA FERNANDA RIBEIRO",
@@ -2392,7 +3150,10 @@ export const officialCandidates = [
     "partido": "PRD",
     "federacao": "FEDERAÇÃO RENOVAÇÃO SOLIDÁRIA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552208",
+    "numero": "25999",
+    "foto_url": "fotos_tse/120002552208.webp"
   },
   {
     "nome": "SOPHIA SANTANA",
@@ -2401,7 +3162,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552953",
+    "numero": "2770",
+    "foto_url": "fotos_tse/120002552953.webp"
   },
   {
     "nome": "ALEXANDRE MOURA",
@@ -2410,7 +3174,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002553017",
+    "numero": "27123",
+    "foto_url": "fotos_tse/120002553017.webp"
   },
   {
     "nome": "FÁTIMA SOUZA",
@@ -2419,7 +3186,10 @@ export const officialCandidates = [
     "partido": "PSOL",
     "federacao": "FEDERAÇÃO PSOL REDE",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002532711",
+    "numero": "5050",
+    "foto_url": "fotos_tse/120002532711.webp"
   },
   {
     "nome": "BIRO BIRO",
@@ -2428,7 +3198,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535522",
+    "numero": "45333",
+    "foto_url": "fotos_tse/120002535522.webp"
   },
   {
     "nome": "LIA NOGUEIRA O BICHÃO DO MS",
@@ -2437,7 +3210,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535524",
+    "numero": "45101",
+    "foto_url": "fotos_tse/120002535524.webp"
   },
   {
     "nome": "ÂNGELO GUERREIRO",
@@ -2446,7 +3222,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535531",
+    "numero": "45055",
+    "foto_url": "fotos_tse/120002535531.webp"
   },
   {
     "nome": "SINDOLEY MORAIS",
@@ -2455,7 +3234,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536057",
+    "numero": "22122",
+    "foto_url": "fotos_tse/120002536057.webp"
   },
   {
     "nome": "ODILON RIBEIRO",
@@ -2464,7 +3246,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536067",
+    "numero": "22345",
+    "foto_url": "fotos_tse/120002536067.webp"
   },
   {
     "nome": "VIVI TOBIAS",
@@ -2473,7 +3258,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536070",
+    "numero": "22822",
+    "foto_url": "fotos_tse/120002536070.webp"
   },
   {
     "nome": "CORONEL BITTENCOURT",
@@ -2482,7 +3270,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537357",
+    "numero": "1080",
+    "foto_url": "fotos_tse/120002537357.webp"
   },
   {
     "nome": "ZÉ FERNANDES",
@@ -2491,7 +3282,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537511",
+    "numero": "10555",
+    "foto_url": "fotos_tse/120002537511.webp"
   },
   {
     "nome": "CARLOS BERNARDO",
@@ -2500,7 +3294,10 @@ export const officialCandidates = [
     "partido": "UNIÃO",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002538790",
+    "numero": "4455",
+    "foto_url": "fotos_tse/120002538790.webp"
   },
   {
     "nome": "PAULO MASSETTI",
@@ -2509,7 +3306,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002538949",
+    "numero": "1500",
+    "foto_url": "fotos_tse/120002538949.webp"
   },
   {
     "nome": "ROSE PIRES",
@@ -2518,7 +3318,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002538953",
+    "numero": "1533",
+    "foto_url": "fotos_tse/120002538953.webp"
   },
   {
     "nome": "SANTULLO DA TEREZA",
@@ -2527,7 +3330,10 @@ export const officialCandidates = [
     "partido": "PP",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002539705",
+    "numero": "11000",
+    "foto_url": "fotos_tse/120002539705.webp"
   },
   {
     "nome": "EDER BRAMBILLA",
@@ -2536,7 +3342,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544713",
+    "numero": "15678",
+    "foto_url": "fotos_tse/120002544713.webp"
   },
   {
     "nome": "JUNIOR MOCHI",
@@ -2545,7 +3354,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544722",
+    "numero": "15555",
+    "foto_url": "fotos_tse/120002544722.webp"
   },
   {
     "nome": "GERMANO CAIRES",
@@ -2554,7 +3366,10 @@ export const officialCandidates = [
     "partido": "MISSÃO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544957",
+    "numero": "1401",
+    "foto_url": "fotos_tse/120002544957.webp"
   },
   {
     "nome": "WALKIRIA SILVA",
@@ -2563,7 +3378,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544967",
+    "numero": "30999",
+    "foto_url": "fotos_tse/120002544967.webp"
   },
   {
     "nome": "RICHARD SILVA",
@@ -2572,7 +3390,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544970",
+    "numero": "30777",
+    "foto_url": "fotos_tse/120002544970.webp"
   },
   {
     "nome": "SIDNEY DE PAULA",
@@ -2581,7 +3402,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544980",
+    "numero": "30153",
+    "foto_url": "fotos_tse/120002544980.webp"
   },
   {
     "nome": "SAYMON PEREIRA",
@@ -2590,7 +3414,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544983",
+    "numero": "30555",
+    "foto_url": "fotos_tse/120002544983.webp"
   },
   {
     "nome": "LUIZ ORCIRIO FIGUEIRÓ",
@@ -2599,7 +3426,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002545238",
+    "numero": "3030",
+    "foto_url": "fotos_tse/120002545238.webp"
   },
   {
     "nome": "AARON SALLES TORRES",
@@ -2608,7 +3438,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002547059",
+    "numero": "13031",
+    "foto_url": "fotos_tse/120002547059.webp"
   },
   {
     "nome": "SANDRA MARIA",
@@ -2617,7 +3450,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002547062",
+    "numero": "13213",
+    "foto_url": "fotos_tse/120002547062.webp"
   },
   {
     "nome": "ADRIANE QUILOMBOLA",
@@ -2626,7 +3462,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002547063",
+    "numero": "13789",
+    "foto_url": "fotos_tse/120002547063.webp"
   },
   {
     "nome": "MILTINHO MADEIRAS",
@@ -2635,7 +3474,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002547065",
+    "numero": "13113",
+    "foto_url": "fotos_tse/120002547065.webp"
   },
   {
     "nome": "PAM MAKE",
@@ -2644,7 +3486,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549562",
+    "numero": "70077",
+    "foto_url": "fotos_tse/120002549562.webp"
   },
   {
     "nome": "JESSIKA MOTTA",
@@ -2653,7 +3498,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549566",
+    "numero": "70500",
+    "foto_url": "fotos_tse/120002549566.webp"
   },
   {
     "nome": "JUNIOR RODRIGUES",
@@ -2662,7 +3510,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549569",
+    "numero": "70770",
+    "foto_url": "fotos_tse/120002549569.webp"
   },
   {
     "nome": "BONATTO",
@@ -2671,7 +3522,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549573",
+    "numero": "70333",
+    "foto_url": "fotos_tse/120002549573.webp"
   },
   {
     "nome": "DR LUCIANO",
@@ -2680,7 +3534,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549578",
+    "numero": "70456",
+    "foto_url": "fotos_tse/120002549578.webp"
   },
   {
     "nome": "MILTÃO",
@@ -2689,7 +3546,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549579",
+    "numero": "70222",
+    "foto_url": "fotos_tse/120002549579.webp"
   },
   {
     "nome": "LÉIA BORGES",
@@ -2698,7 +3558,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549582",
+    "numero": "70888",
+    "foto_url": "fotos_tse/120002549582.webp"
   },
   {
     "nome": "CARINA SALOMÃO",
@@ -2707,7 +3570,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549580",
+    "numero": "70700",
+    "foto_url": "fotos_tse/120002549580.webp"
   },
   {
     "nome": "AILTON FIGUEIREDO",
@@ -2716,7 +3582,10 @@ export const officialCandidates = [
     "partido": "PDT",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549690",
+    "numero": "1222",
+    "foto_url": "fotos_tse/120002549690.webp"
   },
   {
     "nome": "RUI SPINOLA",
@@ -2725,7 +3594,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002550711",
+    "numero": "7070",
+    "foto_url": "fotos_tse/120002550711.webp"
   },
   {
     "nome": "JÉSSICA MÃE ATÍPICA",
@@ -2734,7 +3606,10 @@ export const officialCandidates = [
     "partido": "PDT",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002551720",
+    "numero": "12047",
+    "foto_url": "fotos_tse/120002551720.webp"
   },
   {
     "nome": "MALAQUIAS",
@@ -2743,7 +3618,10 @@ export const officialCandidates = [
     "partido": "PDT",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002551722",
+    "numero": "12999",
+    "foto_url": "fotos_tse/120002551722.webp"
   },
   {
     "nome": "SABRINO CARPES",
@@ -2752,7 +3630,10 @@ export const officialCandidates = [
     "partido": "PDT",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002551727",
+    "numero": "12500",
+    "foto_url": "fotos_tse/120002551727.webp"
   },
   {
     "nome": "MISSIONARIA JANE",
@@ -2761,7 +3642,10 @@ export const officialCandidates = [
     "partido": "PDT",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002551728",
+    "numero": "12789",
+    "foto_url": "fotos_tse/120002551728.webp"
   },
   {
     "nome": "MAURICIO PICARELLI",
@@ -2770,7 +3654,10 @@ export const officialCandidates = [
     "partido": "PRD",
     "federacao": "FEDERAÇÃO RENOVAÇÃO SOLIDÁRIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552180",
+    "numero": "2525",
+    "foto_url": "fotos_tse/120002552180.webp"
   },
   {
     "nome": "FIÃO",
@@ -2779,7 +3666,10 @@ export const officialCandidates = [
     "partido": "PRD",
     "federacao": "FEDERAÇÃO RENOVAÇÃO SOLIDÁRIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552203",
+    "numero": "25111",
+    "foto_url": "fotos_tse/120002552203.webp"
   },
   {
     "nome": "JOSIEL MACHADO",
@@ -2788,7 +3678,10 @@ export const officialCandidates = [
     "partido": "PCO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552683",
+    "numero": "29029",
+    "foto_url": "fotos_tse/120002552683.webp"
   },
   {
     "nome": "SILVANA CASTELÃO",
@@ -2797,7 +3690,10 @@ export const officialCandidates = [
     "partido": "PCO",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552685",
+    "numero": "29329",
+    "foto_url": "fotos_tse/120002552685.webp"
   },
   {
     "nome": "JORGE BATISTA",
@@ -2806,7 +3702,10 @@ export const officialCandidates = [
     "partido": "PCO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552686",
+    "numero": "29999",
+    "foto_url": "fotos_tse/120002552686.webp"
   },
   {
     "nome": "LUIZ MATCHUA",
@@ -2815,7 +3714,10 @@ export const officialCandidates = [
     "partido": "PCO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552689",
+    "numero": "2900",
+    "foto_url": "fotos_tse/120002552689.webp"
   },
   {
     "nome": "LUIZ PEREIRA",
@@ -2824,7 +3726,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552949",
+    "numero": "2777",
+    "foto_url": "fotos_tse/120002552949.webp"
   },
   {
     "nome": "JULIANA LOPES",
@@ -2833,7 +3738,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002553015",
+    "numero": "27234",
+    "foto_url": "fotos_tse/120002553015.webp"
   },
   {
     "nome": "ROBERTO TROVÃO",
@@ -2842,7 +3750,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002553014",
+    "numero": "27129",
+    "foto_url": "fotos_tse/120002553014.webp"
   },
   {
     "nome": "CARDOSO DO IMBIRUSSU",
@@ -2851,7 +3762,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002553019",
+    "numero": "27133",
+    "foto_url": "fotos_tse/120002553019.webp"
   },
   {
     "nome": "PASTOR CLÁUDIO DOMINGOS",
@@ -2860,7 +3774,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002553248",
+    "numero": "27999",
+    "foto_url": "fotos_tse/120002553248.webp"
   },
   {
     "nome": "PASTOR ADILSON OLIVEIRA",
@@ -2869,7 +3786,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002553247",
+    "numero": "27100",
+    "foto_url": "fotos_tse/120002553247.webp"
   },
   {
     "nome": "JEAN CARLOS",
@@ -2878,7 +3798,10 @@ export const officialCandidates = [
     "partido": "PSOL",
     "federacao": "FEDERAÇÃO PSOL REDE",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002532701",
+    "numero": "50190",
+    "foto_url": "fotos_tse/120002532701.webp"
   },
   {
     "nome": "BIRA MECÂNICO",
@@ -2887,7 +3810,10 @@ export const officialCandidates = [
     "partido": "PSOL",
     "federacao": "FEDERAÇÃO PSOL REDE",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002532704",
+    "numero": "50300",
+    "foto_url": "fotos_tse/120002532704.webp"
   },
   {
     "nome": "NATAL GONZAGA",
@@ -2896,7 +3822,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535258",
+    "numero": "4525",
+    "foto_url": "fotos_tse/120002535258.webp"
   },
   {
     "nome": "RICARDINHO FÁVARO",
@@ -2905,7 +3834,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535264",
+    "numero": "4544",
+    "foto_url": "fotos_tse/120002535264.webp"
   },
   {
     "nome": "FLÁVIO CABO ALMI",
@@ -2914,7 +3846,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535516",
+    "numero": "45699",
+    "foto_url": "fotos_tse/120002535516.webp"
   },
   {
     "nome": "FLÁVIO DIAS",
@@ -2923,7 +3858,10 @@ export const officialCandidates = [
     "partido": "PSDB",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535521",
+    "numero": "45222",
+    "foto_url": "fotos_tse/120002535521.webp"
   },
   {
     "nome": "DHEINE MARTINS",
@@ -2932,7 +3870,10 @@ export const officialCandidates = [
     "partido": "CIDADANIA",
     "federacao": "FEDERAÇÃO PSDB CIDADANIA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002535523",
+    "numero": "23000",
+    "foto_url": "fotos_tse/120002535523.webp"
   },
   {
     "nome": "PROFESSOR WASHINGTON",
@@ -2941,7 +3882,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536058",
+    "numero": "22789",
+    "foto_url": "fotos_tse/120002536058.webp"
   },
   {
     "nome": "DAVERSON MATOS",
@@ -2950,7 +3894,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536060",
+    "numero": "22333",
+    "foto_url": "fotos_tse/120002536060.webp"
   },
   {
     "nome": "TÂNIA NOGUEIRA",
@@ -2959,7 +3906,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536063",
+    "numero": "22111",
+    "foto_url": "fotos_tse/120002536063.webp"
   },
   {
     "nome": "CORONEL DAVID",
@@ -2968,7 +3918,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536066",
+    "numero": "22800",
+    "foto_url": "fotos_tse/120002536066.webp"
   },
   {
     "nome": "RODOLFO NOGUEIRA",
@@ -2977,7 +3930,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536281",
+    "numero": "2211",
+    "foto_url": "fotos_tse/120002536281.webp"
   },
   {
     "nome": "GIROTO",
@@ -2986,7 +3942,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536285",
+    "numero": "2255",
+    "foto_url": "fotos_tse/120002536285.webp"
   },
   {
     "nome": "LUANA RUIZ",
@@ -2995,7 +3954,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536287",
+    "numero": "2233",
+    "foto_url": "fotos_tse/120002536287.webp"
   },
   {
     "nome": "MARA CASEIRO",
@@ -3004,7 +3966,10 @@ export const officialCandidates = [
     "partido": "PL",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002536286",
+    "numero": "2200",
+    "foto_url": "fotos_tse/120002536286.webp"
   },
   {
     "nome": "ISA MARCONDES",
@@ -3013,7 +3978,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537356",
+    "numero": "1022",
+    "foto_url": "fotos_tse/120002537356.webp"
   },
   {
     "nome": "PRISCILA BOMBEIRA",
@@ -3022,7 +3990,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537359",
+    "numero": "1093",
+    "foto_url": "fotos_tse/120002537359.webp"
   },
   {
     "nome": "ROBERTO HASHIOKA",
@@ -3031,7 +4002,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537363",
+    "numero": "1000",
+    "foto_url": "fotos_tse/120002537363.webp"
   },
   {
     "nome": "ROBERTO MATEUS",
@@ -3040,7 +4014,10 @@ export const officialCandidates = [
     "partido": "PCDOB",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537467",
+    "numero": "6565",
+    "foto_url": "fotos_tse/120002537467.webp"
   },
   {
     "nome": "SARGENTO CYNTHIA",
@@ -3049,7 +4026,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537501",
+    "numero": "10181",
+    "foto_url": "fotos_tse/120002537501.webp"
   },
   {
     "nome": "CRIA DO AERO RANCHO",
@@ -3058,7 +4038,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537506",
+    "numero": "10800",
+    "foto_url": "fotos_tse/120002537506.webp"
   },
   {
     "nome": "LUIZ MS",
@@ -3067,7 +4050,10 @@ export const officialCandidates = [
     "partido": "REPUBLICANOS",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002537507",
+    "numero": "10067",
+    "foto_url": "fotos_tse/120002537507.webp"
   },
   {
     "nome": "KELIANA FERNANDES",
@@ -3076,7 +4062,10 @@ export const officialCandidates = [
     "partido": "PP",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002538785",
+    "numero": "1144",
+    "foto_url": "fotos_tse/120002538785.webp"
   },
   {
     "nome": "GABRIEL ROSSI",
@@ -3085,7 +4074,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002538945",
+    "numero": "1510",
+    "foto_url": "fotos_tse/120002538945.webp"
   },
   {
     "nome": "VITINHO",
@@ -3094,7 +4086,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002538951",
+    "numero": "1567",
+    "foto_url": "fotos_tse/120002538951.webp"
   },
   {
     "nome": "FERNANDO SOUZA",
@@ -3103,7 +4098,10 @@ export const officialCandidates = [
     "partido": "PP",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002539695",
+    "numero": "11777",
+    "foto_url": "fotos_tse/120002539695.webp"
   },
   {
     "nome": "MARCELO IUNES",
@@ -3112,7 +4110,10 @@ export const officialCandidates = [
     "partido": "PP",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002539697",
+    "numero": "11411",
+    "foto_url": "fotos_tse/120002539697.webp"
   },
   {
     "nome": "JERSON DOMINGOS",
@@ -3121,7 +4122,10 @@ export const officialCandidates = [
     "partido": "UNIÃO",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002539702",
+    "numero": "44122",
+    "foto_url": "fotos_tse/120002539702.webp"
   },
   {
     "nome": "SARGENTO ANA PAULA",
@@ -3130,7 +4134,10 @@ export const officialCandidates = [
     "partido": "PP",
     "federacao": "FEDERAÇÃO UNIÃO PROGRESSISTA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002539707",
+    "numero": "11193",
+    "foto_url": "fotos_tse/120002539707.webp"
   },
   {
     "nome": "RHAIZA MATOS",
@@ -3139,7 +4146,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544710",
+    "numero": "15000",
+    "foto_url": "fotos_tse/120002544710.webp"
   },
   {
     "nome": "ENFERMEIRO DANIEL",
@@ -3148,7 +4158,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544709",
+    "numero": "15715",
+    "foto_url": "fotos_tse/120002544709.webp"
   },
   {
     "nome": "PROFESSORA GIANE TALGATTI",
@@ -3157,7 +4170,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544711",
+    "numero": "15022",
+    "foto_url": "fotos_tse/120002544711.webp"
   },
   {
     "nome": "MATEUS QUADROS",
@@ -3166,7 +4182,10 @@ export const officialCandidates = [
     "partido": "MISSÃO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544956",
+    "numero": "1414",
+    "foto_url": "fotos_tse/120002544956.webp"
   },
   {
     "nome": "RICARDO BANNAK",
@@ -3175,7 +4194,10 @@ export const officialCandidates = [
     "partido": "MDB",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544721",
+    "numero": "15888",
+    "foto_url": "fotos_tse/120002544721.webp"
   },
   {
     "nome": "ROSANA SANTANA",
@@ -3184,7 +4206,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544975",
+    "numero": "30302",
+    "foto_url": "fotos_tse/120002544975.webp"
   },
   {
     "nome": "PROFESSOR JF",
@@ -3193,7 +4218,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002544982",
+    "numero": "30111",
+    "foto_url": "fotos_tse/120002544982.webp"
   },
   {
     "nome": "SARGENTO BRUNÃO",
@@ -3202,7 +4230,10 @@ export const officialCandidates = [
     "partido": "NOVO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002545240",
+    "numero": "3010",
+    "foto_url": "fotos_tse/120002545240.webp"
   },
   {
     "nome": "PROFESSORA BARTÔ",
@@ -3211,7 +4242,10 @@ export const officialCandidates = [
     "partido": "PT",
     "federacao": "FEDERAÇÃO BRASIL DA ESPERANÇA - FE BRASIL",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002547056",
+    "numero": "13222",
+    "foto_url": "fotos_tse/120002547056.webp"
   },
   {
     "nome": "ENFERMEIRA CIDA AMARAL",
@@ -3220,7 +4254,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549561",
+    "numero": "70999",
+    "foto_url": "fotos_tse/120002549561.webp"
   },
   {
     "nome": "PASTORA BARBARA MESQUITA",
@@ -3229,7 +4266,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549567",
+    "numero": "70121",
+    "foto_url": "fotos_tse/120002549567.webp"
   },
   {
     "nome": "FLÁVIO NUNES",
@@ -3238,7 +4278,10 @@ export const officialCandidates = [
     "partido": "PDT",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549683",
+    "numero": "1210",
+    "foto_url": "fotos_tse/120002549683.webp"
   },
   {
     "nome": "ADAUTO SOUTO",
@@ -3247,7 +4290,10 @@ export const officialCandidates = [
     "partido": "PDT",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002549685",
+    "numero": "1267",
+    "foto_url": "fotos_tse/120002549685.webp"
   },
   {
     "nome": "TUTY TUTY",
@@ -3256,7 +4302,10 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002550713",
+    "numero": "7077",
+    "foto_url": "fotos_tse/120002550713.webp"
   },
   {
     "nome": "FRAN DA SAÚDE",
@@ -3283,7 +4332,10 @@ export const officialCandidates = [
     "partido": "PRD",
     "federacao": "FEDERAÇÃO RENOVAÇÃO SOLIDÁRIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552161",
+    "numero": "25255",
+    "foto_url": "fotos_tse/120002552161.webp"
   },
   {
     "nome": "JARDELINO BAHIA",
@@ -3292,7 +4344,10 @@ export const officialCandidates = [
     "partido": "PRD",
     "federacao": "FEDERAÇÃO RENOVAÇÃO SOLIDÁRIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552177",
+    "numero": "2500",
+    "foto_url": "fotos_tse/120002552177.webp"
   },
   {
     "nome": "FABIO COSTA",
@@ -3301,7 +4356,10 @@ export const officialCandidates = [
     "partido": "PRD",
     "federacao": "FEDERAÇÃO RENOVAÇÃO SOLIDÁRIA",
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552206",
+    "numero": "25025",
+    "foto_url": "fotos_tse/120002552206.webp"
   },
   {
     "nome": "FERNANDA BREVE",
@@ -3310,7 +4368,10 @@ export const officialCandidates = [
     "partido": "SOLIDARIEDADE",
     "federacao": "FEDERAÇÃO RENOVAÇÃO SOLIDÁRIA",
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552213",
+    "numero": "77007",
+    "foto_url": "fotos_tse/120002552213.webp"
   },
   {
     "nome": "RAMÃO LOPES",
@@ -3319,7 +4380,10 @@ export const officialCandidates = [
     "partido": "PCO",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552688",
+    "numero": "2929",
+    "foto_url": "fotos_tse/120002552688.webp"
   },
   {
     "nome": "LUCIANE COSTADELE",
@@ -3328,7 +4392,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002552946",
+    "numero": "2772",
+    "foto_url": "fotos_tse/120002552946.webp"
   },
   {
     "nome": "DAVI RIBEIRO",
@@ -3337,7 +4404,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002553012",
+    "numero": "27000",
+    "foto_url": "fotos_tse/120002553012.webp"
   },
   {
     "nome": "SUBOFICIAL JESSON SANTOS",
@@ -3346,7 +4416,10 @@ export const officialCandidates = [
     "partido": "DC",
     "federacao": null,
     "genero": "MASCULINO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002553243",
+    "numero": "27900",
+    "foto_url": "fotos_tse/120002553243.webp"
   },
   {
     "nome": "LU MARTINS",
@@ -3355,6 +4428,9 @@ export const officialCandidates = [
     "partido": "AVANTE",
     "federacao": null,
     "genero": "FEMININO",
-    "situacao": "DEFERIDO"
+    "situacao": "DEFERIDO",
+    "sq": "120002553676",
+    "numero": "70300",
+    "foto_url": "fotos_tse/120002553676.webp"
   }
 ];
