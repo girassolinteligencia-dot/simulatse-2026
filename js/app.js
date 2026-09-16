@@ -320,33 +320,33 @@ function renderPartyGroups() {
     const totalGroupVotes = (group.partyVotes || 0) + group.candidates.reduce((sum, c) => sum + (c.votes || 0), 0);
 
     card.innerHTML = `
-      <div class="party-group-header" data-group-index="${groupIndex}" style="padding: 10px 12px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; border-bottom: 1px solid var(--border-color);">
+      <div class="party-group-header" data-group-index="${groupIndex}">
         <div style="display: flex; align-items: center; gap: 8px;">
           <span class="party-group-chevron">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </span>
-          <strong style="color: #FFFFFF; font-size: 0.9rem;">${group.name}</strong>
+          <strong style="color: var(--text-main); font-size: 0.9rem;">${group.name}</strong>
           <span style="font-size: 0.72rem; color: var(--text-muted);">(${group.candidates.length} cand.)</span>
         </div>
         <div>
-          <span id="party-total-votes-${groupIndex}" style="font-size: 0.75rem; color: var(--primary-light); font-weight: 700;">
+          <span id="party-total-votes-${groupIndex}" style="font-size: 0.78rem; color: var(--primary-light); font-weight: 700;">
             ${totalGroupVotes.toLocaleString('pt-BR')} votos
           </span>
         </div>
       </div>
 
-      <div class="party-group-body" id="group-body-${groupIndex}" style="padding: 8px 10px; display: flex; flex-direction: column; gap: 6px;">
+      <div class="party-group-body" id="group-body-${groupIndex}">
         
         <!-- Lista Sequencial de Candidatos -->
         <div class="candidates-list-wrapper" style="display: flex; flex-direction: column; gap: 4px;">
           ${group.candidates.map((cand, candIndex) => {
             const isNonDeferido = cand.situacao && cand.situacao !== 'DEFERIDO';
             return `
-              <div class="candidate-row" id="cand-row-${groupIndex}-${candIndex}" style="display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 8px; padding: 6px 8px; background: var(--bg-input); border: 1px solid var(--border-color);">
-                <div class="candidate-info" style="display: flex; flex-direction: column;">
-                  <span class="candidate-name" style="font-weight: 700; font-size: 0.85rem; color: #FFFFFF;">${cand.nome}</span>
+              <div class="candidate-row" id="cand-row-${groupIndex}-${candIndex}">
+                <div class="candidate-info">
+                  <span class="candidate-name">${cand.nome}</span>
                   <div style="font-size: 0.7rem; color: var(--text-muted); display: flex; gap: 4px; align-items: center;">
-                    <span>${cand.partido}</span>
+                    <span style="font-weight: 600;">${cand.partido}</span>
                     ${cand.nomeCompleto && cand.nomeCompleto !== cand.nome ? `<span style="color: var(--text-dim);">• ${cand.nomeCompleto}</span>` : ''}
                     ${isNonDeferido ? `<span class="badge badge-red" style="font-size: 0.6rem; padding: 1px 4px;">${cand.situacao}</span>` : ''}
                   </div>
@@ -355,8 +355,7 @@ function renderPartyGroups() {
                   <input type="text" inputmode="numeric" class="vote-input-field cand-vote-input" 
                     data-group="${groupIndex}" data-cand="${candIndex}" 
                     value="${cand.votes ? cand.votes.toLocaleString('pt-BR') : ''}" 
-                    placeholder="0"
-                    style="width: 105px; padding: 6px 8px; font-size: 0.95rem; font-weight: 700; text-align: right; background: #000000; border: 1px solid var(--border-color); color: #FFFFFF;">
+                    placeholder="0">
                 </div>
               </div>
             `;
@@ -364,9 +363,9 @@ function renderPartyGroups() {
         </div>
 
         <!-- Linha Oficial de Votos de Legenda (Sigla) -->
-        <div class="candidate-row" style="display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 8px; padding: 8px; background: rgba(0, 136, 204, 0.05); border: 1px dashed rgba(0, 136, 204, 0.35); margin-top: 4px;">
+        <div class="candidate-row" style="background: #F0F9FF; border: 1px dashed var(--primary-light); margin-top: 4px;">
           <div class="candidate-info">
-            <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-accent-blue);">VOTOS DE LEGENDA</span>
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--primary-light);">VOTOS DE LEGENDA</span>
             <span style="font-size: 0.68rem; color: var(--text-muted);">Voto direto no partido (soma no QP e sobras)</span>
           </div>
           <div class="vote-input-wrapper">
@@ -374,7 +373,7 @@ function renderPartyGroups() {
               data-group="${groupIndex}" 
               value="${group.partyVotes ? group.partyVotes.toLocaleString('pt-BR') : ''}" 
               placeholder="0"
-              style="width: 105px; padding: 6px 8px; font-size: 0.95rem; font-weight: 700; text-align: right; background: #000000; border: 1px solid var(--color-accent-blue); color: var(--primary-light);">
+              style="border-color: var(--primary-light); background: #FFFFFF;">
           </div>
         </div>
 
@@ -606,8 +605,8 @@ function displayResults(result) {
       row.className = 'chart-bar-row';
       row.innerHTML = `
         <div class="chart-bar-label">
-          <span style="color: #FFFFFF;">${p.name}</span>
-          <span style="color: var(--primary-light);">${p.totalSeatsWon} ${p.totalSeatsWon === 1 ? 'vaga' : 'vagas'} (${p.voteSharePercent}% dos votos)</span>
+          <span style="color: var(--text-main); font-weight: 700;">${p.name}</span>
+          <span style="color: var(--primary-light); font-weight: 700;">${p.totalSeatsWon} ${p.totalSeatsWon === 1 ? 'vaga' : 'vagas'} (${p.voteSharePercent}%)</span>
         </div>
         <div class="chart-bar-track">
           <div class="chart-bar-fill" style="width: ${qpPercent}%;" title="${p.seatsByQP} por QP Direto"></div>
@@ -649,12 +648,12 @@ function displayResults(result) {
     
     card.innerHTML = `
       <div class="elected-card-top" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-        <span class="elected-name" style="font-weight: 800; font-size: 0.9rem; color: #FFFFFF;">${idx + 1}º ${cand.nome}</span>
+        <span class="elected-name" style="font-weight: 800; font-size: 0.9rem; color: var(--text-main);">${idx + 1}º ${cand.nome}</span>
         <span class="badge ${badgeClass}" style="font-size: 0.68rem;">${cand.seatType}</span>
       </div>
       <div style="font-size: 0.75rem; color: var(--text-muted); display: flex; justify-content: space-between;">
         <span>${cand.groupName}</span>
-        <strong style="color: var(--primary-light); font-size: 0.85rem;">${(cand.votes || 0).toLocaleString('pt-BR')} votos</strong>
+        <strong style="color: var(--text-main); font-size: 0.85rem;">${(cand.votes || 0).toLocaleString('pt-BR')} votos</strong>
       </div>
     `;
     electedContainer.appendChild(card);

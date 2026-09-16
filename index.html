@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#0B1120">
+  <meta name="theme-color" content="#F1F5F9">
   <meta name="description" content="Simulador de Vagas 2026 MS - Projeção de distribuição de vagas de Deputado Estadual e Federal em Mato Grosso do Sul">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="assets/favicon.webp" type="image/webp">
@@ -64,7 +64,7 @@
       <!-- Painel de Controle de Votos e QE -->
       <section class="glass-card" style="padding: 12px 14px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-          <span style="font-size: 0.8rem; font-weight: 700; color: #FFFFFF; text-transform: uppercase; letter-spacing: 0.05em;">Votos Válidos Projetados</span>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.05em;">Votos Válidos Projetados</span>
           <span id="balance-status-badge" class="badge badge-yellow">Ajuste os Votos</span>
         </div>
         
@@ -74,13 +74,13 @@
 
         <!-- Indicadores de Monitoramento Direto -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; font-size: 0.78rem;">
-          <div style="background: var(--bg-input); padding: 6px 10px; border: 1px solid var(--border-color);">
+          <div style="background: var(--bg-main); padding: 6px 10px; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
             <div style="color: var(--text-muted); font-size: 0.68rem; text-transform: uppercase;">Quociente Eleitoral (QE)</div>
             <div id="display-qe" style="font-weight: 800; font-size: 1.05rem; color: var(--primary-light);">0</div>
           </div>
-          <div style="background: var(--bg-input); padding: 6px 10px; border: 1px solid var(--border-color);">
+          <div style="background: var(--bg-main); padding: 6px 10px; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
             <div style="color: var(--text-muted); font-size: 0.68rem; text-transform: uppercase;">Lançados / Meta</div>
-            <div style="font-weight: 800; font-size: 0.95rem; color: #FFFFFF;">
+            <div style="font-weight: 800; font-size: 0.95rem; color: var(--text-main);">
               <span id="display-allocated-votes" style="color: var(--primary-light);">0</span> / <span id="display-target-votes">1.400.000</span>
             </div>
           </div>
