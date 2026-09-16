@@ -94,36 +94,40 @@
 /* BI Dashboard Visuals */
 .bi-kpi-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
 }
 
 .bi-kpi-card {
   background: #F8FAFC;
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 
 .bi-kpi-title {
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   color: var(--text-muted);
   text-transform: uppercase;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
 }
 
 .bi-kpi-value {
-  font-size: 1.3rem;
+  font-size: 1.65rem;
   font-weight: 800;
   color: var(--text-main);
+  letter-spacing: -0.02em;
 }
 
 .bi-kpi-sub {
-  font-size: 0.7rem;
+  font-size: 0.74rem;
   color: var(--text-muted);
 }
 
@@ -257,55 +261,59 @@
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  gap: 8px;
-  padding: 7px 10px;
+  gap: 12px;
+  padding: 10px 14px;
   background: #FFFFFF;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-color);
   transition: var(--transition);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
 }
 
 .candidate-row:hover {
-  border-color: #CBD5E1;
+  border-color: #94A3B8;
+  background: #FAFAFA;
 }
 
 .candidate-info {
   display: flex;
   flex-direction: column;
-  gap: 1px;
+  gap: 2px;
 }
 
 .candidate-name {
-  font-weight: 700;
-  font-size: 0.85rem;
+  font-weight: 800;
+  font-size: 0.98rem;
   color: var(--text-main);
+  letter-spacing: -0.01em;
 }
 
 .vote-input-wrapper {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
 }
 
 .vote-input-field {
-  width: 105px;
+  width: 140px;
   background: #FFFFFF;
-  border: 1px solid var(--border-color);
+  border: 1.5px solid var(--border-color);
   border-radius: var(--radius-sm);
   color: var(--text-main);
-  padding: 6px 10px;
-  font-size: 0.92rem;
-  font-weight: 700;
+  padding: 8px 12px;
+  font-size: 1.15rem;
+  font-weight: 800;
   text-align: right;
   font-family: inherit;
   outline: none;
   transition: var(--transition);
+  letter-spacing: 0.02em;
 }
 
 .vote-input-field:focus {
   border-color: var(--border-focus);
   background: #F0F9FF;
-  box-shadow: 0 0 0 2px var(--primary-glow);
+  box-shadow: 0 0 0 3px var(--primary-glow);
 }
 
 /* Table Styles for Results & Audit */

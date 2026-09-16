@@ -503,9 +503,8 @@ function setupGlobalInputs() {
  * Módulo Discreto de Importação e Parsing de Pesquisas Eleitorais
  */
 function setupSurveyImporter() {
-  const toggleBtn = document.getElementById('toggle-survey-importer');
-  const body = document.getElementById('survey-importer-body');
-  const chevron = document.getElementById('survey-chevron');
+  const toggleBtn = document.getElementById('btn-toggle-survey-importer');
+  const body = document.getElementById('survey-importer-adm-body');
   const textarea = document.getElementById('textarea-survey-input');
   const btnProcess = document.getElementById('btn-process-survey');
   const feedback = document.getElementById('survey-feedback-msg');
@@ -517,7 +516,7 @@ function setupSurveyImporter() {
   toggleBtn.addEventListener('click', () => {
     const isHidden = body.style.display === 'none' || !body.style.display;
     body.style.display = isHidden ? 'flex' : 'none';
-    chevron.textContent = isHidden ? '− Recolher' : '+ Expandir';
+    toggleBtn.textContent = isHidden ? 'Fechar Importador' : 'Abrir Importador';
   });
 
   if (btnTriggerFile && fileInput) {
