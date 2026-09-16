@@ -47,7 +47,8 @@ function loadDraft() {
           const targetGroup = state.partyGroups.find(g => g.name === savedGroup.name);
           if (targetGroup) {
             targetGroup.partyVotes = savedGroup.partyVotes || 0;
-            if (savedGroup.isCollapsed !== undefined) targetGroup.isCollapsed = savedGroup.isCollapsed;
+            // Mantém fechado por padrão a menos que o usuário abra explicitamente
+            targetGroup.isCollapsed = savedGroup.isCollapsed !== undefined ? savedGroup.isCollapsed : true;
             if (Array.isArray(savedGroup.candidates)) {
               savedGroup.candidates.forEach(savedCand => {
                 const targetCand = targetGroup.candidates.find(c => c.nome.toUpperCase() === savedCand.nome.toUpperCase());
@@ -175,7 +176,7 @@ function initPartyGroupsForCargo(cargo) {
         federacao: c.federacao || null,
         partyVotes: 0,
         candidates: [],
-        isCollapsed: false
+        isCollapsed: true
       });
     }
 
