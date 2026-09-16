@@ -1,11 +1,11 @@
 {
-  "name": "Simulador de Vagas 2026 MS",
-  "short_name": "SimulaVagasMS",
-  "description": "Simulador de distribuição de vagas de Deputado Estadual e Federal para as Eleições 2026 em Mato Grosso do Sul",
+  "name": "SIMULE JÁ - Simulador Eleitoral 2026 MS",
+  "short_name": "SIMULE JÁ",
+  "description": "SIMULE JÁ - Projeção eleitoral inteligente nas regras oficiais do TSE",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#0B1120",
-  "theme_color": "#0B1120",
+  "background_color": "#F4F7F2",
+  "theme_color": "#F4F7F2",
   "orientation": "portrait-primary",
   "icons": [
     {

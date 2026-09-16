@@ -146,10 +146,19 @@ body {
 }
 
 .brand-title h1 {
-  font-size: 1.05rem;
-  font-weight: 800;
+  font-size: 1.12rem;
+  font-weight: 900;
   letter-spacing: -0.02em;
   color: var(--text-main);
+  line-height: 1.15;
+}
+
+.brand-slogan {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--pastel-green-text);
+  letter-spacing: 0.01em;
+  line-height: 1.2;
 }
 
 /* Navigation Tabs (Mobile Bottom Bar / Top Desktop) */
