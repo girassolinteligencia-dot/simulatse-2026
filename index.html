@@ -15,41 +15,39 @@
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="icon" href="assets/favicon.webp" type="image/webp">
   <link rel="apple-touch-icon" href="assets/icon-192.png">
-  <title>SIMULE JÁ - Projeção Eleitoral 2026 MS</title>
+  <title>Simule Já • Mato Grosso do Sul</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=1789570276989">
-  <link rel="stylesheet" href="css/components.css?v=1789570276989">
+  <link rel="stylesheet" href="css/main.css?v=1789571003494">
+  <link rel="stylesheet" href="css/components.css?v=1789571003494">
 </head>
 <body>
 
   <div class="app-container">
     
-    <!-- Top Header Centralizado -->
-    <header class="app-header">
-      <!-- Botão Discreto de Engrenagem ADM -->
-      <button id="btn-open-adm" class="btn-adm-gear" title="Painel Administrativo">
+    <!-- Top Header Compacto Horizontal (Opção 1) -->
+    <header class="app-header header-compact">
+      <div class="brand-wrapper-horizontal">
+        <div class="brand-icon-compact">
+          <picture>
+            <source srcset="assets/icon-192.webp" type="image/webp">
+            <img src="assets/oficial_logo.png" alt="Simule Já" class="brand-logo-compact">
+          </picture>
+        </div>
+        <div class="brand-title-compact">
+          <h1>Simule Já</h1>
+          <span class="brand-subtitle-compact">Mato Grosso do Sul</span>
+        </div>
+      </div>
+
+      <!-- Botão Discreto de Engrenagem ADM Integrado -->
+      <button id="btn-open-adm" class="btn-adm-gear-compact" title="Painel Administrativo" aria-label="Painel Administrativo">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="3"></circle>
           <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06-.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
         </svg>
       </button>
-
-      <div class="brand-wrapper">
-        <div class="brand-icon">
-          <picture>
-            <source srcset="assets/icon-192.webp" type="image/webp">
-            <img src="assets/oficial_logo.png" alt="SIMULA JÁ MS" class="brand-logo-img">
-          </picture>
-        </div>
-        <div class="brand-title">
-          <h1>SIMULA JÁ MS</h1>
-          <span class="brand-slogan">
-            PROJEÇÃO ELEITORAL 2026 • MATO GROSSO DO SUL
-          </span>
-        </div>
-      </div>
     </header>
 
 
@@ -516,7 +514,7 @@
   <div id="status-drawer-backdrop" class="status-drawer-backdrop"></div>
 
   <!-- Scripts -->
-  <script type="module" src="js/app.js?v=1789570276989"></script>
+  <script type="module" src="js/app.js?v=1789571003494"></script>
   <script>
     // Limpeza de cache antigo e garantia de carregamento instantâneo
     if ('serviceWorker' in navigator) {
