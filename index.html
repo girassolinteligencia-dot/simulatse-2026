@@ -156,30 +156,22 @@
       <!-- Container do Cockpit de BI (Exibido após o cálculo) -->
       <div id="results-bi-content" style="display: none;">
 
-      <!-- Ação Rápida: Compartilhamento Estratégico via WhatsApp / Link / Arquivo -->
+      <!-- Exportação Exclusiva da Projeção via Arquivo .simtse -->
       <div class="glass-card share-actions-card" style="padding: 12px 14px; margin-bottom: 12px; background: linear-gradient(135deg, #F0FDF4 0%, #FFFFFF 100%); border: 1.5px solid var(--pastel-green-border);">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
           <div style="display: flex; align-items: center; gap: 8px;">
-            <span style="font-size: 1.3rem;">📲</span>
+            <span style="font-size: 1.3rem;">💾</span>
             <div>
-              <strong style="font-size: 0.92rem; color: #14532D; display: block; line-height: 1.2;">Compartilhar Projeção Oficial</strong>
-              <span style="font-size: 0.73rem; color: var(--text-muted);">Envie via WhatsApp ou gere link com expiração de 24 horas</span>
+              <strong style="font-size: 0.92rem; color: #14532D; display: block; line-height: 1.2;">Exportar Projeção Oficial (.simtse)</strong>
+              <span style="font-size: 0.73rem; color: var(--text-muted);">Arquivo oficial de simulação com validade de 24 horas</span>
             </div>
           </div>
           <span class="badge badge-green" style="font-size: 0.68rem; font-weight: 700;">⏱️ Válido por 24h</span>
         </div>
 
         <div class="share-buttons-grid" style="display: flex; gap: 8px; flex-wrap: wrap;">
-          <button id="btn-share-whatsapp" class="btn btn-sm" style="background: #25D366; color: #FFFFFF; font-weight: 700; border: none; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(37, 211, 102, 0.35);">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.983.538 1.838.82 2.791.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.518-4.482 10-10 10-1.748 0-3.385-.453-4.814-1.246l-7.186 1.882 1.916-6.994c-.886-1.492-1.416-3.23-1.416-5.092 0-5.518 4.482-10 10-10 5.518 0 10 4.482 10 10z"/></svg>
-            Enviar no WhatsApp
-          </button>
-          <button id="btn-copy-share-link" class="btn btn-secondary btn-sm" style="font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-            Copiar Link Codificado
-          </button>
-          <button id="btn-export-simtse" class="btn btn-outline btn-sm" style="font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <button id="btn-export-simtse" class="btn btn-primary btn-sm" style="font-weight: 700; display: inline-flex; align-items: center; gap: 6px; background: #0284C7; border: none; box-shadow: 0 2px 6px rgba(2, 132, 199, 0.35);">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
             Baixar Arquivo (.simtse)
           </button>
         </div>
