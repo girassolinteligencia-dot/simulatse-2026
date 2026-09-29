@@ -699,7 +699,7 @@ function attachPartyGroupEvents() {
       saveDraft();
     });
 
-    // Ao pressionar Enter/Avançar no teclado mobile, avança o foco instantaneamente para o próximo
+    // Navegação por Enter e ajuste rápido por setas do teclado (Cima/Baixo = +-1.000, com Shift = +-5.000)
     input.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         e.preventDefault();
@@ -709,6 +709,13 @@ function attachPartyGroupEvents() {
           allInputs[currentIndex + 1].focus();
           allInputs[currentIndex + 1].select();
         }
+      } else if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        const delta = (e.shiftKey ? 5000 : 1000) * (e.key === 'ArrowUp' ? 1 : -1);
+        const currentVal = parseNumberFromMask(e.target.value) || 0;
+        const newVal = Math.max(0, currentVal + delta);
+        e.target.value = newVal > 0 ? newVal.toLocaleString('pt-BR') : '';
+        e.target.dispatchEvent(new Event('input', { bubbles: true }));
       }
     });
 
@@ -789,6 +796,102 @@ function setupGlobalInputs() {
   }
 
   setupSurveyImporter();
+  setupCandidateSearch();
+}
+
+function setupCandidateSearch() {
+  const searchInput = document.getElementById('input-candidate-search');
+  const clearBtn = document.getElementById('btn-clear-candidate-search');
+  const feedback = document.getElementById('search-results-feedback');
+  if (!searchInput) return;
+
+  function performSearch(term) {
+    const q = term.trim().toLowerCase();
+    const partyCards = document.querySelectorAll('.party-group-card');
+    
+    if (!q) {
+      if (clearBtn) clearBtn.style.display = 'none';
+      if (feedback) feedback.style.display = 'none';
+      partyCards.forEach(card => {
+        card.style.display = '';
+        const rows = card.querySelectorAll('.candidate-row');
+        rows.forEach(r => r.style.display = '');
+      });
+      return;
+    }
+
+    if (clearBtn) clearBtn.style.display = 'block';
+
+    let totalMatches = 0;
+    let matchedParties = 0;
+
+    partyCards.forEach(card => {
+      const partyTitle = (card.querySelector('.party-group-title')?.textContent || '').toLowerCase();
+      const rows = card.querySelectorAll('.candidate-row');
+      let partyHasMatch = false;
+
+      // Se a própria legenda combina com a busca, exibe o card inteiro e abre
+      if (partyTitle.includes(q)) {
+        partyHasMatch = true;
+        card.style.display = '';
+        card.classList.remove('collapsed');
+        rows.forEach(r => r.style.display = '');
+        matchedParties++;
+      } else {
+        // Busca dentro dos candidatos da legenda
+        let candMatchesInParty = 0;
+        rows.forEach(row => {
+          const candText = (row.querySelector('.candidate-info')?.textContent || '').toLowerCase();
+          if (candText.includes(q)) {
+            row.style.display = '';
+            candMatchesInParty++;
+            totalMatches++;
+          } else {
+            row.style.display = 'none';
+          }
+        });
+
+        if (candMatchesInParty > 0) {
+          card.style.display = '';
+          card.classList.remove('collapsed'); // Expande automaticamente para mostrar os resultados
+          partyHasMatch = true;
+          matchedParties++;
+        } else {
+          card.style.display = 'none';
+        }
+      }
+    });
+
+    if (feedback) {
+      feedback.style.display = 'block';
+      feedback.textContent = `🔍 Encontrado: ${totalMatches} candidato(s) em ${matchedParties} legenda(s).`;
+    }
+  }
+
+  searchInput.addEventListener('input', (e) => {
+    performSearch(e.target.value);
+  });
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      performSearch('');
+      searchInput.focus();
+    });
+  }
+
+  // Atalho global no teclado (/ ou Ctrl+F quando na aba de simulação)
+  window.addEventListener('keydown', (e) => {
+    const tabSim = document.getElementById('tab-simulation');
+    if (tabSim && tabSim.classList.contains('active')) {
+      if ((e.key === '/' && document.activeElement.tagName !== 'INPUT') || 
+          (e.ctrlKey && e.key.toLowerCase() === 'f')) {
+        e.preventDefault();
+        searchInput.focus();
+        searchInput.select();
+      }
+    }
+  });
 }
 
 /**
@@ -1457,22 +1560,31 @@ function renderScenariosList() {
 
   scenarios.forEach(sc => {
     const card = document.createElement('div');
-    card.className = 'glass-card';
-    card.style.display = 'flex';
-    card.style.justifyContent = 'space-between';
-    card.style.alignItems = 'center';
-    card.style.padding = '10px 14px';
+    card.className = 'scenario-card-item';
 
     card.innerHTML = `
-      <div>
-        <strong style="font-size: 0.92rem; color: #FFFFFF;">${sc.title}</strong>
-        <div style="font-size: 0.75rem; color: var(--text-muted);">
-          ${sc.cargo} • ${sc.validVotes.toLocaleString('pt-BR')} Votos Válidos • Salvo em: ${new Date(sc.updatedAt || sc.createdAt).toLocaleString('pt-BR')}
+      <div style="display: flex; flex-direction: column; gap: 2px;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <strong class="scenario-title">${sc.title}</strong>
+          <span class="badge ${sc.cargo === 'DEPUTADO ESTADUAL' ? 'badge-blue' : 'badge-green'}" style="font-size: 0.65rem;">
+            ${sc.cargo === 'DEPUTADO ESTADUAL' ? 'Estadual (24)' : 'Federal (8)'}
+          </span>
+        </div>
+        <div class="scenario-meta">
+          <span>🗳️ <b>${sc.validVotes.toLocaleString('pt-BR')}</b> votos válidos</span>
+          <span>•</span>
+          <span>📅 ${new Date(sc.updatedAt || sc.createdAt).toLocaleDateString('pt-BR')} às ${new Date(sc.updatedAt || sc.createdAt).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}</span>
         </div>
       </div>
-      <div style="display: flex; gap: 6px;">
-        <button class="btn btn-primary btn-sm btn-load-scenario" data-id="${sc.id}">Abrir</button>
-        <button class="btn btn-danger btn-sm btn-del-scenario" data-id="${sc.id}">Excluir</button>
+      <div style="display: flex; gap: 8px; flex-shrink: 0;">
+        <button class="btn btn-primary btn-sm btn-load-scenario" data-id="${sc.id}" title="Carregar este cenário para simulação ativa" style="font-weight: 700; display: inline-flex; align-items: center; gap: 5px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          <span>Carregar</span>
+        </button>
+        <button class="btn btn-danger btn-sm btn-del-scenario" data-id="${sc.id}" title="Remover este cenário salvo" style="display: inline-flex; align-items: center; gap: 4px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+          <span>Excluir</span>
+        </button>
       </div>
     `;
     container.appendChild(card);

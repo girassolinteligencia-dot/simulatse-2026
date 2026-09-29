@@ -194,10 +194,13 @@ export class ComparisonDashboard {
         </div>
       </div>
 
-      <!-- 2. MATRIZ COMPARATIVA DE BANCADAS (TABELA EXECUTIVA) -->
+      <!-- 2. PAINEL EXECUTIVO: QUEM ENTRA / QUEM SAI (DIFF VISUAL) -->
+      ${scenarioData.length >= 2 ? this.renderSeatChangesDiff(scenarioData) : ''}
+
+      <!-- 3. MATRIZ COMPARATIVA DE BANCADAS (TABELA EXECUTIVA) -->
       <div class="glass-card" style="padding: 12px 14px;">
         <div class="card-title-bar" style="margin-bottom: 8px;">
-          <h4 style="font-size: 0.92rem; font-weight: 800; color: var(--text-main); margin: 0;">2. Matriz Comparativa de Cadeiras</h4>
+          <h4 style="font-size: 0.92rem; font-weight: 800; color: var(--text-main); margin: 0;">3. Matriz Comparativa de Cadeiras</h4>
           <span style="font-size: 0.7rem; color: var(--text-muted);">Variação direta de vagas por chapa</span>
         </div>
         <div class="table-responsive">
@@ -287,7 +290,90 @@ export class ComparisonDashboard {
   }
 
   /**
-   * 2. Tabela Comparativa de Cadeiras
+   * 2. Painel Executivo: Quem Entra / Quem Sai (Diff Direto de Vagas)
+   */
+  renderSeatChangesDiff(scenarioData) {
+    const s1 = scenarioData[0];
+    const s2 = scenarioData[1];
+    const parties = this.getUniquePartyGroups(scenarioData);
+
+    const gainedSeats = [];
+    const lostSeats = [];
+
+    parties.forEach(partyName => {
+      const p1 = (s1.sim.partyResults || []).find(p => p.name === partyName);
+      const p2 = (s2.sim.partyResults || []).find(p => p.name === partyName);
+      const seats1 = p1 ? p1.totalSeats : 0;
+      const seats2 = p2 ? p2.totalSeats : 0;
+      const delta = seats2 - seats1;
+
+      if (delta > 0) {
+        gainedSeats.push({ party: partyName, delta, from: seats1, to: seats2 });
+      } else if (delta < 0) {
+        lostSeats.push({ party: partyName, delta: Math.abs(delta), from: seats1, to: seats2 });
+      }
+    });
+
+    return `
+      <div class="glass-card" style="padding: 14px 16px; border-left: 4px solid var(--primary); background: #FFFFFF;">
+        <div class="card-title-bar" style="margin-bottom: 10px;">
+          <div>
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--text-main); margin: 0; display: flex; align-items: center; gap: 6px;">
+              <span>⚡</span> Resumo Executivo: Quem Ganha / Quem Perde Vagas
+            </h4>
+            <span style="font-size: 0.72rem; color: var(--text-muted);">
+              Comparação direta: <b>${s1.scenario.title}</b> → <b>${s2.scenario.title}</b>
+            </span>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px;">
+          <!-- Ganham Cadeiras -->
+          <div style="background: var(--pastel-green-light); border: 1.5px solid var(--pastel-green-border); border-radius: var(--radius-sm); padding: 10px 14px;">
+            <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+              <span style="font-size: 1rem;">📈</span>
+              <strong style="font-size: 0.82rem; color: var(--pastel-green-text); text-transform: uppercase;">Aumentam Bancada (+ Vagas)</strong>
+            </div>
+            ${gainedSeats.length > 0 ? `
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                ${gainedSeats.map(g => `
+                  <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; background: #FFFFFF; padding: 6px 10px; border-radius: 6px; border: 1px solid var(--pastel-green-border);">
+                    <span style="font-weight: 700; color: var(--text-main);">${g.party}</span>
+                    <span class="badge badge-green" style="font-weight: 800; font-size: 0.75rem;">+${g.delta} vaga(s) (${g.from} → ${g.to})</span>
+                  </div>
+                `).join('')}
+              </div>
+            ` : `
+              <span style="font-size: 0.76rem; color: var(--text-muted); font-style: italic;">Nenhum partido aumentou cadeiras entre estes dois cenários.</span>
+            `}
+          </div>
+
+          <!-- Perdem Cadeiras -->
+          <div style="background: var(--pastel-red-bg); border: 1.5px solid var(--pastel-red-border); border-radius: var(--radius-sm); padding: 10px 14px;">
+            <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+              <span style="font-size: 1rem;">📉</span>
+              <strong style="font-size: 0.82rem; color: var(--pastel-red-text); text-transform: uppercase;">Reduzem Bancada (- Vagas)</strong>
+            </div>
+            ${lostSeats.length > 0 ? `
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                ${lostSeats.map(l => `
+                  <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; background: #FFFFFF; padding: 6px 10px; border-radius: 6px; border: 1px solid var(--pastel-red-border);">
+                    <span style="font-weight: 700; color: var(--text-main);">${l.party}</span>
+                    <span class="badge badge-red" style="font-weight: 800; font-size: 0.75rem;">-${l.delta} vaga(s) (${l.from} → ${l.to})</span>
+                  </div>
+                `).join('')}
+              </div>
+            ` : `
+              <span style="font-size: 0.76rem; color: var(--text-muted); font-style: italic;">Nenhum partido reduziu cadeiras entre estes dois cenários.</span>
+            `}
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  /**
+   * 3. Tabela Comparativa de Cadeiras
    */
   renderComparativeTable(scenarioData) {
     const allParties = this.getUniquePartyGroups(scenarioData);
