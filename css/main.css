@@ -563,18 +563,200 @@ body {
   box-shadow: 0 0 0 3px var(--primary-glow);
 }
 
-/* Responsive adjustments */
+/* ==========================================================================
+   RESPONSIVE DESKTOP & WIDE SCREEN SYSTEM (ADAPTAÇÃO ELEGANTE DESKTOP/WIDE)
+   ========================================================================== */
+
+/* Tablet & Pequenos Notebooks (>= 768px) */
 @media (min-width: 768px) {
   .app-container {
-    padding-bottom: 24px;
+    max-width: 820px;
+    padding-bottom: 30px;
   }
   .mobile-nav-bar {
     position: relative;
     border-radius: var(--radius-md);
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     box-shadow: var(--shadow-sm);
   }
 }
+
+/* Desktop Padrão (>= 1024px) */
+@media (min-width: 1024px) {
+  .app-container {
+    max-width: 1240px;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    gap: 20px;
+  }
+
+  /* Header Executivo Horizontal */
+  .app-header.header-centered {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    padding: 12px 20px;
+    background: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 4px;
+  }
+
+  .app-header.header-centered .brand-wrapper-centered {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 16px;
+  }
+
+  .brand-icon-original {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    margin-bottom: 0;
+  }
+
+  .brand-title-centered {
+    font-size: 1.4rem;
+    line-height: 1.1;
+  }
+
+  .brand-subtitle-centered {
+    font-size: 0.82rem;
+  }
+
+  .brand-credits-subtle {
+    margin-top: 0;
+    margin-left: 12px;
+    padding-left: 12px;
+    border-left: 1px solid var(--border-color);
+  }
+
+  .app-header .header-actions-right {
+    position: static !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Barra de Navegação no Topo para Desktop */
+  .mobile-nav-bar {
+    position: static;
+    background: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 6px 14px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 4px;
+  }
+
+  .mobile-nav-bar > div {
+    justify-content: flex-start !important;
+    gap: 8px;
+  }
+
+  .nav-tab-btn {
+    flex-direction: row;
+    gap: 8px;
+    font-size: 0.85rem;
+    padding: 8px 18px;
+    border-radius: var(--radius-sm);
+  }
+
+  .nav-tab-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Seletor de Cargo no Desktop */
+  .cargo-section {
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .cargo-toggle-btn {
+    padding: 10px 16px;
+    font-size: 0.95rem;
+  }
+
+  /* Painel de Controle de Votos: Layout Grid Horizontal em Desktop */
+  .desktop-votos-hero-card {
+    padding: 18px 24px !important;
+  }
+
+  /* Grid de Agremiações / Partidos: 2 Colunas no Desktop */
+  #party-groups-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    align-items: start;
+  }
+
+  .party-group-card {
+    margin-bottom: 0;
+  }
+
+  /* Lista de Candidatos interna em 2 colunas se houver espaço */
+  .party-group-body {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 8px;
+    padding: 12px;
+  }
+
+  /* Cockpit de Resultados BI em Grid Amplo */
+  .bi-kpi-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 16px;
+  }
+
+  .bi-kpi-card {
+    padding: 16px 20px;
+  }
+
+  .bi-kpi-value {
+    font-size: 2rem;
+  }
+
+  /* Grid de Eleitos e Suplentes em 2 a 3 colunas no Desktop */
+  .elected-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 12px;
+  }
+
+  /* Barra Inteligente de Cálculo no Desktop */
+  .sticky-calc-bar-dock {
+    position: sticky;
+    bottom: 24px;
+    max-width: 620px;
+    margin: 16px auto 0 auto;
+  }
+}
+
+/* Telas Wide & Ultrawide (>= 1440px) */
+@media (min-width: 1440px) {
+  .app-container {
+    max-width: 1560px;
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  /* Grid de Agremiações em 3 Colunas para telas Ultrawide */
+  #party-groups-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .elected-grid {
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  }
+}
+
 
 
 /* ==========================================================================

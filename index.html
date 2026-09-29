@@ -19,8 +19,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=1789573964073">
-  <link rel="stylesheet" href="css/components.css?v=1789573964073">
+  <link rel="stylesheet" href="css/main.css?v=1789574800000">
+  <link rel="stylesheet" href="css/components.css?v=1789574800000">
 </head>
 <body>
 
@@ -29,7 +29,7 @@
     <!-- Top Header Centralizado com Logo Original e Créditos Discretos -->
     <header class="app-header header-centered">
       <!-- Botões de Ação no Canto Superior Direito (Regras TSE e ADM) -->
-      <div style="position: absolute; top: 12px; right: 12px; display: flex; gap: 8px; z-index: 10;">
+      <div class="header-actions-right" style="position: absolute; top: 12px; right: 12px; display: flex; gap: 8px; z-index: 10;">
         <button id="btn-open-rules" class="btn-adm-gear-corner" title="Regras Oficiais do TSE" aria-label="Regras Oficiais do TSE" style="position: static;">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"></circle>
@@ -86,7 +86,7 @@
     <main id="tab-simulation" class="tab-content active">
       
       <!-- Painel de Controle de Votos e QE -->
-      <section class="glass-card" style="padding: 12px 14px;">
+      <section class="glass-card desktop-votos-hero-card" style="padding: 14px 16px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
           <span style="font-size: 0.8rem; font-weight: 800; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.04em;">Votos Válidos Projetados</span>
           <span id="balance-status-badge" class="badge badge-yellow">Ajuste os Votos</span>
