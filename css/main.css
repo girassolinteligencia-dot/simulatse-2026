@@ -762,3 +762,53 @@ body {
   border-radius: 3px;
   display: block;
 }
+
+/* Regras de Impressão e Geração de PDF */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    font-size: 11pt;
+  }
+
+  .mobile-nav-bar,
+  .sticky-calc-bar-dock,
+  .share-actions-card,
+  .btn-adm-gear-corner,
+  #btn-open-rules,
+  #btn-open-adm,
+  #btn-floating-status,
+  .status-drawer,
+  .status-drawer-backdrop,
+  .toast-container,
+  .cargo-section {
+    display: none !important;
+  }
+
+  .tab-content {
+    display: none !important;
+  }
+
+  #tab-results.tab-content.active,
+  #tab-scenarios.tab-content.active {
+    display: block !important;
+  }
+
+  .glass-card {
+    border: 1px solid #CBD5E1 !important;
+    box-shadow: none !important;
+    background: #FFFFFF !important;
+    page-break-inside: avoid;
+    margin-bottom: 12px;
+  }
+
+  .custom-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .custom-table th, .custom-table td {
+    border: 1px solid #E2E8F0 !important;
+    color: #000000 !important;
+  }
+}

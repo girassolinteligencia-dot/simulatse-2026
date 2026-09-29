@@ -111,6 +111,7 @@ function showToast(message, type = 'info', duration = 3500) {
 import { candidateStore } from './data/candidateStore.js';
 import { scenarioManager } from './scenarios/scenarioManager.js';
 import { ShareManager } from './scenarios/shareManager.js';
+import { comparisonDashboard } from './scenarios/comparisonDashboard.js';
 import { ElectoralEngine } from './engine/electoralRules.js';
 import { ElectoralValidator } from './engine/validator.js';
 import { getPartyLogoSvg } from './partyLogos.js';
@@ -302,6 +303,9 @@ function setupNavigationTabs() {
       const targetContent = document.getElementById(targetTabId);
       if (targetContent) {
         targetContent.classList.add('active');
+        if (targetTabId === 'tab-scenarios') {
+          renderScenariosList();
+        }
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
@@ -1408,6 +1412,31 @@ function setupScenarioActions() {
       }
     });
   }
+
+  const btnPrintReport = document.getElementById('btn-print-report');
+  if (btnPrintReport) {
+    btnPrintReport.addEventListener('click', () => {
+      window.print();
+    });
+  }
+
+  // Atalho do botão de Regras no Header
+  const btnOpenRules = document.getElementById('btn-open-rules');
+  if (btnOpenRules) {
+    btnOpenRules.addEventListener('click', () => {
+      const tabAboutBtn = document.querySelector('.nav-tab-btn[data-tab="tab-about"]');
+      if (tabAboutBtn) tabAboutBtn.click();
+    });
+  }
+
+  // Atalho para ir à simulação a partir do Empty State de Resultados
+  const btnGotoSim = document.getElementById('btn-goto-simulation');
+  if (btnGotoSim) {
+    btnGotoSim.addEventListener('click', () => {
+      const tabSimBtn = document.querySelector('.nav-tab-btn[data-tab="tab-simulation"]');
+      if (tabSimBtn) tabSimBtn.click();
+    });
+  }
 }
 
 function renderScenariosList() {
@@ -1418,6 +1447,11 @@ function renderScenariosList() {
 
   if (scenarios.length === 0) {
     container.innerHTML = `<div style="color: var(--text-muted); font-size: 0.85rem;">Nenhum cenário salvo ainda.</div>`;
+    const cmpMount = document.getElementById('scenarios-comparison-mount');
+    if (cmpMount) {
+      comparisonDashboard.clearCache();
+      comparisonDashboard.render(cmpMount);
+    }
     return;
   }
 
@@ -1480,6 +1514,13 @@ function renderScenariosList() {
       }
     });
   });
+
+  // Atualiza o Cockpit Comparativo de Projeções na aba Cenários
+  const cmpMount = document.getElementById('scenarios-comparison-mount');
+  if (cmpMount) {
+    comparisonDashboard.clearCache();
+    comparisonDashboard.render(cmpMount);
+  }
 }
 
 // Configurações ADM e Proteção por PIN

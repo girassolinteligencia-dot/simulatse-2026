@@ -28,13 +28,22 @@
     
     <!-- Top Header Centralizado com Logo Original e Créditos Discretos -->
     <header class="app-header header-centered">
-      <!-- Botão Discreto de Engrenagem ADM no Canto Superior Direito -->
-      <button id="btn-open-adm" class="btn-adm-gear-corner" title="Painel Administrativo" aria-label="Painel Administrativo">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="3"></circle>
-          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06-.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-        </svg>
-      </button>
+      <!-- Botões de Ação no Canto Superior Direito (Regras TSE e ADM) -->
+      <div style="position: absolute; top: 12px; right: 12px; display: flex; gap: 8px; z-index: 10;">
+        <button id="btn-open-rules" class="btn-adm-gear-corner" title="Regras Oficiais do TSE" aria-label="Regras Oficiais do TSE" style="position: static;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+        </button>
+        <button id="btn-open-adm" class="btn-adm-gear-corner" title="Painel Administrativo" aria-label="Painel Administrativo" style="position: static;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06-.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </button>
+      </div>
 
       <div class="brand-wrapper-centered">
         <!-- Logo em tamanho original compacto (38px) -->
@@ -108,9 +117,26 @@
         <div class="progress-track" style="margin-top: 4px; height: 6px;">
           <div id="balance-progress-bar" class="progress-fill" style="width: 0%;"></div>
         </div>
+
+        <!-- Barra de Ferramentas Rápidas de Simulação -->
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border-color); flex-wrap: wrap;">
+          <div style="display: flex; gap: 6px;">
+            <button id="btn-quick-fill" class="btn btn-secondary btn-sm" type="button" title="Preencher com projeção proporcional calibrada para MS" style="font-weight: 600; font-size: 0.76rem; display: inline-flex; align-items: center; gap: 4px;">
+              <span>⚡ Projeção Rápida</span>
+            </button>
+            <button id="btn-clear-votes" class="btn btn-outline btn-sm" type="button" title="Limpar todos os votos lançados" style="font-size: 0.76rem; color: var(--pastel-red-text); border-color: var(--pastel-red-border);">
+              <span>🗑️ Zerar Votos</span>
+            </button>
+          </div>
+        </div>
       </section>
 
-            <!-- Barra Fixa Inteligente de Cálculo e Status Oficial -->
+      <!-- Atalhos Rápidos Deslizantes das Agremiações (Chips Nav) -->
+      <nav id="party-chips-nav" class="party-chips-nav-container" style="display: flex; gap: 6px; overflow-x: auto; padding: 6px 2px 8px 2px; margin-top: 4px; -webkit-overflow-scrolling: touch;">
+        <!-- Gerado dinamicamente via JS -->
+      </nav>
+
+      <!-- Barra Fixa Inteligente de Cálculo e Status Oficial -->
       <div class="sticky-calc-bar-dock">
         <button id="btn-run-simulation" class="btn-smart-calc state-pending" type="button" aria-label="Calcular distribuição oficial de vagas">
           <div class="smart-calc-content">
@@ -170,9 +196,21 @@
         </div>
 
         <div class="share-buttons-grid" style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button id="btn-share-whatsapp" class="btn btn-primary btn-sm" style="font-weight: 700; display: inline-flex; align-items: center; gap: 6px; background: #25D366; border: none; box-shadow: 0 2px 6px rgba(37, 211, 102, 0.35);">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            Enviar no WhatsApp
+          </button>
+          <button id="btn-copy-share-link" class="btn btn-secondary btn-sm" style="font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+            Copiar Link (24h)
+          </button>
           <button id="btn-export-simtse" class="btn btn-primary btn-sm" style="font-weight: 700; display: inline-flex; align-items: center; gap: 6px; background: #0284C7; border: none; box-shadow: 0 2px 6px rgba(2, 132, 199, 0.35);">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
             Baixar Arquivo (.simtse)
+          </button>
+          <button id="btn-print-report" class="btn btn-outline btn-sm" style="font-weight: 600; display: inline-flex; align-items: center; gap: 6px;" title="Imprimir ou Salvar em PDF">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            Imprimir / PDF
           </button>
         </div>
       </div>
@@ -311,6 +349,11 @@
         <div id="scenarios-list" style="display: flex; flex-direction: column; gap: 10px;">
           <!-- Dynamic Scenario Cards -->
         </div>
+
+        <!-- Contêiner do Cockpit Analítico e Comparador de Cenários -->
+        <div id="scenarios-comparison-mount">
+          <!-- Renderizado via comparisonDashboard.js -->
+        </div>
       </div>
     </section>
 
@@ -393,6 +436,10 @@
       <button class="nav-tab-btn" data-tab="tab-scenarios">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
         <span>Cenários</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="tab-about" title="Regras Oficiais do TSE">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        <span>Regras</span>
       </button>
     </div>
   </nav>
