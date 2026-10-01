@@ -1,85 +1,84 @@
 :root {
-  /* Paleta Institucional Executiva Simula Já MS (Azul Royal, Slate e Acentos Cívicos) */
-  --bg-main: #F1F5F9;          /* Fundo geral slate/cool-gray suave, de alto contraste e foco */
-  --bg-card: #FFFFFF;          /* Branco puro para destacar os cartões */
-  --bg-card-hover: #F8FAFC;    /* Toque sutil no hover */
-  
-  /* Paleta Azul Institucional Primária */
-  --primary: #004C97;          /* Azul Oficial Institucional */
-  --primary-light: #0284C7;    /* Azul Ciano / Royal Vivo */
-  --primary-hover: #003870;    /* Azul Escuro Profundo */
-  --primary-glow: rgba(0, 76, 151, 0.22);
-  --primary-bg-subtle: #E0F2FE;
-
-  /* Paleta Verde (Confirmação e Sucesso) */
-  --pastel-green-bg: #DCFCE7;      /* Fundo verde suave */
-  --pastel-green-light: #F0FDF4;   /* Verde ultra suave */
-  --pastel-green-border: #86EFAC;  /* Borda verde */
-  --pastel-green-text: #15803D;    /* Verde para texto legível */
-  --pastel-green-accent: #16A34A;  /* Verde ativo */
-
-  /* Paleta Amarelo / Dourado (Atenção e Pendências) */
-  --pastel-yellow-bg: #FEF9C3;     /* Amarelo claro */
-  --pastel-yellow-light: #FEFCE8;  /* Amarelo ultra suave */
-  --pastel-yellow-border: #FDE047; /* Borda amarelo */
-  --pastel-yellow-text: #854D0E;   /* Âmbar escuro legível */
-  --pastel-yellow-accent: #D97706; /* Âmbar ativo */
-
-  /* Paleta Azul Suave Complementar */
-  --pastel-blue-bg: #E0F2FE;       /* Azul céu */
-  --pastel-blue-border: #BAE6FD;
-  --pastel-blue-text: #0284C7;
-
-  /* Paleta Púrpura Complementar */
-  --pastel-purple-bg: #F3E8FF;     /* Lavanda suave */
-  --pastel-purple-border: #E9D5FF;
-  --pastel-purple-text: #6B21A8;
-
-  /* Paleta Vermelho (Excesso / Alerta) */
-  --pastel-red-bg: #FEE2E2;        /* Vermelho suave */
-  --pastel-red-border: #FECACA;
-  --pastel-red-text: #DC2626;
-
   /* ============================================================ */
-  /* DIFERENCIAÇÃO VISUAL: CAMPOS EDITÁVEIS vs CAMPOS FIXOS       */
+  /* PALETA INSTITUCIONAL CLÁSSICA (TONS PASTÉIS, FOSCOS E SÓBRIOS) */
   /* ============================================================ */
+  --bg-main: #F4F6F8;          /* Fundo suave fosco, sem reflexos */
+  --bg-card: #FFFFFF;          /* Cartões limpos com bordas foscas */
+  --bg-card-hover: #F8FAFC;    
+  --bg-input: #F8FAFC;
   
-  /* Campos para Preencher (Editáveis) */
+  /* Azul Institucional Pastel Fosco */
+  --primary: #1E3A5F;          /* Azul marinho sóbrio executivo */
+  --primary-light: #2D4E75;    
+  --primary-hover: #152942;    
+  --primary-bg-subtle: #E8EEF5;
+
+  /* Paleta Verde Pastel Fosco */
+  --pastel-green-bg: #EAF5ED;      
+  --pastel-green-light: #F4FAF6;   
+  --pastel-green-border: #BDDDC5;  
+  --pastel-green-text: #245A36;    
+  --pastel-green-accent: #2D6E43;  
+
+  /* Paleta Amarelo / Ocre Pastel Fosco */
+  --pastel-yellow-bg: #FAF5E6;     
+  --pastel-yellow-light: #FDFBF4;  
+  --pastel-yellow-border: #E8DCB8; 
+  --pastel-yellow-text: #6B5524;   
+  --pastel-yellow-accent: #8F7230; 
+
+  /* Paleta Azul Suave Pastel Fosco */
+  --pastel-blue-bg: #EBF2F8;       
+  --pastel-blue-border: #C8D9E8;
+  --pastel-blue-text: #254B73;
+
+  /* Paleta Púrpura Pastel Fosco */
+  --pastel-purple-bg: #F2EEF8;     
+  --pastel-purple-border: #D7CBE8;
+  --pastel-purple-text: #503E6D;
+
+  /* Paleta Vermelho Pastel Fosco */
+  --pastel-red-bg: #F9EBEB;        
+  --pastel-red-border: #E8BFBF;
+  --pastel-red-text: #823434;
+
+  /* Diferenciação de Campos Editáveis e Fixos */
   --input-edit-bg: #FFFFFF;
-  --input-edit-border: #94A3B8;               /* Borda nítida de alto contraste */
-  --input-edit-focus-border: #004C97;         /* Foco no azul institucional */
-  --input-edit-focus-glow: rgba(0, 76, 151, 0.20);
-  --input-edit-filled-bg: #F0FDF4;            /* Verde ultra claro quando preenchido */
-  --input-edit-filled-border: #86EFAC;
+  --input-edit-border: #94A3B8;
+  --input-edit-focus-border: #0F172A;
+  --input-edit-filled-bg: #EAF5ED;
+  --input-edit-filled-border: #2D6E43;
 
-  /* Campos Fixos do Sistema (Cálculos, QE, Totais) */
-  --fixed-system-bg: #F8FAFC;                 /* Fundo slate contínuo e sereno */
-  --fixed-system-border: #CBD5E1;
+  --fixed-system-bg: #EAEFF5;
+  --fixed-system-border: #94A3B8;
   --fixed-system-text: #0F172A;
-  --fixed-system-badge-bg: #E2E8F0;
-  --fixed-system-badge-text: #334155;
+  --fixed-system-badge-bg: #CBD5E1;
+  --fixed-system-badge-text: #1E293B;
 
-  /* Cores Globais de Texto e Superfície */
-  --text-main: #0F172A;                       /* Slate escuro de altíssima legibilidade */
-  --text-muted: #475569;                      /* Ardósia equilibrado */
-  --text-dim: #64748B;
+  /* Cores Globais de Texto e Superfície (Contraste Otimizado) */
+  --text-main: #0B1320;                       /* Preto carvão com leitura límpida */
+  --text-muted: #334155;                      /* Cinza grafite escuro com alto contraste */
+  --text-dim: #475569;
   --border-color: #CBD5E1;
-  --border-focus: #004C97;
+  --border-focus: #0F172A;
 
-  --color-accent-blue: #004C97;
-  --color-accent-green: #16A34A;
-  --color-accent-yellow: #D97706;
-  --color-accent-red: #DC2626;
+  --color-accent-blue: #254B73;
+  --color-accent-green: #2D6E43;
+  --color-accent-yellow: #8F7230;
+  --color-accent-red: #823434;
 
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
   --radius-full: 9999px;
 
+  /* TIPOGRAFIA INSTITUCIONAL CLÁSSICA */
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
+
+  --shadow-sm: 0 1px 3px rgba(30, 41, 59, 0.04);
+  --shadow-md: 0 4px 8px rgba(30, 41, 59, 0.05);
+  --shadow-lg: 0 8px 16px rgba(30, 41, 59, 0.06);
   --transition: all 0.18s ease-in-out;
 
   /* Safe Area Insets para Mobile */
@@ -87,6 +86,67 @@
   --safe-bottom: env(safe-area-inset-bottom, 20px);
   --safe-left: env(safe-area-inset-left, 16px);
   --safe-right: env(safe-area-inset-right, 16px);
+}
+
+/* ============================================================ */
+/* MODO ESCURO (DARK MODE) - FOSCO, ELEGANTE E EQUILIBRADO      */
+/* ============================================================ */
+body.dark-mode {
+  --bg-main: #0F1722;          /* Slate escuro fosco de alto conforto visual */
+  --bg-card: #17212F;          /* Superfície de cartão sóbria */
+  --bg-card-hover: #1E2B3D;
+  --bg-input: #131C28;
+
+  --primary: #5A87B8;          /* Azul suave de leitura */
+  --primary-light: #7DA4CF;
+  --primary-hover: #4571A1;
+  --primary-bg-subtle: #1C2D42;
+
+  --pastel-green-bg: #13281E;
+  --pastel-green-light: #183327;
+  --pastel-green-border: #2D583F;
+  --pastel-green-text: #86C99D;
+  --pastel-green-accent: #6EBA88;
+
+  --pastel-yellow-bg: #2B2412;
+  --pastel-yellow-light: #362D17;
+  --pastel-yellow-border: #615026;
+  --pastel-yellow-text: #DEC58A;
+  --pastel-yellow-accent: #C7AE71;
+
+  --pastel-blue-bg: #142334;
+  --pastel-blue-border: #284463;
+  --pastel-blue-text: #96B9DF;
+
+  --pastel-purple-bg: #221B2E;
+  --pastel-purple-border: #44375A;
+  --pastel-purple-text: #C3B4DE;
+
+  --pastel-red-bg: #2A1719;
+  --pastel-red-border: #5A2D31;
+  --pastel-red-text: #D98E93;
+
+  --input-edit-bg: #131C28;
+  --input-edit-border: #2A3B50;
+  --input-edit-focus-border: #5A87B8;
+  --input-edit-filled-bg: #183327;
+  --input-edit-filled-border: #2D583F;
+
+  --fixed-system-bg: #131C28;
+  --fixed-system-border: #2A3B50;
+  --fixed-system-text: #E2E8F0;
+  --fixed-system-badge-bg: #1E2B3D;
+  --fixed-system-badge-text: #94A3B8;
+
+  --text-main: #F8FAFC;                       /* Branco nítido */
+  --text-muted: #CBD5E1;                      /* Cinza claro nítido */
+  --text-dim: #94A3B8;
+  --border-color: #334155;
+  --border-focus: #7DA4CF;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.45);
 }
 
 * {
@@ -107,6 +167,18 @@ body {
   flex-direction: column;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Tipografia Institucional Playfair Display para Títulos */
+h1, h2, h3, h4, 
+.card-title,
+.card-title-bar h2,
+.card-title-bar h3,
+.inter-title {
+  font-family: var(--font-serif) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em;
 }
 
 /* Layout Container Centralizado e Focado */
@@ -123,19 +195,59 @@ body {
   gap: 14px;
 }
 
-/* Header Centralizado */
-.app-header {
+/* Header Centralizado Hero Maximizado */
+.app-header.header-centered {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 12px 0 16px 0;
+  padding: 18px 12px 14px 12px;
   width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 12px;
 }
 
-.brand-wrapper {
+.header-actions-right {
+  position: absolute;
+  top: 10px;
+  right: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  z-index: 10;
+}
+
+.header-action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-adm-gear-corner {
+  position: static;
+  z-index: 10;
+  padding: 8px;
+  border-radius: 10px;
+  background: rgba(148, 163, 184, 0.10);
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.12));
+  color: var(--text-muted, #94A3B8);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.btn-adm-gear-corner:hover {
+  color: var(--text-main, #FFFFFF);
+  background: rgba(148, 163, 184, 0.20);
+  transform: translateY(-1px);
+}
+
+.brand-wrapper-centered {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -145,97 +257,177 @@ body {
   width: 100%;
 }
 
-.brand-icon {
-  width: clamp(140px, 45vw, 170px);
-  height: clamp(140px, 45vw, 170px);
+/* Logomarca Maximizada */
+.brand-icon-hero {
+  width: 76px;
+  height: 76px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 76, 151, 0.25), 0 2px 6px rgba(0, 0, 0, 0.08);
   background: transparent;
-  border: none;
-  border-radius: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: none;
+  flex-shrink: 0;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.brand-logo-img {
+.brand-icon-hero:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 76, 151, 0.35);
+}
+
+.brand-logo-hero {
   width: 100%;
   height: 100%;
-  border-radius: 28px;
-  display: block;
   object-fit: cover;
-  box-shadow: 0 4px 20px rgba(0, 76, 151, 0.15);
+  display: block;
 }
 
-.brand-title {
+.brand-text-block {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
   gap: 4px;
 }
 
-.brand-title h1 {
-  font-size: 1.40rem;
+/* Nome da Aplicação Maximizado - Tipografia Moderna Sem Serifa */
+.brand-title-hero {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Inter", sans-serif !important;
+  font-size: 2.35rem;
   font-weight: 900;
-  letter-spacing: -0.02em;
   color: var(--text-main);
-  line-height: 1.15;
-  text-align: center;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
   margin: 0;
+  text-transform: none;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.brand-slogan {
-  font-size: 0.76rem;
-  font-weight: 700;
-  color: var(--primary);
-  letter-spacing: 0.03em;
-  line-height: 1.3;
-  text-align: center;
+.brand-subtitle-hero-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-/* Navigation Tabs (Mobile Bottom Bar / Top Desktop) */
+
+.brand-subtitle-hero {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.brand-edition-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  background: var(--pastel-green-bg);
+  color: var(--pastel-green-text);
+  border: 1px solid var(--pastel-green-border);
+  padding: 3px 9px;
+  border-radius: 999px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.brand-credits-subtle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  margin-top: 2px;
+  font-size: 0.69rem;
+  font-weight: 500;
+  color: var(--text-dim, #64748B);
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.brand-credits-subtle:hover {
+  opacity: 1;
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.credits-logo-tiny {
+  width: 13px;
+  height: 13px;
+  object-fit: contain;
+  border-radius: 3px;
+  display: block;
+}
+/* Navigation Tabs (Barra de Navegação Inferior / Rodapé) */
 .mobile-nav-bar {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.96);
+  background: var(--bg-card);
   backdrop-filter: blur(12px);
   border-top: 1px solid var(--border-color);
   display: flex;
-  justify-content: space-around;
-  padding-top: 8px;
-  padding-bottom: calc(var(--safe-bottom) + 8px);
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: calc(var(--safe-bottom) + 12px);
   padding-left: var(--safe-left);
   padding-right: var(--safe-right);
   z-index: 1000;
-  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.nav-tab-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 8px;
 }
 
 .nav-tab-btn {
   background: transparent;
-  border: none;
+  border: 1px solid transparent;
   color: var(--text-muted);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3px;
-  font-size: 0.72rem;
+  justify-content: center;
+  gap: 4px;
+  font-size: 0.76rem;
   font-weight: 600;
   cursor: pointer;
-  padding: 6px 12px;
+  padding: 8px 14px;
+  min-height: 48px;
   border-radius: var(--radius-sm);
-  transition: var(--transition);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  flex: 1;
+  max-width: 150px;
+}
+
+.nav-tab-btn:hover {
+  background: var(--bg-input);
+  color: var(--text-main);
 }
 
 .nav-tab-btn.active {
-  color: #004C97;
-  background: #E0F2FE;
-  border: 1px solid #BAE6FD;
+  color: var(--text-main);
+  background: var(--pastel-blue-bg);
+  border-color: var(--pastel-blue-border);
+  font-weight: 700;
 }
 
 .nav-tab-btn svg {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
+  stroke-width: 2.1;
+  flex-shrink: 0;
 }
 
 /* Botão Discreto de Engrenagem ADM */
@@ -584,97 +776,147 @@ body {
 /* Desktop Padrão (>= 1024px) */
 @media (min-width: 1024px) {
   .app-container {
-    max-width: 1240px;
-    padding-left: 32px;
-    padding-right: 32px;
+    max-width: 100%;
+    width: 100%;
+    padding-left: clamp(24px, 4vw, 56px);
+    padding-right: clamp(24px, 4vw, 56px);
     padding-top: 20px;
     padding-bottom: 40px;
     gap: 20px;
   }
 
-  /* Header Executivo Horizontal */
+  /* Header Executivo Horizontal Maximizado */
   .app-header.header-centered {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     text-align: left;
-    padding: 12px 20px;
-    background: #FFFFFF;
+    padding: 16px 32px;
+    background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
   }
 
   .app-header.header-centered .brand-wrapper-centered {
     flex-direction: row;
     align-items: center;
     text-align: left;
-    gap: 16px;
+    gap: 24px;
+    width: auto;
   }
 
-  .brand-icon-original {
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
-    margin-bottom: 0;
+  .brand-icon-hero {
+    width: 84px;
+    height: 84px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 76, 151, 0.28), 0 2px 6px rgba(0, 0, 0, 0.1);
   }
 
-  .brand-title-centered {
-    font-size: 1.4rem;
-    line-height: 1.1;
+  .brand-text-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
   }
 
-  .brand-subtitle-centered {
-    font-size: 0.82rem;
+  .brand-title-hero {
+    font-size: 2.65rem;
+    letter-spacing: -0.045em;
+    line-height: 1;
+  }
+
+  .brand-subtitle-hero-row {
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  .brand-subtitle-hero {
+    font-size: 1.12rem;
+  }
+
+  .brand-edition-badge {
+    font-size: 0.76rem;
+    padding: 3px 10px;
   }
 
   .brand-credits-subtle {
-    margin-top: 0;
-    margin-left: 12px;
-    padding-left: 12px;
-    border-left: 1px solid var(--border-color);
+    margin-top: 2px;
+    font-size: 0.70rem;
+    justify-content: flex-end;
   }
 
   .app-header .header-actions-right {
     position: static !important;
     display: flex;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
   }
 
-  /* Barra de Navegação no Topo para Desktop */
+  .header-action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Barra de Navegação no Topo/Barra Centralizada para Desktop */
   .mobile-nav-bar {
     position: static;
-    background: #FFFFFF;
+    background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
-    padding: 6px 14px;
+    padding: 10px 20px;
     box-shadow: var(--shadow-sm);
-    margin-bottom: 4px;
+    margin-bottom: 8px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
+  .nav-tab-container,
   .mobile-nav-bar > div {
-    justify-content: flex-start !important;
-    gap: 8px;
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 900px;
   }
 
   .nav-tab-btn {
     flex-direction: row;
-    gap: 8px;
-    font-size: 0.85rem;
-    padding: 8px 18px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 0.94rem;
+    font-weight: 600;
+    padding: 10px 24px;
+    min-height: 46px;
     border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    flex: 1;
+    max-width: 210px;
+  }
+
+  .nav-tab-btn.active {
+    color: var(--text-main);
+    background: var(--pastel-blue-bg);
+    border: 1px solid var(--pastel-blue-border);
+    font-weight: 700;
   }
 
   .nav-tab-btn svg {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
+    stroke-width: 2.2;
   }
 
   /* Seletor de Cargo no Desktop */
   .cargo-section {
-    max-width: 540px;
+    max-width: 600px;
     margin: 0 auto;
   }
 
@@ -685,14 +927,14 @@ body {
 
   /* Painel de Controle de Votos: Layout Grid Horizontal em Desktop */
   .desktop-votos-hero-card {
-    padding: 18px 24px !important;
+    padding: 20px 28px !important;
   }
 
-  /* Grid de Agremiações / Partidos: 2 Colunas no Desktop */
+  /* Grid de Agremiações / Partidos: 2 a 3 Colunas no Desktop de tela cheia */
   #party-groups-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+    grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+    gap: 16px;
     align-items: start;
   }
 
@@ -700,17 +942,17 @@ body {
     margin-bottom: 0;
   }
 
-  /* Lista de Candidatos interna em 2 colunas se houver espaço */
+  /* Lista de Candidatos interna em 2 colunas */
   .party-group-body {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 8px;
-    padding: 12px;
+    padding: 14px;
   }
 
   /* Cockpit de Resultados BI em Grid Amplo */
   .bi-kpi-grid {
-    grid-template-columns: repeat(4, 1fr) !important;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
     gap: 16px;
   }
 
@@ -722,18 +964,18 @@ body {
     font-size: 2rem;
   }
 
-  /* Grid de Eleitos e Suplentes em 2 a 3 colunas no Desktop */
+  /* Grid de Eleitos e Suplentes no Desktop */
   .elected-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 12px;
+    gap: 14px;
   }
 
   /* Barra Inteligente de Cálculo no Desktop */
   .sticky-calc-bar-dock {
     position: sticky;
     bottom: 24px;
-    max-width: 620px;
+    max-width: 680px;
     margin: 16px auto 0 auto;
   }
 }
@@ -741,19 +983,18 @@ body {
 /* Telas Wide & Ultrawide (>= 1440px) */
 @media (min-width: 1440px) {
   .app-container {
-    max-width: 1560px;
-    padding-left: 48px;
-    padding-right: 48px;
+    padding-left: clamp(36px, 5vw, 72px);
+    padding-right: clamp(36px, 5vw, 72px);
   }
 
-  /* Grid de Agremiações em 3 Colunas para telas Ultrawide */
+  /* Grid de Agremiações em 3 ou 4 Colunas para telas Wide */
   #party-groups-container {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
+    grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+    gap: 20px;
   }
 
   .elected-grid {
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   }
 }
 
@@ -843,107 +1084,7 @@ body {
 }
 
 
-/* ==========================================================================
-   HEADER CENTRALIZADO COM LOGO ORIGINAL E CRÉDITOS SUBTIS
-   ========================================================================== */
-.app-header.header-centered {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 14px 10px 10px 10px;
-  width: 100%;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  margin-bottom: 12px;
-}
 
-.btn-adm-gear-corner {
-  position: absolute;
-  top: 10px;
-  right: 4px;
-  z-index: 10;
-  padding: 6px;
-  border-radius: 8px;
-  background: transparent;
-  border: none;
-  color: var(--text-muted, #94A3B8);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: var(--transition);
-}
-
-.btn-adm-gear-corner:hover {
-  color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.brand-wrapper-centered {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 2px;
-}
-
-.brand-icon-original {
-  width: 38px;
-  height: 38px;
-  border-radius: 9px;
-  overflow: hidden;
-  margin-bottom: 4px;
-  box-shadow: 0 2px 8px rgba(0, 76, 151, 0.25);
-  background: transparent;
-}
-
-.brand-logo-original {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.brand-title-centered {
-  font-size: 1.30rem;
-  font-weight: 900;
-  color: var(--text-main, #0F172A);
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  margin: 0;
-}
-
-.brand-subtitle-centered {
-  font-size: 0.80rem;
-  font-weight: 700;
-  color: var(--primary, #004C97);
-  letter-spacing: 0.02em;
-  line-height: 1.2;
-}
-
-.brand-credits-subtle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  margin-top: 5px;
-  font-size: 0.65rem;
-  font-weight: 400;
-  color: var(--text-dim, #64748B);
-  letter-spacing: 0.01em;
-  opacity: 0.85;
-}
-
-.credits-logo-tiny {
-  width: 13px;
-  height: 13px;
-  object-fit: contain;
-  border-radius: 3px;
-  display: block;
-}
 
 /* Regras de Impressão e Geração de PDF */
 @media print {

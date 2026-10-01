@@ -18,9 +18,10 @@
   <title>Simule Já • Mato Grosso do Sul</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=1789574800000">
-  <link rel="stylesheet" href="css/components.css?v=1789574800000">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css?v=1789585000000">
+  <link rel="stylesheet" href="css/components.css?v=1789586000000">
+  <link rel="stylesheet" href="css/interactive.css?v=1789590000000">
 </head>
 <body>
 
@@ -28,41 +29,63 @@
     
     <!-- Top Header Centralizado com Logo Original e Créditos Discretos -->
     <header class="app-header header-centered">
-      <!-- Botões de Ação no Canto Superior Direito (Regras TSE e ADM) -->
-      <div class="header-actions-right" style="position: absolute; top: 12px; right: 12px; display: flex; gap: 8px; z-index: 10;">
-        <button id="btn-open-rules" class="btn-adm-gear-corner" title="Regras Oficiais do TSE" aria-label="Regras Oficiais do TSE" style="position: static;">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-            <line x1="12" y1="17" x2="12.01" y2="17"></line>
-          </svg>
-        </button>
-        <button id="btn-open-adm" class="btn-adm-gear-corner" title="Painel Administrativo" aria-label="Painel Administrativo" style="position: static;">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="3"></circle>
-            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06-.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-          </svg>
-        </button>
-      </div>
-
       <div class="brand-wrapper-centered">
-        <!-- Logo em tamanho original compacto (38px) -->
-        <div class="brand-icon-original">
+        <!-- Logo da aplicação com presença maximizada -->
+        <div class="brand-icon-hero">
           <picture>
             <source srcset="assets/icon-192.webp" type="image/webp">
-            <img src="assets/oficial_logo.png" alt="Simule Já" class="brand-logo-original">
+            <img src="assets/oficial_logo.png" alt="Simule Já 2026" class="brand-logo-hero">
           </picture>
         </div>
         
-        <!-- Título e Frase Centralizados -->
-        <h1 class="brand-title-centered">Simule Já</h1>
-        <span class="brand-subtitle-centered">Mato Grosso do Sul</span>
-
-        <!-- Desenvolvido por Girassol Inteligência muito discreto e compacto -->
-        <div class="brand-credits-subtle">
-          <img src="assets/girassol_logo.png" alt="Girassol" class="credits-logo-tiny">
-          <span>Desenvolvido por Girassol Inteligência</span>
+        <!-- Bloco de Texto do Título e Subtítulo Maximizados -->
+        <div class="brand-text-block">
+          <h1 class="brand-title-hero">Simule Já</h1>
+          <div class="brand-subtitle-hero-row">
+            <span class="brand-subtitle-hero">Mato Grosso do Sul</span>
+            <span class="brand-edition-badge">Eleições 2026</span>
+          </div>
         </div>
+      </div>
+
+      <!-- Botões de Ação e Créditos Discretos (Lado Direito) -->
+      <div class="header-actions-right">
+        <div class="header-action-buttons" style="display: flex; gap: 8px; justify-content: flex-end;">
+          <button id="btn-toggle-theme" class="btn-adm-gear-corner" title="Alternar Modo Claro / Escuro" aria-label="Alternar Modo Claro e Escuro" style="position: static;">
+            <svg id="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg id="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <button id="btn-open-rules" class="btn-adm-gear-corner" title="Regras Oficiais do TSE" aria-label="Regras Oficiais do TSE" style="position: static;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+          </button>
+          <button id="btn-open-adm" class="btn-adm-gear-corner" title="Painel Administrativo" aria-label="Painel Administrativo" style="position: static;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06-.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+          </button>
+        </div>
+        <!-- Desenvolvido por Girassol Inteligência - Discreto abaixo dos botões -->
+        <a href="https://girassolinteligencia.com.br" target="_blank" rel="noopener noreferrer" class="brand-credits-subtle" title="Visitar Girassol Inteligência (abre em nova guia)">
+          <img src="assets/girassol_logo.png" alt="Girassol Inteligência" class="credits-logo-tiny">
+          <span>Desenvolvido por Girassol Inteligência</span>
+        </a>
       </div>
     </header>
 
@@ -71,11 +94,11 @@
     <!-- Cargo Selector (Item 2) -->
     <section class="cargo-section">
       <div class="cargo-toggle-grid">
-        <button id="cargo-estadual-btn" class="cargo-toggle-btn active" data-cargo="DEPUTADO ESTADUAL" data-seats="24">
+        <button id="cargo-estadual-btn" class="cargo-toggle-btn" data-cargo="DEPUTADO ESTADUAL" data-seats="24">
           <span>Deputado Estadual</span>
           <span class="sub-text">24 Vagas • MS</span>
         </button>
-        <button id="cargo-federal-btn" class="cargo-toggle-btn" data-cargo="DEPUTADO FEDERAL" data-seats="8">
+        <button id="cargo-federal-btn" class="cargo-toggle-btn active" data-cargo="DEPUTADO FEDERAL" data-seats="8">
           <span>Deputado Federal</span>
           <span class="sub-text">8 Vagas • MS</span>
         </button>
@@ -120,9 +143,12 @@
 
         <!-- Barra de Ferramentas Rápidas de Simulação -->
         <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border-color); flex-wrap: wrap;">
-          <div style="display: flex; gap: 6px;">
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
             <button id="btn-quick-fill" class="btn btn-secondary btn-sm" type="button" title="Preencher com projeção proporcional calibrada para MS" style="font-weight: 600; font-size: 0.76rem; display: inline-flex; align-items: center; gap: 4px;">
               <span>⚡ Projeção Rápida</span>
+            </button>
+            <button id="btn-open-interactive-tab" class="btn btn-secondary btn-sm" type="button" title="Abrir Simulador Visual Desktop com Gráfico Interativo Drag & Drop" style="font-weight: 700; font-size: 0.76rem; display: inline-flex; align-items: center; gap: 4px; border-color: rgba(56, 189, 248, 0.4); color: #38BDF8;">
+              <span>📊 Painel Visual Interativo</span>
             </button>
             <button id="btn-clear-votes" class="btn btn-outline btn-sm" type="button" title="Limpar todos os votos lançados" style="font-size: 0.76rem; color: var(--pastel-red-text); border-color: var(--pastel-red-border);">
               <span>🗑️ Zerar Votos</span>
@@ -195,39 +221,6 @@
       <!-- Container do Cockpit de BI (Exibido após o cálculo) -->
       <div id="results-bi-content" style="display: none;">
 
-      <!-- Exportação Exclusiva da Projeção via Arquivo .simtse -->
-      <div class="glass-card share-actions-card" style="padding: 12px 14px; margin-bottom: 12px; background: linear-gradient(135deg, #F0FDF4 0%, #FFFFFF 100%); border: 1.5px solid var(--pastel-green-border);">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <span style="font-size: 1.3rem;">💾</span>
-            <div>
-              <strong style="font-size: 0.92rem; color: #14532D; display: block; line-height: 1.2;">Exportar Projeção Oficial (.simtse)</strong>
-              <span style="font-size: 0.73rem; color: var(--text-muted);">Arquivo oficial de simulação com validade de 24 horas</span>
-            </div>
-          </div>
-          <span class="badge badge-green" style="font-size: 0.68rem; font-weight: 700;">⏱️ Válido por 24h</span>
-        </div>
-
-        <div class="share-buttons-grid" style="display: flex; gap: 8px; flex-wrap: wrap;">
-          <button id="btn-share-whatsapp" class="btn btn-primary btn-sm" style="font-weight: 700; display: inline-flex; align-items: center; gap: 6px; background: #25D366; border: none; box-shadow: 0 2px 6px rgba(37, 211, 102, 0.35);">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-            Enviar no WhatsApp
-          </button>
-          <button id="btn-copy-share-link" class="btn btn-secondary btn-sm" style="font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-            Copiar Link (24h)
-          </button>
-          <button id="btn-export-simtse" class="btn btn-primary btn-sm" style="font-weight: 700; display: inline-flex; align-items: center; gap: 6px; background: #0284C7; border: none; box-shadow: 0 2px 6px rgba(2, 132, 199, 0.35);">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-            Baixar Arquivo (.simtse)
-          </button>
-          <button id="btn-print-report" class="btn btn-outline btn-sm" style="font-weight: 600; display: inline-flex; align-items: center; gap: 6px;" title="Imprimir ou Salvar em PDF">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-            Imprimir / PDF
-          </button>
-        </div>
-      </div>
-      
       <!-- Top Seat & QE KPI Grid -->
       <div class="glass-card" style="padding: 12px 14px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
@@ -336,49 +329,27 @@
 
     
 
+    <!-- TAB: SIMULADOR VISUAL INTERATIVO (DESKTOP DRAG & DROP) -->
+    <section id="tab-interactive" class="tab-content">
+      <!-- Montado dinamicamente via InteractiveSimulator -->
+    </section>
+
     <!-- TAB 4: CENÁRIOS SALVOS (Item 11) -->
     <section id="tab-scenarios" class="tab-content">
       <div class="glass-card">
         <div class="scenarios-toolbar-wrapper">
-          <!-- Bloco 1: Ações Locais da Sessão Atual -->
+          <!-- Bloco 1: Gravação de Projeções Locais -->
           <div class="scenarios-toolbar-section">
             <div class="scenarios-toolbar-header">
               <span class="scenarios-toolbar-label">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
-                Gravação e Backup Local
+                Gravação de Projeção na Sessão
               </span>
             </div>
             <div class="scenarios-buttons-group">
               <button id="btn-save-current-scenario" class="btn btn-primary btn-scenario-action" title="Grava os votos atuais em um novo cenário">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                 <span>Salvar Projeção Atual</span>
-              </button>
-              <button id="btn-export-scenarios" class="btn btn-secondary btn-scenario-action" title="Baixa todos os cenários salvos em arquivo de backup JSON">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                <span>Exportar Backup (JSON)</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Bloco 2: Compartilhamento e Arquivos Externos -->
-          <div class="scenarios-toolbar-section">
-            <div class="scenarios-toolbar-header">
-              <span class="scenarios-toolbar-label">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
-                Importar de Outro Dispositivo
-              </span>
-            </div>
-            <div class="scenarios-buttons-group">
-              <input type="file" id="input-load-simtse-file" accept=".simtse,.json" style="display: none;">
-              <button id="btn-trigger-load-simtse" class="btn btn-primary btn-scenario-action" style="background: #0284C7; border: none;" title="Abre simulação exportada por outro usuário via WhatsApp ou arquivo">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
-                <span>Abrir Projeção (.simtse)</span>
-              </button>
-
-              <input type="file" id="input-import-scenarios-file" accept=".json" style="display: none;">
-              <button id="btn-trigger-import-scenarios" class="btn btn-outline btn-scenario-action" title="Restaura lista completa de cenários de um backup prévio">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
-                <span>Restaurar Backup (JSON)</span>
               </button>
             </div>
           </div>
@@ -449,35 +420,27 @@
       </div>
     </section>
 
-    
+    </div>
 
   </div>
 
-  <nav class="mobile-nav-bar" style="display: flex; flex-direction: column; align-items: center; padding: 10px 0;">
-    <div style="display: flex; justify-content: space-around; width: 100%;">
+  <nav class="mobile-nav-bar" aria-label="Navegação Principal">
+    <div class="nav-tab-container">
       <button class="nav-tab-btn active" data-tab="tab-simulation">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
         <span>Simulação</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="tab-interactive" title="Painel Visual com Ajuste no Gráfico em Tempo Real">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/><circle cx="13" cy="5" r="2" fill="currentColor"/></svg>
+        <span>Painel Visual</span>
       </button>
       <button class="nav-tab-btn" data-tab="tab-results">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path></svg>
         <span>Resultados</span>
       </button>
-      <button id="btn-toggle-status-sidebar" class="nav-tab-btn" title="Ver checklist e status das chapas">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-          <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-          <path d="M9 14l2 2 4-4"></path>
-        </svg>
-        <span>Chapas (<span id="sidebar-progress-counter">0/15</span>)</span>
-      </button>
       <button class="nav-tab-btn" data-tab="tab-scenarios">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
         <span>Cenários</span>
-      </button>
-      <button class="nav-tab-btn" data-tab="tab-about" title="Regras Oficiais do TSE">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-        <span>Regras</span>
       </button>
     </div>
   </nav>
@@ -588,43 +551,148 @@
         </div>
       </div>
 
+      <!-- Conexão do Cloudflare Workers AI Copilot -->
+      <div style="border-top: 1px solid var(--border-color); padding-top: 14px; margin-top: 8px;">
+        <label class="form-label" style="display: flex; align-items: center; gap: 6px;">
+          <span>🧠</span> Endpoint Cloudflare Workers AI (Opcional):
+        </label>
+        <input 
+          type="url" 
+          id="adm-workers-ai-url" 
+          class="form-input" 
+          placeholder="https://seu-worker.seu-subdominio.workers.dev" 
+          style="font-size: 0.8rem; margin-top: 4px;"
+        />
+        <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px;">
+          Se deixado em branco, o Copiloto utilizará o motor analítico autônomo local integrado.
+        </div>
+      </div>
+
+      <!-- Exportar Projeção Oficial (.simtse) - Exclusivo ADM -->
+      <div style="border-top: 1px solid var(--border-color); padding-top: 14px; margin-top: 10px; background: rgba(46, 125, 78, 0.08); border-radius: var(--radius-sm); padding: 12px; border: 1px solid var(--pastel-green-border);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+          <strong style="font-size: 0.95rem; color: var(--pastel-green-text); display: flex; align-items: center; gap: 6px;">
+            <span>💾</span> Exportar Projeção Oficial (.simtse)
+          </strong>
+          <span style="font-size: 0.68rem; font-weight: 700; background: var(--pastel-green-bg); color: var(--pastel-green-text); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--pastel-green-border);">Válido 24h</span>
+        </div>
+        <p style="font-size: 0.76rem; color: var(--text-muted); margin-bottom: 10px; line-height: 1.4;">
+          Gera o arquivo oficial criptografado da simulação atual para compartilhamento com validade legal e garantia de 24 horas.
+        </p>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button id="btn-export-simtse" class="btn btn-primary btn-sm" type="button" style="font-weight: 700; display: inline-flex; align-items: center; gap: 6px; background: var(--primary); border: none; color: #FFFFFF;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Baixar Arquivo (.simtse)
+          </button>
+          <button id="btn-share-whatsapp" class="btn btn-primary btn-sm" type="button" style="font-weight: 700; display: inline-flex; align-items: center; gap: 6px; background: #2E7D4E; border: none; color: #FFFFFF;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            Enviar no WhatsApp
+          </button>
+          <button id="btn-copy-share-link" class="btn btn-secondary btn-sm" type="button" style="font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+            Copiar Link (24h)
+        </div>
+      </div>
+
+      <!-- Backup Completo de Cenários (.json) - Exclusivo ADM -->
+      <div style="border-top: 1px solid var(--border-color); padding-top: 14px; margin-top: 10px; background: rgba(59, 130, 246, 0.06); border-radius: var(--radius-sm); padding: 12px; border: 1px solid var(--pastel-blue-border);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+          <strong style="font-size: 0.95rem; color: var(--pastel-blue-text); display: flex; align-items: center; gap: 6px;">
+            <span>🗄️</span> Backup Geral de Cenários (.json)
+          </strong>
+          <span style="font-size: 0.68rem; font-weight: 700; background: var(--pastel-blue-bg); color: var(--pastel-blue-text); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--pastel-blue-border);">Administração</span>
+        </div>
+        <p style="font-size: 0.76rem; color: var(--text-muted); margin-bottom: 10px; line-height: 1.4;">
+          Exporte ou importe a base integral de todos os cenários salvos em arquivo formato JSON.
+        </p>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button id="btn-export-scenarios" class="btn btn-secondary btn-sm" type="button" style="font-weight: 700; display: inline-flex; align-items: center; gap: 6px;" title="Baixa todos os cenários salvos em arquivo de backup JSON">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Exportar Backup (.json)
+          </button>
+          <input type="file" id="input-import-scenarios-file" accept=".json" style="display: none;">
+          <button id="btn-trigger-import-scenarios" class="btn btn-outline btn-sm" type="button" style="font-weight: 700; display: inline-flex; align-items: center; gap: 6px;" title="Restaura lista completa de cenários de um backup prévio">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+            Restaurar Backup (.json)
+          </button>
+        </div>
+      </div>
+
       <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 14px; border-top: 1px solid var(--border-color); padding-top: 12px;">
         <button id="btn-save-adm-settings" class="btn btn-primary btn-sm">Salvar Preferências</button>
       </div>
     </div>
   </div>
 
-  
+  <!-- Modal Oficial de Regras Eleitorais do TSE & STF (Ativado pelo botão '?') -->
+  <div id="modal-rules-panel" class="modal-backdrop">
+    <div class="modal-box" style="max-width: 640px; max-height: 85vh; display: flex; flex-direction: column;">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 12px;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 1.3rem;">⚖️</span>
+          <h3 style="color: var(--text-main); font-size: 1.15rem; margin: 0; font-weight: 800;">Regras Oficiais do TSE • Eleições 2026</h3>
+        </div>
+        <button id="btn-close-rules-panel" class="btn btn-secondary btn-sm" aria-label="Fechar Regras" style="border-radius: 8px; padding: 4px 10px; font-weight: 700;">✕</button>
+      </div>
 
-  <!-- Drawer / Coluna Lateral de Status das Chapas -->
-  <aside id="parties-status-drawer" class="status-drawer">
-    <div class="status-drawer-header">
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <span style="font-size: 1.2rem;">📋</span>
-        <div>
-          <h3 style="font-size: 0.95rem; font-weight: 800; color: var(--text-main); line-height: 1.1;">Status das Chapas</h3>
-          <span id="drawer-subtitle-progress" style="font-size: 0.7rem; color: var(--pastel-green-text); font-weight: 600;">0 de 15 com votos lançados</span>
+      <div style="overflow-y: auto; padding: 14px 4px 6px 0; display: flex; flex-direction: column; gap: 14px; font-size: 0.86rem; line-height: 1.5; color: var(--text-main);">
+        <div style="background: var(--pastel-blue-bg); border: 1px solid var(--pastel-blue-border); padding: 12px; border-radius: var(--radius-sm);">
+          <strong style="color: var(--pastel-blue-text); display: block; margin-bottom: 4px; font-size: 0.92rem;">
+            📊 Quociente Eleitoral (QE) e Quociente Partidário (QP)
+          </strong>
+          <p style="margin: 0; color: var(--text-main);">
+            <strong>QE</strong> = <code>Votos Válidos Totais ÷ Vagas em Disputa</code> (24 para Deputado Estadual / 8 para Federal). Fração até 0,5 é desprezada; superior a 0,5 arredonda-se para 1.<br>
+            <strong>QP</strong> = <code>Votos Totais da Agremiação ÷ QE</code> (apenas a parte inteira).
+          </p>
+        </div>
+
+        <div style="background: var(--pastel-yellow-bg); border: 1px solid var(--pastel-yellow-border); padding: 12px; border-radius: var(--radius-sm);">
+          <strong style="color: var(--pastel-yellow-text); display: block; margin-bottom: 4px; font-size: 0.92rem;">
+            🎯 Cláusula de Barreira Individual (10% do QE)
+          </strong>
+          <p style="margin: 0; color: var(--text-main);">
+            Para ter direito a ocupar vaga conquistada pelo QP, o candidato precisa ter obtido votação nominal igual ou superior a <strong>10% do Quociente Eleitoral</strong>.
+          </p>
+        </div>
+
+        <div style="background: var(--pastel-green-bg); border: 1px solid var(--pastel-green-border); padding: 12px; border-radius: var(--radius-sm);">
+          <strong style="color: var(--pastel-green-text); display: block; margin-bottom: 4px; font-size: 0.92rem;">
+            ⚖️ Distribuição de Sobras (Regra 80/20 & STF ADI 7228/7263)
+          </strong>
+          <p style="margin: 0 0 6px 0; color: var(--text-main);">
+            <strong>1ª Fase (80/20):</strong> Concorrem partidos que atingiram ≥ 80% do QE e possuam candidato com ≥ 20% do QE.<br>
+            <strong>2ª Fase (Sobras Gerais - STF):</strong> Vagas não preenchidas na regra 80/20 são distribuídas pelas maiores médias a <strong>todas</strong> as agremiações que tenham candidato com votação nominal ≥ 20% do QE.<br>
+            <code>Média = Votos Totais da Agremiação ÷ (Vagas Conquistadas + 1)</code>.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-input); border: 1px solid var(--border-color); padding: 10px 12px; border-radius: var(--radius-sm);">
+          <strong style="display: block; margin-bottom: 2px;">🤝 Federações Partidárias</strong>
+          <p style="margin: 0; color: var(--text-muted);">
+            As federações registradas concorrem e somam votos como uma agremiação única para o cálculo de QE, QP e distribuição de sobras.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-input); border: 1px solid var(--border-color); padding: 10px 12px; border-radius: var(--radius-sm);">
+          <strong style="display: block; margin-bottom: 2px;">🔒 Privacidade e Conformidade</strong>
+          <p style="margin: 0; color: var(--text-muted);">
+            O processamento ocorre integralmente no seu navegador local, sem envio ou rastreamento de dados em servidores externos.
+          </p>
         </div>
       </div>
-      <button id="btn-close-status-drawer" class="btn-icon-close" title="Fechar">✕</button>
-    </div>
 
-    <!-- Barra de Progresso Geral -->
-    <div style="padding: 10px 14px 6px 14px;">
-      <div class="progress-track" style="height: 6px;">
-        <div id="drawer-progress-fill" class="progress-fill" style="width: 0%;"></div>
+      <div style="display: flex; justify-content: flex-end; border-top: 1px solid var(--border-color); padding-top: 12px; margin-top: 8px;">
+        <button id="btn-understood-rules" class="btn btn-primary btn-sm" style="font-weight: 700;">Entendido</button>
       </div>
     </div>
+  </div>
 
-    <!-- Lista de Cards das Agremiações com Logo e Check -->
-    <div id="drawer-parties-list" class="status-drawer-list">
-      <!-- Cards gerados dinamicamente via JS -->
-    </div>
-  </aside>
-  <div id="status-drawer-backdrop" class="status-drawer-backdrop"></div>
+  
+
+
 
   <!-- Scripts -->
-  <script type="module" src="js/app.js?v=1789576800000"></script>
+  <script type="module" src="js/app.js?v=1789599000000"></script>
   <script>
     // Limpeza de cache antigo e garantia de carregamento instantâneo
     if ('serviceWorker' in navigator) {

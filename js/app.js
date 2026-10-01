@@ -115,11 +115,12 @@ import { comparisonDashboard } from './scenarios/comparisonDashboard.js';
 import { ElectoralEngine } from './engine/electoralRules.js';
 import { ElectoralValidator } from './engine/validator.js';
 import { getPartyLogoSvg } from './partyLogos.js';
+import { interactiveSimulator } from './interactive/interactiveSimulator.js';
 
 // Estado global reativo da aplicação
 const state = {
-  currentCargo: 'DEPUTADO ESTADUAL', // ou 'DEPUTADO FEDERAL'
-  totalSeats: 24,                    // 24 para Estadual, 8 para Federal
+  currentCargo: 'DEPUTADO FEDERAL',  // Padrão: Deputado Federal
+  totalSeats: 8,                     // 8 para Federal, 24 para Estadual
   validVotes: 1400000,
   partyGroups: [],                   // Agrupamentos oficiais por Partido ou Federação
   simulationResults: {
@@ -185,6 +186,7 @@ function loadDraft() {
 
 // Inicialização da Aplicação
 document.addEventListener('DOMContentLoaded', async () => {
+  setupThemeToggle();
   loadAdmSettings();
   applyCargoVisibility();
   setupNavigationTabs();
@@ -201,6 +203,43 @@ document.addEventListener('DOMContentLoaded', async () => {
     startApp();
   }
 });
+
+/**
+ * Gerenciador de Tema (Modo Claro e Modo Escuro)
+ * Salva a preferência do usuário no localStorage
+ */
+function setupThemeToggle() {
+  const btnToggle = document.getElementById('btn-toggle-theme');
+  const iconSun = document.getElementById('theme-icon-sun');
+  const iconMoon = document.getElementById('theme-icon-moon');
+  const THEME_KEY = 'simulatse_theme_preference';
+
+  const applyTheme = (isDark) => {
+    if (isDark) {
+      document.body.classList.add('dark-mode');
+      if (iconSun) iconSun.style.display = 'block';
+      if (iconMoon) iconMoon.style.display = 'none';
+    } else {
+      document.body.classList.remove('dark-mode');
+      if (iconSun) iconSun.style.display = 'none';
+      if (iconMoon) iconMoon.style.display = 'block';
+    }
+  };
+
+  // Carrega tema salvo ou detecta preferência do sistema
+  const savedTheme = localStorage.getItem(THEME_KEY);
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isDark = savedTheme ? savedTheme === 'dark' : prefersDark;
+  applyTheme(isDark);
+
+  if (btnToggle) {
+    btnToggle.addEventListener('click', () => {
+      const willBeDark = !document.body.classList.contains('dark-mode');
+      applyTheme(willBeDark);
+      localStorage.setItem(THEME_KEY, willBeDark ? 'dark' : 'light');
+    });
+  }
+}
 
 async function startApp() {
   await candidateStore.initialize();
@@ -305,11 +344,43 @@ function setupNavigationTabs() {
         targetContent.classList.add('active');
         if (targetTabId === 'tab-scenarios') {
           renderScenariosList();
+        } else if (targetTabId === 'tab-interactive') {
+          interactiveSimulator.mount('tab-interactive', state, onApplyInteractiveVotes);
         }
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
+
+  // Conecta atalho rápido de botão direto para o painel interativo
+  const btnOpenInter = document.getElementById('btn-open-interactive-tab');
+  if (btnOpenInter) {
+    btnOpenInter.addEventListener('click', () => {
+      const tabBtn = document.querySelector('.nav-tab-btn[data-tab="tab-interactive"]');
+      if (tabBtn) tabBtn.click();
+    });
+  }
+}
+
+/**
+ * Callback acionado pelo Painel Interativo quando o usuário clica em "Salvar na Simulação"
+ */
+function onApplyInteractiveVotes(updatedGroups, validVotes) {
+  if (Array.isArray(updatedGroups) && updatedGroups.length > 0) {
+    state.partyGroups = updatedGroups;
+  }
+  if (validVotes) {
+    state.validVotes = validVotes;
+    const inputVotes = document.getElementById('input-valid-votes');
+    if (inputVotes) inputVotes.value = Number(validVotes).toLocaleString('pt-BR');
+  }
+  saveDraft();
+  renderPartyChipsNav();
+  renderPartyGroups();
+  renderPartiesStatusSidebar();
+  updateMetricsDisplay();
+  executeSimulation();
+  showToast('✨ Votos calibrados no gráfico aplicados à simulação com sucesso!', 'success', 5000);
 }
 
 // Alternador de Cargo (Deputado Estadual 24 vagas vs Federal 8 vagas)
@@ -344,6 +415,11 @@ function onCargoChanged() {
   renderPartiesStatusSidebar();
   updateMetricsDisplay();
   updateResultsViewForCurrentCargo();
+
+  const interTab = document.getElementById('tab-interactive');
+  if (interTab && interTab.classList.contains('active')) {
+    interactiveSimulator.mount('tab-interactive', state, onApplyInteractiveVotes);
+  }
 }
 
 /**
@@ -360,14 +436,13 @@ function initPartyGroupsForCargo(cargo) {
   allInCargo.forEach(c => {
     const groupName = c.federacao ? c.federacao : c.partido;
     if (!groupsMap.has(groupName)) {
-      const isFirst = groupsMap.size === 0;
       groupsMap.set(groupName, {
         name: groupName,
         party: c.partido,
         federacao: c.federacao || null,
         partyVotes: 0,
         candidates: [],
-        isCollapsed: !isFirst
+        isCollapsed: true // Todas as agremiações fechadas por padrão
       });
     }
 
@@ -1523,12 +1598,26 @@ function setupScenarioActions() {
     });
   }
 
-  // Atalho do botão de Regras no Header
+  // Atalho do botão de Regras no Header (Abre Modal Próprio Oficial)
   const btnOpenRules = document.getElementById('btn-open-rules');
-  if (btnOpenRules) {
+  const modalRulesPanel = document.getElementById('modal-rules-panel');
+  const btnCloseRulesPanel = document.getElementById('btn-close-rules-panel');
+  const btnUnderstoodRules = document.getElementById('btn-understood-rules');
+
+  if (btnOpenRules && modalRulesPanel) {
     btnOpenRules.addEventListener('click', () => {
-      const tabAboutBtn = document.querySelector('.nav-tab-btn[data-tab="tab-about"]');
-      if (tabAboutBtn) tabAboutBtn.click();
+      modalRulesPanel.classList.add('active');
+    });
+
+    const closeRulesModal = () => {
+      modalRulesPanel.classList.remove('active');
+    };
+
+    if (btnCloseRulesPanel) btnCloseRulesPanel.addEventListener('click', closeRulesModal);
+    if (btnUnderstoodRules) btnUnderstoodRules.addEventListener('click', closeRulesModal);
+
+    modalRulesPanel.addEventListener('click', (e) => {
+      if (e.target === modalRulesPanel) closeRulesModal();
     });
   }
 
@@ -1728,6 +1817,12 @@ function setupAdmAndPinModal() {
     checkEstadual.checked = state.admSettings.showEstadual;
     checkFederal.checked = state.admSettings.showFederal;
     checkRequirePin.checked = state.admSettings.requirePin;
+
+    const inputWorkerUrl = document.getElementById('adm-workers-ai-url');
+    if (inputWorkerUrl) {
+      inputWorkerUrl.value = localStorage.getItem('simulatse_ai_worker_url') || '';
+    }
+
     admModal.classList.add('active');
   }
 
@@ -1747,6 +1842,11 @@ function setupAdmAndPinModal() {
       state.admSettings.showEstadual = checkEstadual.checked;
       state.admSettings.showFederal = checkFederal.checked;
       state.admSettings.requirePin = checkRequirePin.checked;
+
+      const inputWorkerUrl = document.getElementById('adm-workers-ai-url');
+      if (inputWorkerUrl) {
+        localStorage.setItem('simulatse_ai_worker_url', inputWorkerUrl.value.trim());
+      }
 
       saveAdmSettings();
       applyCargoVisibility();

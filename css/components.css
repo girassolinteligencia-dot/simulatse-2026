@@ -340,13 +340,13 @@
   flex-shrink: 0;
 }
 
-/* CAMPO DE PREENCHIMENTO EDITÁVEL: Fundo Branco, Borda Marcada, Foco Verde */
+/* CAMPO DE PREENCHIMENTO EDITÁVEL: Fundo Branco, Borda Marcada, Foco e Contraste Máximo */
 .vote-input-field {
   width: 145px;
   background: #FFFFFF;
-  border: 2.5px solid #94A3B8;
+  border: 2px solid #64748B;
   border-radius: var(--radius-sm);
-  color: var(--text-main);
+  color: #0F172A;
   padding: 8px 12px;
   font-size: 1.25rem;
   font-weight: 800;
@@ -355,25 +355,38 @@
   outline: none;
   transition: var(--transition);
   letter-spacing: 0.02em;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.06);
 }
 
 .vote-input-field:hover {
-  border-color: #22C55E;
-  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.15);
+  border-color: #1E3A5F;
+  box-shadow: 0 0 0 2px rgba(30, 58, 95, 0.15);
 }
 
 .vote-input-field:focus {
-  border-color: var(--primary);
+  border-color: #0F172A;
   background: #FFFFFF;
-  box-shadow: 0 0 0 3.5px var(--primary-glow);
+  color: #000000;
+  box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.2);
 }
 
 .vote-input-field.has-value {
-  border-color: #16A34A;
-  background: #F0FDF4;
-  color: var(--pastel-green-text);
+  border-color: #1E3A5F;
+  background: #F1F5F9;
+  color: #0F172A;
   font-weight: 900;
+}
+
+body.dark-mode .vote-input-field {
+  background: #17212F;
+  border-color: #475569;
+  color: #F8FAFC;
+}
+
+body.dark-mode .vote-input-field.has-value {
+  background: #1E293B;
+  border-color: #7DA4CF;
+  color: #FFFFFF;
 }
 
 /* Painéis Fixos do Sistema (Não Editáveis / Calculados) */
@@ -1238,5 +1251,147 @@
     grid-template-columns: 1fr 1fr;
     gap: 12px;
   }
+}
+
+/* ==========================================================================
+   OTIMIZAÇÕES DE CONTRASTE & LEGIBILIDADE PARA MODO ESCURO (DARK MODE)
+   ========================================================================== */
+body.dark-mode .party-group-card {
+  background: var(--bg-card, #17212F);
+  border-color: var(--border-color, #334155);
+}
+
+body.dark-mode .party-group-header {
+  background: #17212F;
+  border-bottom-color: #243247;
+}
+
+body.dark-mode .party-group-header:hover {
+  background: #1E2D40;
+}
+
+body.dark-mode .party-group-body {
+  background: #101924;
+}
+
+body.dark-mode .candidate-row {
+  background: #17212F;
+  border-color: #2A3B50;
+}
+
+body.dark-mode .candidate-row:hover {
+  background: #1D2C3F;
+  border-color: #4A6E95;
+}
+
+body.dark-mode .candidate-row.has-votes {
+  background: #13281E;
+  border-color: #2D583F;
+}
+
+body.dark-mode .party-chip-btn {
+  background: #17212F;
+  border-color: #334155;
+  color: #CBD5E1;
+}
+
+body.dark-mode .party-chip-btn:hover {
+  background: #1F2E42;
+  color: #FFFFFF;
+  border-color: #5A87B8;
+}
+
+body.dark-mode .party-chip-btn.active {
+  background: var(--primary, #5A87B8);
+  color: #FFFFFF;
+  border-color: #7DA4CF;
+}
+
+/* Tabela Consolidada de Quocientes e Conquista de Vagas */
+body.dark-mode .table-responsive {
+  background: #17212F;
+  border-color: #2D4158;
+}
+
+body.dark-mode .custom-table {
+  background: #17212F;
+}
+
+body.dark-mode .custom-table th {
+  background: #1A2838;
+  color: #86C99D;
+  border-bottom: 1px solid #2D4158;
+}
+
+body.dark-mode .custom-table td {
+  background: #17212F;
+  border-bottom: 1px solid #243549;
+  color: #F8FAFC !important;
+}
+
+body.dark-mode .custom-table td strong {
+  color: #FFFFFF !important;
+}
+
+body.dark-mode .custom-table tr:hover td {
+  background: #1E2E42 !important;
+  color: #FFFFFF !important;
+}
+
+/* Cartões de Candidatos Eleitos */
+body.dark-mode .elected-card {
+  background: #17212F;
+  border-color: #2D583F;
+  border-left-color: #6EBA88;
+}
+
+/* Campos de Feedback e Legenda */
+body.dark-mode .field-legend-bar {
+  background: #17212F;
+  border-color: #334155;
+  color: #CBD5E1;
+}
+
+body.dark-mode .badge-field-edit {
+  background: #131C28;
+  color: #93C5FD;
+  border-color: #3B82F6;
+}
+
+body.dark-mode .badge-field-fixed {
+  background: #1C2D42;
+  color: #E2E8F0;
+  border-color: #284463;
+}
+
+/* Seletor de Cargo no Topo */
+body.dark-mode .cargo-toggle-grid {
+  background: #131C28;
+  border-color: #334155;
+}
+
+body.dark-mode .cargo-toggle-btn {
+  color: #94A3B8;
+}
+
+body.dark-mode .cargo-toggle-btn:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .cargo-toggle-btn.active {
+  background: #1E3A5F;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .scenario-card-item {
+  background: #17212F;
+  border-color: #334155;
+}
+
+body.dark-mode .scenario-card-item:hover {
+  border-color: #5A87B8;
+  background: #1B2737;
 }
 
