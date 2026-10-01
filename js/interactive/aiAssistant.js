@@ -10,7 +10,9 @@
 export class AiCopilot {
   constructor(interactiveSimulator) {
     this.sim = interactiveSimulator;
-    this.endpointUrl = localStorage.getItem('simulatse_ai_worker_url') || '';
+    this.endpointUrl = (typeof localStorage !== 'undefined' && localStorage.getItem)
+      ? (localStorage.getItem('simulatse_ai_worker_url') || '')
+      : '';
     this.isProcessing = false;
   }
 
@@ -19,7 +21,9 @@ export class AiCopilot {
    */
   setEndpoint(url) {
     this.endpointUrl = url.trim();
-    localStorage.setItem('simulatse_ai_worker_url', this.endpointUrl);
+    if (typeof localStorage !== 'undefined' && localStorage.setItem) {
+      localStorage.setItem('simulatse_ai_worker_url', this.endpointUrl);
+    }
   }
 
   /**
