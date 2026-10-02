@@ -55,11 +55,11 @@
 
 .inter-title {
   font-size: 1.25rem;
-  font-family: var(--font-serif);
-  font-weight: 700;
+  font-family: var(--font-sans);
+  font-weight: 800;
   color: var(--text-main);
   margin: 0;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.025em;
 }
 
 .inter-subtitle {

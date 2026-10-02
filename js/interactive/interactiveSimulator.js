@@ -258,7 +258,7 @@ export class InteractiveSimulator {
             <div class="inter-ai-title-group">
               <span style="font-size: 1.3rem;">🧠</span>
               <div>
-                <h4 style="font-size: 0.96rem; font-family: var(--font-serif); margin: 0; color: var(--text-main);">
+                <h4 style="font-size: 0.96rem; font-family: var(--font-sans); font-weight: 700; margin: 0; color: var(--text-main); letter-spacing: -0.02em;">
                   Copiloto Estratégico com Workers AI
                 </h4>
                 <span style="font-size: 0.72rem; color: var(--text-muted);">

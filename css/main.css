@@ -72,9 +72,9 @@
   --radius-lg: 14px;
   --radius-full: 9999px;
 
-  /* TIPOGRAFIA INSTITUCIONAL CLÁSSICA */
-  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  /* TIPOGRAFIA ANALÍTICA NEO-GROTESCA (INTER) */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: var(--font-sans); /* Fallback compatível */
 
   --shadow-sm: 0 1px 3px rgba(30, 41, 59, 0.04);
   --shadow-md: 0 4px 8px rgba(30, 41, 59, 0.05);
@@ -170,15 +170,27 @@ body {
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-/* Tipografia Institucional Playfair Display para Títulos */
+/* Tipografia Neo-Grotesca de Alta Precisão para Títulos */
 h1, h2, h3, h4, 
 .card-title,
 .card-title-bar h2,
 .card-title-bar h3,
 .inter-title {
-  font-family: var(--font-serif) !important;
-  font-weight: 700 !important;
-  letter-spacing: -0.01em;
+  font-family: var(--font-sans) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.028em !important;
+}
+
+/* Alinhamento Numérico Tabular em Dados Eleitorais */
+.metric-value,
+.qe-value,
+.vote-count,
+.stat-box-val,
+.candidate-votes,
+.party-total-votes,
+.calc-value,
+.badge-total-votes {
+  font-feature-settings: "tnum" 1, "cv05" 1;
 }
 
 /* Layout Container Centralizado e Focado */
