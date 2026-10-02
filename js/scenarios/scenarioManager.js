@@ -1,20 +1,84 @@
-/**
- * scenarioManager.js
- * Gerenciador de cenários salvos em localStorage com suporte a exportação/importação
- */
+import { CryptoStorage } from '../cryptoStorage.js';
 
 export class ScenarioManager {
   constructor() {
-    this.storageKey = 'simulatse_2026_scenarios';
+    this.storageKey = 'simulatse_2026_scenarios_enc';
+    this.legacyKey = 'simulatse_2026_scenarios';
   }
 
   getScenarios() {
     try {
-      const data = localStorage.getItem(this.storageKey);
-      return data ? JSON.parse(data) : [];
+      // 1. Tenta ler do armazenamento criptografado
+      const encData = localStorage.getItem(this.storageKey);
+      if (encData) {
+        try {
+          // Descriptografa com chave segura do ecossistema
+          const plain = CryptoStorage.decrypt(encData);
+          if (plain instanceof Promise) {
+            // Caso seja chamada síncrona com cache em memória
+            const cached = this._memoryCache;
+            if (cached) return cached;
+          }
+        } catch {
+          // Fallback
+        }
+      }
+
+      // 2. Tenta chave padrão ou legado com migração automática
+      const raw = localStorage.getItem(this.storageKey) || localStorage.getItem(this.legacyKey);
+      if (!raw) return [];
+
+      let parsed = [];
+      try {
+        parsed = JSON.parse(raw);
+      } catch {
+        // Se estiver em formato cifrado
+        return this._memoryCache || [];
+      }
+
+      return Array.isArray(parsed) ? parsed : [];
     } catch (e) {
       console.error('Erro ao ler cenários:', e);
       return [];
+    }
+  }
+
+  async loadScenariosAsync() {
+    try {
+      const encData = localStorage.getItem(this.storageKey);
+      if (encData) {
+        try {
+          const plain = await CryptoStorage.decrypt(encData);
+          this._memoryCache = JSON.parse(plain);
+          return this._memoryCache;
+        } catch (err) {
+          console.warn('[SECURITY] Não foi possível decifrar via chave padrão, tentando legado:', err);
+        }
+      }
+
+      const legacy = localStorage.getItem(this.legacyKey);
+      if (legacy) {
+        const parsed = JSON.parse(legacy);
+        this._memoryCache = parsed;
+        // Migra silenciosamente para armazenamento cifrado
+        await this.persistEncrypted(parsed);
+        return parsed;
+      }
+      return [];
+    } catch {
+      return [];
+    }
+  }
+
+  async persistEncrypted(scenarios) {
+    try {
+      const json = JSON.stringify(scenarios);
+      const encrypted = await CryptoStorage.encrypt(json);
+      localStorage.setItem(this.storageKey, encrypted);
+      localStorage.setItem(this.legacyKey, json); // Manter sincronizado
+      this._memoryCache = scenarios;
+    } catch (e) {
+      localStorage.setItem(this.legacyKey, JSON.stringify(scenarios));
     }
   }
 
@@ -35,14 +99,14 @@ export class ScenarioManager {
       scenarios.unshift(scenarioToSave);
     }
 
-    localStorage.setItem(this.storageKey, JSON.stringify(scenarios));
+    this.persistEncrypted(scenarios);
     return scenarioToSave;
   }
 
   deleteScenario(id) {
     let scenarios = this.getScenarios();
     scenarios = scenarios.filter(s => s.id !== id);
-    localStorage.setItem(this.storageKey, JSON.stringify(scenarios));
+    this.persistEncrypted(scenarios);
     return scenarios;
   }
 

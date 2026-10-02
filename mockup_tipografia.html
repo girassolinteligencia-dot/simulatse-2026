@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparativo Tipográfico • SIMULA JÁ MS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Google Fonts para as 4 opções -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,700;1,6..72,600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0F172A;
+      --card-bg: #1E293B;
+      --card-border: #334155;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --primary: #38BDF8;
+      --accent-green: #34D399;
+      --accent-blue: #60A5FA;
+      --accent-yellow: #FBBF24;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      padding: 32px 20px;
+      line-height: 1.5;
+    }
+
+    .header-doc {
+      max-width: 1200px;
+      margin: 0 auto 36px;
+      text-align: center;
+    }
+
+    .header-doc h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+
+    .header-doc p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .grid-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .option-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      position: relative;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .option-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--primary);
+    }
+
+    .badge-recommend {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: linear-gradient(135deg, #0284C7, #0369A1);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .badge-current {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: #475569;
+      color: #CBD5E1;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .opt-tag {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .sim-header {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 14px;
+    }
+
+    /* Font Classes */
+    .font-inter-only .card-title,
+    .font-inter-only .hero-title,
+    .font-inter-only .stat-num {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+    }
+
+    .font-jakarta .card-title,
+    .font-jakarta .hero-title,
+    .font-jakarta .stat-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+
+    .font-newsreader .card-title,
+    .font-newsreader .hero-title {
+      font-family: 'Newsreader', Georgia, serif;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .font-playfair .card-title,
+    .font-playfair .hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    /* Simulated UI Elements */
+    .hero-title {
+      font-size: 1.45rem;
+      color: #FFFFFF;
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .hero-sub {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .sim-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .stat-box {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      padding: 10px 12px;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .stat-num {
+      font-size: 1.25rem;
+      color: #FFFFFF;
+      font-feature-settings: "tnum" 1;
+      margin-top: 2px;
+    }
+
+    .sim-table {
+      background: rgba(15, 23, 42, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      padding: 12px;
+    }
+
+    .sim-table-title {
+      font-size: 0.95rem;
+      color: #E2E8F0;
+      margin-bottom: 10px;
+    }
+
+    .table-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.82rem;
+    }
+
+    .table-row:last-child {
+      border-bottom: none;
+    }
+
+    .party-tag {
+      font-weight: 700;
+      color: var(--accent-blue);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cand-name {
+      color: #CBD5E1;
+      font-weight: 500;
+    }
+
+    .badge-vaga {
+      background: rgba(52, 211, 153, 0.15);
+      color: var(--accent-green);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 6px;
+      font-feature-settings: "tnum" 1;
+    }
+
+    .critique {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 0.78rem;
+      color: #CBD5E1;
+      line-height: 1.45;
+    }
+
+    .critique strong {
+      color: #FFFFFF;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-doc">
+    <h1>Comparativo de Estilo Tipográfico</h1>
+    <p>Simulação real com elementos do SIMULA JÁ MS (Títulos, Quocientes, Siglas Partidárias e Votação)</p>
+  </div>
+
+  <div class="grid-options">
+
+    <!-- OPÇÃO 1: INTER TOTAL -->
+    <div class="option-card font-inter-only">
+      <span class="badge-recommend">Recomendada</span>
+      <div class="opt-tag">Opção 1 • Neo-Grotesca Analítica</div>
+      
+      <div class="sim-header">
+        <h2 class="hero-title">SIMULA JÁ MS 2026</h2>
+        <p class="hero-sub">Projeção Eleitoral Oficial • Regras TSE & STF</p>
+      </div>
+
+      <div class="sim-stats">
+        <div class="stat-box">
+          <div class="stat-label">Quociente Eleitoral</div>
+          <div class="stat-num">178.432</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Vagas Federais</div>
+          <div class="stat-num">8 Vagas</div>
+        </div>
+      </div>
+
+      <div class="sim-table">
+        <div class="card-title sim-table-title">Distribuição de Cadeiras & Sobras</div>
+        <div class="table-row">
+          <span class="party-tag"><span>🔵</span> PSDB-CIDADANIA</span>
+          <span class="cand-name">Beto Pereira</span>
+          <span class="badge-vaga">1ª QP • 145.220</span>
+        </div>
+        <div class="table-row">
+          <span class="party-tag"><span>🟡</span> PL</span>
+          <span class="cand-name">Marcos Pollon</span>
+          <span class="badge-vaga">2ª QP • 131.050</span>
+        </div>
+        <div class="table-row">
+          <span class="party-tag"><span>🔴</span> FEDERAÇÃO BRASIL</span>
+          <span class="cand-name">Vander Loubet</span>
+          <span class="badge-vaga">Sobra STF • 88.940</span>
+        </div>
+      </div>
+
+      <div class="critique">
+        <strong>Veredito:</strong> Aparência ultra limpa, estilo Bloomberg/Stripe. Perfeita para ler números tabulares, sem distorção e com peso visual moderno.
+      </div>
+    </div>
+
+    <!-- OPÇÃO 2: PLUS JAKARTA SANS -->
+    <div class="option-card font-jakarta">
+      <div class="opt-tag">Opção 2 • Executiva Dinâmica</div>
+      
+      <div class="sim-header">
+        <h2 class="hero-title">SIMULA JÁ MS 2026</h2>
+        <p class="hero-sub">Projeção Eleitoral Oficial • Regras TSE & STF</p>
+      </div>
+
+      <div class="sim-stats">
+        <div class="stat-box">
+          <div class="stat-label">Quociente Eleitoral</div>
+          <div class="stat-num">178.432</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Vagas Federais</div>
+          <div class="stat-num">8 Vagas</div>
+        </div>
+      </div>
+
+      <div class="sim-table">
+        <div class="card-title sim-table-title">Distribuição de Cadeiras & Sobras</div>
+        <div class="table-row">
+          <span class="party-tag"><span>🔵</span> PSDB-CIDADANIA</span>
+          <span class="cand-name">Beto Pereira</span>
+          <span class="badge-vaga">1ª QP • 145.220</span>
+        </div>
+        <div class="table-row">
+          <span class="party-tag"><span>🟡</span> PL</span>
+          <span class="cand-name">Marcos Pollon</span>
+          <span class="badge-vaga">2ª QP • 131.050</span>
+        </div>
+        <div class="table-row">
+          <span class="party-tag"><span>🔴</span> FEDERAÇÃO BRASIL</span>
+          <span class="cand-name">Vander Loubet</span>
+          <span class="badge-vaga">Sobra STF • 88.940</span>
+        </div>
+      </div>
+
+      <div class="critique">
+        <strong>Veredito:</strong> Geometria amigável e energética de produto SaaS de inteligência política. Títulos chamativos e sofisticados com corpo em Inter.
+      </div>
+    </div>
+
+    <!-- OPÇÃO 3: NEWSREADER -->
+    <div class="option-card font-newsreader">
+      <div class="opt-tag">Opção 3 • Editorial de Jornalismo Político</div>
+      
+      <div class="sim-header">
+        <h2 class="hero-title">SIMULA JÁ MS 2026</h2>
+        <p class="hero-sub">Projeção Eleitoral Oficial • Regras TSE & STF</p>
+      </div>
+
+      <div class="sim-stats">
+        <div class="stat-box">
+          <div class="stat-label">Quociente Eleitoral</div>
+          <div class="stat-num">178.432</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Vagas Federais</div>
+          <div class="stat-num">8 Vagas</div>
+        </div>
+      </div>
+
+      <div class="sim-table">
+        <div class="card-title sim-table-title">Distribuição de Cadeiras & Sobras</div>
+        <div class="table-row">
+          <span class="party-tag"><span>🔵</span> PSDB-CIDADANIA</span>
+          <span class="cand-name">Beto Pereira</span>
+          <span class="badge-vaga">1ª QP • 145.220</span>
+        </div>
+        <div class="table-row">
+          <span class="party-tag"><span>🟡</span> PL</span>
+          <span class="cand-name">Marcos Pollon</span>
+          <span class="badge-vaga">2ª QP • 131.050</span>
+        </div>
+        <div class="table-row">
+          <span class="party-tag"><span>🔴</span> FEDERAÇÃO BRASIL</span>
+          <span class="cand-name">Vander Loubet</span>
+          <span class="badge-vaga">Sobra STF • 88.940</span>
+        </div>
+      </div>
+
+      <div class="critique">
+        <strong>Veredito:</strong> Serifa sóbria desenhada para jornais e portais de notícias de alta credibilidade (estilo Folha/NYT). Muito mais legível e séria que a Playfair.
+      </div>
+    </div>
+
+    <!-- REFERÊNCIA ATUAL: PLAYFAIR DISPLAY -->
+    <div class="option-card font-playfair">
+      <span class="badge-current">Atual</span>
+      <div class="opt-tag" style="color: #94A3B8;">Opção 4 • Playfair Display (Atual)</div>
+      
+      <div class="sim-header">
+        <h2 class="hero-title">SIMULA JÁ MS 2026</h2>
+        <p class="hero-sub">Projeção Eleitoral Oficial • Regras TSE & STF</p>
+      </div>
+
+      <div class="sim-stats">
+        <div class="stat-box">
+          <div class="stat-label">Quociente Eleitoral</div>
+          <div class="stat-num">178.432</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Vagas Federais</div>
+          <div class="stat-num">8 Vagas</div>
+        </div>
+      </div>
+
+      <div class="sim-table">
+        <div class="card-title sim-table-title">Distribuição de Cadeiras & Sobras</div>
+        <div class="table-row">
+          <span class="party-tag"><span>🔵</span> PSDB-CIDADANIA</span>
+          <span class="cand-name">Beto Pereira</span>
+          <span class="badge-vaga">1ª QP • 145.220</span>
+        </div>
+        <div class="table-row">
+          <span class="party-tag"><span>🟡</span> PL</span>
+          <span class="cand-name">Marcos Pollon</span>
+          <span class="badge-vaga">2ª QP • 131.050</span>
+        </div>
+        <div class="table-row">
+          <span class="party-tag"><span>🔴</span> FEDERAÇÃO BRASIL</span>
+          <span class="cand-name">Vander Loubet</span>
+          <span class="badge-vaga">Sobra STF • 88.940</span>
+        </div>
+      </div>
+
+      <div class="critique">
+        <strong>Veredito:</strong> Contraste muito fino nos traços verticais/horizontais. Fica desconexo de painéis numéricos e tabelas de apuração.
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

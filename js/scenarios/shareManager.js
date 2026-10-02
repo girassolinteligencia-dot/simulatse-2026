@@ -7,7 +7,10 @@
  * 3. Envio direto e amigável formatado para WhatsApp Web / Mobile.
  */
 
+import { CryptoStorage } from '../cryptoStorage.js';
+
 const APP_SIGNATURE = 'SIMULATSE_2026_MS';
+const SECURE_VERSION = 3;
 const SHARE_DURATION_MS = 24 * 60 * 60 * 1000; // 24 Horas em Milissegundos
 
 export class ShareManager {
@@ -44,7 +47,7 @@ export class ShareManager {
 
     return {
       sig: APP_SIGNATURE,
-      v: 2,
+      v: SECURE_VERSION,
       cargo: state.currentCargo,
       totalSeats: state.totalSeats,
       validVotes: state.validVotes,
@@ -55,26 +58,59 @@ export class ShareManager {
   }
 
   /**
-   * Codifica payload JSON em string Base64URL segura
+   * Codifica payload JSON em envelope cifrado e assinado via AES-GCM e HMAC
    * @param {Object} payload 
-   * @returns {string}
+   * @returns {Promise<string>}
    */
-  static encodePayload(payload) {
+  static async encodePayload(payload) {
     const jsonStr = JSON.stringify(payload);
-    // Codifica UTF-8 seguro para Base64URL
-    const utf8Bytes = encodeURIComponent(jsonStr).replace(/%([0-9A-F]{2})/g, (match, p1) => {
-      return String.fromCharCode('0x' + p1);
-    });
-    const base64 = btoa(utf8Bytes);
-    return base64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    const encryptedData = await CryptoStorage.encrypt(jsonStr);
+    const signature = await CryptoStorage.sign(encryptedData);
+
+    const envelope = {
+      sig: APP_SIGNATURE,
+      v: SECURE_VERSION,
+      enc: encryptedData,
+      hmac: signature,
+      expiresAt: payload.expiresAt
+    };
+
+    const envelopeStr = JSON.stringify(envelope);
+    return CryptoStorage.uint8ToBase64Url(new TextEncoder().encode(envelopeStr));
   }
 
   /**
-   * Decodifica string Base64URL de volta para o objeto JSON
+   * Decodifica envelope e valida integridade criptográfica
    * @param {string} encoded 
-   * @returns {Object}
+   * @returns {Promise<Object>}
    */
-  static decodePayload(encoded) {
+  static async decodePayload(encoded) {
+    const bytes = CryptoStorage.base64UrlToUint8(encoded);
+    const envelopeStr = new TextDecoder().decode(bytes);
+    let envelope;
+    try {
+      envelope = JSON.parse(envelopeStr);
+    } catch {
+      // Tenta fallback para versoes legadas nao cifradas (v2)
+      return this.decodeLegacyPayload(encoded);
+    }
+
+    if (envelope && envelope.enc && envelope.hmac) {
+      // Valida assinatura anti-adulteração
+      const isIntegrityValid = await CryptoStorage.verifySignature(envelope.enc, envelope.hmac);
+      if (!isIntegrityValid) {
+        throw new Error('Falha de Integridade: Os dados desta simulação foram adulterados ou corrompidos.');
+      }
+
+      // Descriptografa AES-GCM
+      const decryptedJson = await CryptoStorage.decrypt(envelope.enc);
+      return JSON.parse(decryptedJson);
+    }
+
+    return envelope;
+  }
+
+  static decodeLegacyPayload(encoded) {
     let base64 = encoded.replace(/-/g, '+').replace(/_/g, '/');
     while (base64.length % 4) {
       base64 += '=';
@@ -114,11 +150,11 @@ export class ShareManager {
   /**
    * Gera a URL completa para abertura direta via link no navegador
    * @param {Object} state 
-   * @returns {string} URL pronta para compartilhamento
+   * @returns {Promise<string>} URL pronta para compartilhamento
    */
-  static generateShareableUrl(state) {
+  static async generateShareableUrl(state) {
     const payload = this.packSimulationPayload(state);
-    const encoded = this.encodePayload(payload);
+    const encoded = await this.encodePayload(payload);
     const baseUrl = window.location.origin + window.location.pathname;
     return `${baseUrl}#sim=${encoded}`;
   }
@@ -127,10 +163,10 @@ export class ShareManager {
    * Cria o texto oficial formatado para compartilhamento no WhatsApp
    * @param {Object} state 
    * @param {Object} simulationResult 
-   * @returns {string} Mensagem para WhatsApp
+   * @returns {Promise<string>} Mensagem para WhatsApp
    */
-  static createWhatsAppShareText(state, simulationResult) {
-    const shareUrl = this.generateShareableUrl(state);
+  static async createWhatsAppShareText(state, simulationResult) {
+    const shareUrl = await this.generateShareableUrl(state);
     const cargoTitle = state.currentCargo === 'DEPUTADO ESTADUAL' ? 'Deputado Estadual (24 Vagas)' : 'Deputado Federal (8 Vagas)';
     const validVotesFmt = (state.validVotes || 0).toLocaleString('pt-BR');
     const qeFmt = simulationResult ? (simulationResult.qe || 0).toLocaleString('pt-BR') : '-';
@@ -158,21 +194,36 @@ export class ShareManager {
    * @param {Object} state 
    * @param {Object} simulationResult 
    */
-  static shareViaWhatsApp(state, simulationResult) {
-    const text = this.createWhatsAppShareText(state, simulationResult);
+  static async shareViaWhatsApp(state, simulationResult) {
+    const text = await this.createWhatsAppShareText(state, simulationResult);
     const encodedText = encodeURIComponent(text);
     const waUrl = `https://api.whatsapp.com/send?text=${encodedText}`;
     window.open(waUrl, '_blank');
   }
 
   /**
-   * Exporta arquivo proprietário .simtse para envio como documento
+   * Exporta arquivo proprietário .simtse criptografado em AES-256-GCM com assinatura HMAC
    * @param {Object} state 
    */
-  static exportSimtseFile(state) {
+  static async exportSimtseFile(state) {
     const payload = this.packSimulationPayload(state);
-    const jsonStr = JSON.stringify(payload, null, 2);
-    const blob = new Blob([jsonStr], { type: 'application/octet-stream' });
+    const jsonStr = JSON.stringify(payload);
+    const encryptedData = await CryptoStorage.encrypt(jsonStr);
+    const signature = await CryptoStorage.sign(encryptedData);
+
+    const secureSimtseContainer = {
+      sig: APP_SIGNATURE,
+      v: SECURE_VERSION,
+      type: 'SIMTSE_ENCRYPTED_FILE',
+      cargo: payload.cargo,
+      createdAt: payload.createdAt,
+      expiresAt: payload.expiresAt,
+      enc: encryptedData,
+      hmac: signature
+    };
+
+    const containerJson = JSON.stringify(secureSimtseContainer, null, 2);
+    const blob = new Blob([containerJson], { type: 'application/octet-stream' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     const cargoSlug = state.currentCargo === 'DEPUTADO ESTADUAL' ? 'estadual' : 'federal';
@@ -181,6 +232,27 @@ export class ShareManager {
     a.download = `simulacao_ms2026_${cargoSlug}_${dateStr}.simtse`;
     a.click();
     URL.revokeObjectURL(url);
+  }
+
+  /**
+   * Importa e decifra arquivo .simtse verificando assinatura digital
+   * @param {string} fileContent 
+   * @returns {Promise<Object>} Payload decifrado e validado
+   */
+  static async importSimtseFile(fileContent) {
+    let container = JSON.parse(fileContent);
+
+    // Se for container criptografado (v3)
+    if (container && container.enc && container.hmac) {
+      const isIntegrityValid = await CryptoStorage.verifySignature(container.enc, container.hmac);
+      if (!isIntegrityValid) {
+        throw new Error('Assinatura digital inválida: o arquivo .simtse foi modificado ou corrompido.');
+      }
+      const decrypted = await CryptoStorage.decrypt(container.enc);
+      container = JSON.parse(decrypted);
+    }
+
+    return container;
   }
 
   /**

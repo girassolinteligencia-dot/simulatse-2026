@@ -116,6 +116,7 @@ import { ElectoralEngine } from './engine/electoralRules.js';
 import { ElectoralValidator } from './engine/validator.js';
 import { getPartyLogoSvg } from './partyLogos.js';
 import { interactiveSimulator } from './interactive/interactiveSimulator.js';
+import { telemetry } from './telemetry.js';
 
 // Estado global reativo da aplicação
 const state = {
@@ -259,7 +260,7 @@ async function startApp() {
 /**
  * Detecta e carrega simulação a partir do link codificado de 24h na URL
  */
-function checkIncomingSharedLink() {
+async function checkIncomingSharedLink() {
   const hash = window.location.hash;
   if (!hash || !hash.includes('sim=')) return;
 
@@ -267,7 +268,7 @@ function checkIncomingSharedLink() {
     const match = hash.match(/sim=([^&]+)/);
     if (match && match[1]) {
       const encoded = match[1];
-      const payload = ShareManager.decodePayload(encoded);
+      const payload = await ShareManager.decodePayload(encoded);
       handleImportedPayload(payload, true);
       // Limpa a hash da barra de endereços para não reprocessar num reload
       history.replaceState(null, '', window.location.pathname + window.location.search);
@@ -1539,10 +1540,14 @@ function setupScenarioActions() {
   // =========================================================================
   const btnShareWhatsApp = document.getElementById('btn-share-whatsapp');
   if (btnShareWhatsApp) {
-    btnShareWhatsApp.addEventListener('click', () => {
-      const currentRes = state.simulationResults ? state.simulationResults[state.currentCargo] : null;
-      ShareManager.shareViaWhatsApp(state, currentRes);
-      showToast('Abrindo WhatsApp para envio da simulação...', 'success');
+    btnShareWhatsApp.addEventListener('click', async () => {
+      try {
+        const currentRes = state.simulationResults ? state.simulationResults[state.currentCargo] : null;
+        await ShareManager.shareViaWhatsApp(state, currentRes);
+        showToast('Abrindo WhatsApp para envio da simulação...', 'success');
+      } catch (err) {
+        showToast('Erro ao preparar compartilhamento: ' + err.message, 'error');
+      }
     });
   }
 
@@ -1550,22 +1555,29 @@ function setupScenarioActions() {
   if (btnCopyShareLink) {
     btnCopyShareLink.addEventListener('click', async () => {
       try {
-        const shareUrl = ShareManager.generateShareableUrl(state);
+        const shareUrl = await ShareManager.generateShareableUrl(state);
         await navigator.clipboard.writeText(shareUrl);
         showToast('🔗 Link codificado copiado! Válido por 24 horas.', 'success');
       } catch (err) {
-        // Fallback caso clipboard API falhe
-        const shareUrl = ShareManager.generateShareableUrl(state);
-        prompt('Copie o link seguro abaixo (Válido por 24h):', shareUrl);
+        try {
+          const shareUrl = await ShareManager.generateShareableUrl(state);
+          prompt('Copie o link seguro abaixo (Válido por 24h):', shareUrl);
+        } catch (e) {
+          showToast('Erro ao gerar link de compartilhamento.', 'error');
+        }
       }
     });
   }
 
   const btnExportSimtse = document.getElementById('btn-export-simtse');
   if (btnExportSimtse) {
-    btnExportSimtse.addEventListener('click', () => {
-      ShareManager.exportSimtseFile(state);
-      showToast('Arquivo .simtse baixado! Envie pelo WhatsApp para outro usuário do SimulaTSE.', 'success');
+    btnExportSimtse.addEventListener('click', async () => {
+      try {
+        await ShareManager.exportSimtseFile(state);
+        showToast('Arquivo .simtse blindado baixado com sucesso!', 'success');
+      } catch (err) {
+        showToast('Erro ao exportar arquivo: ' + err.message, 'error');
+      }
     });
   }
 
@@ -1582,11 +1594,11 @@ function setupScenarioActions() {
       if (!file) return;
       try {
         const text = await file.text();
-        const payload = JSON.parse(text);
+        const payload = await ShareManager.importSimtseFile(text);
         handleImportedPayload(payload);
         inputLoadSimtse.value = '';
       } catch (err) {
-        showToast('Falha ao ler arquivo .simtse: ' + err.message, 'error');
+        showToast('Falha ao autenticar/ler arquivo .simtse: ' + err.message, 'error', 6000);
       }
     });
   }
