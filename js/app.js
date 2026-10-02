@@ -1832,6 +1832,22 @@ function setupAdmAndPinModal() {
     });
   }
 
+  // Permite fechar ao clicar no fundo escuro (backdrop)
+  if (admModal) {
+    admModal.addEventListener('click', (e) => {
+      if (e.target === admModal) {
+        admModal.classList.remove('active');
+      }
+    });
+  }
+
+  // Tecla Escape para fechar
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && admModal && admModal.classList.contains('active')) {
+      admModal.classList.remove('active');
+    }
+  });
+
   if (btnSaveAdm) {
     btnSaveAdm.addEventListener('click', () => {
       if (!checkEstadual.checked && !checkFederal.checked) {
