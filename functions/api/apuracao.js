@@ -14,17 +14,28 @@ export async function onRequestGet({ request, env }) {
   const url = new URL(request.url);
   const cargo = url.searchParams.get('cargo') || 'DEPUTADO ESTADUAL';
 
-  // Mapeamento oficial TSE para cargos proporcionais e majoritários de MS
-  let codigoCargo = '0007'; // Deputado Estadual MS
-  if (cargo.toUpperCase().includes('FEDERAL')) {
+  // Mapeamento oficial TSE para todos os cargos da eleição geral
+  let codigoCargo = '0007'; // Deputado Estadual MS (padrão)
+  let uf = 'ms';
+
+  const cargoUpper = cargo.toUpperCase();
+  if (cargoUpper.includes('PRESIDENT')) {
+    codigoCargo = '0001'; // Presidente da República (Totalização BR)
+    uf = 'br';
+  } else if (cargoUpper.includes('GOV')) {
+    codigoCargo = '0003'; // Governador MS
+    uf = 'ms';
+  } else if (cargoUpper.includes('SENAD')) {
+    codigoCargo = '0005'; // Senador MS
+    uf = 'ms';
+  } else if (cargoUpper.includes('FEDERAL')) {
     codigoCargo = '0006'; // Deputado Federal MS
-  } else if (cargo.toUpperCase().includes('SENAD')) {
-    codigoCargo = '0005';
-  } else if (cargo.toUpperCase().includes('GOV')) {
-    codigoCargo = '0003';
+    uf = 'ms';
+  } else if (cargoUpper.includes('ESTADUAL')) {
+    codigoCargo = '0007'; // Deputado Estadual MS
+    uf = 'ms';
   }
 
-  const uf = 'ms';
   const ano = '2026';
 
   const candidateUrls = [

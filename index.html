@@ -159,20 +159,42 @@
           </div>
         </div>
 
-        <!-- Banner Dinâmico da Apuração Oficial ao Vivo TSE -->
-        <div id="banner-live-tse" class="live-tse-banner" style="display: none;">
-          <div class="live-tse-meta">
-            <span class="radar-live-dot"></span>
-            <strong>Apuração TSE MS:</strong>
-            <span id="live-tse-percent">0,00% apurado</span>
-            <span>•</span>
-            <span id="live-tse-urnas">0 seções</span>
-            <span>•</span>
-            <span id="live-tse-time" style="color: var(--text-muted);">Aguardando boletins</span>
+        <!-- Banner Dinâmico da Apuração Oficial ao Vivo TSE (Multi-Cargos) -->
+        <div id="banner-live-tse" class="live-tse-banner" style="display: none; flex-direction: column; gap: 8px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap; gap: 8px;">
+            <div class="live-tse-meta">
+              <span class="radar-live-dot"></span>
+              <strong id="live-tse-title">Apuração TSE MS:</strong>
+              <span id="live-tse-percent">0,00% apurado</span>
+              <span>•</span>
+              <span id="live-tse-urnas">0 seções</span>
+              <span>•</span>
+              <span id="live-tse-time" style="color: var(--text-muted);">Aguardando boletins</span>
+            </div>
+            <div style="display: flex; gap: 6px; align-items: center;">
+              <select id="select-live-tse-cargo" style="font-size: 0.72rem; padding: 3px 8px; border-radius: 4px; background: var(--bg-card); color: var(--text-main); border: 1px solid rgba(16, 185, 129, 0.4); font-weight: 700;">
+                <option value="DEPUTADO ESTADUAL" selected>Deputado Estadual (MS)</option>
+                <option value="DEPUTADO FEDERAL">Deputado Federal (MS)</option>
+                <option value="GOVERNADOR">Governador (MS)</option>
+                <option value="SENADOR">Senador (MS)</option>
+                <option value="PRESIDENTE">Presidente da República (BR)</option>
+              </select>
+              <button id="btn-refresh-live-tse" class="btn btn-outline btn-sm" style="font-size: 0.72rem; padding: 2px 8px; border-color: #10B981; color: #10B981;">
+                ↻ Atualizar
+              </button>
+            </div>
           </div>
-          <button id="btn-refresh-live-tse" class="btn btn-outline btn-sm" style="font-size: 0.72rem; padding: 2px 8px; border-color: #10B981; color: #10B981;">
-            ↻ Atualizar
-          </button>
+
+          <!-- Placar Compacto dos Líderes do Cargo Consultado -->
+          <div id="live-tse-leaders-deck" style="display: none; width: 100%; border-top: 1px dashed rgba(16, 185, 129, 0.25); padding-top: 6px;">
+            <div style="font-size: 0.72rem; font-weight: 700; color: #6EE7B7; margin-bottom: 4px; display: flex; justify-content: space-between;">
+              <span id="live-leaders-label">Placar dos Líderes no Momento:</span>
+              <span id="live-leaders-total-vv" style="color: var(--text-muted);">0 votos apurados</span>
+            </div>
+            <div id="live-leaders-pills" style="display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px; -webkit-overflow-scrolling: touch;">
+              <!-- Gerado dinamicamente com os mais votados do cargo -->
+            </div>
+          </div>
         </div>
       </section>
 
