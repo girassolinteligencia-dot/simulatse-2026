@@ -822,6 +822,119 @@ function setupGlobalInputs() {
     saveDraft();
   });
 
+  // Sincronização em Tempo Real com a Apuração Oficial do TSE (Mato Grosso do Sul)
+  const btnSyncLiveTse = document.getElementById('btn-sync-live-tse');
+  const btnRefreshLiveTse = document.getElementById('btn-refresh-live-tse');
+  const bannerLiveTse = document.getElementById('banner-live-tse');
+  const liveTsePercent = document.getElementById('live-tse-percent');
+  const liveTseUrnas = document.getElementById('live-tse-urnas');
+  const liveTseTime = document.getElementById('live-tse-time');
+
+  let liveTseInterval = null;
+
+  async function fetchAndApplyLiveTse() {
+    if (btnSyncLiveTse) {
+      btnSyncLiveTse.classList.add('loading');
+      btnSyncLiveTse.innerHTML = `<span class="radar-live-dot"></span><span>Conectando ao TSE MS...</span>`;
+    }
+
+    try {
+      const cargoParam = state.currentCargo === 'DEPUTADO ESTADUAL' ? 'DEPUTADO ESTADUAL' : 'DEPUTADO FEDERAL';
+      const res = await fetch(`/api/apuracao?cargo=${encodeURIComponent(cargoParam)}&t=${Date.now()}`);
+      
+      if (!res.ok) {
+        throw new Error(`Falha HTTP ${res.status} ao conectar com o endpoint de apuração.`);
+      }
+
+      const json = await res.json();
+      
+      if (json.status === 'success' && json.data) {
+        applyTseDataToSimulation(json.data);
+        if (bannerLiveTse) bannerLiveTse.style.display = 'flex';
+        showToast('🟢 Apuração Oficial TSE (MS) sincronizada com sucesso!', 'success');
+      } else {
+        // Apuração aguardando início oficial das urnas pelo TSE
+        if (bannerLiveTse) {
+          bannerLiveTse.style.display = 'flex';
+          if (liveTsePercent) liveTsePercent.textContent = '0,00% apurado';
+          if (liveTseUrnas) liveTseUrnas.textContent = 'Totalização em espera';
+          if (liveTseTime) liveTseTime.textContent = `Aguardando abertura dos boletins pelo TSE (${new Date().toLocaleTimeString('pt-BR')})`;
+        }
+        showToast('📡 Radar TSE ativo: Servidor oficial em espera de boletins de urna para MS.', 'info', 6000);
+      }
+    } catch (err) {
+      console.warn('[TSE LIVE SYNC]', err);
+      showToast('Aviso: Aguardando abertura do feed oficial do TSE para MS.', 'warning', 5000);
+    } finally {
+      if (btnSyncLiveTse) {
+        btnSyncLiveTse.classList.remove('loading');
+        btnSyncLiveTse.classList.add('active');
+        btnSyncLiveTse.innerHTML = `<span class="radar-live-dot"></span><span>Apuração TSE Ativa (MS)</span>`;
+      }
+    }
+  }
+
+  function applyTseDataToSimulation(tsePayload) {
+    // Extrai percentual apurado e totalização
+    const pst = tsePayload.pst || tsePayload.s?.pst || '0,00%';
+    const secoesTotal = tsePayload.st || tsePayload.s?.st || '0';
+    const secoesApuradas = tsePayload.sa || tsePayload.s?.sa || '0';
+    const horario = tsePayload.ht || tsePayload.hg || new Date().toLocaleTimeString('pt-BR');
+    const votosValidos = parseInt(tsePayload.vv || tsePayload.v?.vv || '0', 10);
+
+    if (liveTsePercent) liveTsePercent.textContent = `${pst} apurado`;
+    if (liveTseUrnas) liveTseUrnas.textContent = `${secoesApuradas} de ${secoesTotal} seções`;
+    if (liveTseTime) liveTseTime.textContent = `Atualizado às ${horario}`;
+
+    if (votosValidos > 0) {
+      state.validVotes = votosValidos;
+      const inputVotes = document.getElementById('input-valid-votes');
+      if (inputVotes) inputVotes.value = votosValidos.toLocaleString('pt-BR');
+    }
+
+    // Mapeamento dos votos por candidato / número a partir da estrutura do TSE
+    const candidatesList = tsePayload.cand || tsePayload.carg?.[0]?.cand || [];
+    if (Array.isArray(candidatesList) && candidatesList.length > 0) {
+      const votesMap = new Map();
+      candidatesList.forEach(c => {
+        const num = String(c.n || c.numero || '').trim();
+        const vap = parseInt(c.vap || c.votos || '0', 10) || 0;
+        if (num) votesMap.set(num, vap);
+      });
+
+      // Atualiza candidatos locais correspondentes no estado
+      state.partyGroups.forEach(grp => {
+        grp.candidates.forEach(cand => {
+          const num = String(cand.numero || '').trim();
+          if (num && votesMap.has(num)) {
+            cand.votes = votesMap.get(num);
+          }
+        });
+      });
+
+      saveDraft();
+      renderPartyGroups();
+      updateMetricsDisplay();
+      executeSimulation();
+    }
+  }
+
+  if (btnSyncLiveTse) {
+    btnSyncLiveTse.addEventListener('click', () => {
+      fetchAndApplyLiveTse();
+      // Polling a cada 30 segundos enquanto ativo para garantir tempo real transparente
+      if (!liveTseInterval) {
+        liveTseInterval = setInterval(fetchAndApplyLiveTse, 30000);
+      }
+    });
+  }
+
+  if (btnRefreshLiveTse) {
+    btnRefreshLiveTse.addEventListener('click', () => {
+      fetchAndApplyLiveTse();
+    });
+  }
+
   // Botão de simulação rápida (proporcional realista calibrada para MS)
   const btnQuickFill = document.getElementById('btn-quick-fill');
   if (btnQuickFill) {

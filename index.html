@@ -143,6 +143,10 @@
         <!-- Barra de Ferramentas Rápidas de Simulação -->
         <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border-color); flex-wrap: wrap;">
           <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <button id="btn-sync-live-tse" class="btn-live-tse" type="button" title="Conectar diretamente à totalização oficial do TSE para Mato Grosso do Sul">
+              <span class="radar-live-dot"></span>
+              <span>🟢 Apuração ao Vivo TSE (MS)</span>
+            </button>
             <button id="btn-quick-fill" class="btn btn-secondary btn-sm" type="button" title="Preencher com projeção proporcional calibrada para MS" style="font-weight: 600; font-size: 0.76rem; display: inline-flex; align-items: center; gap: 4px;">
               <span>⚡ Projeção Rápida</span>
             </button>
@@ -153,6 +157,22 @@
               <span>🗑️ Zerar Votos</span>
             </button>
           </div>
+        </div>
+
+        <!-- Banner Dinâmico da Apuração Oficial ao Vivo TSE -->
+        <div id="banner-live-tse" class="live-tse-banner" style="display: none;">
+          <div class="live-tse-meta">
+            <span class="radar-live-dot"></span>
+            <strong>Apuração TSE MS:</strong>
+            <span id="live-tse-percent">0,00% apurado</span>
+            <span>•</span>
+            <span id="live-tse-urnas">0 seções</span>
+            <span>•</span>
+            <span id="live-tse-time" style="color: var(--text-muted);">Aguardando boletins</span>
+          </div>
+          <button id="btn-refresh-live-tse" class="btn btn-outline btn-sm" style="font-size: 0.72rem; padding: 2px 8px; border-color: #10B981; color: #10B981;">
+            ↻ Atualizar
+          </button>
         </div>
       </section>
 
