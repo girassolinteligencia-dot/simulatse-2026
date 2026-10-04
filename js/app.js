@@ -133,9 +133,11 @@ const state = {
     showFederal: true,
     requirePin: false,
     pinCode: null
-  }
+  },
+  favorites: new Set()               // Números ou nomes dos candidatos favoritados
 };
 
+const FAVORITES_KEY = 'simulatse_2026_favorites';
 const ADM_SETTINGS_KEY = 'simulatse_2026_adm_settings';
 const DRAFT_KEY_PREFIX = 'simulatse_draft_v2_';
 
@@ -247,8 +249,10 @@ async function startApp() {
   applyCargoVisibility();
   initPartyGroupsForCargo(state.currentCargo);
   loadDraft();
+  loadFavorites();
   renderPartyChipsNav();
   renderPartyGroups();
+  renderFavoritesRadar();
   renderPartiesStatusSidebar();
   updateMetricsDisplay();
   
@@ -567,6 +571,7 @@ function updateMetricsDisplay() {
   });
 
   updateStatusSidebar();
+  renderFavoritesRadar();
 }
 
 // Renderiza a barra deslizante horizontal de atalhos rápidos por partido
@@ -668,6 +673,9 @@ function renderPartyGroups() {
                 </div>
                 <div class="candidate-info">
                   <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                    <button type="button" class="btn-fav-star ${state.favorites.has(cand.nome) ? 'active' : ''}" data-cand-name="${escapeHtml(cand.nome)}" title="Monitorar no Radar de Favoritos">
+                      ★
+                    </button>
                     <span class="candidate-name">${escapeHtml(cand.nome)}</span>
                     ${numDisplay}
                   </div>
@@ -806,6 +814,185 @@ function attachPartyGroupEvents() {
     input.addEventListener('focus', (e) => {
       setTimeout(() => e.target.select(), 50);
     });
+  });
+
+  // Evento das estrelas de favoritos
+  document.querySelectorAll('.btn-fav-star').forEach(star => {
+    star.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const candName = star.getAttribute('data-cand-name');
+      if (!candName) return;
+
+      if (state.favorites.has(candName)) {
+        state.favorites.delete(candName);
+        star.classList.remove('active');
+        showToast(`Candidato "${candName}" removido dos favoritos.`, 'info', 2500);
+      } else {
+        state.favorites.add(candName);
+        star.classList.add('active');
+        showToast(`⭐ Candidato "${candName}" adicionado ao Radar de Favoritos!`, 'success', 2500);
+      }
+
+      saveFavorites();
+      renderFavoritesRadar();
+    });
+  });
+}
+
+// Persistência de Favoritos
+function loadFavorites() {
+  try {
+    const raw = localStorage.getItem(FAVORITES_KEY);
+    if (raw) {
+      const arr = JSON.parse(raw);
+      if (Array.isArray(arr)) {
+        state.favorites = new Set(arr);
+      }
+    }
+  } catch (e) {
+    console.warn('Erro ao carregar favoritos:', e);
+  }
+}
+
+function saveFavorites() {
+  try {
+    localStorage.setItem(FAVORITES_KEY, JSON.stringify(Array.from(state.favorites)));
+  } catch (e) {
+    console.warn('Erro ao salvar favoritos:', e);
+  }
+}
+
+// Renderiza o Painel "Radar de Favoritos" com o status eleitoral calculado em tempo real
+function renderFavoritesRadar() {
+  const container = document.getElementById('favorites-radar-container');
+  const grid = document.getElementById('favorites-pills-grid');
+  const badgeCount = document.getElementById('fav-count-badge');
+  if (!container || !grid) return;
+
+  if (state.favorites.size === 0) {
+    container.style.display = 'none';
+    grid.innerHTML = '';
+    return;
+  }
+
+  container.style.display = 'block';
+  if (badgeCount) badgeCount.textContent = state.favorites.size;
+  grid.innerHTML = '';
+
+  // Executa uma simulação rápida ou usa o resultado mais recente
+  const currentResult = state.simulationResults?.[state.currentCargo] || ElectoralEngine.runSimulation({
+    validVotes: state.validVotes,
+    totalSeats: state.totalSeats,
+    groups: state.partyGroups
+  });
+
+  state.favorites.forEach(candName => {
+    // Procura o candidato nos grupos de partidos
+    let candFound = null;
+    let partyFound = null;
+
+    for (const grp of state.partyGroups) {
+      const c = grp.candidates.find(cand => cand.nome === candName);
+      if (c) {
+        candFound = c;
+        partyFound = grp;
+        break;
+      }
+    }
+
+    if (!candFound) return;
+
+    // Determina o status eleitoral oficial calculado
+    let statusLabel = 'Não Eleito';
+    let statusClass = 'status-fora';
+    let badgeClass = 'badge-fora';
+
+    // 1. Verifica se está na lista oficial de eleitos
+    const electedCand = currentResult.allElected.find(e => e.nome === candName);
+    if (electedCand) {
+      if (electedCand.seatType === 'QP') {
+        statusLabel = '🟢 Eleito (QP)';
+        statusClass = 'status-eleito-qp';
+        badgeClass = 'badge-eleito-qp';
+      } else if (electedCand.seatType?.includes('80/20')) {
+        statusLabel = '🟡 Eleito (Sobra 80/20)';
+        statusClass = 'status-eleito-8020';
+        badgeClass = 'badge-eleito-8020';
+      } else {
+        statusLabel = '🟣 Eleito (STF Média)';
+        statusClass = 'status-eleito-sobras';
+        badgeClass = 'badge-eleito-sobras';
+      }
+    } else {
+      // 2. Se não eleito, verifica se é suplente do partido dele
+      const partyStat = currentResult.partyStats.find(p => p.name === partyFound.name);
+      if (partyStat && partyStat.remainingCandidates.length > 0) {
+        const supIndex = partyStat.remainingCandidates.findIndex(r => r.nome === candName);
+        if (supIndex === 0) {
+          statusLabel = '🟠 1º Suplente da Bancada';
+          statusClass = 'status-suplente-1';
+          badgeClass = 'badge-suplente-1';
+        } else if (supIndex === 1) {
+          statusLabel = '⚪ 2º Suplente da Bancada';
+          statusClass = 'status-suplente-2';
+          badgeClass = 'badge-suplente-2';
+        } else if (partyStat.totalSeatsWon === 0) {
+          statusLabel = '🔴 Sem Vagas no Partido';
+          statusClass = 'status-fora';
+          badgeClass = 'badge-fora';
+        } else {
+          statusLabel = `${supIndex + 1}º Suplente`;
+          statusClass = 'status-fora';
+          badgeClass = 'badge-fora';
+        }
+      }
+
+      // 3. Verifica cláusula de barreira individual (10% do QE)
+      if (candFound.votes < currentResult.clause10 && (electedCand === undefined)) {
+        // Se a agremiação teve QP mas ele não atingiu a barreira
+        if (partyStat && partyStat.seatsByQP > 0 && candFound.votes > 0) {
+          statusLabel = '⚠️ Abaixo de 10% do QE';
+          statusClass = 'status-barreira';
+          badgeClass = 'badge-barreira';
+        }
+      }
+    }
+
+    const pill = document.createElement('div');
+    pill.className = `fav-cand-pill ${statusClass}`;
+    pill.innerHTML = `
+      <div style="display: flex; flex-direction: column; gap: 2px; overflow: hidden;">
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <strong style="font-size: 0.82rem; color: #FFFFFF; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            ${escapeHtml(candFound.nome)}
+          </strong>
+          ${candFound.numero ? `<span class="cand-badge-number" style="font-size: 0.65rem;">${escapeHtml(candFound.numero)}</span>` : ''}
+        </div>
+        <div style="font-size: 0.7rem; color: var(--text-muted); display: flex; gap: 4px; align-items: center;">
+          <span>${escapeHtml(partyFound.party || partyFound.name)}</span>
+          <span>•</span>
+          <strong style="color: var(--text-main); font-size: 0.75rem;">${(candFound.votes || 0).toLocaleString('pt-BR')} votos</strong>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 6px;">
+        <span class="status-badge-live ${badgeClass}">${statusLabel}</span>
+        <button type="button" class="btn-fav-star active" data-cand-name="${escapeHtml(candFound.nome)}" title="Remover favorito" style="font-size: 0.95rem;">
+          ★
+        </button>
+      </div>
+    `;
+
+    pill.querySelector('.btn-fav-star').addEventListener('click', (e) => {
+      e.stopPropagation();
+      state.favorites.delete(candFound.nome);
+      saveFavorites();
+      renderFavoritesRadar();
+      // Atualiza também a estrela na lista geral
+      document.querySelectorAll(`.btn-fav-star[data-cand-name="${candFound.nome}"]`).forEach(s => s.classList.remove('active'));
+    });
+
+    grid.appendChild(pill);
   });
 }
 

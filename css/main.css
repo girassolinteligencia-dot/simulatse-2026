@@ -1293,3 +1293,141 @@ h1, h2, h3, h4,
   flex-wrap: wrap;
 }
 
+/* ==========================================================================
+   SISTEMA DE FAVORITOS & RADAR DE STATUS ELEITORAL
+   ========================================================================== */
+.btn-fav-star {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.25);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-fav-star:hover {
+  transform: scale(1.2);
+  color: #F59E0B;
+}
+
+.btn-fav-star.active {
+  color: #F59E0B;
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.6);
+}
+
+.favorites-radar-card {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(15, 23, 42, 0.6));
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  margin: 10px 0;
+}
+
+.favorites-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgba(245, 158, 11, 0.15);
+  padding-bottom: 6px;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 8px;
+}
+
+.fav-cand-pill {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  gap: 8px;
+}
+
+.fav-cand-pill.status-eleito-qp {
+  border-left: 3px solid #3B82F6;
+}
+
+.fav-cand-pill.status-eleito-8020 {
+  border-left: 3px solid #F59E0B;
+}
+
+.fav-cand-pill.status-eleito-sobras {
+  border-left: 3px solid #A855F7;
+}
+
+.fav-cand-pill.status-suplente-1 {
+  border-left: 3px solid #F97316;
+}
+
+.fav-cand-pill.status-suplente-2 {
+  border-left: 3px solid #E2E8F0;
+}
+
+.fav-cand-pill.status-fora {
+  border-left: 3px solid #EF4444;
+}
+
+.fav-cand-pill.status-barreira {
+  border-left: 3px solid #EAB308;
+}
+
+.status-badge-live {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.badge-eleito-qp {
+  background: rgba(59, 130, 246, 0.2);
+  color: #93C5FD;
+  border: 1px solid #3B82F6;
+}
+
+.badge-eleito-8020 {
+  background: rgba(245, 158, 11, 0.2);
+  color: #FCD34D;
+  border: 1px solid #F59E0B;
+}
+
+.badge-eleito-sobras {
+  background: rgba(168, 85, 247, 0.2);
+  color: #D8B4FE;
+  border: 1px solid #A855F7;
+}
+
+.badge-suplente-1 {
+  background: rgba(249, 115, 22, 0.2);
+  color: #FDBA74;
+  border: 1px solid #F97316;
+}
+
+.badge-suplente-2 {
+  background: rgba(148, 163, 184, 0.2);
+  color: #CBD5E1;
+  border: 1px solid #94A3B8;
+}
+
+.badge-fora {
+  background: rgba(239, 68, 68, 0.15);
+  color: #FCA5A5;
+  border: 1px solid #EF4444;
+}
+
+.badge-barreira {
+  background: rgba(234, 179, 8, 0.15);
+  color: #FDE047;
+  border: 1px solid #EAB308;
+}
+
