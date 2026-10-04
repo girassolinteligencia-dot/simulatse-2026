@@ -71,6 +71,15 @@ export class InteractiveSimulator {
   }
 
   /**
+   * Atualiza os dados quando o usuário volta à aba vindo da simulação principal
+   */
+  refreshFromAppState(appState) {
+    if (appState) this.appStateRef = appState;
+    this.syncFromAppState();
+    this.recalculateAndRender();
+  }
+
+  /**
    * Clona o estado dos partidos preenchidos na simulação principal
    */
   syncFromAppState() {
@@ -545,7 +554,20 @@ export class InteractiveSimulator {
     this.workingGroups.forEach(g => {
       const activeClass = this.activeFilter === g.name ? 'active' : '';
       const totalCandVotes = (g.candidates || []).reduce((s, c) => s + (c.votes || 0), 0);
-      const shortName = g.federacao ? g.federacao.replace('FEDERAÇÃO ', 'FED. ') : g.name;
+      let shortName = g.name;
+      if (g.federacao) {
+        if (g.federacao.includes('UNIÃO') && g.federacao.includes('PROGRESSISTA')) {
+          shortName = 'FED. UNIÃO / PP';
+        } else if (g.federacao.includes('PSDB') && g.federacao.includes('CIDADANIA')) {
+          shortName = 'FED. PSDB / CIDADANIA';
+        } else if (g.federacao.includes('ESPERANÇA')) {
+          shortName = 'FE BRASIL (PT/PCdoB/PV)';
+        } else if (g.federacao.includes('PSOL') && g.federacao.includes('REDE')) {
+          shortName = 'FED. PSOL / REDE';
+        } else {
+          shortName = g.federacao.replace('FEDERAÇÃO ', 'FED. ');
+        }
+      }
       
       html += `
         <button class="inter-chip ${activeClass}" data-filter="${g.name}" title="${g.name}">
@@ -629,25 +651,31 @@ export class InteractiveSimulator {
     }
 
     // Se 'ALL' (Visão Geral):
-    // Inclui os candidatos mais competitivos de cada agremiação + Legenda de cada agremiação
+    // Inclui obrigatoriamente:
+    // 1. Qualquer candidato que tenha votos (> 0) lançados pelo usuário
+    // 2. Os principais cabeças de chapa de cada agremiação
+    // 3. Legendas que tenham votos (> 0) ou representem agremiações com votos
     this.workingGroups.forEach(g => {
-      // Voto de legenda (exibe sempre se houver votos ou se a agremiação existir)
-      items.push({
-        nome: `LEGENDA (${g.party || g.name.substring(0, 6)})`,
-        isLegenda: true,
-        votes: g.partyVotes || 0,
-        groupName: g.name,
-        partyLabel: g.party || g.name,
-        isElected: false
-      });
+      // Voto de legenda (exibe se houver votos ou como referência mínima)
+      if ((g.partyVotes || 0) > 0) {
+        items.push({
+          nome: `LEGENDA (${g.party || g.name.substring(0, 6)})`,
+          isLegenda: true,
+          votes: g.partyVotes || 0,
+          groupName: g.name,
+          partyLabel: g.party || g.name,
+          isElected: false
+        });
+      }
 
       // Candidatos da chapa
       const validCands = (g.candidates || [])
         .filter(c => c.situacao !== 'INDEFERIDO' && c.situacao !== 'CANCELADO')
         .sort((a, b) => (b.votes || 0) - (a.votes || 0));
 
-      // Pega os principais concorrentes
-      validCands.slice(0, 3).forEach(c => {
+      // Todos os candidatos que possuem voto lançado (> 0) SEMPRE entram no gráfico
+      const candsWithVotes = validCands.filter(c => (c.votes || 0) > 0);
+      candsWithVotes.forEach(c => {
         items.push({
           ...c,
           isLegenda: false,
@@ -656,9 +684,29 @@ export class InteractiveSimulator {
           isElected: electedNamesSet.has(c.nome.toUpperCase())
         });
       });
+
+      // Se a chapa não tem nenhum candidato com voto, exibe ao menos os 2 primeiros como amostra
+      if (candsWithVotes.length === 0) {
+        validCands.slice(0, 2).forEach(c => {
+          items.push({
+            ...c,
+            isLegenda: false,
+            groupName: g.name,
+            partyLabel: c.partido || g.party || g.name,
+            isElected: electedNamesSet.has(c.nome.toUpperCase())
+          });
+        });
+      }
     });
 
-    return items.sort((a, b) => (b.votes || 0) - (a.votes || 0));
+    // Remove duplicatas caso ocorra e ordena decrescente por votos
+    const uniqueMap = new Map();
+    items.forEach(it => {
+      const k = `${it.groupName}:::${it.nome}`;
+      if (!uniqueMap.has(k)) uniqueMap.set(k, it);
+    });
+
+    return Array.from(uniqueMap.values()).sort((a, b) => (b.votes || 0) - (a.votes || 0));
   }
 
   /**

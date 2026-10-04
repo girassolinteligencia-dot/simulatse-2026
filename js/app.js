@@ -346,7 +346,11 @@ function setupNavigationTabs() {
         if (targetTabId === 'tab-scenarios') {
           renderScenariosList();
         } else if (targetTabId === 'tab-interactive') {
-          interactiveSimulator.mount('tab-interactive', state, onApplyInteractiveVotes);
+          if (interactiveSimulator.container) {
+            interactiveSimulator.refreshFromAppState(state);
+          } else {
+            interactiveSimulator.mount('tab-interactive', state, onApplyInteractiveVotes);
+          }
         }
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
