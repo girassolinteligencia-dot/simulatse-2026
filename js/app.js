@@ -251,6 +251,9 @@ async function startApp() {
   renderPartyGroups();
   renderPartiesStatusSidebar();
   updateMetricsDisplay();
+  
+  // Carrega e decifra cenários garantindo que o cache em memória esteja preenchido
+  await scenarioManager.loadScenariosAsync();
   renderScenariosList();
 
   // Verifica se a aplicação foi aberta via Link Codificado de Compartilhamento (#sim=...)
@@ -1501,21 +1504,71 @@ function displayResults(result) {
 
 // Configuração do Gerenciador de Cenários
 function setupScenarioActions() {
-  document.getElementById('btn-save-current-scenario').addEventListener('click', () => {
-    const name = prompt('Informe um nome para o cenário:', `Cenário ${state.currentCargo} - ${new Date().toLocaleDateString('pt-BR')}`);
-    if (!name) return;
+  const btnSaveCurrentScenario = document.getElementById('btn-save-current-scenario');
+  const modalSaveScenario = document.getElementById('modal-save-scenario');
+  const inputSaveName = document.getElementById('input-save-scenario-name');
+  const btnConfirmSave = document.getElementById('btn-confirm-save-scenario');
+  const btnCancelSave = document.getElementById('btn-cancel-save-scenario');
+  const btnCloseSaveModal = document.getElementById('btn-close-save-scenario-modal');
 
+  const openSaveModal = () => {
+    if (modalSaveScenario && inputSaveName) {
+      inputSaveName.value = `Cenário ${state.currentCargo === 'DEPUTADO ESTADUAL' ? 'Estadual' : 'Federal'} - ${new Date().toLocaleDateString('pt-BR')} ${new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}`;
+      modalSaveScenario.classList.add('active');
+      setTimeout(() => inputSaveName.focus(), 80);
+    } else {
+      // Fallback para prompt
+      const name = prompt('Informe um nome para o cenário:', `Cenário ${state.currentCargo} - ${new Date().toLocaleDateString('pt-BR')}`);
+      if (name) saveScenarioAction(name);
+    }
+  };
+
+  const closeSaveModal = () => {
+    if (modalSaveScenario) modalSaveScenario.classList.remove('active');
+  };
+
+  const saveScenarioAction = (name) => {
+    const finalName = (name || '').trim() || `Cenário ${state.currentCargo} - ${new Date().toLocaleDateString('pt-BR')}`;
     scenarioManager.saveScenario({
-      title: name,
+      title: finalName,
       cargo: state.currentCargo,
       totalSeats: state.totalSeats,
       validVotes: state.validVotes,
-      partyGroups: state.partyGroups
+      partyGroups: JSON.parse(JSON.stringify(state.partyGroups))
     });
 
     renderScenariosList();
-    showToast('Cenário salvo com sucesso!', 'success');
-  });
+    showToast(`✅ Cenário "${finalName}" salvo com sucesso!`, 'success');
+    closeSaveModal();
+  };
+
+  if (btnSaveCurrentScenario) {
+    btnSaveCurrentScenario.addEventListener('click', openSaveModal);
+  }
+
+  if (btnConfirmSave) {
+    btnConfirmSave.addEventListener('click', () => {
+      saveScenarioAction(inputSaveName ? inputSaveName.value : '');
+    });
+  }
+
+  if (inputSaveName) {
+    inputSaveName.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        saveScenarioAction(inputSaveName.value);
+      } else if (e.key === 'Escape') {
+        closeSaveModal();
+      }
+    });
+  }
+
+  if (btnCancelSave) btnCancelSave.addEventListener('click', closeSaveModal);
+  if (btnCloseSaveModal) btnCloseSaveModal.addEventListener('click', closeSaveModal);
+  if (modalSaveScenario) {
+    modalSaveScenario.addEventListener('click', (e) => {
+      if (e.target === modalSaveScenario) closeSaveModal();
+    });
+  }
 
   document.getElementById('btn-export-scenarios').addEventListener('click', () => {
     scenarioManager.exportScenariosJSON();

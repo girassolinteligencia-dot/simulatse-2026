@@ -735,7 +735,42 @@
     </div>
   </div>
 
-  
+  <!-- Modal Elegante para Salvar Cenário (Substitui prompt nativo bloqueável) -->
+  <div id="modal-save-scenario" class="modal-backdrop">
+    <div class="modal-box" style="max-width: 440px; text-align: left;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
+        <h3 style="color: #FFFFFF; font-size: 1.1rem; margin: 0; display: flex; align-items: center; gap: 8px;">
+          <span>💾</span> Salvar Projeção Eleitoral
+        </h3>
+        <button id="btn-close-save-scenario-modal" class="modal-close-btn" style="background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.2rem;">&times;</button>
+      </div>
+
+      <p style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.4;">
+        Grave este cenário de votos para comparar com outras projeções ou recarregar a qualquer momento.
+      </p>
+
+      <div style="margin-bottom: 14px;">
+        <label for="input-save-scenario-name" style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-main); margin-bottom: 6px;">
+          Nome do Cenário:
+        </label>
+        <input 
+          type="text" 
+          id="input-save-scenario-name" 
+          class="form-control" 
+          style="width: 100%; box-sizing: border-box; font-size: 0.9rem; padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-input); color: var(--text-main);"
+          placeholder="Ex: Cenário Otimista Base MS"
+        />
+      </div>
+
+      <div style="display: flex; gap: 8px; justify-content: flex-end; margin-top: 8px;">
+        <button id="btn-cancel-save-scenario" class="btn btn-secondary btn-sm" style="font-weight: 600;">Cancelar</button>
+        <button id="btn-confirm-save-scenario" class="btn btn-primary btn-sm" style="font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+          Salvar Cenário
+        </button>
+      </div>
+    </div>
+  </div>
 
 
 
