@@ -547,7 +547,7 @@ export class InteractiveSimulator {
 
     let html = `
       <button class="inter-chip ${this.activeFilter === 'ALL' ? 'active' : ''}" data-filter="ALL">
-        <span>⭐ Todos (Mais Competitivos)</span>
+        <span>⭐ Todos os Candidatos</span>
       </button>
     `;
 
@@ -650,13 +650,10 @@ export class InteractiveSimulator {
       return items;
     }
 
-    // Se 'ALL' (Visão Geral):
-    // Inclui obrigatoriamente:
-    // 1. Qualquer candidato que tenha votos (> 0) lançados pelo usuário
-    // 2. Os principais cabeças de chapa de cada agremiação
-    // 3. Legendas que tenham votos (> 0) ou representem agremiações com votos
+    // Se 'ALL' (Todos os Candidatos):
+    // Inclui absolutamente TODOS os candidatos de todas as agremiações da disputa
     this.workingGroups.forEach(g => {
-      // Voto de legenda (exibe se houver votos ou como referência mínima)
+      // Voto de legenda (exibe se houver votos de legenda)
       if ((g.partyVotes || 0) > 0) {
         items.push({
           nome: `LEGENDA (${g.party || g.name.substring(0, 6)})`,
@@ -668,14 +665,11 @@ export class InteractiveSimulator {
         });
       }
 
-      // Candidatos da chapa
+      // Todos os candidatos da chapa sem exclusão
       const validCands = (g.candidates || [])
-        .filter(c => c.situacao !== 'INDEFERIDO' && c.situacao !== 'CANCELADO')
-        .sort((a, b) => (b.votes || 0) - (a.votes || 0));
+        .filter(c => c.situacao !== 'INDEFERIDO' && c.situacao !== 'CANCELADO');
 
-      // Todos os candidatos que possuem voto lançado (> 0) SEMPRE entram no gráfico
-      const candsWithVotes = validCands.filter(c => (c.votes || 0) > 0);
-      candsWithVotes.forEach(c => {
+      validCands.forEach(c => {
         items.push({
           ...c,
           isLegenda: false,
@@ -684,22 +678,9 @@ export class InteractiveSimulator {
           isElected: electedNamesSet.has(c.nome.toUpperCase())
         });
       });
-
-      // Se a chapa não tem nenhum candidato com voto, exibe ao menos os 2 primeiros como amostra
-      if (candsWithVotes.length === 0) {
-        validCands.slice(0, 2).forEach(c => {
-          items.push({
-            ...c,
-            isLegenda: false,
-            groupName: g.name,
-            partyLabel: c.partido || g.party || g.name,
-            isElected: electedNamesSet.has(c.nome.toUpperCase())
-          });
-        });
-      }
     });
 
-    // Remove duplicatas caso ocorra e ordena decrescente por votos
+    // Remove eventuais duplicatas e ordena decrescente por votos
     const uniqueMap = new Map();
     items.forEach(it => {
       const k = `${it.groupName}:::${it.nome}`;
@@ -736,10 +717,10 @@ export class InteractiveSimulator {
 
     // Escala de zoom independente aplicada à largura das barras e do palco
     const zoom = this.zoomLevel || 1.0;
-    const baseBarWidth = Math.max(46, Math.min(68, Math.floor(1200 / candidates.length)));
+    const baseBarWidth = 48;
     const barWidth = Math.round(baseBarWidth * zoom);
-    const gap = Math.round(Math.max(22, Math.min(34, Math.floor(baseBarWidth * 0.45)) * zoom));
-    const totalWidth = Math.max(1000, Math.round((candidates.length * (barWidth + gap) + 160) * zoom));
+    const gap = Math.round(22 * zoom);
+    const totalWidth = Math.max(1000, Math.round(candidates.length * (barWidth + gap) + 160));
 
     // Função de mapeamento de Votos para Coordenada Y no SVG
     const plotY = (votes) => {
