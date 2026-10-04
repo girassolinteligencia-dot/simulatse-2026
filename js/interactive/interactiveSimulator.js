@@ -33,14 +33,20 @@ export class InteractiveSimulator {
 
     // Cores temáticas por Partido em Tons Pastéis Foscos e Sóbrios (Sem Neon)
     this.partyColors = {
+      'ESPERANÇA': { main: '#A84347', light: '#C77579', border: '#8A3236' }, // FE Brasil (PT/PCdoB/PV)
+      'PROGRESSISTA': { main: '#3E6F8F', light: '#6E9AB8', border: '#2D536D' }, // Fed União / PP
+      'CIDADANIA': { main: '#3B6A99', light: '#7096BD', border: '#2D5175' }, // Fed PSDB / Cidadania
+      'RENOVAÇÃO': { main: '#A3683D', light: '#C49069', border: '#804D28' }, // Fed Renovação Solidária
       'PSDB': { main: '#3B6A99', light: '#7096BD', border: '#2D5175' },
       'PT': { main: '#A84347', light: '#C77579', border: '#8A3236' },
       'PCdoB': { main: '#9B3D41', light: '#BF6B6E', border: '#7E2B2F' },
+      'PCDOB': { main: '#9B3D41', light: '#BF6B6E', border: '#7E2B2F' },
       'PV': { main: '#3D7A58', light: '#6BA082', border: '#2D5F43' },
       'PL': { main: '#2B4C6F', light: '#5A7CA1', border: '#1E3752' },
       'MDB': { main: '#3A7456', light: '#689C81', border: '#2B5B42' },
       'PP': { main: '#3E6F8F', light: '#6E9AB8', border: '#2D536D' },
       'UNIAO': { main: '#355C8A', light: '#6488B3', border: '#244366' },
+      'UNIÃO': { main: '#355C8A', light: '#6488B3', border: '#244366' },
       'REPUBLICANOS': { main: '#346B87', light: '#6495AE', border: '#255067' },
       'PODEMOS': { main: '#6D538A', light: '#9981B3', border: '#533C6B' },
       'PSB': { main: '#A1593D', light: '#C4836A', border: '#804128' },
@@ -50,6 +56,11 @@ export class InteractiveSimulator {
       'AVANTE': { main: '#387B75', light: '#66A29D', border: '#255D58' },
       'SOLIDARIEDADE': { main: '#A3683D', light: '#C49069', border: '#804D28' },
       'PRD': { main: '#5A588A', light: '#8684B3', border: '#42406D' },
+      'NOVO': { main: '#D97706', light: '#F59E0B', border: '#B45309' },
+      'MISSÃO': { main: '#4F46E5', light: '#818CF8', border: '#3730A3' },
+      'AGIR': { main: '#0284C7', light: '#38BDF8', border: '#0369A1' },
+      'DC': { main: '#2563EB', light: '#60A5FA', border: '#1D4ED8' },
+      'PCO': { main: '#991B1B', light: '#EF4444', border: '#7F1D1D' },
       'DEFAULT': { main: '#54657A', light: '#8192A6', border: '#3E4D5E' }
     };
   }
@@ -622,13 +633,22 @@ export class InteractiveSimulator {
       const group = this.workingGroups.find(g => g.name === this.activeFilter);
       if (!group) return [];
 
+      let legendaLabel = group.party || group.name;
+      if (group.federacao) {
+        if (group.federacao.includes('ESPERANÇA')) legendaLabel = 'FE BRASIL (PT/PCdoB/PV)';
+        else if (group.federacao.includes('PROGRESSISTA')) legendaLabel = 'FED. UNIÃO/PP';
+        else if (group.federacao.includes('PSDB')) legendaLabel = 'FED. PSDB/CIDADANIA';
+        else if (group.federacao.includes('PSOL')) legendaLabel = 'FED. PSOL/REDE';
+        else if (group.federacao.includes('RENOVAÇÃO')) legendaLabel = 'FED. SOLIDARIEDADE/PRD';
+      }
+
       // 1. Barra de Voto de Legenda do partido selecionado
       items.push({
-        nome: 'VOTO DE LEGENDA',
+        nome: `LEGENDA (${legendaLabel})`,
         isLegenda: true,
         votes: group.partyVotes || 0,
         groupName: group.name,
-        partyLabel: group.party || group.name,
+        partyLabel: legendaLabel,
         isElected: false
       });
 
@@ -653,14 +673,23 @@ export class InteractiveSimulator {
     // Se 'ALL' (Todos os Candidatos):
     // Inclui absolutamente TODOS os candidatos de todas as agremiações da disputa
     this.workingGroups.forEach(g => {
+      let legendaLabel = g.party || g.name.substring(0, 8);
+      if (g.federacao) {
+        if (g.federacao.includes('ESPERANÇA')) legendaLabel = 'FE BRASIL (PT/PCdoB/PV)';
+        else if (g.federacao.includes('PROGRESSISTA')) legendaLabel = 'FED. UNIÃO/PP';
+        else if (g.federacao.includes('PSDB')) legendaLabel = 'FED. PSDB/CIDADANIA';
+        else if (g.federacao.includes('PSOL')) legendaLabel = 'FED. PSOL/REDE';
+        else if (g.federacao.includes('RENOVAÇÃO')) legendaLabel = 'FED. SOLIDARIEDADE/PRD';
+      }
+
       // Voto de legenda (exibe se houver votos de legenda)
       if ((g.partyVotes || 0) > 0) {
         items.push({
-          nome: `LEGENDA (${g.party || g.name.substring(0, 6)})`,
+          nome: `LEGENDA (${legendaLabel})`,
           isLegenda: true,
           votes: g.partyVotes || 0,
           groupName: g.name,
-          partyLabel: g.party || g.name,
+          partyLabel: legendaLabel,
           isElected: false
         });
       }
